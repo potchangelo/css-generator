@@ -1,0 +1,41 @@
+@import "../../Css/Vars";
+
+.leftnav {
+    border-right: 1px solid $grey-lighter;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $white;
+    width: 206px;
+}
+
+.leftnav__brand {
+    padding: 40px 16px 20px;
+}
+
+.leftnav__group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &:first-child {
+        margin-top: 40px;
+    }
+
+    .title {
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-bottom: 10px !important;
+    }
+
+    a {
+        color: $grey-dark;
+        display: block;
+        padding: 6px 16px;
+        font-size: 15px;
+    }
+
+    a.current {
+        background-color: $grey-lightest;
+    }
+}
