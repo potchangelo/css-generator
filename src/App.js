@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from './Nav';
-import { BackgroundColor, BackgroundImage, Border, BorderRadius } from './Inputs';
+import * as I from './Inputs';
 import { Preview, Code } from './Outputs';
 import './Css/App.scss';
 
 function App() {
 	// States
+	const [outputPreviewMode, setOutputPreviewMode] = useState('box');
 	const [outputStyle, setOutputStyle] = useState({});
 	const [outputCss, setOutputCss] = useState('');
 
@@ -25,14 +26,16 @@ function App() {
 						<div className="main__column column">
 							<Switch>
 								<Route exact path="/"><div>Home</div></Route>
-								<Route path="/background-color"><BackgroundColor updateOutput={updateOutput} /></Route>
-								<Route path="/background-image"><BackgroundImage updateOutput={updateOutput} /></Route>
-								<Route path="/border"><Border updateOutput={updateOutput} /></Route>
-								<Route path="/border-radius"><BorderRadius updateOutput={updateOutput} /></Route>
+								<Route path="/background-color"><I.BackgroundColor updateOutput={updateOutput} /></Route>
+								<Route path="/background-image"><I.BackgroundImage updateOutput={updateOutput} /></Route>
+								<Route path="/border"><I.Border updateOutput={updateOutput} /></Route>
+								<Route path="/border-radius"><I.BorderRadius updateOutput={updateOutput} /></Route>
+								<Route path="/box-shadow"><I.BoxShadow updateOutput={updateOutput} /></Route>
+								<Route path="/text-shadow"><I.TextShadow updateOutput={updateOutput} /></Route>
 							</Switch>
 						</div>
 						<div className="main__column column">
-							<Preview outputStyle={outputStyle} />
+							<Preview outputPreviewMode={outputPreviewMode} outputStyle={outputStyle} />
 							<Code outputCss={outputCss} />
 						</div>
 					</div>

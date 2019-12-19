@@ -21,6 +21,11 @@ function Nav() {
                 <NavLink to="border">Border</NavLink>
                 <NavLink to="border-radius">Border Radius</NavLink>
             </div>
+            <div className="leftnav__group">
+                <h5 className="title is-6">Shadow</h5>
+                <NavLink to="box-shadow">Box Shadow</NavLink>
+                <NavLink to="text-shadow">Text Shadow</NavLink>
+            </div>
         </nav>
     );
 }
