@@ -9,12 +9,12 @@ function TextShadow(props) {
     const [shadowY, setShadowY] = useState(1);
     const [shadowBlur, setShadowBlur] = useState(2);
     const [shadowColor, setShadowColor] = useState('#1988f7');
-    const [shadowColorAlpha, setShadowColorAlpha] = useState(0.5);
+    const [shadowColorAlpha, setShadowColorAlpha] = useState(0.8);
     
     // Lifecycles
     useEffect(() => {
         const shadowColorOutput = hexToRgba(shadowColor, shadowColorAlpha);
-        const style = {TextShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput}`};
+        const style = {textShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput}`};
         const css = `text-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput};`;
         updateOutput(style, css);
     }, [updateOutput, shadowX, shadowY, shadowBlur, shadowColor, shadowColorAlpha]);

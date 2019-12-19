@@ -51,7 +51,13 @@ function Border(props) {
             css = `border: ${borderWidth}px ${borderStyle} ${borderColor};`;
         }
         updateOutput(style, css);
-    }, [updateOutput, mode, borderColor, borderStyle, borderWidth, borderColorT, borderStyleT, borderWidthT, borderColorR, borderStyleR, borderWidthR, borderColorB, borderStyleB, borderWidthB, borderColorL, borderStyleL, borderWidthL]);
+    }, [
+        updateOutput, mode, borderColor, borderStyle, borderWidth, 
+        borderColorT, borderStyleT, borderWidthT, 
+        borderColorR, borderStyleR, borderWidthR, 
+        borderColorB, borderStyleB, borderWidthB, 
+        borderColorL, borderStyleL, borderWidthL
+    ]);
 
     // Elements
     const modeButtonsArray = [['One Value', 'all'], ['Individual', 'each']];
@@ -59,12 +65,19 @@ function Border(props) {
         let classes = 'button';
         if (arr[1] === mode) classes += ' is-dark is-selected'
         return (
-            <button key={arr[1]} className={classes} onClick={() => selectMode(arr[1])}>{arr[0]}</button>
+            <button 
+                key={arr[1]} 
+                className={classes} 
+                onClick={() => {if (arr[1] !== mode) setMode(arr[1])}}>
+                {arr[0]}
+            </button>
         );
     });
 
     let borderElements;
-    const borderStylesArray = ['solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset'];
+    const borderStylesArray = [
+        'solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset'
+    ];
     const borderStylesElements = borderStylesArray.map(value => 
 		<option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
     );
@@ -126,8 +139,8 @@ function Border(props) {
                                 onChange={(e) => fnColor(e.target.value)} />
                         </div>
                     </div>
+                    <label className="label">Style</label>
                     <div className="field">
-                        <label className="label">Style</label>
                         <div className="select is-fullwidth">
                             <select
                                 value={stStyle} 
@@ -136,8 +149,8 @@ function Border(props) {
                             </select>
                         </div>
                     </div>
+                    <label className="label">Width (px)</label>
                     <div className="field">
-                        <label className="label">Width (px)</label>
                         <div className="control__range control">
                             <input 
                                 type="range"
@@ -177,8 +190,8 @@ function Border(props) {
                             onChange={(e) => setBorderColor(e.target.value)} />
                     </div>
                 </div>
+                <label className="label">Style</label>
                 <div className="field">
-                    <label className="label">Style</label>
                     <div className="select is-fullwidth">
                         <select
                             value={borderStyle} 
@@ -187,8 +200,8 @@ function Border(props) {
                         </select>
                     </div>
                 </div>
+                <label className="label">Width (px)</label>
                 <div className="field">
-                    <label className="label">Width (px)</label>
                     <div className="control__range control">
                         <input 
                             type="range"
@@ -204,33 +217,6 @@ function Border(props) {
                 </div>
             </React.Fragment>
         );
-    }
-	
-
-    // Functions
-    function selectMode(_mode) {
-        // mode = all, each
-        if (mode === _mode) return;
-        setMode(_mode);
-        if (_mode === 'each') {
-            // setBorderColorT(borderColor);
-            // setBorderStyleT(borderStyle);
-            // setBorderWidthT(borderWidth);
-            // setBorderColorR(borderColor);
-            // setBorderStyleR(borderStyle);
-            // setBorderWidthR(borderWidth);
-            // setBorderColorB(borderColor);
-            // setBorderStyleB(borderStyle);
-            // setBorderWidthB(borderWidth);
-            // setBorderColorL(borderColor);
-            // setBorderStyleL(borderStyle);
-            // setBorderWidthL(borderWidth);
-        }
-        else {
-            // setBorderColor(borderColorT);
-            // setBorderStyle(borderStyleT);
-            // setBorderWidth(borderWidthT);
-        }
     }
 
     return (

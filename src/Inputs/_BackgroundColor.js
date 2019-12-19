@@ -4,7 +4,7 @@ import Section from './__Section';
 function BackgroundColor(props) {
     // Props & States
     const {updateOutput} = props;
-    const [backgroundColor, setBackgroundColor] = useState('#000000');
+    const [backgroundColor, setBackgroundColor] = useState('#1988f7');
     
     // Lifecycles
     useEffect(() => {

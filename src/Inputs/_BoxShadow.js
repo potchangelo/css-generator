@@ -24,8 +24,8 @@ function BoxShadow(props) {
         <Section>
             <h4 className="title is-4">Custom</h4>
             <div className="inputs">
+                <label className="label">X</label>
                 <div className="field">
-                    <label className="label">X</label>
                     <div className="control__range control">
                         <input 
                             type="range"
@@ -39,8 +39,8 @@ function BoxShadow(props) {
                         </div>
                     </div>
                 </div>
+                <label className="label">Y</label>
                 <div className="field">
-                    <label className="label">Y</label>
                     <div className="control__range control">
                         <input 
                             type="range"
@@ -54,8 +54,8 @@ function BoxShadow(props) {
                         </div>
                     </div>
                 </div>
+                <label className="label">Blur</label>
                 <div className="field">
-                    <label className="label">Blur</label>
                     <div className="control__range control">
                         <input 
                             type="range"
@@ -69,8 +69,8 @@ function BoxShadow(props) {
                         </div>
                     </div>
                 </div>
+                <label className="label">Spread</label>
                 <div className="field">
-                    <label className="label">Spread</label>
                     <div className="control__range control">
                         <input 
                             type="range"
@@ -103,8 +103,8 @@ function BoxShadow(props) {
                             onChange={(e) => setShadowColor(e.target.value)} />
                     </div>
                 </div>
+                <label className="label">Color opacity</label>
                 <div className="field">
-                    <label className="label">Color opacity</label>
                     <div className="control__range control">
                         <input 
                             type="range"

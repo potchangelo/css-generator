@@ -23,7 +23,10 @@ function BorderRadius(props) {
             css = `border-radius: ${borderRadius}px;`;
         }
         updateOutput(style, css);
-    }, [updateOutput, mode, borderRadius, borderRadiusTl, borderRadiusTr, borderRadiusBr, borderRadiusBl]);
+    }, [
+        updateOutput, mode, borderRadius, 
+        borderRadiusTl, borderRadiusTr, borderRadiusBr, borderRadiusBl
+    ]);
 
     // Elements
     const modeButtonsArray = [['One Value', 'all'], ['Individual', 'each']];
@@ -31,7 +34,12 @@ function BorderRadius(props) {
         let classes = 'button';
         if (arr[1] === mode) classes += ' is-dark is-selected'
         return (
-            <button key={arr[1]} className={classes} onClick={() => selectMode(arr[1])}>{arr[0]}</button>
+            <button 
+                key={arr[1]} 
+                className={classes} 
+                onClick={() => {if (arr[1] !== mode) setMode(arr[1])}}>
+                {arr[0]}
+            </button>
         );
     });
 
@@ -97,22 +105,6 @@ function BorderRadius(props) {
                 </div>
             </React.Fragment>
         );
-    }
-
-    // Functions
-    function selectMode(_mode) {
-        // mode = all, each
-        if (mode === _mode) return;
-        setMode(_mode);
-        if (_mode === 'each') {
-            // setBorderRadiusTl(borderRadius);
-            // setBorderRadiusTr(borderRadius);
-            // setBorderRadiusBr(borderRadius);
-            // setBorderRadiusBl(borderRadius);
-        }
-        else {
-            // setBorderRadius(borderRadiusTl);
-        }
     }
 
     return (
