@@ -22,9 +22,24 @@ function Nav() {
                 <NavLink to="border-radius">Border Radius</NavLink>
             </div>
             <div className="leftnav__group">
+                <h5 className="title is-6">Filter</h5>
+                <NavLink to="filter-blur">Blur</NavLink>
+                <NavLink to="filter-brightness">Brightness</NavLink>
+                <NavLink to="filter-contrast">Contrast</NavLink>
+                <NavLink to="filter-grayscale">Grayscale</NavLink>
+                <NavLink to="filter-hue-rotate">Hue-Rotate</NavLink>
+                <NavLink to="filter-invert">Invert</NavLink>
+                <NavLink to="filter-saturate">Saturate</NavLink>
+                <NavLink to="filter-sepia">Sepia</NavLink>
+            </div>
+            <div className="leftnav__group">
                 <h5 className="title is-6">Shadow</h5>
                 <NavLink to="box-shadow">Box Shadow</NavLink>
                 <NavLink to="text-shadow">Text Shadow</NavLink>
+            </div>
+            <div className="leftnav__group">
+                <h5 className="title is-6">Text</h5>
+                <NavLink to="text">Text</NavLink>
             </div>
         </nav>
     );

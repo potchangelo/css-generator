@@ -19,7 +19,12 @@ function Main() {
     const routesArray = [
         ['background-color', I.BackgroundColor], ['background-image', I.BackgroundImage],
         ['border', I.Border], ['border-radius', I.BorderRadius],
-        ['box-shadow', I.BoxShadow], ['text-shadow', I.TextShadow]
+        ['box-shadow', I.BoxShadow], ['text-shadow', I.TextShadow],
+        ['filter-blur', I.FilterBlur], ['filter-brightness', I.FilterBrightness],
+        ['filter-contrast', I.FilterContrast], ['filter-grayscale', I.FilterGrayscale],
+        ['filter-hue-rotate', I.FilterHueRotate], ['filter-invert', I.FilterInvert],
+        ['filter-saturate', I.FilterSaturate], ['filter-sepia', I.FilterSepia],
+        ['text', I.Text]
     ];
     const routesElements = routesArray.map(obj => {
         let [rawPath, Component] = obj;
@@ -51,15 +56,3 @@ function Main() {
 }
 
 export default Main;
-
-/*
-
-<Route exact path="/"><div>Home</div></Route>
-                        <Route path="/background-color"><I.BackgroundColor updateOutput={updateOutput} /></Route>
-                        <Route path="/background-image"><I.BackgroundImage updateOutput={updateOutput} /></Route>
-                        <Route path="/border"><I.Border updateOutput={updateOutput} /></Route>
-                        <Route path="/border-radius"><I.BorderRadius updateOutput={updateOutput} /></Route>
-                        <Route path="/box-shadow"><I.BoxShadow updateOutput={updateOutput} /></Route>
-                        <Route path="/text-shadow"><I.TextShadow updateOutput={updateOutput} /></Route>
-
-                        */
