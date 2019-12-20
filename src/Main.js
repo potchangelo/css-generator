@@ -41,14 +41,18 @@ function Main() {
 	return (
         <main className="main">
             <div className="main__columns columns is-gapless">
-                <div className="main__column column">
-                    <Switch>
-                        {routesElements}
-                    </Switch>
+                <div className="main__column column is-6">
+                    <div className="main__block--absolute">
+                        <Switch>
+                            {routesElements}
+                        </Switch>
+                    </div>
                 </div>
-                <div className="main__column column">
-                    <Preview outputStyle={outputStyle} />
-                    <Code outputCss={outputCss} />
+                <div className="main__column column is-6">
+                    <div className="main__block--absolute">
+                        <Preview outputStyle={outputStyle} />
+                        <Code outputCss={outputCss} />
+                    </div>
                 </div>
             </div>
         </main>

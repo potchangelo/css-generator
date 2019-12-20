@@ -5,12 +5,10 @@ import './Css/Nav.scss';
 function Nav() {
     return (
         <nav className="leftnav">
-            <div className="leftnav__brand">
-                <h1 className="title is-4">
-                    <Link className="has-text-black-bis" to="/">CSS Builder</Link>
-                </h1>
-                <h3 className="subtitle is-6">by zinglecode</h3>
-            </div>
+            <Link className="leftnav__brand" to="/">
+                <h1 className="title is-5">CSS Builder</h1>
+                <h3 className="subtitle is-7">by zinglecode</h3>
+            </Link>
             <div className="leftnav__group">
                 <h5 className="title is-6">Background</h5>
                 <NavLink to="background-color">Background Color</NavLink>

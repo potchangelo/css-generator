@@ -135,8 +135,16 @@ input[type=range] {
 .main__column {
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow-y: auto;
 }
 
-.main__section {
-    padding: 40px 32px;
+.main__block--absolute {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }

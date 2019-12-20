@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import {MainSection} from '../Parents';
 
 function BackgroundColor(props) {
     // Props & States
@@ -14,8 +14,7 @@ function BackgroundColor(props) {
     }, [updateOutput, backgroundColor]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClasses="main__section--inputs" title="Background Color" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Color</label>
                 <div className="field has-addons">
@@ -37,7 +36,7 @@ function BackgroundColor(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 
