@@ -66,7 +66,7 @@ function BorderRadius(props) {
             }
             return (
                 <React.Fragment key={value}>
-                    <label className="label">Radius {value} (px)</label>
+                    <label className="label">Radius {value} (pixels)</label>
                     <div className="field">
                         <div className="control__range control">
                             <input 
@@ -88,7 +88,7 @@ function BorderRadius(props) {
     else {
         borderRadiusElements = (
             <>
-                <label className="label">Radius (px)</label>
+                <label className="label">Radius (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 

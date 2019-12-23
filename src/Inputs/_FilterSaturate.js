@@ -16,7 +16,7 @@ function FilterSaturate(props) {
     return (
         <MainSection extraClass="main__section--inputs" title="Filter Saturate" subTitle="Customizing">
             <div className="inputs">
-                <label className="label">Saturate (%)</label>
+                <label className="label">Saturate (percent)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 

@@ -16,7 +16,7 @@ function FilterBlur(props) {
     return (
         <MainSection extraClass="main__section--inputs" title="Filter Blur" subTitle="Customizing">
             <div className="inputs">
-                <label className="label">Blur (px)</label>
+                <label className="label">Blur (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 

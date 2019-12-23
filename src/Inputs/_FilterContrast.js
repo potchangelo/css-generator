@@ -16,7 +16,7 @@ function FilterContrast(props) {
     return (
         <MainSection extraClass="main__section--inputs" title="Filter Contrast" subTitle="Customizing">
             <div className="inputs">
-                <label className="label">Contrast (%)</label>
+                <label className="label">Contrast (percent)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 

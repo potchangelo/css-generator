@@ -88,7 +88,7 @@ function Text(props) {
                         </div>
                     </div>
                 </div>
-                <label className="label">Letter spacing</label>
+                <label className="label">Letter spacing (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 
@@ -104,7 +104,7 @@ function Text(props) {
                         </div>
                     </div>
                 </div>
-                <label className="label">Word spacing</label>
+                <label className="label">Word spacing (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 

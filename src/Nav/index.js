@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Css/Nav.scss';
+import Logo from '../Images/Logo.svg';
 
 function Nav() {
     return (
         <nav className="leftnav">
             <Link className="leftnav__brand" to="/">
                 <h1 className="title is-5">CSS Builder</h1>
-                <h3 className="subtitle is-7">by zinglecode</h3>
+                <h3 className="subtitle is-7">by Zinglecode</h3>
+                <img className="leftnav__logo" src={Logo} alt="zinglecode" />
             </Link>
             <div className="leftnav__group">
                 <h5 className="title is-6">Background</h5>

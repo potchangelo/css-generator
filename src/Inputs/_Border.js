@@ -149,7 +149,7 @@ function Border(props) {
                             </select>
                         </div>
                     </div>
-                    <label className="label">Width (px)</label>
+                    <label className="label">Width (pixels)</label>
                     <div className="field">
                         <div className="control__range control">
                             <input 
@@ -200,7 +200,7 @@ function Border(props) {
                         </select>
                     </div>
                 </div>
-                <label className="label">Width (px)</label>
+                <label className="label">Width (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 

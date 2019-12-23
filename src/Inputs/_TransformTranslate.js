@@ -19,7 +19,7 @@ function TransformTranslate(props) {
     return (
         <MainSection extraClass="main__section--inputs" title="Transform Translate" subTitle="Customizing">
             <div className="inputs">
-                <label className="label">Translate X-axis</label>
+                <label className="label">Translate X</label>
                 <div className="field has-addons">
                     <div className="control__range control is-expanded">
                         <input 
@@ -38,13 +38,13 @@ function TransformTranslate(props) {
                             <select
                                 value={unitX} 
                                 onChange={(e) => setUnitX(e.target.value)} >
-                                <option value="px">px</option>
-                                <option value="%">%</option>
+                                <option value="px">pixels</option>
+                                <option value="%">percent</option>
                             </select>
                         </span>
                     </div>
                 </div>
-                <label className="label">Translate Y-axis</label>
+                <label className="label">Translate Y</label>
                 <div className="field has-addons">
                     <div className="control__range control is-expanded">
                         <input 
@@ -63,8 +63,8 @@ function TransformTranslate(props) {
                             <select
                                 value={unitY} 
                                 onChange={(e) => setUnitY(e.target.value)} >
-                                <option value="px">px</option>
-                                <option value="%">%</option>
+                                <option value="px">pixels</option>
+                                <option value="%">percent</option>
                             </select>
                         </span>
                     </div>

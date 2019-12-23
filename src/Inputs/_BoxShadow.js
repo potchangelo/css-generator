@@ -23,7 +23,7 @@ function BoxShadow(props) {
     return (
         <MainSection extraClass="main__section--inputs" title="Box Shadow" subTitle="Customizing">
             <div className="inputs">
-                <label className="label">X</label>
+                <label className="label">X (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 
@@ -38,7 +38,7 @@ function BoxShadow(props) {
                         </div>
                     </div>
                 </div>
-                <label className="label">Y</label>
+                <label className="label">Y (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 
@@ -53,7 +53,7 @@ function BoxShadow(props) {
                         </div>
                     </div>
                 </div>
-                <label className="label">Blur</label>
+                <label className="label">Blur (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 
@@ -68,7 +68,7 @@ function BoxShadow(props) {
                         </div>
                     </div>
                 </div>
-                <label className="label">Spread</label>
+                <label className="label">Spread (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
                         <input 
