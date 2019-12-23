@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function BgImage(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [bgImage, setBgImage] = useState('https://cdn.pixabay.com/photo/2013/03/19/23/07/easter-bunny-95096_960_720.jpg');
     const [bgSize, setBgSize] = useState('cover');
     const [bgPosition, setBgPosition] = useState('center');
@@ -52,8 +52,7 @@ function BgImage(props) {
     });
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Background Image" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Image URL</label>
                 <div className="field">
@@ -116,7 +115,7 @@ function BgImage(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

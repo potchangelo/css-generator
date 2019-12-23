@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterSepia(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [sepia, setSepia] = useState(100);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `sepia(${sepia}%)`};
+        const style = { filter: `sepia(${sepia}%)` };
         const css = `filter: sepia(${sepia}%);`;
         updateOutput(style, css);
     }, [updateOutput, sepia]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Sepia" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Sepia (%)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterSepia(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

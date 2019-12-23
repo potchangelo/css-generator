@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterContrast(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [contrast, setContrast] = useState(150);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `contrast(${contrast}%)`};
+        const style = { filter: `contrast(${contrast}%)` };
         const css = `filter: contrast(${contrast}%);`;
         updateOutput(style, css);
     }, [updateOutput, contrast]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Contrast" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Contrast (%)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterContrast(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

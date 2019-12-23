@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterGrayscale(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [grayscale, setGrayscale] = useState(100);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `grayscale(${grayscale}%)`};
+        const style = { filter: `grayscale(${grayscale}%)` };
         const css = `filter: grayscale(${grayscale}%);`;
         updateOutput(style, css);
     }, [updateOutput, grayscale]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Grayscale" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Grayscale (%)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterGrayscale(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

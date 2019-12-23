@@ -1,19 +1,19 @@
 import React from 'react';
-import './Css/_Section.scss'
+import './Css/Parents.scss'
 
 function MainSection(props) {
-    const {extraClasses, title, subTitle, children} = props;
+    const { extraClass, title, subTitle, children } = props;
 
-    let classes = 'main__section';
-    if (extraClasses !== undefined) {
-        classes += ` ${extraClasses}`;
+    let _class = 'main__section';
+    if (extraClass !== undefined) {
+        _class += ` ${extraClass}`;
     }
 
     return (
-        <section className={classes}>
+        <section className={_class}>
             <div className="section__block--title">
                 <h5 className="title is-5">{title}</h5>
-                <h6 class="subtitle is-7">{subTitle}</h6>
+                <h6 className="subtitle is-7">{subTitle}</h6>
             </div>
             <div className="section__block--content">
                 {children}
@@ -22,4 +22,4 @@ function MainSection(props) {
     );
 }
 
-export {MainSection};
+export { MainSection };

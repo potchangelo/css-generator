@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import {MainSection} from '../Parents';
+import { MainSection } from '../Parents';
 
 function BackgroundColor(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [backgroundColor, setBackgroundColor] = useState('#1988f7');
     
     // Lifecycles
     useEffect(() => {
-        const style = {backgroundColor: `${backgroundColor}`};
+        const style = { backgroundColor: `${backgroundColor}` };
         const css = `background-color: ${backgroundColor};`;
         updateOutput(style, css);
     }, [updateOutput, backgroundColor]);
 
     return (
-        <MainSection extraClasses="main__section--inputs" title="Background Color" subTitle="Customizing">
+        <MainSection extraClass="main__section--inputs" title="Background Color" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Color</label>
                 <div className="field has-addons">

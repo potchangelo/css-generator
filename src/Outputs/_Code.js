@@ -1,4 +1,5 @@
 import React from 'react';
+import {MainSection} from '../Parents';
 import './Css/Code.scss';
 
 function Code(props) {
@@ -14,8 +15,7 @@ function Code(props) {
 	}
 
     return (
-        <section className="main__section main__section--code">
-            <h4 className="title is-4 has-text-white">Code</h4>
+        <MainSection extraClass="main__section--code" title="CSS Code" subTitle="Paste to your CSS file">
             <pre className="code__css">
                 <code>{outputCss}</code>
             </pre>
@@ -25,7 +25,7 @@ function Code(props) {
                 onClick={copyCode} >
                 COPY
             </button>
-        </section>
+        </MainSection>
     );
 }
 

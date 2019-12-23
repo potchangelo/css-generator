@@ -4,4 +4,12 @@
     background-color: $white-ter;
     border-right: 1px solid $grey-lighter;
     flex-grow: 1;
+
+    .inputs .field:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    .inputs .title.has-margin-top {
+        margin-top: 3rem;
+    }
 }

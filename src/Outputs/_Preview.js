@@ -24,7 +24,7 @@ function Preview(props) {
     }
 
     return (
-        <MainSection extraClasses="main__section--preview" title="Preview" subTitle={subTitle}>
+        <MainSection extraClass="main__section--preview" title="Preview" subTitle={subTitle}>
             {element}
         </MainSection>
     );

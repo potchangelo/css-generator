@@ -1,2 +1,2 @@
-export { default as Preview } from './Preview';
-export { default as Code } from './Code';
+export { default as Preview } from './_Preview';
+export { default as Code } from './_Code';

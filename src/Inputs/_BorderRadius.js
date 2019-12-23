@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function BorderRadius(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [mode, setMode] = useState('all');
     const [borderRadius, setBorderRadius] = useState(12);
     const [borderRadiusTl, setBorderRadiusTl] = useState(12);
@@ -15,11 +15,11 @@ function BorderRadius(props) {
     useEffect(() => {
         let style, css;
         if (mode === 'each') {
-            style = {borderRadius: `${borderRadiusTl}px ${borderRadiusTr}px ${borderRadiusBr}px ${borderRadiusBl}px`};
+            style = { borderRadius: `${borderRadiusTl}px ${borderRadiusTr}px ${borderRadiusBr}px ${borderRadiusBl}px` };
             css = `border-radius: ${borderRadiusTl}px ${borderRadiusTr}px ${borderRadiusBr}px ${borderRadiusBl}px;`;
         }
         else {
-            style = {borderRadius: `${borderRadius}px`};
+            style = { borderRadius: `${borderRadius}px` };
             css = `border-radius: ${borderRadius}px;`;
         }
         updateOutput(style, css);
@@ -87,7 +87,7 @@ function BorderRadius(props) {
     }
     else {
         borderRadiusElements = (
-            <React.Fragment>
+            <>
                 <label className="label">Radius (px)</label>
                 <div className="field">
                     <div className="control__range control">
@@ -103,13 +103,12 @@ function BorderRadius(props) {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Border Radius" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Mode</label>
                 <div className="buttons has-addons">
@@ -117,7 +116,7 @@ function BorderRadius(props) {
                 </div>
                 {borderRadiusElements}
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

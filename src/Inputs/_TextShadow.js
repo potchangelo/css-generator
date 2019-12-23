@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 import { hexToRgba } from '../Helpers'
 
 function TextShadow(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [shadowX, setShadowX] = useState(1);
     const [shadowY, setShadowY] = useState(1);
     const [shadowBlur, setShadowBlur] = useState(2);
@@ -14,14 +14,13 @@ function TextShadow(props) {
     // Lifecycles
     useEffect(() => {
         const shadowColorOutput = hexToRgba(shadowColor, shadowColorAlpha);
-        const style = {textShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput}`};
+        const style = { textShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput}` };
         const css = `text-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput};`;
         updateOutput(style, css);
     }, [updateOutput, shadowX, shadowY, shadowBlur, shadowColor, shadowColorAlpha]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Text Shadow" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">X</label>
                 <div className="field">
@@ -104,7 +103,7 @@ function TextShadow(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

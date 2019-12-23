@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterSaturate(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [saturate, setSaturate] = useState(150);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `saturate(${saturate}%)`};
+        const style = { filter: `saturate(${saturate}%)` };
         const css = `filter: saturate(${saturate}%);`;
         updateOutput(style, css);
     }, [updateOutput, saturate]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Saturate" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Saturate (%)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterSaturate(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

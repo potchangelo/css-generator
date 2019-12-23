@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterBrightness(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [brightness, setBrightness] = useState(135);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `brightness(${brightness}%)`};
+        const style = { filter: `brightness(${brightness}%)` };
         const css = `filter: brightness(${brightness}%);`;
         updateOutput(style, css);
     }, [updateOutput, brightness]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Brightness" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Brightness (%)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterBrightness(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

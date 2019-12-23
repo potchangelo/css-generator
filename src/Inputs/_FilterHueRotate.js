@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterHueRotate(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [hueRotate, setHueRotate] = useState(180);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `hue-rotate(${hueRotate}deg)`};
+        const style = { filter: `hue-rotate(${hueRotate}deg)` };
         const css = `filter: hue-rotate(${hueRotate}deg);`;
         updateOutput(style, css);
     }, [updateOutput, hueRotate]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Hue-Rotate" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Hue-Rotate (degrees)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterHueRotate(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

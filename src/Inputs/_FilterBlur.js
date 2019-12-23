@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function FilterBlur(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [blur, setBlur] = useState(4);
     
     // Lifecycles
     useEffect(() => {
-        const style = {filter: `blur(${blur}px)`};
+        const style = { filter: `blur(${blur}px)` };
         const css = `filter: blur(${blur}px);`;
         updateOutput(style, css);
     }, [updateOutput, blur]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Filter Blur" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Blur (px)</label>
                 <div className="field">
@@ -33,7 +32,7 @@ function FilterBlur(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

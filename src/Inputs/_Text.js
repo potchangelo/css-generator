@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function Text(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [textColor, setTextColor] = useState('#333333');
     const [textLineHeight, setTextLineHeight] = useState(1.5);
     const [textLetterSpacing, setTextLetterSpacing] = useState(0);
@@ -51,8 +51,7 @@ function Text(props) {
     );
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Text" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Color</label>
                 <div className="field has-addons">
@@ -152,7 +151,7 @@ function Text(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

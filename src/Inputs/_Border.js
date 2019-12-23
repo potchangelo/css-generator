@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 
 function Border(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [mode, setMode] = useState('all');
 	const [borderColor, setBorderColor] = useState('#000000');
 	const [borderStyle, setBorderStyle] = useState('solid');
@@ -47,7 +47,7 @@ function Border(props) {
             }
         }
         else {
-            style = {border: `${borderWidth}px ${borderStyle} ${borderColor}`};
+            style = { border: `${borderWidth}px ${borderStyle} ${borderColor}` };
             css = `border: ${borderWidth}px ${borderStyle} ${borderColor};`;
         }
         updateOutput(style, css);
@@ -119,7 +119,7 @@ function Border(props) {
             }
             return (
                 <React.Fragment key={value}>
-                    <h4 className="title is-5">Border {value.charAt(0).toUpperCase() + value.slice(1)}</h4>
+                    <h4 className="title has-margin-top is-5">Border {value.charAt(0).toUpperCase() + value.slice(1)}</h4>
                     <label className="label">Color</label>
                     <div className="field has-addons">
                         <div className="control__color control">
@@ -170,7 +170,7 @@ function Border(props) {
     }
     else {
         borderElements = (
-            <React.Fragment>
+            <>
                 <label className="label">Color</label>
                 <div className="field has-addons">
                     <div className="control__color control">
@@ -215,13 +215,12 @@ function Border(props) {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Border" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Mode</label>
                 <div className="buttons has-addons">
@@ -229,7 +228,7 @@ function Border(props) {
                 </div>
                 {borderElements}
             </div>
-        </Section>
+        </MainSection>
     );
 }
 

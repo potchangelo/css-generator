@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Section from './__Section';
+import { MainSection } from '../Parents';
 import { hexToRgba } from '../Helpers';
 
 function BoxShadow(props) {
     // Props & States
-    const {updateOutput} = props;
+    const { updateOutput } = props;
     const [shadowX, setShadowX] = useState(2);
     const [shadowY, setShadowY] = useState(2);
     const [shadowBlur, setShadowBlur] = useState(8);
@@ -15,14 +15,13 @@ function BoxShadow(props) {
     // Lifecycles
     useEffect(() => {
         const shadowColorOutput = hexToRgba(shadowColor, shadowColorAlpha);
-        const style = {boxShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowSpread}px ${shadowColorOutput}`};
+        const style = { boxShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowSpread}px ${shadowColorOutput}` };
         const css = `box-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowSpread}px ${shadowColorOutput};`;
         updateOutput(style, css);
     }, [updateOutput, shadowX, shadowY, shadowBlur, shadowSpread, shadowColor, shadowColorAlpha]);
 
     return (
-        <Section>
-            <h4 className="title is-4">Custom</h4>
+        <MainSection extraClass="main__section--inputs" title="Box Shadow" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">X</label>
                 <div className="field">
@@ -120,7 +119,7 @@ function BoxShadow(props) {
                     </div>
                 </div>
             </div>
-        </Section>
+        </MainSection>
     );
 }
 
