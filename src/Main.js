@@ -18,13 +18,14 @@ function Main() {
     // Routes
     const routesArray = [
         ['background-color', I.BackgroundColor], ['background-image', I.BackgroundImage],
-        ['border', I.Border], ['border-radius', I.BorderRadius],
-        ['box-shadow', I.BoxShadow], ['text-shadow', I.TextShadow],
+        ['border', I.Border], ['border-radius', I.BorderRadius], ['box-shadow', I.BoxShadow], 
         ['filter-blur', I.FilterBlur], ['filter-brightness', I.FilterBrightness],
         ['filter-contrast', I.FilterContrast], ['filter-grayscale', I.FilterGrayscale],
         ['filter-hue-rotate', I.FilterHueRotate], ['filter-invert', I.FilterInvert],
         ['filter-saturate', I.FilterSaturate], ['filter-sepia', I.FilterSepia],
-        ['text', I.Text]
+        ['text', I.Text], ['text-shadow', I.TextShadow],
+        ['transform-translate', I.TransformTranslate], ['transform-rotate', I.TransformRotate],
+        ['transform-scale', I.TransformScale], ['transform-skew', I.TransformSkew]
     ];
     const routesElements = routesArray.map(obj => {
         let [rawPath, Component] = obj;

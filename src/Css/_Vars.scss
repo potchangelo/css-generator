@@ -23,6 +23,9 @@ $pre-background: $black-ter;
 @import "~bulma/sass/utilities/mixins.sass";
 @import "~bulma/sass/utilities/controls.sass";
 
+// Generic
+$body-overflow-y: auto;
+
 // Mixin
 @mixin within($min, $max) {
     @media screen and (min-width: $min) and (max-width: $max) {

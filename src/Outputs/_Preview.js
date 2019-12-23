@@ -15,8 +15,16 @@ function Preview(props) {
         subTitle = 'Text mode';
     }
     else if (location.pathname.startsWith('/filter')) {
-        element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" style={outputStyle} />;
+        element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" alt="Preview" style={outputStyle} />;
         subTitle = 'Image filter mode';
+    }
+    else if (location.pathname.startsWith('/transform')) {
+        element = (
+            <div className="preview__transform-box" style={outputStyle}>
+                <h2 className="title has-text-white">R</h2>
+            </div>
+        );
+        subTitle = 'Transformed-Box mode';
     }
     else {
         element = <div className="preview__box" style={outputStyle} />;

@@ -18,6 +18,7 @@ function Nav() {
                 <h5 className="title is-6">Border</h5>
                 <NavLink to="border">Border</NavLink>
                 <NavLink to="border-radius">Border Radius</NavLink>
+                <NavLink to="box-shadow">Box Shadow</NavLink>
             </div>
             <div className="leftnav__group">
                 <h5 className="title is-6">Filter</h5>
@@ -31,13 +32,16 @@ function Nav() {
                 <NavLink to="filter-sepia">Sepia</NavLink>
             </div>
             <div className="leftnav__group">
-                <h5 className="title is-6">Shadow</h5>
-                <NavLink to="box-shadow">Box Shadow</NavLink>
+                <h5 className="title is-6">Text</h5>
+                <NavLink to="text">Text</NavLink>
                 <NavLink to="text-shadow">Text Shadow</NavLink>
             </div>
             <div className="leftnav__group">
-                <h5 className="title is-6">Text</h5>
-                <NavLink to="text">Text</NavLink>
+                <h5 className="title is-6">Transform</h5>
+                <NavLink to="transform-translate">Translate</NavLink>
+                <NavLink to="transform-rotate">Rotate</NavLink>
+                <NavLink to="transform-scale">Scale</NavLink>
+                <NavLink to="transform-skew">Skew</NavLink>
             </div>
         </nav>
     );

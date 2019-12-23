@@ -9,3 +9,19 @@
     background-color: $white;
     padding-bottom: 56.25%;
 }
+
+.preview__transform-box {
+    background-color: red;
+    width: 30%;
+    margin: 88px auto;
+    padding-bottom: 30%;
+    position: relative;
+
+    .title {
+        font-size: 64px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
