@@ -1,10 +1,10 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {MainSection} from '../Parents';
+import { withRouter } from 'react-router-dom';
+import { MainSection } from '../Parents';
 import './Css/Preview.scss';
 
 function Preview(props) {
-    const {location, outputStyle} = props;
+    const { location, outputStyle } = props;
 
     // Elements
     let element, subTitle;

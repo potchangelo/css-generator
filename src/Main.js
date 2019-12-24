@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import * as I from './Inputs';
 import { Preview, Code } from './Outputs';
-import './Css/App.scss';
 
 function Main() {
 	// States
@@ -43,14 +42,14 @@ function Main() {
         <main className="main">
             <div className="main__columns columns is-gapless">
                 <div className="main__column column is-6">
-                    <div className="main__block--absolute">
+                    <div className="main__block">
                         <Switch>
                             {routesElements}
                         </Switch>
                     </div>
                 </div>
                 <div className="main__column column is-6">
-                    <div className="main__block--absolute">
+                    <div className="main__block">
                         <Preview outputStyle={outputStyle} />
                         <Code outputCss={outputCss} />
                     </div>
