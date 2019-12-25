@@ -3,20 +3,23 @@ import { Dimmer, LeftNav, HeaderNav } from './Nav';
 import Main from './Main';
 import './Css/App.scss';
 
-const NavContext = React.createContext(false);
+const NavContext = React.createContext({});
 
-const initState = false;
+const initState = { isNavOpenMobile: false };
 function reducer(state, action) {
-    switch (action.type) {
-        case 'toggleNav':
-			return !state;
-		case 'close':
-			return false
-    }
+	let newState = {};
+    if (action.type === 'toggleNav') {
+		newState = { isNavOpenMobile: !state.isNavOpenMobile };
+	}
+	if (action.type === 'closeNav') {
+		newState = { isNavOpenMobile: false };
+	}
+	return newState;
 }
 
 function App() {
-	const [isNavOpenMobile, dispatch] = useReducer(reducer, initState);
+	const [state, dispatch] = useReducer(reducer, initState);
+	const { isNavOpenMobile } = state;
 	return (
 		<div className="app">
 			<NavContext.Provider value={{ isNavOpenMobile, dispatch }}>

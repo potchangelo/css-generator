@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import * as I from './Inputs';
 import { Preview, Code } from './Outputs';
 
@@ -40,21 +41,28 @@ function Main() {
 
 	return (
         <main className="main">
-            <div className="main__columns columns is-gapless">
-                <div className="main__column column is-6">
-                    <div className="main__block">
-                        <Switch>
-                            {routesElements}
-                        </Switch>
+            <Switch>
+                <Route exact path="/">
+                    <Dashboard/>
+                </Route>
+                <Route path="*">
+                    <div className="main__columns columns is-gapless">
+                        <div className="main__column column is-6">
+                            <div className="main__block">
+                                <Switch>
+                                    {routesElements}
+                                </Switch>
+                            </div>
+                        </div>
+                        <div className="main__column column is-6">
+                            <div className="main__block">
+                                <Preview outputStyle={outputStyle} />
+                                <Code outputCss={outputCss} />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="main__column column is-6">
-                    <div className="main__block">
-                        <Preview outputStyle={outputStyle} />
-                        <Code outputCss={outputCss} />
-                    </div>
-                </div>
-            </div>
+                </Route>
+            </Switch>
         </main>
 	);
 }

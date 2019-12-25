@@ -10,6 +10,7 @@ $weight-semibold: 600;
 $weight-bold: 600;
 
 // Breakpoint
+$tablet: 960px;
 $fullhd: 1536px + (2 * $gap); // Calculated to 1600px
 
 @import "~bulma/sass/utilities/functions";

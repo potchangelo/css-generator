@@ -8,7 +8,7 @@ function LeftNav(props) {
     const navContext = useContext(NavContext);
 
     useEffect(() => {
-        navContext.dispatch({type: 'close'});
+        navContext.dispatch({type: 'closeNav'});
     }, [location]);
 
     let navClass = 'leftnav';
