@@ -1,5 +1,5 @@
 {
-  "name": "CSS Generator",
+  "name": "css-generator",
   "description": "Generate CSS code by using simple UI",
   "keywords": ["css", "css-generator", "react", "bulma"],
   "version": "0.1.0",
