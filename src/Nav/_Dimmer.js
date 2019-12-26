@@ -4,7 +4,7 @@ import { NavContext } from '../App';
 function Dimmer() {
     const navContext = useContext(NavContext);
 
-    let _class = 'dimmer is-overlay is-hidden-tablet';
+    let _class = 'dimmer is-hidden-tablet';
     if (navContext.isNavOpenMobile === false) _class += ' is-hidden-mobile';
 
     return (

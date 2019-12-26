@@ -34,7 +34,7 @@ function LeftNav(props) {
     return (
         <nav className={navClass}>
             <Link className="leftnav__brand" to="/">
-                <h1 className="title is-5">CSS Builder</h1>
+                <h1 className="title is-5">CSS Generator</h1>
                 <h3 className="subtitle is-7">by Zinglecode</h3>
                 <img className="leftnav__logo" src={Logo} alt="zinglecode" />
             </Link>

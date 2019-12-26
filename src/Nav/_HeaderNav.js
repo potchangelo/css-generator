@@ -13,7 +13,7 @@ function HeaderNav() {
             </div>
             <div className="headernav__brand">
                 <Link to="/">
-                    <h1 className="title is-5">CSS Builder</h1>
+                    <h1 className="title is-5">CSS Generator</h1>
                 </Link>
             </div>
         </header>

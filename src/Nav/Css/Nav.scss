@@ -2,13 +2,18 @@
 
 .dimmer {
     background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     z-index: 41;
 }
 
 .leftnav {
     background-color: $white;
     border-right: 1px solid $grey-lighter;
-    width: 212px;
+    width: 228px;
     position: fixed;
     left: 0;
     top: 0;
