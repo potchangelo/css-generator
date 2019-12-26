@@ -21,7 +21,7 @@ function BoxShadow(props) {
     }, [updateOutput, shadowX, shadowY, shadowBlur, shadowSpread, shadowColor, shadowColorAlpha]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Box Shadow" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Box Shadow" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">X (pixels)</label>
                 <div className="field">

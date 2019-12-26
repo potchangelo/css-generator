@@ -51,7 +51,7 @@ function Text(props) {
     );
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Text" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Text" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Color</label>
                 <div className="field has-addons">

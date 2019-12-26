@@ -15,7 +15,7 @@ function TransformScale(props) {
     }, [updateOutput, scaleX, scaleY]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Transform Scale" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Transform Scale" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Scale width (factor)</label>
                 <div className="field">

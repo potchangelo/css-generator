@@ -108,7 +108,7 @@ function BorderRadius(props) {
     }
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Border Radius" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Border Radius" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Mode</label>
                 <div className="buttons has-addons">

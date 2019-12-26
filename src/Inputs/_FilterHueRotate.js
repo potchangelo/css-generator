@@ -14,7 +14,7 @@ function FilterHueRotate(props) {
     }, [updateOutput, hueRotate]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Filter Hue-Rotate" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Filter Hue-Rotate" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Hue-Rotate (degrees)</label>
                 <div className="field">

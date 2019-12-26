@@ -14,7 +14,7 @@ function FilterSepia(props) {
     }, [updateOutput, sepia]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Filter Sepia" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Filter Sepia" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Sepia (percent)</label>
                 <div className="field">

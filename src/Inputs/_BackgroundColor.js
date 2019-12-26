@@ -14,7 +14,7 @@ function BackgroundColor(props) {
     }, [updateOutput, backgroundColor]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Background Color" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Color</label>
                 <div className="field has-addons">

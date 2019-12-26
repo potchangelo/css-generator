@@ -15,7 +15,7 @@ function Code(props) {
 	}
 
     return (
-        <MainSection extraClass="main__section--code" title="CSS Code" subTitle="Paste to your CSS file">
+        <MainSection extraClass="main__section-code" title="CSS Code" subTitle="Paste to your CSS file">
             <pre className="code__css">
                 <code>{outputCss}</code>
             </pre>

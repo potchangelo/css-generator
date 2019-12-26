@@ -1,16 +1,33 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import { NavContext } from '../App';
+import { menuGroupsArray } from '../Helpers';
 import Logo from '../Images/Logo.svg';
 
 function LeftNav(props) {
+    // Props, Context
     const { location } = props;
     const navContext = useContext(NavContext);
 
+    // Effects
     useEffect(() => {
         navContext.dispatch({type: 'closeNav'});
     }, [location]);
 
+    // Elements
+    const groupsElements = menuGroupsArray.map(group => {
+        const linksElements = group.links.map(link => {
+            return (
+                <NavLink key={link[0]} to={link[0]}>{link[1]}</NavLink>
+            );
+        })
+        return (
+            <div key={group.name} className="leftnav__group">
+                <h5 className="title is-6">{group.name}</h5>
+                {linksElements}
+            </div>
+        );
+    });
     let navClass = 'leftnav';
     if (navContext.isNavOpenMobile === false) navClass += ' is-hidden-mobile';
 
@@ -21,40 +38,7 @@ function LeftNav(props) {
                 <h3 className="subtitle is-7">by Zinglecode</h3>
                 <img className="leftnav__logo" src={Logo} alt="zinglecode" />
             </Link>
-            <div className="leftnav__group">
-                <h5 className="title is-6">Background</h5>
-                <NavLink to="background-color">Background Color</NavLink>
-                <NavLink to="background-image">Background Image</NavLink>
-            </div>
-            <div className="leftnav__group">
-                <h5 className="title is-6">Border</h5>
-                <NavLink to="border">Border</NavLink>
-                <NavLink to="border-radius">Border Radius</NavLink>
-                <NavLink to="box-shadow">Box Shadow</NavLink>
-            </div>
-            <div className="leftnav__group">
-                <h5 className="title is-6">Filter</h5>
-                <NavLink to="filter-blur">Blur</NavLink>
-                <NavLink to="filter-brightness">Brightness</NavLink>
-                <NavLink to="filter-contrast">Contrast</NavLink>
-                <NavLink to="filter-grayscale">Grayscale</NavLink>
-                <NavLink to="filter-hue-rotate">Hue-Rotate</NavLink>
-                <NavLink to="filter-invert">Invert</NavLink>
-                <NavLink to="filter-saturate">Saturate</NavLink>
-                <NavLink to="filter-sepia">Sepia</NavLink>
-            </div>
-            <div className="leftnav__group">
-                <h5 className="title is-6">Text</h5>
-                <NavLink to="text">Text</NavLink>
-                <NavLink to="text-shadow">Text Shadow</NavLink>
-            </div>
-            <div className="leftnav__group">
-                <h5 className="title is-6">Transform</h5>
-                <NavLink to="transform-translate">Translate</NavLink>
-                <NavLink to="transform-rotate">Rotate</NavLink>
-                <NavLink to="transform-scale">Scale</NavLink>
-                <NavLink to="transform-skew">Skew</NavLink>
-            </div>
+            {groupsElements}
         </nav>
     );
 }

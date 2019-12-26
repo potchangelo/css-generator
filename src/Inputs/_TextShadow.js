@@ -20,7 +20,7 @@ function TextShadow(props) {
     }, [updateOutput, shadowX, shadowY, shadowBlur, shadowColor, shadowColorAlpha]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Text Shadow" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Text Shadow" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">X (pixels)</label>
                 <div className="field">

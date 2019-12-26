@@ -220,7 +220,7 @@ function Border(props) {
     }
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Border" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Border" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Mode</label>
                 <div className="buttons has-addons">

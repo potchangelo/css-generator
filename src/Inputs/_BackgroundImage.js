@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
-function BgImage(props) {
+function BackgroundImage(props) {
     // Props & States
     const { updateOutput } = props;
     const [bgImage, setBgImage] = useState('https://cdn.pixabay.com/photo/2013/03/19/23/07/easter-bunny-95096_960_720.jpg');
@@ -52,7 +52,7 @@ function BgImage(props) {
     });
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Background Image" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Background Image" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Image URL</label>
                 <div className="field">
@@ -119,4 +119,4 @@ function BgImage(props) {
     );
 }
 
-export default BgImage;
+export default BackgroundImage;

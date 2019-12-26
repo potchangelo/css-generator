@@ -14,7 +14,7 @@ function TransformRotate(props) {
     }, [updateOutput, rotate]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Transform Rotate" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Transform Rotate" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Rotate (degrees)</label>
                 <div className="field">

@@ -17,7 +17,7 @@ function TransformTranslate(props) {
     }, [updateOutput, translateX, translateY, unitX, unitY]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Transform Translate" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Transform Translate" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Translate X</label>
                 <div className="field has-addons">

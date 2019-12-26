@@ -14,7 +14,7 @@ function FilterBrightness(props) {
     }, [updateOutput, brightness]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Filter Brightness" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Filter Brightness" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Brightness (percent)</label>
                 <div className="field">

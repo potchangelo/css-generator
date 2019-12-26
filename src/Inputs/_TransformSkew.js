@@ -15,7 +15,7 @@ function TransformSkew(props) {
     }, [updateOutput, skewX, skewY]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Transform Skew" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Transform Skew" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Skew X (degrees)</label>
                 <div className="field">

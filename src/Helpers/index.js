@@ -1,3 +1,40 @@
+const menuGroupsArray = [
+    {
+        name: 'Background',
+        links: [
+            ['background-color', 'Background Color'], ['background-image', 'Background Image']
+        ]
+    },
+    {
+        name: 'Border',
+        links: [
+            ['border', 'Border'], ['border-radius', 'Border Radius'], ['box-shadow', 'Box Shadow']
+        ]
+    },
+    {
+        name: 'Filter',
+        links: [
+            ['filter-blur', 'Blur'], ['filter-brightness', 'Brightness'], 
+            ['filter-contrast', 'Contrast'], ['filter-grayscale', 'Grayscale'],
+            ['filter-hue-rotate', 'Hue-Rotate'], ['filter-invert', 'invert'],
+            ['filter-saturate', 'Saturate'], ['filter-sepia', 'Sepia']
+        ]
+    },
+    {
+        name: 'Text',
+        links: [
+            ['text', 'Text'], ['text-shadow', 'Text Shadow']
+        ]
+    },
+    {
+        name: 'Transform',
+        links: [
+            ['transform-translate', 'Translate'], ['transform-rotate', 'Rotate'], 
+            ['transform-scale', 'Scale'], ['transform-skew', 'Skew']
+        ]
+    }
+]
+
 function hexToRgba(hex, a) {
     let r, g, b;
     hex = hex.replace('#', '');
@@ -29,4 +66,4 @@ function hexToRgba(hex, a) {
     return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 }
 
-export { hexToRgba };
+export { menuGroupsArray, hexToRgba };

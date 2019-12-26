@@ -1,45 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { menuGroupsArray } from '../Helpers';
 import './Css/Dashboard.scss';
+import { MainSection } from '../Parents';
 
 function Dashboard() {
-    const groupsArray = [
-        {
-            name: 'Background',
-            links: [
-                ['background-color', 'Background Color'], ['backgorund-image', 'Background Image']
-            ]
-        },
-        {
-            name: 'Border',
-            links: [
-                ['border', 'Border'], ['border-radius', 'Border Radius'], ['box-shadow', 'Box Shadow']
-            ]
-        },
-        {
-            name: 'Filter',
-            links: [
-                ['filter-blur', 'Blur'], ['filter-brightness', 'Brightness'], 
-                ['filter-contrast', 'Contrast'], ['filter-grayscale', 'Grayscale'],
-                ['filter-hue-rotate', 'Hue-Rotate'], ['filter-invert', 'invert'],
-                ['filter-saturate', 'Saturate'], ['filter-sepia', 'Sepia']
-            ]
-        },
-        {
-            name: 'Text',
-            links: [
-                ['text', 'Text'], ['text-shadow', 'Text Shadow']
-            ]
-        },
-        {
-            name: 'Transform',
-            links: [
-                ['transform-translate', 'Translate'], ['transform-rotate', 'Rotate'], 
-                ['transform-scale', 'Scale'], ['transform-skew', 'Skew']
-            ]
-        }
-    ]
-    const groupsElements = groupsArray.map(group => {
+    const groupsElements = menuGroupsArray.map(group => {
         const linksElements = group.links.map(link => {
             return (
                 <div key={link[0]} className="column is-6-mobile is-6-tablet is-4-desktop">
@@ -60,15 +26,9 @@ function Dashboard() {
     });
 
 	return (
-        <section className="main__section main__section-dashboard">
-            <div className="section__block--title">
-                <h5 className="title is-5">Dashboard</h5>
-                <h6 className="subtitle is-7">Choose menu</h6>
-            </div>
-            <div className="section__block--content">
-                {groupsElements}
-            </div>
-        </section>
+        <MainSection extraClass="main__section-dashboard" title="Dashboard" subTitle="Choose menu">
+            {groupsElements}
+        </MainSection>
 	);
 }
 

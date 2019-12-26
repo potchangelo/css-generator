@@ -11,11 +11,11 @@ function MainSection(props) {
 
     return (
         <section className={_class}>
-            <div className="section__block--title">
+            <div className="section__block-title">
                 <h5 className="title is-5">{title}</h5>
                 <h6 className="subtitle is-7">{subTitle}</h6>
             </div>
-            <div className="section__block--content">
+            <div className="section__block-content">
                 {children}
             </div>
         </section>

@@ -3,8 +3,10 @@ import { Dimmer, LeftNav, HeaderNav } from './Nav';
 import Main from './Main';
 import './Css/App.scss';
 
+// Context
 const NavContext = React.createContext({});
 
+// Reducer
 const initState = { isNavOpenMobile: false };
 function reducer(state, action) {
 	let newState = {};

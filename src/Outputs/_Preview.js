@@ -4,6 +4,7 @@ import { MainSection } from '../Parents';
 import './Css/Preview.scss';
 
 function Preview(props) {
+    // Props
     const { location, outputStyle } = props;
 
     // Elements
@@ -32,7 +33,7 @@ function Preview(props) {
     }
 
     return (
-        <MainSection extraClass="main__section--preview" title="Preview" subTitle={subTitle}>
+        <MainSection extraClass="main__section-preview" title="Preview" subTitle={subTitle}>
             {element}
         </MainSection>
     );

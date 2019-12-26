@@ -14,7 +14,7 @@ function FilterGrayscale(props) {
     }, [updateOutput, grayscale]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Filter Grayscale" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Filter Grayscale" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Grayscale (percent)</label>
                 <div className="field">

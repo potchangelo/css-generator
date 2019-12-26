@@ -14,7 +14,7 @@ function FilterInvert(props) {
     }, [updateOutput, invert]);
 
     return (
-        <MainSection extraClass="main__section--inputs" title="Filter Invert" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Filter Invert" subTitle="Customizing">
             <div className="inputs">
                 <label className="label">Invert (percent)</label>
                 <div className="field">
