@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import { NavContext } from '../App';
 import { menuGroupsArray } from '../Helpers';
-import Logo from '../Images/Logo.svg';
+import Logo from '../Images/Logo64.png';
 
 function LeftNav(props) {
     // Props, Context
