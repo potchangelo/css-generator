@@ -2,8 +2,17 @@
   "name": "css-generator",
   "description": "Generate CSS code by using simple UI",
   "keywords": ["css", "css-generator", "react", "bulma"],
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "author": "Potchara Puttawanchai",
+  "homepage": "https://github.com/potchangelo/css-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/potchangelo/css-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/potchangelo/css-generator.git/issues"
+  },
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
