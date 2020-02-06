@@ -9,7 +9,7 @@
   ],
   "version": "1.0.0",
   "author": "Potchara Puttawanchai",
-  "homepage": "https://github.com/potchangelo/css-generator",
+  "homepage": "https://css-generator.netlify.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/potchangelo/css-generator.git"
