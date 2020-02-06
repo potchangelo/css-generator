@@ -1,10 +1,8 @@
 # CSS Generator by Zinglecode
 
+https://css-generator.netlify.com/
+
 Generate CSS code by using simple UI, created by React.
-
-CodeSandbox link : https://codesandbox.io/s/github/potchangelo/css-generator
-
-Full-page link : https://9e18q.csb.app/
 
 ## Features
 - Background
