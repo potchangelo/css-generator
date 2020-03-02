@@ -11,7 +11,7 @@ function BackgroundGradient(props) {
     const { updateOutput } = props;
     const [mode, setMode] = useState('linear');
     const [linearDeg, setLinearDeg] = useState(90);
-    const [radialShape, setRadialShape] = useState('circle')
+    const [radialShape, setRadialShape] = useState('circle');
 
     const [colorArray, setColorArray] = useState([
         {color: '#1988f7', alpha: 1, position: 0, isSelected: true, isDragging: false},
@@ -23,6 +23,10 @@ function BackgroundGradient(props) {
     useEffect(() => {
         window.addEventListener('mousemove', onMouseMoveHandle);
         window.addEventListener('mouseup', onMouseUpHandle);
+        return () => {
+            window.removeEventListener('mousemove', onMouseMoveHandle);
+            window.removeEventListener('mouseup', onMouseUpHandle);
+        }
     }, []);
 
     useEffect(() => {
@@ -47,6 +51,7 @@ function BackgroundGradient(props) {
 
     // Functions
     function onMouseDownHandle(index) {
+        document.body.classList.add('is-unselectable');
         setColorArray(prev => prev.map((item, _index) => {
             if (_index === index) {
                 item.isDragging = true;
@@ -74,6 +79,7 @@ function BackgroundGradient(props) {
     }
 
     function onMouseUpHandle() {
+        document.body.classList.remove('is-unselectable');
         setColorArray(prev => prev.map(item => {
             item.isDragging = false;
             return item;
