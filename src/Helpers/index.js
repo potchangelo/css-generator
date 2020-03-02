@@ -2,7 +2,8 @@ const menuGroupsArray = [
     {
         name: 'Background',
         links: [
-            ['background-color', 'Background Color'], ['background-image', 'Background Image']
+            ['background-color', 'Background Color'], ['background-gradient', 'Background Gradient'],
+            ['background-image', 'Background Image']
         ]
     },
     {

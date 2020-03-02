@@ -17,8 +17,9 @@ function Main() {
     
     // Routes
     const routesArray = [
-        ['background-color', I.BackgroundColor], ['background-image', I.BackgroundImage],
-        ['border', I.Border], ['border-radius', I.BorderRadius], ['box-shadow', I.BoxShadow], 
+        ['background-color', I.BackgroundColor], ['background-gradient', I.BackgroundGradient],
+        ['background-image', I.BackgroundImage],
+        ['border', I.Border], ['border-radius', I.BorderRadius], ['box-shadow', I.BoxShadow],
         ['filter-blur', I.FilterBlur], ['filter-brightness', I.FilterBrightness],
         ['filter-contrast', I.FilterContrast], ['filter-grayscale', I.FilterGrayscale],
         ['filter-hue-rotate', I.FilterHueRotate], ['filter-invert', I.FilterInvert],
