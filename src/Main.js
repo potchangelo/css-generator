@@ -5,16 +5,16 @@ import * as I from './Inputs';
 import { Preview, Code } from './Outputs';
 
 function Main() {
-	// States
-	const [outputStyle, setOutputStyle] = useState({});
-	const [outputCss, setOutputCss] = useState('');
+    // States
+    const [outputStyle, setOutputStyle] = useState({});
+    const [outputCss, setOutputCss] = useState('');
 
-	// Callback
-	const updateOutput = useCallback((style, css) => {
-		setOutputStyle(style);
-		setOutputCss(css);
+    // Callback
+    const updateOutput = useCallback((style, css) => {
+        setOutputStyle(style);
+        setOutputCss(css);
     }, []);
-    
+
     // Routes
     const routesArray = [
         ['background-color', I.BackgroundColor], ['background-gradient', I.BackgroundGradient],
@@ -40,11 +40,11 @@ function Main() {
         );
     });
 
-	return (
+    return (
         <main className="main">
             <Switch>
                 <Route exact path="/">
-                    <Dashboard/>
+                    <Dashboard />
                 </Route>
                 <Route path="*">
                     <div className="main__columns columns is-gapless">
@@ -65,7 +65,7 @@ function Main() {
                 </Route>
             </Switch>
         </main>
-	);
+    );
 }
 
 export default Main;

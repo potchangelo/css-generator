@@ -1,80 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
+const modeArray = [['all', 'One Value'], ['each', 'Individual']];
+const radiusEachArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+
 function BorderRadius(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [mode, setMode] = useState('all');
-    const [borderRadius, setBorderRadius] = useState(12);
-    const [borderRadiusTl, setBorderRadiusTl] = useState(12);
-    const [borderRadiusTr, setBorderRadiusTr] = useState(12);
-    const [borderRadiusBr, setBorderRadiusBr] = useState(12);
-    const [borderRadiusBl, setBorderRadiusBl] = useState(12);
-    
+    const [radius, setRadius] = useState(12);
+    const [radiusTl, setRadiusTl] = useState(12);
+    const [radiusTr, setRadiusTr] = useState(12);
+    const [radiusBr, setRadiusBr] = useState(12);
+    const [radiusBl, setRadiusBl] = useState(12);
+
     // Lifecycles
     useEffect(() => {
         let style, css;
         if (mode === 'each') {
-            style = { borderRadius: `${borderRadiusTl}px ${borderRadiusTr}px ${borderRadiusBr}px ${borderRadiusBl}px` };
-            css = `border-radius: ${borderRadiusTl}px ${borderRadiusTr}px ${borderRadiusBr}px ${borderRadiusBl}px;`;
+            style = { borderRadius: `${radiusTl}px ${radiusTr}px ${radiusBr}px ${radiusBl}px` };
+            css = `border-radius: ${radiusTl}px ${radiusTr}px ${radiusBr}px ${radiusBl}px;`;
         }
         else {
-            style = { borderRadius: `${borderRadius}px` };
-            css = `border-radius: ${borderRadius}px;`;
+            style = { borderRadius: `${radius}px` };
+            css = `border-radius: ${radius}px;`;
         }
         updateOutput(style, css);
     }, [
-        updateOutput, mode, borderRadius, 
-        borderRadiusTl, borderRadiusTr, borderRadiusBr, borderRadiusBl
+        updateOutput, mode, radius,
+        radiusTl, radiusTr, radiusBr, radiusBl
     ]);
 
     // Elements
-    const modeButtonsArray = [['One Value', 'all'], ['Individual', 'each']];
-    const modeButtonsElements = modeButtonsArray.map(arr => {
+    const modeElements = modeArray.map(arr => {
         let classes = 'button';
-        if (arr[1] === mode) classes += ' is-dark is-selected'
+        if (arr[0] === mode) classes += ' is-dark is-selected'
         return (
-            <button 
-                key={arr[1]} 
-                className={classes} 
-                onClick={() => {if (arr[1] !== mode) setMode(arr[1])}}>
-                {arr[0]}
+            <button
+                key={arr[0]}
+                className={classes}
+                onClick={_ => setMode(arr[0])}>
+                {arr[1]}
             </button>
         );
     });
 
-    let borderRadiusElements;
+    let radiusElements;
     if (mode === 'each') {
-        const borderRadiusArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
-        borderRadiusElements = borderRadiusArray.map(value => {
+        radiusElements = radiusEachArray.map(value => {
             let st, fn;
             if (value === 'top-left') {
-                st = borderRadiusTl;
-                fn = setBorderRadiusTl;
+                st = radiusTl;
+                fn = setRadiusTl;
             }
             else if (value === 'top-right') {
-                st = borderRadiusTr;
-                fn = setBorderRadiusTr;
+                st = radiusTr;
+                fn = setRadiusTr;
             }
             else if (value === 'bottom-right') {
-                st = borderRadiusBr;
-                fn = setBorderRadiusBr;
+                st = radiusBr;
+                fn = setRadiusBr;
             }
             else {
-                st = borderRadiusBl;
-                fn = setBorderRadiusBl;
+                st = radiusBl;
+                fn = setRadiusBl;
             }
             return (
                 <React.Fragment key={value}>
                     <label className="label">Radius {value} (pixels)</label>
                     <div className="field">
                         <div className="control__range control">
-                            <input 
+                            <input
                                 type="range"
                                 min="0"
                                 max="40"
                                 value={st}
-                                onChange={(e) => fn(e.target.value)} />
+                                onChange={e => fn(e.target.value)} />
                             <div className="control__range--text">
                                 <div className="item has-text-grey">0</div>
                                 <div className="item has-text-grey">40</div>
@@ -86,17 +87,17 @@ function BorderRadius(props) {
         });
     }
     else {
-        borderRadiusElements = (
+        radiusElements = (
             <>
                 <label className="label">Radius (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
-                        <input 
+                        <input
                             type="range"
                             min="0"
                             max="40"
-                            value={borderRadius}
-                            onChange={(e) => setBorderRadius(e.target.value)} />
+                            value={radius}
+                            onChange={e => setRadius(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">40</div>
@@ -112,9 +113,9 @@ function BorderRadius(props) {
             <div className="inputs">
                 <label className="label">Mode</label>
                 <div className="buttons has-addons">
-                    {modeButtonsElements}
+                    {modeElements}
                 </div>
-                {borderRadiusElements}
+                {radiusElements}
             </div>
         </MainSection>
     );

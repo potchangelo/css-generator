@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function BackgroundColor(props) {
-    // Props & States
+    // Props ,States
     const { updateOutput } = props;
     const [backgroundColor, setBackgroundColor] = useState('#1988f7');
-    
+
     // Lifecycles
     useEffect(() => {
         const style = { backgroundColor: `${backgroundColor}` };
@@ -19,20 +19,20 @@ function BackgroundColor(props) {
                 <label className="label">Color</label>
                 <div className="field has-addons">
                     <div className="control__color control">
-                        <input 
+                        <input
                             className="input"
-                            type="color" 
+                            type="color"
                             value={backgroundColor}
-                            onChange={(e) => setBackgroundColor(e.target.value)} />
+                            onChange={e => setBackgroundColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
-                        <input 
-                            className="input" 
-                            type="text" 
+                        <input
+                            className="input"
+                            type="text"
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
                             value={backgroundColor}
-                            onChange={(e) => setBackgroundColor(e.target.value)} />
+                            onChange={e => setBackgroundColor(e.target.value)} />
                     </div>
                 </div>
             </div>

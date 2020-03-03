@@ -5,20 +5,20 @@ import { hexToRgba } from '../Helpers';
 function BoxShadow(props) {
     // Props & States
     const { updateOutput } = props;
-    const [shadowX, setShadowX] = useState(2);
-    const [shadowY, setShadowY] = useState(2);
-    const [shadowBlur, setShadowBlur] = useState(8);
-    const [shadowSpread, setShadowSpread] = useState(4);
-    const [shadowColor, setShadowColor] = useState('#000000');
-    const [shadowColorAlpha, setShadowColorAlpha] = useState(0.1);
-    
+    const [x, setX] = useState(2);
+    const [y, setY] = useState(2);
+    const [blur, setBlur] = useState(8);
+    const [spread, setSpread] = useState(4);
+    const [color, setColor] = useState('#000000');
+    const [colorAlpha, setColorAlpha] = useState(0.1);
+
     // Lifecycles
     useEffect(() => {
-        const shadowColorOutput = hexToRgba(shadowColor, shadowColorAlpha);
-        const style = { boxShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowSpread}px ${shadowColorOutput}` };
-        const css = `box-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowSpread}px ${shadowColorOutput};`;
+        const colorOutput = hexToRgba(color, colorAlpha);
+        const style = { boxShadow: `${x}px ${y}px ${blur}px ${spread}px ${colorOutput}` };
+        const css = `box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${colorOutput};`;
         updateOutput(style, css);
-    }, [updateOutput, shadowX, shadowY, shadowBlur, shadowSpread, shadowColor, shadowColorAlpha]);
+    }, [updateOutput, x, y, blur, spread, color, colorAlpha]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Box Shadow" subTitle="Customizing">
@@ -26,12 +26,12 @@ function BoxShadow(props) {
                 <label className="label">X (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
-                        <input 
+                        <input
                             type="range"
                             min="-10"
                             max="10"
-                            value={shadowX}
-                            onChange={(e) => setShadowX(e.target.value)} />
+                            value={x}
+                            onChange={e => setX(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">-10</div>
                             <div className="item has-text-grey">10</div>
@@ -41,12 +41,12 @@ function BoxShadow(props) {
                 <label className="label">Y (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
-                        <input 
+                        <input
                             type="range"
                             min="-10"
                             max="10"
-                            value={shadowY}
-                            onChange={(e) => setShadowY(e.target.value)} />
+                            value={y}
+                            onChange={e => setY(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">-10</div>
                             <div className="item has-text-grey">10</div>
@@ -56,12 +56,12 @@ function BoxShadow(props) {
                 <label className="label">Blur (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
-                        <input 
+                        <input
                             type="range"
                             min="0"
                             max="20"
-                            value={shadowBlur}
-                            onChange={(e) => setShadowBlur(e.target.value)} />
+                            value={blur}
+                            onChange={e => setBlur(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">20</div>
@@ -71,12 +71,12 @@ function BoxShadow(props) {
                 <label className="label">Spread (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
-                        <input 
+                        <input
                             type="range"
                             min="0"
                             max="20"
-                            value={shadowSpread}
-                            onChange={(e) => setShadowSpread(e.target.value)} />
+                            value={spread}
+                            onChange={e => setSpread(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">20</div>
@@ -86,32 +86,32 @@ function BoxShadow(props) {
                 <label className="label">Color</label>
                 <div className="field has-addons">
                     <div className="control__color control">
-                        <input 
+                        <input
                             className="input"
-                            type="color" 
-                            value={shadowColor}
-                            onChange={(e) => setShadowColor(e.target.value)} />
+                            type="color"
+                            value={color}
+                            onChange={e => setColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
-                        <input 
-                            className="input" 
-                            type="text" 
+                        <input
+                            className="input"
+                            type="text"
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                            value={shadowColor}
-                            onChange={(e) => setShadowColor(e.target.value)} />
+                            value={color}
+                            onChange={e => setColor(e.target.value)} />
                     </div>
                 </div>
                 <label className="label">Color opacity</label>
                 <div className="field">
                     <div className="control__range control">
-                        <input 
+                        <input
                             type="range"
                             min="0"
                             max="1"
                             step="0.05"
-                            value={shadowColorAlpha}
-                            onChange={(e) => setShadowColorAlpha(e.target.value)} />
+                            value={colorAlpha}
+                            onChange={e => setColorAlpha(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">1</div>

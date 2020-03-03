@@ -15,7 +15,7 @@ const menuGroupsArray = [
     {
         name: 'Filter',
         links: [
-            ['filter-blur', 'Blur'], ['filter-brightness', 'Brightness'], 
+            ['filter-blur', 'Blur'], ['filter-brightness', 'Brightness'],
             ['filter-contrast', 'Contrast'], ['filter-grayscale', 'Grayscale'],
             ['filter-hue-rotate', 'Hue-Rotate'], ['filter-invert', 'invert'],
             ['filter-saturate', 'Saturate'], ['filter-sepia', 'Sepia']
@@ -30,11 +30,11 @@ const menuGroupsArray = [
     {
         name: 'Transform',
         links: [
-            ['transform-translate', 'Translate'], ['transform-rotate', 'Rotate'], 
+            ['transform-translate', 'Translate'], ['transform-rotate', 'Rotate'],
             ['transform-scale', 'Scale'], ['transform-skew', 'Skew']
         ]
     }
-]
+];
 
 function hexToRgba(hex, a) {
     let r, g, b;
@@ -43,12 +43,12 @@ function hexToRgba(hex, a) {
         r = hex.charAt(0);
         g = hex.charAt(1);
         b = hex.charAt(2);
-    } 
+    }
     else if (hex.length === 6) {
         r = hex.substring(0, 2);
         g = hex.substring(2, 4);
         b = hex.substring(4, 6);
-    } 
+    }
     else {
         return '';
     }

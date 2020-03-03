@@ -25,11 +25,11 @@ function Dashboard() {
         );
     });
 
-	return (
+    return (
         <MainSection extraClass="main__section-dashboard" title="Dashboard" subTitle="Choose menu">
             {groupsElements}
         </MainSection>
-	);
+    );
 }
 
 export default Dashboard;

@@ -14,8 +14,8 @@ function BackgroundGradient(props) {
     const [radialShape, setRadialShape] = useState('circle');
 
     const [colorArray, setColorArray] = useState([
-        {color: '#1988f7', alpha: 1, position: 0, isSelected: true, isDragging: false},
-        {color: '#f71988', alpha: 1, position: 100, isSelected: false, isDragging: false},
+        { color: '#1988f7', alpha: 1, position: 0, isSelected: true, isDragging: false },
+        { color: '#f71988', alpha: 1, position: 100, isSelected: false, isDragging: false },
     ]);
     const handlesAreaRef = useRef(null);
 
@@ -86,6 +86,10 @@ function BackgroundGradient(props) {
         }));
     }
 
+    function onClickHandlesArea(e) {
+        //console.log(e.clientX);
+    }
+
     function setPointColor(color) {
         setColorArray(prev => prev.map(item => {
             if (item.isSelected) item.color = color;
@@ -105,10 +109,10 @@ function BackgroundGradient(props) {
         let classes = 'button';
         if (arr[0] === mode) classes += ' is-dark is-selected'
         return (
-            <button 
-                key={arr[0]} 
-                className={classes} 
-                onClick={() => {if (arr[0] !== mode) setMode(arr[0])}}>
+            <button
+                key={arr[0]}
+                className={classes}
+                onClick={_ => setMode(arr[0])}>
                 {arr[1]}
             </button>
         );
@@ -120,10 +124,10 @@ function BackgroundGradient(props) {
             let classes = 'button';
             if (deg === linearDeg) classes += ' is-dark is-selected';
             return (
-                <button 
-                    key={deg} 
-                    className={classes} 
-                    onClick={() => {if (deg !== linearDeg) setLinearDeg(deg)}}>
+                <button
+                    key={deg}
+                    className={classes}
+                    onClick={_ => { if (deg !== linearDeg) setLinearDeg(deg) }}>
                     <span className="icon">
                         <i className="fas fa-arrow-up" data-fa-transform={`rotate-${deg}`}></i>
                     </span>
@@ -143,10 +147,10 @@ function BackgroundGradient(props) {
             let classes = 'button';
             if (arr[0] === radialShape) classes += ' is-dark is-selected'
             return (
-                <button 
-                    key={arr[0]} 
-                    className={classes} 
-                    onClick={() => {if (arr[0] !== radialShape) setRadialShape(arr[0])}}>
+                <button
+                    key={arr[0]}
+                    className={classes}
+                    onClick={_ => { if (arr[0] !== radialShape) setRadialShape(arr[0]) }}>
                     {arr[1]}
                 </button>
             );
@@ -168,10 +172,11 @@ function BackgroundGradient(props) {
             left: `${item.position}%`
         };
         return (
-            <div key={index} 
-                className={_class} 
-                style={stylesArray} 
-                onMouseDown={_ => onMouseDownHandle(index)}>
+            <div key={index}
+                className={_class}
+                style={stylesArray}
+                onMouseDown={_ => onMouseDownHandle(index)}
+                onClick={e => e.stopPropagation()}>
                 <span className="icon has-text-white has-background-black-bis">
                     <i className="fas fa-angle-down fa-lg"></i>
                 </span>
@@ -195,7 +200,9 @@ function BackgroundGradient(props) {
                 <div className="field">
                     <div className="gradient__control">
                         <div className="gradient__bg"></div>
-                        <div className="gradient__handles-area" ref={handlesAreaRef}>
+                        <div className="gradient__handles-area"
+                            ref={handlesAreaRef}
+                            onClick={onClickHandlesArea}>
                             {gradientHandleElements}
                         </div>
                     </div>
@@ -211,7 +218,7 @@ function BackgroundGradient(props) {
                             className="input"
                             type="color"
                             value={selectedColor.color}
-                            onChange={(e) => setPointColor(e.target.value)} />
+                            onChange={e => setPointColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
                         <input
@@ -220,7 +227,7 @@ function BackgroundGradient(props) {
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
                             value={selectedColor.color}
-                            onChange={(e) => setPointColor(e.target.value)} />
+                            onChange={e => setPointColor(e.target.value)} />
                     </div>
                 </div>
                 <label className="label">Color opacity</label>
@@ -232,7 +239,7 @@ function BackgroundGradient(props) {
                             max="1"
                             step="0.05"
                             value={selectedColor.alpha}
-                            onChange={(e) => setPointAlpha(e.target.value)} />
+                            onChange={e => setPointAlpha(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">1</div>

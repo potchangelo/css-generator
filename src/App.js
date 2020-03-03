@@ -10,7 +10,7 @@ const NavContext = React.createContext({});
 const initState = { isNavOpenMobile: false };
 function reducer(state, action) {
 	let newState = {};
-    if (action.type === 'toggleNav') {
+	if (action.type === 'toggleNav') {
 		newState = { isNavOpenMobile: !state.isNavOpenMobile };
 	}
 	if (action.type === 'closeNav') {
@@ -25,11 +25,11 @@ function App() {
 	return (
 		<div className="app">
 			<NavContext.Provider value={{ isNavOpenMobile, dispatch }}>
-				<Dimmer/>
-				<LeftNav/>
-				<HeaderNav/>
+				<Dimmer />
+				<LeftNav />
+				<HeaderNav />
 			</NavContext.Provider>
-			<Main/>
+			<Main />
 		</div>
 	);
 }
