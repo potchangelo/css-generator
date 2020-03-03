@@ -1,50 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
+const positionArray = [
+    'left top', 'left center', 'left bottom',
+    'center top', 'center', 'center bottom',
+    'right top', 'right center', 'right bottom'
+];
+const sizeArray = ['auto', 'cover', 'contain'];
+const repeatArray = ['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'];
+
 function BackgroundImage(props) {
-    // Props & States
+    // Props ,States
     const { updateOutput } = props;
-    const [bgImage, setBgImage] = useState('https://cdn.pixabay.com/photo/2013/03/19/23/07/easter-bunny-95096_960_720.jpg');
-    const [bgSize, setBgSize] = useState('cover');
-    const [bgPosition, setBgPosition] = useState('center');
-    const [bgRepeat, setBgRepeat] = useState('no-repeat');
-    const [bgColor, setBgColor] = useState('#000000');
+    const [image, setImage] = useState('https://cdn.pixabay.com/photo/2013/03/19/23/07/easter-bunny-95096_960_720.jpg');
+    const [position, setPosition] = useState('center');
+    const [size, setSize] = useState('cover');
+    const [repeat, setRepeat] = useState('no-repeat');
+    const [color, setColor] = useState('#000000');
     
     // Lifecycles
     useEffect(() => {
         const style = {
-            backgroundColor: `${bgColor}`,
-            backgroundImage: `url('${bgImage}')`,
-            backgroundRepeat: `${bgRepeat}`,
-            backgroundPosition: `${bgPosition}`,
-            backgroundSize: `${bgSize}`
+            backgroundColor: `${color}`,
+            backgroundImage: `url('${image}')`,
+            backgroundPosition: `${position}`,
+            backgroundSize: `${size}`,
+            backgroundRepeat: `${repeat}`,
         };
-        const css = `background-color: ${bgColor};\n` + 
-                    `background-image: url('${bgImage}');\n` +
-                    `background-repeat: ${bgRepeat};\n` +
-                    `background-position: ${bgPosition};\n` +
-                    `background-size: ${bgSize};`;
+        const css = `background-color: ${color};\n` + 
+                    `background-image: url('${image}');\n` +
+                    `background-position: ${position};\n` +
+                    `background-size: ${size};\n` + 
+                    `background-repeat: ${repeat};`;
         updateOutput(style, css);
-    }, [updateOutput, bgImage, bgSize, bgPosition, bgRepeat, bgColor]);
+    }, [updateOutput, image, position, size, repeat, color]);
 
     // Elements
-	const bgSizesArray = ['auto', 'cover', 'contain'];
-	const bgSizesElements = bgSizesArray.map(value => 
+	const sizeElements = sizeArray.map(value => 
 		<option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
     );
-    const bgPositionsArray = [
-        'left top', 'left center', 'left bottom',
-        'center top', 'center', 'center bottom',
-        'right top', 'right center', 'right bottom'
-    ];
-	const bgPositionsElements = bgPositionsArray.map(value => {
+
+	const positionElements = positionArray.map(value => {
         const label = value.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
         return (
             <option key={value} value={value}>{label}</option>
         )
     });
-    const bgRepeatsArray = ['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'];
-	const bgRepeatsElements = bgRepeatsArray.map(value => {
+    
+	const repeatElements = repeatArray.map(value => {
         const label = value.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
         return (
             <option key={value} value={value}>{label}</option>
@@ -61,27 +64,27 @@ function BackgroundImage(props) {
                             className="input" 
                             type="text" 
                             placeholder="URL"
-                            value={bgImage}
-                            onChange={(e) => setBgImage(e.target.value)} />
-                    </div>
-                </div>
-                <label className="label">Size</label>
-                <div className="field">
-                    <div className="select is-fullwidth">
-                        <select
-                            value={bgSize} 
-                            onChange={(e) => setBgSize(e.target.value)} >
-                            {bgSizesElements}
-                        </select>
+                            value={image}
+                            onChange={e => setImage(e.target.value)} />
                     </div>
                 </div>
                 <label className="label">Position</label>
                 <div className="field">
                     <div className="select is-fullwidth">
                         <select
-                            value={bgPosition} 
-                            onChange={(e) => setBgPosition(e.target.value)} >
-                            {bgPositionsElements}
+                            value={position} 
+                            onChange={e => setPosition(e.target.value)} >
+                            {positionElements}
+                        </select>
+                    </div>
+                </div>
+                <label className="label">Size</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={size} 
+                            onChange={e => setSize(e.target.value)} >
+                            {sizeElements}
                         </select>
                     </div>
                 </div>
@@ -89,20 +92,20 @@ function BackgroundImage(props) {
                 <div className="field">
                     <div className="select is-fullwidth">
                         <select
-                            value={bgRepeat} 
-                            onChange={(e) => setBgRepeat(e.target.value)} >
-                            {bgRepeatsElements}
+                            value={repeat} 
+                            onChange={e => setRepeat(e.target.value)} >
+                            {repeatElements}
                         </select>
                     </div>
                 </div>
-                <label className="label">Background Color (Support while loading image)</label>
+                <label className="label">Background color (support while loading image)</label>
                 <div className="field has-addons">
                     <div className="control__color control">
                         <input 
                             className="input"
                             type="color" 
-                            value={bgColor}
-                            onChange={(e) => setBgColor(e.target.value)} />
+                            value={color}
+                            onChange={e => setColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
                         <input 
@@ -110,8 +113,8 @@ function BackgroundImage(props) {
                             type="text" 
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                            value={bgColor}
-                            onChange={(e) => setBgColor(e.target.value)} />
+                            value={color}
+                            onChange={e => setColor(e.target.value)} />
                     </div>
                 </div>
             </div>
