@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import { NavContext } from '../App';
-import { menuGroupsArray } from '../Helpers';
+import { menuGroupArray } from '../Helpers';
 import Logo from '../Images/Logo64.png';
 
 function LeftNav(props) {
@@ -15,7 +15,7 @@ function LeftNav(props) {
     }, [location]);
 
     // Elements
-    const groupsElements = menuGroupsArray.map(group => {
+    const groupsElements = menuGroupArray.map(group => {
         const linksElements = group.links.map(link => {
             return (
                 <NavLink key={link[0]} to={link[0]}>{link[1]}</NavLink>

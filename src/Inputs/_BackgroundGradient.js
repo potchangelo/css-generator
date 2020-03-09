@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MainSection } from '../Parents';
-import { hexToRgba } from '../Helpers';
+import { colorHexToRgba, gradientAddHex } from '../Helpers';
 
 const modeArray = [['linear', 'Linear'], ['radial', 'Radial']];
 const linearDegArray = [90, 135, 180, 225, 270, 315, 0, 45];
@@ -27,13 +27,13 @@ function BackgroundGradient(props) {
             window.removeEventListener('mousemove', onMouseMoveHandle);
             window.removeEventListener('mouseup', onMouseUpHandle);
         }
-    }, []);
+    }, [colorArray]);
 
     useEffect(() => {
         const colorPointStrings = [...colorArray].sort((item1, item2) => {
             return item1.position - item2.position;
         }).map((item) => {
-            return `${hexToRgba(item.color, item.alpha)} ${item.position}%`;
+            return `${colorHexToRgba(item.color, item.alpha)} ${item.position}%`;
         });
 
         let colorString = '';
@@ -65,13 +65,10 @@ function BackgroundGradient(props) {
     function onMouseMoveHandle(e) {
         if (!colorArray.some(item => item.isDragging)) return;
 
-        const minX = handlesAreaRef.current.getBoundingClientRect().left;
-        const maxX = handlesAreaRef.current.getBoundingClientRect().right;
-        let moveX = e.clientX;
-        if (moveX < minX) moveX = minX;
-        else if (moveX > maxX) moveX = maxX;
+        let percentX = getHandlePointPercent(e.clientX);
+        if (percentX < 0) percentX = 0;
+        else if (percentX > 100) percentX = 100;
 
-        const percentX = Math.round((moveX - minX) / (maxX - minX) * 100);
         setColorArray(prev => prev.map(item => {
             if (item.isDragging) item.position = percentX;
             return item;
@@ -87,7 +84,39 @@ function BackgroundGradient(props) {
     }
 
     function onClickHandlesArea(e) {
-        //console.log(e.clientX);
+        const percentX = getHandlePointPercent(e.clientX);
+
+        // Color
+        const colorLeftObj = [...colorArray].sort((color1, color2) => {
+            return color2.position - color1.position;
+        }).find(color => color.position < percentX);
+        const colorRightObj = [...colorArray].sort((color1, color2) => {
+            return color1.position - color2.position;
+        }).find(color => color.position > percentX);
+
+        let colorMid;
+        if (colorLeftObj === undefined) colorMid = colorRightObj.color;
+        else if (colorRightObj === undefined) colorMid = colorLeftObj.color;
+        else {
+            const { color: colorLeft, position: percentLeft } = colorLeftObj;
+            const { color: colorRight, position: percentRight } = colorRightObj;
+            const ratio = (percentX - percentLeft) / (percentRight - percentLeft);
+            colorMid = gradientAddHex(colorLeft, colorRight, ratio);
+        }
+
+        // TODO: -- Continue alpha --
+
+        const colorObj = {
+            color: colorMid, alpha: 1, position: percentX, isSelected: true, isDragging: false
+        }
+        setColorArray(prev => {
+            const next = prev.map(item => {
+                item.isSelected = false;
+                return item;
+            });
+            next.push(colorObj);
+            return next
+        });
     }
 
     function setPointColor(color) {
@@ -102,6 +131,11 @@ function BackgroundGradient(props) {
             if (item.isSelected) item.alpha = alpha;
             return item;
         }));
+    }
+
+    function getHandlePointPercent(x) {
+        const { left, right } = handlesAreaRef.current.getBoundingClientRect();
+        return Math.round((x - left) / (right - left) * 100);
     }
 
     // Elements

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { menuGroupsArray } from '../Helpers';
+import { menuGroupArray } from '../Helpers';
 import './Css/Dashboard.scss';
 import { MainSection } from '../Parents';
 
 function Dashboard() {
-    const groupsElements = menuGroupsArray.map(group => {
+    const groupsElements = menuGroupArray.map(group => {
         const linksElements = group.links.map(link => {
             return (
                 <div key={link[0]} className="column is-6-mobile is-6-tablet is-4-desktop">

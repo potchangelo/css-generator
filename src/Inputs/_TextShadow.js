@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
-import { hexToRgba } from '../Helpers'
+import { colorHexToRgba } from '../Helpers'
 
 function TextShadow(props) {
     // Props & States
@@ -13,7 +13,7 @@ function TextShadow(props) {
     
     // Lifecycles
     useEffect(() => {
-        const shadowColorOutput = hexToRgba(shadowColor, shadowColorAlpha);
+        const shadowColorOutput = colorHexToRgba(shadowColor, shadowColorAlpha);
         const style = { textShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput}` };
         const css = `text-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput};`;
         updateOutput(style, css);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
-import { hexToRgba } from '../Helpers';
+import { colorHexToRgba } from '../Helpers';
 
 function BoxShadow(props) {
     // Props & States
@@ -14,7 +14,7 @@ function BoxShadow(props) {
 
     // Lifecycles
     useEffect(() => {
-        const colorOutput = hexToRgba(color, colorAlpha);
+        const colorOutput = colorHexToRgba(color, colorAlpha);
         const style = { boxShadow: `${x}px ${y}px ${blur}px ${spread}px ${colorOutput}` };
         const css = `box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${colorOutput};`;
         updateOutput(style, css);
