@@ -69,9 +69,9 @@ function colorHexToRgbNumbers(hex) {
         hB = pureHex.substring(4, 6);
     }
     else {
-        console.log(hex)
-        console.log(pureHex);
-        return null;
+        hR = '00'; 
+        hG = '00'; 
+        hB = '00';
     }
 
     if (hR.length === 1) hR += hR;
