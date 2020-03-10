@@ -68,7 +68,11 @@ function colorHexToRgbNumbers(hex) {
         hG = pureHex.substring(2, 4);
         hB = pureHex.substring(4, 6);
     }
-    else return null;
+    else {
+        console.log(hex)
+        console.log(pureHex);
+        return null;
+    }
 
     if (hR.length === 1) hR += hR;
     if (hG.length === 1) hG += hG;
@@ -92,8 +96,11 @@ function gradientMiddleHex(hexL, hexR, ratio) {
         }
         rgbM[c] = Math.round(numL + (numR - numL) * calcRatio);
     })
-    const { r, g, b } = rgbM;
-    return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+    let { r, g, b } = rgbM;
+    const hR = (r < 16) ? '0' + r.toString(16) : r.toString(16);
+    const hG = (g < 16) ? '0' + g.toString(16) : g.toString(16);
+    const hB = (b < 16) ? '0' + b.toString(16) : b.toString(16);
+    return `#${hR}${hG}${hB}`;
 }
 
 function gradientMiddleAlpha(aL, aR, ratio) {
