@@ -8,7 +8,7 @@ function Dimmer() {
     if (navContext.isNavOpenMobile === false) _class += ' is-hidden-mobile';
 
     return (
-        <div className={_class} onClick={() => navContext.dispatch({type: 'closeNav'})}></div>
+        <div className={_class} onClick={_ => navContext.dispatch({type: 'closeNav'})}></div>
     );
 }
 

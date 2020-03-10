@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MainSection } from '../Parents';
-import { colorHexToRgba, gradientAddHex, gradientAddAlpha } from '../Helpers';
+import { colorHexToRgba, gradientMiddleHex, gradientMiddleAlpha } from '../Helpers';
 
 const modeArray = [
     {key: 'linear', title: 'Linear'},
@@ -120,8 +120,8 @@ function BackgroundGradient(props) {
                 position: percentRight,
                 alpha: alphaRight } = colorRightObj;
             const ratio = (percentX - percentLeft) / (percentRight - percentLeft);
-            colorMid = gradientAddHex(colorLeft, colorRight, ratio);
-            alphaMid = gradientAddAlpha(alphaLeft, alphaRight, ratio);
+            colorMid = gradientMiddleHex(colorLeft, colorRight, ratio);
+            alphaMid = gradientMiddleAlpha(alphaLeft, alphaRight, ratio);
         }
 
         const pointObj = {

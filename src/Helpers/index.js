@@ -1,37 +1,47 @@
 const menuGroupArray = [
     {
         name: 'Background',
-        links: [
-            ['background-color', 'Background Color'], ['background-gradient', 'Background Gradient'],
-            ['background-image', 'Background Image']
+        linkArray: [
+            { url: 'background-color', title: 'Background Color' }, 
+            { url: 'background-gradient', title: 'Background Gradient' },
+            { url: 'background-image', title: 'Background Image' }
         ]
     },
     {
         name: 'Border',
-        links: [
-            ['border', 'Border'], ['border-radius', 'Border Radius'], ['box-shadow', 'Box Shadow']
+        linkArray: [
+            { url: 'border', title: 'Border' }, 
+            { url: 'border-radius', title: 'Border Radius' }, 
+            { url: 'box-shadow', title: 'Box Shadow' }
         ]
     },
     {
         name: 'Filter',
-        links: [
-            ['filter-blur', 'Blur'], ['filter-brightness', 'Brightness'],
-            ['filter-contrast', 'Contrast'], ['filter-grayscale', 'Grayscale'],
-            ['filter-hue-rotate', 'Hue-Rotate'], ['filter-invert', 'invert'],
-            ['filter-saturate', 'Saturate'], ['filter-sepia', 'Sepia']
+        linkArray: [
+            { url: 'filter-blur', title: 'Blur' }, 
+            { url: 'filter-brightness', title: 'Brightness' },
+            { url: 'filter-contrast', title: 'Contrast' }, 
+            { url: 'filter-grayscale', title: 'Grayscale' },
+            { url: 'filter-hue-rotate', title: 'Hue-Rotate' }, 
+            { url: 'filter-invert', title: 'invert' },
+            { url: 'filter-saturate', title: 'Saturate' }, 
+            { url: 'filter-sepia', title: 'Sepia' }
         ]
     },
     {
         name: 'Text',
-        links: [
-            ['text', 'Text'], ['text-shadow', 'Text Shadow']
+        linkArray: [
+            { url: 'text', title: 'Text' }, 
+            { url: 'text-shadow', title: 'Text Shadow' }
         ]
     },
     {
         name: 'Transform',
-        links: [
-            ['transform-translate', 'Translate'], ['transform-rotate', 'Rotate'],
-            ['transform-scale', 'Scale'], ['transform-skew', 'Skew']
+        linkArray: [
+            { url: 'transform-translate', title: 'Translate' }, 
+            { url: 'transform-rotate', title: 'Rotate' },
+            { url: 'transform-scale', title: 'Scale' }, 
+            { url: 'transform-skew', title: 'Skew' }
         ]
     }
 ];
@@ -68,10 +78,10 @@ function colorHexToRgbNumbers(hex) {
     return { r, g, b };
 }
 
-function gradientAddHex(hexL, hexR, ratio) {
+function gradientMiddleHex(hexL, hexR, ratio) {
     const rgbL = colorHexToRgbNumbers(hexL);
     const rgbR = colorHexToRgbNumbers(hexR);
-    let rgbAdded = {};
+    let rgbM = {};
     ['r', 'g', 'b'].forEach(c => {
         let numL = rgbL[c], numR = rgbR[c], calcRatio = ratio;
         if (numL > numR) {
@@ -80,21 +90,20 @@ function gradientAddHex(hexL, hexR, ratio) {
             numR = tempL;
             calcRatio = 1 - ratio;
         }
-        rgbAdded[c] = Math.round(numL + (numR - numL) * calcRatio);
+        rgbM[c] = Math.round(numL + (numR - numL) * calcRatio);
     })
-    const { r, g, b } = rgbAdded;
+    const { r, g, b } = rgbM;
     return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
 }
 
-function gradientAddAlpha(alphaL, alphaR, ratio) {
-    let calcAlphaL = alphaL, calcAlphaR = alphaR, calcRatio = ratio;
-    if (alphaL > alphaR) {
-        calcAlphaL = alphaR;
-        calcAlphaR = alphaL;
+function gradientMiddleAlpha(aL, aR, ratio) {
+    let calcAL = aL, calcAR = aR, calcRatio = ratio;
+    if (aL > aR) {
+        calcAL = aR;
+        calcAR = aL;
         calcRatio = 1 - ratio;
     }
-    let alphaAdded = calcAlphaL + (calcAlphaR - calcAlphaL) * calcRatio;
-    return alphaAdded;
+    return calcAL + (calcAR - calcAL) * calcRatio;
 }
 
-export { menuGroupArray, colorHexToRgba, colorHexToRgbNumbers, gradientAddHex, gradientAddAlpha };
+export { menuGroupArray, colorHexToRgba, colorHexToRgbNumbers, gradientMiddleHex, gradientMiddleAlpha };

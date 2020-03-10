@@ -6,7 +6,7 @@ function HeaderNav() {
     const navContext = useContext(NavContext);
 	return (
         <header className="headernav is-hidden-tablet">
-            <div className="headernav__menu" onClick={() => navContext.dispatch({type: 'toggleNav'})}>
+            <div className="headernav__menu" onClick={_ => navContext.dispatch({type: 'toggleNav'})}>
                 <span className="icon">
                     <i className="fas fa-bars fa-lg" />
                 </span>

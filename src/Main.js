@@ -4,6 +4,29 @@ import Dashboard from './Dashboard';
 import * as I from './Inputs';
 import { Preview, Code } from './Outputs';
 
+const routeArray = [
+    { url: 'background-gradient', Component: I.BackgroundGradient },
+    { url: 'background-color', Component: I.BackgroundColor },
+    { url: 'background-image', Component: I.BackgroundImage },
+    { url: 'border', Component: I.Border },
+    { url: 'border-radius', Component: I.BorderRadius },
+    { url: 'box-shadow', Component: I.BoxShadow },
+    { url: 'filter-blur', Component: I.FilterBlur },
+    { url: 'filter-brightness', Component: I.FilterBrightness },
+    { url: 'filter-contrast', Component: I.FilterContrast },
+    { url: 'filter-grayscale', Component: I.FilterGrayscale },
+    { url: 'filter-hue-rotate', Component: I.FilterHueRotate },
+    { url: 'filter-invert', Component: I.FilterInvert },
+    { url: 'filter-saturate', Component: I.FilterSaturate },
+    { url: 'filter-sepia', Component: I.FilterSepia },
+    { url: 'text', Component: I.Text },
+    { url: 'text-shadow', Component: I.TextShadow },
+    { url: 'transform-translate', Component: I.TransformTranslate },
+    { url: 'transform-rotate', Component: I.TransformRotate },
+    { url: 'transform-scale', Component: I.TransformScale },
+    { url: 'transform-skew', Component: I.TransformSkew }
+];
+
 function Main() {
     // States
     const [outputStyle, setOutputStyle] = useState({});
@@ -16,25 +39,10 @@ function Main() {
     }, []);
 
     // Routes
-    const routesArray = [
-        ['background-color', I.BackgroundColor], ['background-gradient', I.BackgroundGradient],
-        ['background-image', I.BackgroundImage],
-        ['border', I.Border], ['border-radius', I.BorderRadius], ['box-shadow', I.BoxShadow],
-        ['filter-blur', I.FilterBlur], ['filter-brightness', I.FilterBrightness],
-        ['filter-contrast', I.FilterContrast], ['filter-grayscale', I.FilterGrayscale],
-        ['filter-hue-rotate', I.FilterHueRotate], ['filter-invert', I.FilterInvert],
-        ['filter-saturate', I.FilterSaturate], ['filter-sepia', I.FilterSepia],
-        ['text', I.Text], ['text-shadow', I.TextShadow],
-        ['transform-translate', I.TransformTranslate], ['transform-rotate', I.TransformRotate],
-        ['transform-scale', I.TransformScale], ['transform-skew', I.TransformSkew]
-    ];
-    const routesElements = routesArray.map(obj => {
-        let [rawPath, Component] = obj;
-        if (rawPath === '') {
-            return <Route key={rawPath} exact path="/"><div>Home</div></Route>;
-        }
+    const routesElements = routeArray.map(route => {
+        let { url, Component } = route;
         return (
-            <Route key={rawPath} path={`/${rawPath}`}>
+            <Route key={url} path={`/${url}`}>
                 <Component updateOutput={updateOutput} />
             </Route>
         );
