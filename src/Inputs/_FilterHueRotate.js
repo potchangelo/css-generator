@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterHueRotate(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [hueRotate, setHueRotate] = useState(180);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `hue-rotate(${hueRotate}deg)` };
         const css = `filter: hue-rotate(${hueRotate}deg);`;
         updateOutput(style, css);
-    }, [updateOutput, hueRotate]);
+    }, [hueRotate]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Hue-Rotate" subTitle="Customizing">

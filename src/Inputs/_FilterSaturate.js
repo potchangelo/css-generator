@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterSaturate(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [saturate, setSaturate] = useState(150);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `saturate(${saturate}%)` };
         const css = `filter: saturate(${saturate}%);`;
         updateOutput(style, css);
-    }, [updateOutput, saturate]);
+    }, [saturate]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Saturate" subTitle="Customizing">

@@ -3,7 +3,7 @@ import { MainSection } from '../Parents';
 import { colorHexToRgba } from '../Helpers';
 
 function BoxShadow(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [x, setX] = useState(2);
     const [y, setY] = useState(2);
@@ -12,13 +12,13 @@ function BoxShadow(props) {
     const [color, setColor] = useState('#000000');
     const [colorAlpha, setColorAlpha] = useState(0.1);
 
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const colorOutput = colorHexToRgba(color, colorAlpha);
         const style = { boxShadow: `${x}px ${y}px ${blur}px ${spread}px ${colorOutput}` };
         const css = `box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${colorOutput};`;
         updateOutput(style, css);
-    }, [updateOutput, x, y, blur, spread, color, colorAlpha]);
+    }, [x, y, blur, spread, color, colorAlpha]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Box Shadow" subTitle="Customizing">

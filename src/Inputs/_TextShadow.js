@@ -3,21 +3,21 @@ import { MainSection } from '../Parents';
 import { colorHexToRgba } from '../Helpers'
 
 function TextShadow(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
-    const [shadowX, setShadowX] = useState(1);
-    const [shadowY, setShadowY] = useState(1);
-    const [shadowBlur, setShadowBlur] = useState(2);
-    const [shadowColor, setShadowColor] = useState('#1988f7');
-    const [shadowColorAlpha, setShadowColorAlpha] = useState(0.8);
+    const [x, setX] = useState(1);
+    const [y, setY] = useState(1);
+    const [blur, setBlur] = useState(2);
+    const [color, setColor] = useState('#1988f7');
+    const [colorAlpha, setColorAlpha] = useState(0.8);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
-        const shadowColorOutput = colorHexToRgba(shadowColor, shadowColorAlpha);
-        const style = { textShadow: `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput}` };
-        const css = `text-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColorOutput};`;
+        const colorOutput = colorHexToRgba(color, colorAlpha);
+        const style = { textShadow: `${x}px ${y}px ${blur}px ${colorOutput}` };
+        const css = `text-shadow: ${x}px ${y}px ${blur}px ${colorOutput};`;
         updateOutput(style, css);
-    }, [updateOutput, shadowX, shadowY, shadowBlur, shadowColor, shadowColorAlpha]);
+    }, [x, y, blur, color, colorAlpha]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Text Shadow" subTitle="Customizing">
@@ -29,8 +29,8 @@ function TextShadow(props) {
                             type="range"
                             min="-10"
                             max="10"
-                            value={shadowX}
-                            onChange={(e) => setShadowX(e.target.value)} />
+                            value={x}
+                            onChange={(e) => setX(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">-10</div>
                             <div className="item has-text-grey">10</div>
@@ -44,8 +44,8 @@ function TextShadow(props) {
                             type="range"
                             min="-10"
                             max="10"
-                            value={shadowY}
-                            onChange={(e) => setShadowY(e.target.value)} />
+                            value={y}
+                            onChange={(e) => setY(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">-10</div>
                             <div className="item has-text-grey">10</div>
@@ -59,8 +59,8 @@ function TextShadow(props) {
                             type="range"
                             min="0"
                             max="20"
-                            value={shadowBlur}
-                            onChange={(e) => setShadowBlur(e.target.value)} />
+                            value={blur}
+                            onChange={(e) => setBlur(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">20</div>
@@ -73,8 +73,8 @@ function TextShadow(props) {
                         <input 
                             className="input"
                             type="color" 
-                            value={shadowColor}
-                            onChange={(e) => setShadowColor(e.target.value)} />
+                            value={color}
+                            onChange={(e) => setColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
                         <input 
@@ -82,8 +82,8 @@ function TextShadow(props) {
                             type="text" 
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                            value={shadowColor}
-                            onChange={(e) => setShadowColor(e.target.value)} />
+                            value={color}
+                            onChange={(e) => setColor(e.target.value)} />
                     </div>
                 </div>
                 <label className="label">Color opacity</label>
@@ -94,8 +94,8 @@ function TextShadow(props) {
                             min="0"
                             max="1"
                             step="0.01"
-                            value={shadowColorAlpha}
-                            onChange={(e) => setShadowColorAlpha(Number(e.target.value))} />
+                            value={colorAlpha}
+                            onChange={(e) => setColorAlpha(Number(e.target.value))} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">1</div>

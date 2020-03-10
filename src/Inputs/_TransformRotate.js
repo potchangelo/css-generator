@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function TransformRotate(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [rotate, setRotate] = useState(0);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { transform: `rotate(${rotate}deg)` };
         const css = `transform: rotate(${rotate}deg);`;
         updateOutput(style, css);
-    }, [updateOutput, rotate]);
+    }, [rotate]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Rotate" subTitle="Customizing">

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterInvert(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [invert, setInvert] = useState(100);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `invert(${invert}%)` };
         const css = `filter: invert(${invert}%);`;
         updateOutput(style, css);
-    }, [updateOutput, invert]);
+    }, [invert]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Invert" subTitle="Customizing">

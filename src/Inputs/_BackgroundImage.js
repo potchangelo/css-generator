@@ -18,7 +18,7 @@ function BackgroundImage(props) {
     const [repeat, setRepeat] = useState('no-repeat');
     const [color, setColor] = useState('#000000');
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = {
             backgroundColor: `${color}`,
@@ -33,25 +33,25 @@ function BackgroundImage(props) {
                     `background-size: ${size};\n` + 
                     `background-repeat: ${repeat};`;
         updateOutput(style, css);
-    }, [updateOutput, image, position, size, repeat, color]);
+    }, [image, position, size, repeat, color]);
 
     // Elements
-	const sizeElements = sizeArray.map(value => 
-		<option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
+    const positionElements = positionArray.map(_position => {
+        const label = _position.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+        return (
+            <option key={_position} value={_position}>{label}</option>
+        );
+    });
+
+	const sizeElements = sizeArray.map(_size => 
+		<option key={_size} value={_size}>{_size.charAt(0).toUpperCase() + _size.slice(1)}</option>
     );
 
-	const positionElements = positionArray.map(value => {
-        const label = value.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+	const repeatElements = repeatArray.map(_repeat => {
+        const label = _repeat.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
         return (
-            <option key={value} value={value}>{label}</option>
-        )
-    });
-    
-	const repeatElements = repeatArray.map(value => {
-        const label = value.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-        return (
-            <option key={value} value={value}>{label}</option>
-        )
+            <option key={_repeat} value={_repeat}>{label}</option>
+        );
     });
 
     return (

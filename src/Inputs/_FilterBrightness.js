@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterBrightness(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [brightness, setBrightness] = useState(135);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `brightness(${brightness}%)` };
         const css = `filter: brightness(${brightness}%);`;
         updateOutput(style, css);
-    }, [updateOutput, brightness]);
+    }, [brightness]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Brightness" subTitle="Customizing">

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterBlur(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [blur, setBlur] = useState(4);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `blur(${blur}px)` };
         const css = `filter: blur(${blur}px);`;
         updateOutput(style, css);
-    }, [updateOutput, blur]);
+    }, [blur]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Blur" subTitle="Customizing">

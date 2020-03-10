@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterContrast(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [contrast, setContrast] = useState(150);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `contrast(${contrast}%)` };
         const css = `filter: contrast(${contrast}%);`;
         updateOutput(style, css);
-    }, [updateOutput, contrast]);
+    }, [contrast]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Contrast" subTitle="Customizing">

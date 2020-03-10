@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function TransformScale(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [scaleX, setScaleX] = useState(1);
     const [scaleY, setScaleY] = useState(1);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { transform: `scale(${scaleX}, ${scaleY})` };
         const css = `transform: scale(${scaleX}, ${scaleY});`;
         updateOutput(style, css);
-    }, [updateOutput, scaleX, scaleY]);
+    }, [scaleX, scaleY]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Scale" subTitle="Customizing">

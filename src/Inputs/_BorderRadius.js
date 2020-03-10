@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
-const modeArray = [['all', 'One Value'], ['each', 'Individual']];
-const radiusEachArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+const modeArray = [
+    { key: 'all', title: 'One Value' }, 
+    { key: 'each', title: 'Individual' }
+];
+const sideArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
 function BorderRadius(props) {
     // Props, States
@@ -14,7 +17,7 @@ function BorderRadius(props) {
     const [radiusBr, setRadiusBr] = useState(12);
     const [radiusBl, setRadiusBl] = useState(12);
 
-    // Lifecycles
+    // Effects
     useEffect(() => {
         let style, css;
         if (mode === 'each') {
@@ -26,56 +29,53 @@ function BorderRadius(props) {
             css = `border-radius: ${radius}px;`;
         }
         updateOutput(style, css);
-    }, [
-        updateOutput, mode, radius,
-        radiusTl, radiusTr, radiusBr, radiusBl
-    ]);
+    }, [mode, radius, radiusTl, radiusTr, radiusBr, radiusBl]);
 
     // Elements
-    const modeElements = modeArray.map(arr => {
+    const modeElements = modeArray.map(_mode => {
         let classes = 'button';
-        if (arr[0] === mode) classes += ' is-dark is-selected'
+        if (_mode.key === mode) classes += ' is-dark is-selected'
         return (
             <button
-                key={arr[0]}
+                key={_mode.key}
                 className={classes}
-                onClick={_ => setMode(arr[0])}>
-                {arr[1]}
+                onClick={_ => setMode(_mode.key)}>
+                {_mode.title}
             </button>
         );
     });
 
     let radiusElements;
     if (mode === 'each') {
-        radiusElements = radiusEachArray.map(value => {
-            let st, fn;
-            if (value === 'top-left') {
-                st = radiusTl;
-                fn = setRadiusTl;
+        radiusElements = sideArray.map(side => {
+            let _radius, _setRadius;
+            if (side === 'top-left') {
+                _radius = radiusTl;
+                _setRadius = setRadiusTl;
             }
-            else if (value === 'top-right') {
-                st = radiusTr;
-                fn = setRadiusTr;
+            else if (side === 'top-right') {
+                _radius = radiusTr;
+                _setRadius = setRadiusTr;
             }
-            else if (value === 'bottom-right') {
-                st = radiusBr;
-                fn = setRadiusBr;
+            else if (side === 'bottom-right') {
+                _radius = radiusBr;
+                _setRadius = setRadiusBr;
             }
             else {
-                st = radiusBl;
-                fn = setRadiusBl;
+                _radius = radiusBl;
+                _setRadius = setRadiusBl;
             }
             return (
-                <React.Fragment key={value}>
-                    <label className="label">Radius {value} (pixels)</label>
+                <React.Fragment key={side}>
+                    <label className="label">Radius {side} (pixels)</label>
                     <div className="field">
                         <div className="control__range control">
                             <input
                                 type="range"
                                 min="0"
                                 max="40"
-                                value={st}
-                                onChange={e => fn(e.target.value)} />
+                                value={_radius}
+                                onChange={e => _setRadius(e.target.value)} />
                             <div className="control__range--text">
                                 <div className="item has-text-grey">0</div>
                                 <div className="item has-text-grey">40</div>

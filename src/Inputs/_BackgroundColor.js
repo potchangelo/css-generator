@@ -4,14 +4,14 @@ import { MainSection } from '../Parents';
 function BackgroundColor(props) {
     // Props ,States
     const { updateOutput } = props;
-    const [backgroundColor, setBackgroundColor] = useState('#1988f7');
+    const [color, setColor] = useState('#1988f7');
 
-    // Lifecycles
+    // Effects
     useEffect(() => {
-        const style = { backgroundColor: `${backgroundColor}` };
-        const css = `background-color: ${backgroundColor};`;
+        const style = { backgroundColor: `${color}` };
+        const css = `background-color: ${color};`;
         updateOutput(style, css);
-    }, [updateOutput, backgroundColor]);
+    }, [color]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
@@ -22,8 +22,8 @@ function BackgroundColor(props) {
                         <input
                             className="input"
                             type="color"
-                            value={backgroundColor}
-                            onChange={e => setBackgroundColor(e.target.value)} />
+                            value={color}
+                            onChange={e => setColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
                         <input
@@ -31,8 +31,8 @@ function BackgroundColor(props) {
                             type="text"
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                            value={backgroundColor}
-                            onChange={e => setBackgroundColor(e.target.value)} />
+                            value={color}
+                            onChange={e => setColor(e.target.value)} />
                     </div>
                 </div>
             </div>

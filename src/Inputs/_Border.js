@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
-const modeArray = [['all', 'One Value'], ['each', 'Individual']];
+const modeArray = [
+    { key: 'all', title: 'One Value'}, 
+    { key: 'each', title: 'Individual'}
+];
 const styleArray = [
     'solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset'
 ];
-const borderEachArray = ['top', 'right', 'bottom', 'left'];
+const sideArray = ['top', 'right', 'bottom', 'left'];
 
 function Border(props) {
     // Props, States
@@ -31,7 +34,7 @@ function Border(props) {
     const [styleL, setStyleL] = useState('solid');
     const [widthL, setWidthL] = useState(1);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         let style = {}, css = '';
         if (mode === 'each') {
@@ -58,7 +61,7 @@ function Border(props) {
         }
         updateOutput(style, css);
     }, [
-        updateOutput, mode, color, styleAll, width,
+        mode, color, styleAll, width,
         colorT, styleT, widthT,
         colorR, styleR, widthR,
         colorB, styleB, widthB,
@@ -66,69 +69,69 @@ function Border(props) {
     ]);
 
     // Elements
-    const modeElements = modeArray.map(arr => {
+    const modeElements = modeArray.map(_mode => {
         let classes = 'button';
-        if (arr[0] === mode) classes += ' is-dark is-selected'
+        if (_mode.key === mode) classes += ' is-dark is-selected'
         return (
             <button
-                key={arr[0]}
+                key={_mode.key}
                 className={classes}
-                onClick={_ => setMode(arr[0])}>
-                {arr[1]}
+                onClick={_ => setMode(_mode.key)}>
+                {_mode.title}
             </button>
         );
     });
 
     let borderElements;
-    const styleElements = styleArray.map(value =>
-        <option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
+    const styleElements = styleArray.map(style =>
+        <option key={style} value={style}>{style.charAt(0).toUpperCase() + style.slice(1)}</option>
     );
     if (mode === 'each') {
-        borderElements = borderEachArray.map(value => {
-            let stColor, stStyle, stWidth, fnColor, fnStyle, fnWidth;
-            if (value === 'top') {
-                stColor = colorT;
-                stStyle = styleT;
-                stWidth = widthT;
-                fnColor = setColorT;
-                fnStyle = setStyleT;
-                fnWidth = setWidthT;
+        borderElements = sideArray.map(side => {
+            let _color, _style, _width, _setColor, _setStyle, _setWidth;
+            if (side === 'top') {
+                _color = colorT;
+                _style = styleT;
+                _width = widthT;
+                _setColor = setColorT;
+                _setStyle = setStyleT;
+                _setWidth = setWidthT;
             }
-            else if (value === 'right') {
-                stColor = colorR;
-                stStyle = styleR;
-                stWidth = widthR;
-                fnColor = setColorR;
-                fnStyle = setStyleR;
-                fnWidth = setWidthR;
+            else if (side === 'right') {
+                _color = colorR;
+                _style = styleR;
+                _width = widthR;
+                _setColor = setColorR;
+                _setStyle = setStyleR;
+                _setWidth = setWidthR;
             }
-            else if (value === 'bottom') {
-                stColor = colorB;
-                stStyle = styleB;
-                stWidth = widthB;
-                fnColor = setColorB;
-                fnStyle = setStyleB;
-                fnWidth = setWidthB;
+            else if (side === 'bottom') {
+                _color = colorB;
+                _style = styleB;
+                _width = widthB;
+                _setColor = setColorB;
+                _setStyle = setStyleB;
+                _setWidth = setWidthB;
             }
             else {
-                stColor = colorL;
-                stStyle = styleL;
-                stWidth = widthL;
-                fnColor = setColorL;
-                fnStyle = setStyleL;
-                fnWidth = setWidthL;
+                _color = colorL;
+                _style = styleL;
+                _width = widthL;
+                _setColor = setColorL;
+                _setStyle = setStyleL;
+                _setWidth = setWidthL;
             }
             return (
-                <React.Fragment key={value}>
-                    <h4 className="title has-margin-top is-5">Border {value}</h4>
+                <React.Fragment key={side}>
+                    <h4 className="title has-margin-top is-5">Border {side}</h4>
                     <label className="label">Color</label>
                     <div className="field has-addons">
                         <div className="control__color control">
                             <input
                                 className="input"
                                 type="color"
-                                value={stColor}
-                                onChange={e => fnColor(e.target.value)} />
+                                value={_color}
+                                onChange={e => _setColor(e.target.value)} />
                         </div>
                         <div className="control is-expanded">
                             <input
@@ -136,16 +139,16 @@ function Border(props) {
                                 type="text"
                                 placeholder="HEX Color"
                                 pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                                value={stColor}
-                                onChange={e => fnColor(e.target.value)} />
+                                value={_color}
+                                onChange={e => _setColor(e.target.value)} />
                         </div>
                     </div>
                     <label className="label">Style</label>
                     <div className="field">
                         <div className="select is-fullwidth">
                             <select
-                                value={stStyle}
-                                onChange={e => fnStyle(e.target.value)} >
+                                value={_style}
+                                onChange={e => _setStyle(e.target.value)} >
                                 {styleElements}
                             </select>
                         </div>
@@ -157,8 +160,8 @@ function Border(props) {
                                 type="range"
                                 min="0"
                                 max="20"
-                                value={stWidth}
-                                onChange={e => fnWidth(e.target.value)} />
+                                value={_width}
+                                onChange={e => _setWidth(e.target.value)} />
                             <div className="control__range--text">
                                 <div className="item has-text-grey">0</div>
                                 <div className="item has-text-grey">20</div>

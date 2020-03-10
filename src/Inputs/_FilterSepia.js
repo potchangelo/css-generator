@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterSepia(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [sepia, setSepia] = useState(100);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `sepia(${sepia}%)` };
         const css = `filter: sepia(${sepia}%);`;
         updateOutput(style, css);
-    }, [updateOutput, sepia]);
+    }, [sepia]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Sepia" subTitle="Customizing">

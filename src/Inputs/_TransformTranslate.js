@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function TransformTranslate(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [translateX, setTranslateX] = useState(0);
     const [translateY, setTranslateY] = useState(0);
     const [unitX, setUnitX] = useState('px');
     const [unitY, setUnitY] = useState('px');
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { transform: `translate(${translateX}${unitX}, ${translateY}${unitY})` };
         const css = `transform: translate(${translateX}${unitX}, ${translateY}${unitY});`;
         updateOutput(style, css);
-    }, [updateOutput, translateX, translateY, unitX, unitY]);
+    }, [translateX, translateY, unitX, unitY]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Translate" subTitle="Customizing">

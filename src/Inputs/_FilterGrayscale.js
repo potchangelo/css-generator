@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function FilterGrayscale(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [grayscale, setGrayscale] = useState(100);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { filter: `grayscale(${grayscale}%)` };
         const css = `filter: grayscale(${grayscale}%);`;
         updateOutput(style, css);
-    }, [updateOutput, grayscale]);
+    }, [grayscale]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Grayscale" subTitle="Customizing">

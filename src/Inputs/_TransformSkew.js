@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
 function TransformSkew(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
     const [skewX, setSkewX] = useState(0);
     const [skewY, setSkewY] = useState(0);
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = { transform: `skew(${skewX}deg, ${skewY}deg)` };
         const css = `transform: skew(${skewX}deg, ${skewY}deg);`;
         updateOutput(style, css);
-    }, [updateOutput, skewX, skewY]);
+    }, [skewX, skewY]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Skew" subTitle="Customizing">

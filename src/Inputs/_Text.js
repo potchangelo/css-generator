@@ -1,53 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Parents';
 
+const textAlignArray = ['left', 'center', 'right', 'justify'];
+const textDecorationArray = ['none', 'underline', 'overline', 'line-through'];
+const textTransformArray = ['none', 'capitalize', 'uppercase', 'lowercase'];
+
 function Text(props) {
-    // Props & States
+    // Props, States
     const { updateOutput } = props;
-    const [textColor, setTextColor] = useState('#333333');
-    const [textLineHeight, setTextLineHeight] = useState(1.5);
-    const [textLetterSpacing, setTextLetterSpacing] = useState(0);
-    const [textWordSpacing, setTextWordSpacing] = useState(0);
+    const [color, setTextColor] = useState('#333333');
+    const [lineHeight, setTextLineHeight] = useState(1.5);
+    const [letterSpacing, setTextLetterSpacing] = useState(0);
+    const [wordSpacing, setTextWordSpacing] = useState(0);
     const [textAlign, setTextAlign] = useState('left');
     const [textDecoration, setTextDecoration] = useState('none');
     const [textTransform, setTextTransform] = useState('none');
     
-    // Lifecycles
+    // Effects
     useEffect(() => {
         const style = {
-            color: textColor,
-            lineHeight: textLineHeight,
-            letterSpacing: `${textLetterSpacing}px`,
-            wordSpacing: `${textWordSpacing}px`,
+            color,
+            lineHeight,
+            letterSpacing: `${letterSpacing}px`,
+            wordSpacing: `${wordSpacing}px`,
             textAlign,
             textDecoration,
             textTransform
         };
-        const css = `color: ${textColor};\n` + 
-                    `line-height: ${textLineHeight}\n` + 
-                    `letter-spacing: ${textLetterSpacing}px\n` + 
-                    `word-spacing: ${textWordSpacing}px\n` + 
+        const css = `color: ${color};\n` + 
+                    `line-height: ${lineHeight}\n` + 
+                    `letter-spacing: ${letterSpacing}px\n` + 
+                    `word-spacing: ${wordSpacing}px\n` + 
                     `text-align: ${textAlign}\n` + 
                     `text-decoration: ${textDecoration}\n` + 
                     `text-transform: ${textTransform}`;
         updateOutput(style, css);
     }, [
-        updateOutput, textColor, textLineHeight, textLetterSpacing, textWordSpacing, 
+        color, lineHeight, letterSpacing, wordSpacing, 
         textAlign, textDecoration, textTransform
     ]);
 
     // Elements
-    const textAlignsArray = ['left', 'center', 'right', 'justify'];
-	const textAlignsElements = textAlignsArray.map(value => 
-		<option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
+	const textAlignElements = textAlignArray.map(align => 
+		<option key={align} value={align}>{align.charAt(0).toUpperCase() + align.slice(1)}</option>
     );
-    const textDecorationsArray = ['none', 'underline', 'overline', 'line-through'];
-	const textDecorationsElements = textDecorationsArray.map(value => 
-		<option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
+    
+	const textDecorationElements = textDecorationArray.map(decoration => 
+		<option key={decoration} value={decoration}>{decoration.charAt(0).toUpperCase() + decoration.slice(1)}</option>
     );
-    const textTransformsArray = ['none', 'capitalize', 'uppercase', 'lowercase'];
-	const textTransformsElements = textTransformsArray.map(value => 
-		<option key={value} value={value}>{value.charAt(0).toUpperCase() + value.slice(1)}</option>
+    
+	const textTransformElements = textTransformArray.map(transform => 
+		<option key={transform} value={transform}>{transform.charAt(0).toUpperCase() + transform.slice(1)}</option>
     );
 
     return (
@@ -59,7 +62,7 @@ function Text(props) {
                         <input 
                             className="input"
                             type="color" 
-                            value={textColor}
+                            value={color}
                             onChange={(e) => setTextColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
@@ -68,7 +71,7 @@ function Text(props) {
                             type="text" 
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                            value={textColor}
+                            value={color}
                             onChange={(e) => setTextColor(e.target.value)} />
                     </div>
                 </div>
@@ -80,7 +83,7 @@ function Text(props) {
                             min="1"
                             max="2"
                             step="0.05"
-                            value={textLineHeight}
+                            value={lineHeight}
                             onChange={(e) => setTextLineHeight(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">1</div>
@@ -96,7 +99,7 @@ function Text(props) {
                             min="0"
                             max="10"
                             step="1"
-                            value={textLetterSpacing}
+                            value={letterSpacing}
                             onChange={(e) => setTextLetterSpacing(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
@@ -112,7 +115,7 @@ function Text(props) {
                             min="0"
                             max="10"
                             step="1"
-                            value={textWordSpacing}
+                            value={wordSpacing}
                             onChange={(e) => setTextWordSpacing(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
@@ -126,7 +129,7 @@ function Text(props) {
                         <select
                             value={textAlign} 
                             onChange={(e) => setTextAlign(e.target.value)} >
-                            {textAlignsElements}
+                            {textAlignElements}
                         </select>
                     </div>
                 </div>
@@ -136,7 +139,7 @@ function Text(props) {
                         <select
                             value={textDecoration} 
                             onChange={(e) => setTextDecoration(e.target.value)} >
-                            {textDecorationsElements}
+                            {textDecorationElements}
                         </select>
                     </div>
                 </div>
@@ -146,7 +149,7 @@ function Text(props) {
                         <select
                             value={textTransform} 
                             onChange={(e) => setTextTransform(e.target.value)} >
-                            {textTransformsElements}
+                            {textTransformElements}
                         </select>
                     </div>
                 </div>
