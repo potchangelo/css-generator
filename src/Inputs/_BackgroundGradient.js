@@ -12,6 +12,9 @@ const radialShapeArray = [
     {key: 'ellipse', title: 'Ellipse'},
 ];
 
+const positionAsc = (point1, point2) => point1.position - point2.position;
+const positionDesc = (point1, point2) => point2.position - point1.position;
+
 function BackgroundGradient(props) {
     // Props, States, Ref
     const { updateOutput } = props;
@@ -21,11 +24,11 @@ function BackgroundGradient(props) {
 
     const [pointArray, setPointArray] = useState([
         { color: '#1988f7', alpha: 1, position: 0, isSelected: true, isDragging: false },
-        { color: '#f71988', alpha: 1, position: 100, isSelected: false, isDragging: false },
+        { color: '#f71988', alpha: 1, position: 100, isSelected: false, isDragging: false }
     ]);
     const handlesAreaRef = useRef(null);
 
-    // Lifecycles
+    // Effects
     useEffect(() => {
         window.addEventListener('mousemove', onMouseMoveHandle);
         window.addEventListener('mouseup', onMouseUpHandle);
@@ -36,11 +39,9 @@ function BackgroundGradient(props) {
     }, [pointArray]);
 
     useEffect(() => {
-        const pointTextArray = [...pointArray].sort((point1, point2) => {
-            return point1.position - point2.position;
-        }).map(point => {
-            return `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`;
-        });
+        const pointTextArray = [...pointArray].sort(positionAsc).map(point => 
+            `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
+        );
 
         let colorText = '';
         if (mode === 'linear') {
@@ -93,46 +94,45 @@ function BackgroundGradient(props) {
         const percentX = getHandlePointPercent(e.clientX);
 
         // Left right points
-        const colorLeftObj = [...pointArray].sort((point1, point2) => {
-            return point2.position - point1.position;
-        }).find(point => point.position < percentX);
-        const colorRightObj = [...pointArray].sort((point1, point2) => {
-            return point1.position - point2.position;
-        }).find(point => point.position > percentX);
+        const pointL = [...pointArray].sort(positionDesc).find(point => point.position < percentX);
+        const pointR = [...pointArray].sort(positionAsc).find(point => point.position > percentX);
 
         // Color, alpha
-        let colorMid, alphaMid;
-        if (colorLeftObj === undefined) {
-            colorMid = colorRightObj.color;
-            alphaMid = colorRightObj.alpha;
+        let color, alpha;
+        if (pointL === undefined) {
+            color = pointR.color;
+            alpha = pointR.alpha;
         }
-        else if (colorRightObj === undefined) {
-            colorMid = colorLeftObj.color;
-            alphaMid = colorLeftObj.alpha;
+        else if (pointR === undefined) {
+            color = pointL.color;
+            alpha = pointL.alpha;
         }
         else {
             const {
-                color: colorLeft,
-                position: percentLeft,
-                alpha: alphaLeft } = colorLeftObj;
+                color: colorL,
+                position: percentL,
+                alpha: alphaL 
+            } = pointL;
             const {
-                color: colorRight,
-                position: percentRight,
-                alpha: alphaRight } = colorRightObj;
-            const ratio = (percentX - percentLeft) / (percentRight - percentLeft);
-            colorMid = gradientMiddleHex(colorLeft, colorRight, ratio);
-            alphaMid = gradientMiddleAlpha(alphaLeft, alphaRight, ratio);
+                color: colorR,
+                position: percentR,
+                alpha: alphaR 
+            } = pointR;
+            const ratio = (percentX - percentL) / (percentR - percentL);
+            color = gradientMiddleHex(colorL, colorR, ratio);
+            alpha = gradientMiddleAlpha(alphaL, alphaR, ratio);
         }
 
-        const pointObj = {
-            color: colorMid, alpha: alphaMid, position: percentX, isSelected: true, isDragging: false
+        const point = {
+            color, alpha, position: percentX, 
+            isSelected: true, isDragging: false
         }
         setPointArray(prevArray => {
-            const nextArray = prevArray.map(point => {
-                point.isSelected = false;
-                return point;
+            const nextArray = prevArray.map(_point => {
+                _point.isSelected = false;
+                return _point;
             });
-            nextArray.push(pointObj);
+            nextArray.push(point);
             return nextArray;
         });
     }
@@ -160,29 +160,30 @@ function BackgroundGradient(props) {
         if (pointArray.length <= 2) return;
         setPointArray(prevArray => {
             const filterArray = prevArray.filter(point => !point.isSelected)
-            const minPosition = [...filterArray].sort((point1, point2) => point1.position - point2.position)[0].position;
+            const minPosition = [...filterArray].sort(positionAsc)[0].position;
             return filterArray.map(point => {
                 if (point.position === minPosition) point.isSelected = true;
+                else point.isSelected = false;
                 return point;
             });
         })
     }
 
     // Values
-    const selectedColor = pointArray.find(point => point.isSelected);
+    const selectedPoint = pointArray.find(point => point.isSelected);
 
     // Elements
     const gradientHandleElements = pointArray.map((point, index) => {
-        let _class = 'gradient__handle';
-        if (point.isSelected) _class += ' selected';
-        const stylesArray = {
+        let handleClass = 'gradient__handle';
+        if (point.isSelected) handleClass += ' selected';
+        const styleArray = {
             backgroundColor: point.color,
             left: `${point.position}%`
         };
         return (
             <div key={index}
-                className={_class}
-                style={stylesArray}
+                className={handleClass}
+                style={styleArray}
                 onMouseDown={_ => onMouseDownHandle(index)}
                 onClick={e => e.stopPropagation()}>
                 <span className="icon has-text-white has-background-black-bis">
@@ -192,14 +193,10 @@ function BackgroundGradient(props) {
         );
     });
 
-    let deleteDisabled = false;
-    if (pointArray.length <= 2) {
-        deleteDisabled = true;
-    }
     const deleteButton = (
         <button 
             className="button is-danger is-outlined is-small" 
-            disabled={deleteDisabled}
+            disabled={pointArray.length <= 2}
             onClick={deletePoint} >
             <span className="icon">
                 <i className="far fa-trash-alt"></i>
@@ -246,15 +243,15 @@ function BackgroundGradient(props) {
         );
     }
     else if (mode === 'radial') {
-        const radialShapeElements = radialShapeArray.map(shapeObj => {
+        const radialShapeElements = radialShapeArray.map(shape => {
             let classes = 'button';
-            if (shapeObj.key === radialShape) classes += ' is-dark is-selected'
+            if (shape.key === radialShape) classes += ' is-dark is-selected'
             return (
                 <button
-                    key={shapeObj.key}
+                    key={shape.key}
                     className={classes}
-                    onClick={_ => setRadialShape(shapeObj.key)}>
-                    {shapeObj.title}
+                    onClick={_ => setRadialShape(shape.key)}>
+                    {shape.title}
                 </button>
             );
         });
@@ -291,7 +288,7 @@ function BackgroundGradient(props) {
                         <input
                             className="input"
                             type="color"
-                            value={selectedColor.color}
+                            value={selectedPoint.color}
                             onChange={e => setPointColor(e.target.value)} />
                     </div>
                     <div className="control is-expanded">
@@ -300,7 +297,7 @@ function BackgroundGradient(props) {
                             type="text"
                             placeholder="HEX Color"
                             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
-                            value={selectedColor.color}
+                            value={selectedPoint.color}
                             onChange={e => setPointColor(e.target.value)} />
                     </div>
                 </div>
@@ -312,7 +309,7 @@ function BackgroundGradient(props) {
                             min="0"
                             max="1"
                             step="0.01"
-                            value={selectedColor.alpha}
+                            value={selectedPoint.alpha}
                             onChange={e => setPointAlpha(e.target.value)} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
