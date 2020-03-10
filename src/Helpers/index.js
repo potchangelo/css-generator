@@ -38,7 +38,10 @@ const menuGroupArray = [
 
 function colorHexToRgba(hex, a) {
     const { r, g, b } = colorHexToRgbNumbers(hex);
-    return `rgba(${r}, ${g}, ${b}, ${a})`;
+    let calcA = Number(a.toFixed(2));
+    if (calcA % 1 === 0) calcA = Number(a.toFixed(0));
+    else if (calcA % 0.1 === 0) calcA = Number(a.toFixed(1));
+    return `rgba(${r}, ${g}, ${b}, ${calcA})`;
 }
 
 function colorHexToRgbNumbers(hex) {
@@ -83,4 +86,15 @@ function gradientAddHex(hexL, hexR, ratio) {
     return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
 }
 
-export { menuGroupArray, colorHexToRgba, colorHexToRgbNumbers, gradientAddHex };
+function gradientAddAlpha(alphaL, alphaR, ratio) {
+    let calcAlphaL = alphaL, calcAlphaR = alphaR, calcRatio = ratio;
+    if (alphaL > alphaR) {
+        calcAlphaL = alphaR;
+        calcAlphaR = alphaL;
+        calcRatio = 1 - ratio;
+    }
+    let alphaAdded = calcAlphaL + (calcAlphaR - calcAlphaL) * calcRatio;
+    return alphaAdded;
+}
+
+export { menuGroupArray, colorHexToRgba, colorHexToRgbNumbers, gradientAddHex, gradientAddAlpha };

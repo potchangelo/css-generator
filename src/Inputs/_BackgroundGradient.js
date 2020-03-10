@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MainSection } from '../Parents';
-import { colorHexToRgba, gradientAddHex } from '../Helpers';
+import { colorHexToRgba, gradientAddHex, gradientAddAlpha } from '../Helpers';
 
-const modeArray = [['linear', 'Linear'], ['radial', 'Radial']];
+const modeArray = [
+    {key: 'linear', title: 'Linear'},
+    {key: 'radial', title: 'Radial'},
+];
 const linearDegArray = [90, 135, 180, 225, 270, 315, 0, 45];
-const radialShapeArray = [['circle', 'Circle'], ['ellipse', 'Ellipse']]
+const radialShapeArray = [
+    {key: 'circle', title: 'Circle'},
+    {key: 'ellipse', title: 'Ellipse'},
+];
 
 function BackgroundGradient(props) {
     // Props, States, Ref
@@ -13,7 +19,7 @@ function BackgroundGradient(props) {
     const [linearDeg, setLinearDeg] = useState(90);
     const [radialShape, setRadialShape] = useState('circle');
 
-    const [colorArray, setColorArray] = useState([
+    const [pointArray, setPointArray] = useState([
         { color: '#1988f7', alpha: 1, position: 0, isSelected: true, isDragging: false },
         { color: '#f71988', alpha: 1, position: 100, isSelected: false, isDragging: false },
     ]);
@@ -27,110 +33,108 @@ function BackgroundGradient(props) {
             window.removeEventListener('mousemove', onMouseMoveHandle);
             window.removeEventListener('mouseup', onMouseUpHandle);
         }
-    }, [colorArray]);
+    }, [pointArray]);
 
     useEffect(() => {
-        const colorPointStrings = [...colorArray].sort((item1, item2) => {
-            return item1.position - item2.position;
-        }).map((item) => {
-            return `${colorHexToRgba(item.color, item.alpha)} ${item.position}%`;
+        const pointTextArray = [...pointArray].sort((point1, point2) => {
+            return point1.position - point2.position;
+        }).map(point => {
+            return `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`;
         });
 
-        let colorString = '';
+        let colorText = '';
         if (mode === 'linear') {
-            colorString = `linear-gradient(${linearDeg}deg, ${colorPointStrings.join(', ')})`;
+            colorText = `linear-gradient(${linearDeg}deg, ${pointTextArray.join(', ')})`;
         }
         else if (mode === 'radial') {
-            colorString = `radial-gradient(${radialShape}, ${colorPointStrings.join(', ')})`;
+            colorText = `radial-gradient(${radialShape}, ${pointTextArray.join(', ')})`;
         }
 
-        const style = { backgroundImage: colorString };
-        const css = `background-image: ${colorString};`;
+        const style = { backgroundImage: colorText };
+        const css = `background-image: ${colorText};`;
         updateOutput(style, css);
-    }, [updateOutput, mode, linearDeg, radialShape, colorArray]);
+    }, [mode, linearDeg, radialShape, pointArray]);
 
     // Functions
     function onMouseDownHandle(index) {
         document.body.classList.add('is-unselectable');
-        setColorArray(prev => prev.map((item, _index) => {
-            if (_index === index) {
-                item.isDragging = true;
-                item.isSelected = true;
+        setPointArray(prevArray => prevArray.map((point, pIndex) => {
+            if (pIndex === index) {
+                point.isDragging = true;
+                point.isSelected = true;
             }
-            else item.isSelected = false;
-            return item;
+            else point.isSelected = false;
+            return point;
         }));
     }
 
     function onMouseMoveHandle(e) {
-        if (!colorArray.some(item => item.isDragging)) return;
+        if (!pointArray.some(point => point.isDragging)) return;
 
         let percentX = getHandlePointPercent(e.clientX);
         if (percentX < 0) percentX = 0;
         else if (percentX > 100) percentX = 100;
 
-        setColorArray(prev => prev.map(item => {
-            if (item.isDragging) item.position = percentX;
-            return item;
+        setPointArray(prevArray => prevArray.map(point => {
+            if (point.isDragging) point.position = percentX;
+            return point;
         }));
     }
 
     function onMouseUpHandle() {
         document.body.classList.remove('is-unselectable');
-        setColorArray(prev => prev.map(item => {
-            item.isDragging = false;
-            return item;
+        setPointArray(prevArray => prevArray.map(point => {
+            point.isDragging = false;
+            return point;
         }));
     }
 
     function onClickHandlesArea(e) {
         const percentX = getHandlePointPercent(e.clientX);
 
-        // Color
-        const colorLeftObj = [...colorArray].sort((color1, color2) => {
-            return color2.position - color1.position;
-        }).find(color => color.position < percentX);
-        const colorRightObj = [...colorArray].sort((color1, color2) => {
-            return color1.position - color2.position;
-        }).find(color => color.position > percentX);
+        // Left right points
+        const colorLeftObj = [...pointArray].sort((point1, point2) => {
+            return point2.position - point1.position;
+        }).find(point => point.position < percentX);
+        const colorRightObj = [...pointArray].sort((point1, point2) => {
+            return point1.position - point2.position;
+        }).find(point => point.position > percentX);
 
-        let colorMid;
-        if (colorLeftObj === undefined) colorMid = colorRightObj.color;
-        else if (colorRightObj === undefined) colorMid = colorLeftObj.color;
+        // Color, alpha
+        let colorMid, alphaMid;
+        if (colorLeftObj === undefined) {
+            colorMid = colorRightObj.color;
+            alphaMid = colorRightObj.alpha;
+        }
+        else if (colorRightObj === undefined) {
+            colorMid = colorLeftObj.color;
+            alphaMid = colorLeftObj.alpha;
+        }
         else {
-            const { color: colorLeft, position: percentLeft } = colorLeftObj;
-            const { color: colorRight, position: percentRight } = colorRightObj;
+            const {
+                color: colorLeft,
+                position: percentLeft,
+                alpha: alphaLeft } = colorLeftObj;
+            const {
+                color: colorRight,
+                position: percentRight,
+                alpha: alphaRight } = colorRightObj;
             const ratio = (percentX - percentLeft) / (percentRight - percentLeft);
             colorMid = gradientAddHex(colorLeft, colorRight, ratio);
+            alphaMid = gradientAddAlpha(alphaLeft, alphaRight, ratio);
         }
 
-        // TODO: -- Continue alpha --
-
-        const colorObj = {
-            color: colorMid, alpha: 1, position: percentX, isSelected: true, isDragging: false
+        const pointObj = {
+            color: colorMid, alpha: alphaMid, position: percentX, isSelected: true, isDragging: false
         }
-        setColorArray(prev => {
-            const next = prev.map(item => {
-                item.isSelected = false;
-                return item;
+        setPointArray(prevArray => {
+            const nextArray = prevArray.map(point => {
+                point.isSelected = false;
+                return point;
             });
-            next.push(colorObj);
-            return next
+            nextArray.push(pointObj);
+            return nextArray;
         });
-    }
-
-    function setPointColor(color) {
-        setColorArray(prev => prev.map(item => {
-            if (item.isSelected) item.color = color;
-            return item;
-        }));
-    }
-
-    function setPointAlpha(alpha) {
-        setColorArray(prev => prev.map(item => {
-            if (item.isSelected) item.alpha = alpha;
-            return item;
-        }));
     }
 
     function getHandlePointPercent(x) {
@@ -138,16 +142,81 @@ function BackgroundGradient(props) {
         return Math.round((x - left) / (right - left) * 100);
     }
 
+    function setPointColor(color) {
+        setPointArray(prevArray => prevArray.map(point => {
+            if (point.isSelected) point.color = color;
+            return point;
+        }));
+    }
+
+    function setPointAlpha(alpha) {
+        setPointArray(prevArray => prevArray.map(point => {
+            if (point.isSelected) point.alpha = Number(alpha);
+            return point;
+        }));
+    }
+
+    function deletePoint() {
+        if (pointArray.length <= 2) return;
+        setPointArray(prevArray => {
+            const filterArray = prevArray.filter(point => !point.isSelected)
+            const minPosition = [...filterArray].sort((point1, point2) => point1.position - point2.position)[0].position;
+            return filterArray.map(point => {
+                if (point.position === minPosition) point.isSelected = true;
+                return point;
+            });
+        })
+    }
+
+    // Values
+    const selectedColor = pointArray.find(point => point.isSelected);
+
     // Elements
-    const modeElements = modeArray.map(arr => {
+    const gradientHandleElements = pointArray.map((point, index) => {
+        let _class = 'gradient__handle';
+        if (point.isSelected) _class += ' selected';
+        const stylesArray = {
+            backgroundColor: point.color,
+            left: `${point.position}%`
+        };
+        return (
+            <div key={index}
+                className={_class}
+                style={stylesArray}
+                onMouseDown={_ => onMouseDownHandle(index)}
+                onClick={e => e.stopPropagation()}>
+                <span className="icon has-text-white has-background-black-bis">
+                    <i className="fas fa-angle-down fa-lg"></i>
+                </span>
+            </div>
+        );
+    });
+
+    let deleteDisabled = false;
+    if (pointArray.length <= 2) {
+        deleteDisabled = true;
+    }
+    const deleteButton = (
+        <button 
+            className="button is-danger is-outlined is-small" 
+            disabled={deleteDisabled}
+            onClick={deletePoint} >
+            <span className="icon">
+                <i className="far fa-trash-alt"></i>
+            </span>
+            <span>Delete color</span>
+        </button>
+    );
+
+    const modeElements = modeArray.map(modeObj => {
         let classes = 'button';
-        if (arr[0] === mode) classes += ' is-dark is-selected'
+        if (modeObj.key === mode) classes += ' is-dark is-selected'
         return (
             <button
-                key={arr[0]}
+                key={modeObj.key}
                 className={classes}
-                onClick={_ => setMode(arr[0])}>
-                {arr[1]}
+                onClick={_ => setMode(modeObj.key)}>
+                {modeObj.title}
             </button>
         );
     });
@@ -161,7 +230,7 @@ function BackgroundGradient(props) {
                 <button
                     key={deg}
                     className={classes}
-                    onClick={_ => { if (deg !== linearDeg) setLinearDeg(deg) }}>
+                    onClick={_ => setLinearDeg(deg)}>
                     <span className="icon">
                         <i className="fas fa-arrow-up" data-fa-transform={`rotate-${deg}`}></i>
                     </span>
@@ -177,15 +246,15 @@ function BackgroundGradient(props) {
         );
     }
     else if (mode === 'radial') {
-        const radialShapeElements = radialShapeArray.map(arr => {
+        const radialShapeElements = radialShapeArray.map(shapeObj => {
             let classes = 'button';
-            if (arr[0] === radialShape) classes += ' is-dark is-selected'
+            if (shapeObj.key === radialShape) classes += ' is-dark is-selected'
             return (
                 <button
-                    key={arr[0]}
+                    key={shapeObj.key}
                     className={classes}
-                    onClick={_ => { if (arr[0] !== radialShape) setRadialShape(arr[0]) }}>
-                    {arr[1]}
+                    onClick={_ => setRadialShape(shapeObj.key)}>
+                    {shapeObj.title}
                 </button>
             );
         });
@@ -198,39 +267,10 @@ function BackgroundGradient(props) {
         );
     }
 
-    const gradientHandleElements = colorArray.map((item, index) => {
-        let _class = 'gradient__handle';
-        if (item.isSelected) _class += ' selected';
-        const stylesArray = {
-            backgroundColor: item.color,
-            left: `${item.position}%`
-        };
-        return (
-            <div key={index}
-                className={_class}
-                style={stylesArray}
-                onMouseDown={_ => onMouseDownHandle(index)}
-                onClick={e => e.stopPropagation()}>
-                <span className="icon has-text-white has-background-black-bis">
-                    <i className="fas fa-angle-down fa-lg"></i>
-                </span>
-            </div>
-        );
-    });
-
-    const selectedColor = colorArray.find(item => item.isSelected);
-
     return (
         <MainSection extraClass="main__section-inputs" title="Background Gradient" subTitle="Customizing">
             <div className="inputs">
-                <h5 className="title is-5">Style</h5>
-                <div className="buttons has-addons">
-                    {modeElements}
-                </div>
-                {linearElement}
-                {radialElement}
-                <h5 className="title has-margin-top is-5">Colors</h5>
-                <label className="label">Gradient slider</label>
+                <h5 className="title is-5">Colors</h5>
                 <div className="field">
                     <div className="gradient__control">
                         <div className="gradient__bg"></div>
@@ -271,7 +311,7 @@ function BackgroundGradient(props) {
                             type="range"
                             min="0"
                             max="1"
-                            step="0.05"
+                            step="0.01"
                             value={selectedColor.alpha}
                             onChange={e => setPointAlpha(e.target.value)} />
                         <div className="control__range--text">
@@ -280,6 +320,13 @@ function BackgroundGradient(props) {
                         </div>
                     </div>
                 </div>
+                {deleteButton}
+                <h5 className="title has-margin-top is-5">Style</h5>
+                <div className="buttons has-addons">
+                    {modeElements}
+                </div>
+                {linearElement}
+                {radialElement}
             </div>
         </MainSection>
     );

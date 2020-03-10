@@ -93,9 +93,9 @@ function TextShadow(props) {
                             type="range"
                             min="0"
                             max="1"
-                            step="0.05"
+                            step="0.01"
                             value={shadowColorAlpha}
-                            onChange={(e) => setShadowColorAlpha(e.target.value)} />
+                            onChange={(e) => setShadowColorAlpha(Number(e.target.value))} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">1</div>

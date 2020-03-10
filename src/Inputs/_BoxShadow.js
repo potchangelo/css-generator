@@ -109,9 +109,9 @@ function BoxShadow(props) {
                             type="range"
                             min="0"
                             max="1"
-                            step="0.05"
+                            step="0.01"
                             value={colorAlpha}
-                            onChange={e => setColorAlpha(e.target.value)} />
+                            onChange={e => setColorAlpha(Number(e.target.value))} />
                         <div className="control__range--text">
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">1</div>
