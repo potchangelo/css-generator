@@ -46,7 +46,7 @@ const menuGroupArray = [
     }
 ];
 
-function colorHexToRgba(hex, a) {
+function colorHexToRgba(hex, a = 1) {
     const { r, g, b } = colorHexToRgbNumbers(hex);
     let calcA = Number(a.toFixed(2));
     if (calcA % 1 === 0) calcA = Number(a.toFixed(0));
