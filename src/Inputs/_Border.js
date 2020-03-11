@@ -61,11 +61,9 @@ function Border(props) {
         }
         updateOutput(style, css);
     }, [
-        mode, color, styleAll, width,
-        colorT, styleT, widthT,
-        colorR, styleR, widthR,
-        colorB, styleB, widthB,
-        colorL, styleL, widthL
+        updateOutput, mode, color, styleAll, width,
+        colorT, styleT, widthT, colorR, styleR, widthR,
+        colorB, styleB, widthB, colorL, styleL, widthL
     ]);
 
     // Elements

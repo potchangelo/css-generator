@@ -11,7 +11,7 @@ function FilterBlur(props) {
         const style = { filter: `blur(${blur}px)` };
         const css = `filter: blur(${blur}px);`;
         updateOutput(style, css);
-    }, [blur]);
+    }, [updateOutput, blur]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Blur" subTitle="Customizing">

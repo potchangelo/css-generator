@@ -11,7 +11,7 @@ function FilterContrast(props) {
         const style = { filter: `contrast(${contrast}%)` };
         const css = `filter: contrast(${contrast}%);`;
         updateOutput(style, css);
-    }, [contrast]);
+    }, [updateOutput, contrast]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Contrast" subTitle="Customizing">

@@ -18,7 +18,7 @@ function BoxShadow(props) {
         const style = { boxShadow: `${x}px ${y}px ${blur}px ${spread}px ${colorOutput}` };
         const css = `box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${colorOutput};`;
         updateOutput(style, css);
-    }, [x, y, blur, spread, color, colorAlpha]);
+    }, [updateOutput, x, y, blur, spread, color, colorAlpha]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Box Shadow" subTitle="Customizing">

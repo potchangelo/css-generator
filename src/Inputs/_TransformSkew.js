@@ -12,7 +12,7 @@ function TransformSkew(props) {
         const style = { transform: `skew(${skewX}deg, ${skewY}deg)` };
         const css = `transform: skew(${skewX}deg, ${skewY}deg);`;
         updateOutput(style, css);
-    }, [skewX, skewY]);
+    }, [updateOutput, skewX, skewY]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Skew" subTitle="Customizing">

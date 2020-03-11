@@ -29,7 +29,7 @@ function BorderRadius(props) {
             css = `border-radius: ${radius}px;`;
         }
         updateOutput(style, css);
-    }, [mode, radius, radiusTl, radiusTr, radiusBr, radiusBl]);
+    }, [updateOutput, mode, radius, radiusTl, radiusTr, radiusBr, radiusBl]);
 
     // Elements
     const modeElements = modeArray.map(_mode => {

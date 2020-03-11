@@ -11,7 +11,7 @@ function FilterSaturate(props) {
         const style = { filter: `saturate(${saturate}%)` };
         const css = `filter: saturate(${saturate}%);`;
         updateOutput(style, css);
-    }, [saturate]);
+    }, [updateOutput, saturate]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Saturate" subTitle="Customizing">

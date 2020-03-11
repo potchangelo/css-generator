@@ -11,7 +11,7 @@ function FilterBrightness(props) {
         const style = { filter: `brightness(${brightness}%)` };
         const css = `filter: brightness(${brightness}%);`;
         updateOutput(style, css);
-    }, [brightness]);
+    }, [updateOutput, brightness]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Brightness" subTitle="Customizing">

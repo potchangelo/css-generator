@@ -12,7 +12,7 @@ function TransformScale(props) {
         const style = { transform: `scale(${scaleX}, ${scaleY})` };
         const css = `transform: scale(${scaleX}, ${scaleY});`;
         updateOutput(style, css);
-    }, [scaleX, scaleY]);
+    }, [updateOutput, scaleX, scaleY]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Scale" subTitle="Customizing">

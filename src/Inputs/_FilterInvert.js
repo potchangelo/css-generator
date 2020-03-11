@@ -11,7 +11,7 @@ function FilterInvert(props) {
         const style = { filter: `invert(${invert}%)` };
         const css = `filter: invert(${invert}%);`;
         updateOutput(style, css);
-    }, [invert]);
+    }, [updateOutput, invert]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Invert" subTitle="Customizing">

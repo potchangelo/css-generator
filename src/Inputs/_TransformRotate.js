@@ -11,7 +11,7 @@ function TransformRotate(props) {
         const style = { transform: `rotate(${rotate}deg)` };
         const css = `transform: rotate(${rotate}deg);`;
         updateOutput(style, css);
-    }, [rotate]);
+    }, [updateOutput, rotate]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Rotate" subTitle="Customizing">

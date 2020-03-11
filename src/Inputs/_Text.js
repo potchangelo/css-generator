@@ -36,7 +36,7 @@ function Text(props) {
                     `text-transform: ${textTransform}`;
         updateOutput(style, css);
     }, [
-        color, lineHeight, letterSpacing, wordSpacing, 
+        updateOutput, color, lineHeight, letterSpacing, wordSpacing, 
         textAlign, textDecoration, textTransform
     ]);
 

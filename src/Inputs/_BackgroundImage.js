@@ -33,7 +33,7 @@ function BackgroundImage(props) {
                     `background-size: ${size};\n` + 
                     `background-repeat: ${repeat};`;
         updateOutput(style, css);
-    }, [image, position, size, repeat, color]);
+    }, [updateOutput, image, position, size, repeat, color]);
 
     // Elements
     const positionElements = positionArray.map(_position => {

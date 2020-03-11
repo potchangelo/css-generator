@@ -11,7 +11,7 @@ function FilterHueRotate(props) {
         const style = { filter: `hue-rotate(${hueRotate}deg)` };
         const css = `filter: hue-rotate(${hueRotate}deg);`;
         updateOutput(style, css);
-    }, [hueRotate]);
+    }, [updateOutput, hueRotate]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Hue-Rotate" subTitle="Customizing">

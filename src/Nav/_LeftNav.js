@@ -7,12 +7,12 @@ import Logo from '../Images/Logo64.png';
 function LeftNav(props) {
     // Props, Context
     const { location } = props;
-    const navContext = useContext(NavContext);
+    const { isNavOpenMobile, dispatch } = useContext(NavContext);
 
     // Effects
     useEffect(() => {
-        navContext.dispatch({type: 'closeNav'});
-    }, [location]);
+        dispatch({type: 'closeNav'});
+    }, [location, dispatch]);
 
     // Elements
     const groupElements = menuGroupArray.map(group => {
@@ -29,7 +29,7 @@ function LeftNav(props) {
         );
     });
     let navClass = 'leftnav';
-    if (navContext.isNavOpenMobile === false) navClass += ' is-hidden-mobile';
+    if (isNavOpenMobile === false) navClass += ' is-hidden-mobile';
 
     return (
         <nav className={navClass}>

@@ -17,7 +17,7 @@ function TextShadow(props) {
         const style = { textShadow: `${x}px ${y}px ${blur}px ${colorOutput}` };
         const css = `text-shadow: ${x}px ${y}px ${blur}px ${colorOutput};`;
         updateOutput(style, css);
-    }, [x, y, blur, color, colorAlpha]);
+    }, [updateOutput, x, y, blur, color, colorAlpha]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Text Shadow" subTitle="Customizing">

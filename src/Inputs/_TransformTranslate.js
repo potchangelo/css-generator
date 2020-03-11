@@ -14,7 +14,7 @@ function TransformTranslate(props) {
         const style = { transform: `translate(${translateX}${unitX}, ${translateY}${unitY})` };
         const css = `transform: translate(${translateX}${unitX}, ${translateY}${unitY});`;
         updateOutput(style, css);
-    }, [translateX, translateY, unitX, unitY]);
+    }, [updateOutput, translateX, translateY, unitX, unitY]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Transform Translate" subTitle="Customizing">

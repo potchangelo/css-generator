@@ -11,7 +11,7 @@ function FilterGrayscale(props) {
         const style = { filter: `grayscale(${grayscale}%)` };
         const css = `filter: grayscale(${grayscale}%);`;
         updateOutput(style, css);
-    }, [grayscale]);
+    }, [updateOutput, grayscale]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Grayscale" subTitle="Customizing">

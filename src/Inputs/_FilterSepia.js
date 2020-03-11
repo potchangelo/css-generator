@@ -11,7 +11,7 @@ function FilterSepia(props) {
         const style = { filter: `sepia(${sepia}%)` };
         const css = `filter: sepia(${sepia}%);`;
         updateOutput(style, css);
-    }, [sepia]);
+    }, [updateOutput, sepia]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Filter Sepia" subTitle="Customizing">

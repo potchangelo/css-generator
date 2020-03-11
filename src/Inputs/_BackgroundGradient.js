@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { MainSection } from '../Parents';
 import { colorHexToRgba, gradientMiddleHex, gradientMiddleAlpha } from '../Helpers';
 
@@ -28,34 +28,6 @@ function BackgroundGradient(props) {
     ]);
     const handlesAreaRef = useRef(null);
 
-    // Effects
-    useEffect(() => {
-        window.addEventListener('mousemove', onMouseMoveHandle);
-        window.addEventListener('mouseup', onMouseUpHandle);
-        return () => {
-            window.removeEventListener('mousemove', onMouseMoveHandle);
-            window.removeEventListener('mouseup', onMouseUpHandle);
-        }
-    }, [pointArray]);
-
-    useEffect(() => {
-        const pointTextArray = [...pointArray].sort(positionAsc).map(point => 
-            `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
-        );
-
-        let colorText = '';
-        if (mode === 'linear') {
-            colorText = `linear-gradient(${linearDeg}deg, ${pointTextArray.join(', ')})`;
-        }
-        else if (mode === 'radial') {
-            colorText = `radial-gradient(${radialShape}, ${pointTextArray.join(', ')})`;
-        }
-
-        const style = { backgroundImage: colorText };
-        const css = `background-image: ${colorText};`;
-        updateOutput(style, css);
-    }, [mode, linearDeg, radialShape, pointArray]);
-
     // Functions
     function onMouseDownHandle(index) {
         document.body.classList.add('is-unselectable');
@@ -69,7 +41,7 @@ function BackgroundGradient(props) {
         }));
     }
 
-    function onMouseMoveHandle(e) {
+    const onMouseMoveHandle = useCallback(e => {
         if (!pointArray.some(point => point.isDragging)) return;
 
         let percentX = getHandlePointPercent(e.clientX);
@@ -80,15 +52,15 @@ function BackgroundGradient(props) {
             if (point.isDragging) point.position = percentX;
             return point;
         }));
-    }
+    }, [pointArray]);
 
-    function onMouseUpHandle() {
+    const onMouseUpHandle = useCallback(() => {
         document.body.classList.remove('is-unselectable');
         setPointArray(prevArray => prevArray.map(point => {
             point.isDragging = false;
             return point;
         }));
-    }
+    }, []);
 
     function onClickHandlesArea(e) {
         const percentX = getHandlePointPercent(e.clientX);
@@ -168,6 +140,34 @@ function BackgroundGradient(props) {
             });
         })
     }
+
+    // Effects
+    useEffect(() => {
+        window.addEventListener('mousemove', onMouseMoveHandle);
+        window.addEventListener('mouseup', onMouseUpHandle);
+        return () => {
+            window.removeEventListener('mousemove', onMouseMoveHandle);
+            window.removeEventListener('mouseup', onMouseUpHandle);
+        }
+    }, [onMouseMoveHandle, onMouseUpHandle]);
+
+    useEffect(() => {
+        const pointTextArray = [...pointArray].sort(positionAsc).map(point => 
+            `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
+        );
+
+        let colorText = '';
+        if (mode === 'linear') {
+            colorText = `linear-gradient(${linearDeg}deg, ${pointTextArray.join(', ')})`;
+        }
+        else if (mode === 'radial') {
+            colorText = `radial-gradient(${radialShape}, ${pointTextArray.join(', ')})`;
+        }
+
+        const style = { backgroundImage: colorText };
+        const css = `background-image: ${colorText};`;
+        updateOutput(style, css);
+    }, [updateOutput, mode, linearDeg, radialShape, pointArray]);
 
     // Values
     const selectedPoint = pointArray.find(point => point.isSelected);

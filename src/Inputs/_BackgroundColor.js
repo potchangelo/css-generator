@@ -11,7 +11,7 @@ function BackgroundColor(props) {
         const style = { backgroundColor: `${color}` };
         const css = `background-color: ${color};`;
         updateOutput(style, css);
-    }, [color]);
+    }, [updateOutput, color]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
