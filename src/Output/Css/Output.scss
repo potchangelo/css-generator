@@ -1,0 +1,56 @@
+@import "../../Css/Vars";
+
+.main__section-preview {
+    background-color: $grey-lightest;
+    border-bottom: 1px solid $grey-lighter;
+}
+
+.preview__box {
+    background-color: $white;
+    padding-bottom: 56.25%;
+}
+
+.preview__transform-box {
+    background-color: #e62c51;
+    width: 30%;
+    margin: 88px auto;
+    padding-bottom: 30%;
+    position: relative;
+
+    .title {
+        font-size: 64px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.main__section-code {
+    background-color: $grey-dark;
+    flex-grow: 1;
+
+    .section__block-title {
+        border-bottom: 1px solid $grey;
+    }
+
+    .section__block-title .title {
+        color: $white-bis;
+    }
+
+    .section__block-title .subtitle {
+        color: $grey-lighter;
+    }
+}
+
+.code__css {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+.code__copy.button {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}

@@ -1,7 +1,7 @@
+import './Css/App.scss';
 import React, { useReducer } from 'react';
 import { Dimmer, LeftNav, HeaderNav } from './Nav';
 import Main from './Main';
-import './Css/App.scss';
 
 // Context
 const NavContext = React.createContext({});

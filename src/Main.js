@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Dashboard from './Dashboard';
-import * as I from './Inputs';
-import { Preview, Code } from './Outputs';
+import * as I from './Input';
+import { Preview, Code } from './Output';
 
 const routeArray = [
     { url: 'background-gradient', Component: I.BackgroundGradient },

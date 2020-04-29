@@ -1,8 +1,8 @@
+import './Css/Dashboard.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { menuGroupArray } from '../Helpers';
-import './Css/Dashboard.scss';
-import { MainSection } from '../Parents';
+import { menuGroupArray } from '../Helper';
+import { MainSection } from '../Layout';
 
 function Dashboard() {
     const groupElements = menuGroupArray.map(group => {

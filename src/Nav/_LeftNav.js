@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import { NavContext } from '../App';
-import { menuGroupArray } from '../Helpers';
+import { menuGroupArray } from '../Helper';
 import Logo from '../Images/Logo64.png';
 
 function LeftNav(props) {
