@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
-import { NavContext } from '../App';
+import { NavContext } from '.';
 import { menuGroupArray } from '../Helper';
 import Logo from '../Image/Logo64.png';
 

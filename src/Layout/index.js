@@ -1,4 +1,4 @@
-import './Css/Parents.scss';
+import './Css/Layout.scss';
 import React from 'react';
 
 function MainSection(props) {

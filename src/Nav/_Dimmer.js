@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { NavContext } from '../App';
+import { NavContext } from '.';
 
 function Dimmer() {
-    const navContext = useContext(NavContext);
+    const navContext = useContext(NavContext)
 
     let _class = 'dimmer is-hidden-tablet';
     if (navContext.isNavOpenMobile === false) _class += ' is-hidden-mobile';

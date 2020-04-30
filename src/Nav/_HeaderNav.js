@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { NavContext } from '../App';
+import { NavContext } from '.';
 
 function HeaderNav() {
     const navContext = useContext(NavContext);
