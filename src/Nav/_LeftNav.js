@@ -29,7 +29,7 @@ function LeftNav(props) {
         );
     });
     let navClass = 'leftnav';
-    if (isNavOpenMobile === false) navClass += ' is-hidden-mobile';
+    if (!isNavOpenMobile) navClass += ' is-hidden-mobile';
 
     return (
         <nav className={navClass}>

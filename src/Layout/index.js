@@ -5,9 +5,7 @@ function MainSection(props) {
     const { extraClass, title, subTitle, children } = props;
 
     let sectionClass = 'main__section';
-    if (extraClass !== undefined) {
-        sectionClass += ` ${extraClass}`;
-    }
+    if (!!extraClass) sectionClass += ` ${extraClass}`;
 
     return (
         <section className={sectionClass}>

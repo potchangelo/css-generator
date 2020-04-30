@@ -3,12 +3,9 @@ import { NavContext } from '.';
 
 function Dimmer() {
     const navContext = useContext(NavContext)
-
-    let _class = 'dimmer is-hidden-tablet';
-    if (navContext.isNavOpenMobile === false) _class += ' is-hidden-mobile';
-
+    if (!navContext.isNavOpenMobile) return null;
     return (
-        <div className={_class} onClick={_ => navContext.dispatch({type: 'closeNav'})}></div>
+        <div className="dimmer is-hidden-tablet" onClick={_ => navContext.dispatch({type: 'closeNav'})}></div>
     );
 }
 

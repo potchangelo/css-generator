@@ -9,11 +9,11 @@ function renderWithNavContext(
         isNavOpenMobile = false, 
         dispatch = () => { } 
     } = {}) {
-    const Wrapper = ({ children }) => {
+    const Wrapper = ({ children }) => (
         <NavContext.Provider value={{ isNavOpenMobile, dispatch }}>
             {children}
         </NavContext.Provider>
-    };
+    );
     return { ...render(ui, { wrapper: Wrapper }) };
 }
 

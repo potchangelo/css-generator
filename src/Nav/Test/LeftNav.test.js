@@ -31,9 +31,9 @@ test('LeftNav has active menu item on each random input pages', () => {
         const { url, title } = linkArray[linkIndex];
 
         const { container } = renderWithRouterAndNavContext(
-            <LeftNav/>, { route: url }
+            <LeftNav/>, { route: `/${url}` }
         );
-        const element = container.querySelector(`[href="${url}"]`);
+        const element = container.querySelector(`[href="/${url}"]`);
         expect(element).not.toBeNull();
         expect(element.classList.contains('active')).toBeTruthy();
         expect(element.textContent).toBe(title);
