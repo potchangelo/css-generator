@@ -1,41 +1,41 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { render } from '@testing-library/react';
 import { LeftNav } from '..';
-import { NavContext } from '../../App';
+import { menuGroupArray, renderWithRouterAndNavContext } from '../../Helper';
 
 test('LeftNav is hidden on mobile if isNavOpenMobile is false', () => {
-    const { container } = render(
-        <BrowserRouter>
-            <NavContext.Provider value={{ isNavOpenMobile: false, dispatch: () => {} }}>
-                <LeftNav />
-            </NavContext.Provider>
-        </BrowserRouter>
+    const { container } = renderWithRouterAndNavContext(
+        <LeftNav/>, { isNavOpenMobile: false }
     );
     expect(container.querySelector('.leftnav.is-hidden-mobile')).not.toBeNull();
 });
 
 test('LeftNav is shown on mobile if isNavOpenMobile is true', () => {
-    const { container } = render(
-        <BrowserRouter>
-            <NavContext.Provider value={{ isNavOpenMobile: true, dispatch: () => {} }}>
-                <LeftNav />
-            </NavContext.Provider>
-        </BrowserRouter>
+    const { container } = renderWithRouterAndNavContext(
+        <LeftNav/>, { isNavOpenMobile: true }
     );
     expect(container.querySelector('.leftnav.is-hidden-mobile')).toBeNull();
 });
 
-// test utils file
-// function renderWithRouter(ui, { route = '/', history = createMemoryHistory({ initialEntries: [route] }) } = {}) {
-//     const Wrapper = ({ children }) => (
-//         <Router history={history}>{children}</Router>
-//     )
-//     return {
-//         ...render(ui, { wrapper: Wrapper }),
-//         // adding `history` to the returned utilities to allow us
-//         // to reference it in our tests (just try to avoid using
-//         // this to test implementation details).
-//         history,
-//     }
-// }
+test('LeftNav has no active menu item on dashboard page', () => {
+    const { container } = renderWithRouterAndNavContext(
+        <LeftNav/>
+    );
+    expect(container.querySelector('a.active')).toBeNull();
+});
+
+test('LeftNav has active menu item on each random input pages', () => {
+    for (let i = 0; i <= 2; i++) {
+        const groupIndex = Math.floor(Math.random() * menuGroupArray.length);
+        const { linkArray } = menuGroupArray[groupIndex];
+        const linkIndex = Math.floor(Math.random() * linkArray.length);
+        const { url, title } = linkArray[linkIndex];
+
+        const { container } = renderWithRouterAndNavContext(
+            <LeftNav/>, { route: url }
+        );
+        const element = container.querySelector(`[href="${url}"]`);
+        expect(element).not.toBeNull();
+        expect(element.classList.contains('active')).toBeTruthy();
+        expect(element.textContent).toBe(title);
+    }
+});
