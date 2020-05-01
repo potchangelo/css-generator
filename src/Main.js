@@ -19,6 +19,7 @@ const routeArray = [
     { url: 'filter-invert', Component: I.FilterInvert },
     { url: 'filter-saturate', Component: I.FilterSaturate },
     { url: 'filter-sepia', Component: I.FilterSepia },
+    { url: 'layout-float', Component: I.LayoutFloat },
     { url: 'text', Component: I.Text },
     { url: 'text-shadow', Component: I.TextShadow },
     { url: 'transform-translate', Component: I.TransformTranslate },
@@ -31,11 +32,13 @@ function Main() {
     // States
     const [outputStyle, setOutputStyle] = useState({});
     const [outputCss, setOutputCss] = useState('');
+    const [outputHtml, setOutputHtml] = useState('');
 
     // Callback
-    const updateOutput = useCallback((style, css) => {
+    const updateOutput = useCallback((style, css, html='') => {
         setOutputStyle(style);
         setOutputCss(css);
+        setOutputHtml(html);
     }, []);
 
     // Routes
@@ -66,7 +69,7 @@ function Main() {
                         <div className="main__column column is-6">
                             <div className="main__block">
                                 <Preview outputStyle={outputStyle} />
-                                <Code outputCss={outputCss} />
+                                <Code outputCss={outputCss} outputHtml={outputHtml} />
                             </div>
                         </div>
                     </div>

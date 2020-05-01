@@ -13,6 +13,7 @@ export { default as FilterHueRotate } from './_FilterHueRotate';
 export { default as FilterInvert } from './_FilterInvert';
 export { default as FilterSaturate } from './_FilterSaturate';
 export { default as FilterSepia } from './_FilterSepia';
+export { default as LayoutFloat } from './_LayoutFloat';
 export { default as Text } from './_Text';
 export { default as TextShadow } from './_TextShadow';
 export { default as TransformTranslate } from './_TransformTranslate';

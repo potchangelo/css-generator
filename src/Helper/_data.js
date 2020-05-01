@@ -29,6 +29,12 @@ const menuGroupArray = [
         ]
     },
     {
+        name: 'Layout',
+        linkArray: [
+            { url: 'layout-float', title: 'Float' }, 
+        ]
+    },
+    {
         name: 'Text',
         linkArray: [
             { url: 'text', title: 'Text' }, 

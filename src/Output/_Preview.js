@@ -8,17 +8,36 @@ function Preview(props) {
 
     // Elements
     let element, subTitle;
-    if (location.pathname.startsWith('/text')) {
+    const path = location.pathname;
+    if (path.startsWith('/filter')) {
+        element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" alt="Preview" style={outputStyle} />;
+        subTitle = 'Image filter mode';
+    }
+    else if(path.startsWith('/layout')) {
+        const { layoutType, containerStyle, itemStyle } = outputStyle;
+        let containerClass = `preview__layout-container ${layoutType}`;
+        const itemElements = [...Array(4).keys()].map(key => (
+            <div 
+                key={`item-${key}`} 
+                className="preview__layout-item"
+                style={itemStyle}>
+                <div className="item__content">{`${key + 1}`.repeat(5)}</div>
+            </div>
+        ));
+        element = (
+            <div className={containerClass} style={containerStyle}>
+                {itemElements}
+            </div>
+        );
+        subTitle = 'Layout mode';
+    }
+    else if (path.startsWith('/text')) {
         element = (
             <p className="preview__text" style={outputStyle}>Praesent eget tempus leo. Curabitur sit amet enim in lorem placerat consequat ac at nunc. Curabitur eget est ultricies, tincidunt augue efficitur, pellentesque nulla. Vivamus non aliquet libero, ut tincidunt diam. Quisque nec nulla ut erat pretium ultricies quis nec dolor. Etiam sed leo lorem. Sed sagittis arcu lacus, eget dapibus nulla aliquet in.</p>
         );
         subTitle = 'Text mode';
     }
-    else if (location.pathname.startsWith('/filter')) {
-        element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" alt="Preview" style={outputStyle} />;
-        subTitle = 'Image filter mode';
-    }
-    else if (location.pathname.startsWith('/transform')) {
+    else if (path.startsWith('/transform')) {
         element = (
             <div className="preview__transform-box" style={outputStyle}>
                 <h2 className="title has-text-white">R</h2>
