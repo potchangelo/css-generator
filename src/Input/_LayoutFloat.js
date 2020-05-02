@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
+import { layoutItemSizeArray, layoutPreviewArray } from '../Helper';
 
 const floatArray = ['left', 'right'];
-
-const sizeArray = [
-    { key: 'one-second', title: '1/2 (50%)', value: 50 },
-    { key: 'one-third', title: '1/3 (33.33%)', value: 33.33 },
-    { key: 'one-fourth', title: '1/4 (25%)', value: 25 },
-]
 
 function LayoutFloat(props) {
     // Props ,States
@@ -16,26 +11,31 @@ function LayoutFloat(props) {
     const [size, setSize] = useState(50);
     const [hSpace, setHSpace] = useState(20);
     const [vSpace, setVSpace] = useState(20);
+    const [preview, setPreview] = useState('equal-height');
 
     // Effects
     useEffect(() => {
+        const sizeObj = layoutItemSizeArray.find(_size => _size.value == size)
+
         const style = {
-            layoutType: 'float',
+            layoutType: `float-${sizeObj.key}`,
             containerStyle: {
-                margin: `${vSpace * -1}px ${hSpace/2 * -1}px 0px`,
+                margin: `0px ${hSpace/2 * -1}px`,
             },
             itemStyle: {
                 float,
                 width: `${size}%`,
-                padding: `${vSpace}px ${hSpace/2}px 0px`,
-            }
+                marginBottom: `${vSpace}px`,
+                padding: `0px ${hSpace/2}px`,
+            },
+            preview
         }
 
         const css = '' + 
             `.container {\n` + 
             `    box-sizing: border-box;\n` + 
             `    display: block;\n` + 
-            `    margin: ${vSpace * -1}px ${hSpace/2 * -1}px 0px;\n` + 
+            `    margin: 0px ${hSpace/2 * -1}px;\n` + 
             `}\n\n` + 
             `.container::after {\n` + 
             `    content: '';\n` + 
@@ -47,7 +47,11 @@ function LayoutFloat(props) {
             `    display: block;\n` + 
             `    float: ${float};\n` + 
             `    width: ${size}%;\n` + 
-            `    padding: ${vSpace}px ${hSpace/2}px 0px;\n` + 
+            `    margin-bottom: ${vSpace}px;\n` + 
+            `    padding: 0px ${hSpace/2}px;\n` + 
+            `}\n\n` + 
+            `.item:nth-child(${sizeObj.nthClear}) {\n` + 
+            `    clear: both;\n` + 
             `}\n\n` + 
             `.content {\n` + 
             `    color: #242424;\n` + 
@@ -62,26 +66,33 @@ function LayoutFloat(props) {
         for (let i = 1; i <= itemCount; i++) {
             itemHtml += '' + 
                 `    <div class="item">\n` + 
-                `        <div class="content">${String(i).repeat(5)}</div>\n` + 
+                `        <div class="content">\n` + 
+                `            <p>${String(i).repeat(5)}</p>\n` + 
+                `        </div>\n` + 
                 `    </div>\n`;
         }
         const html = `<div class="container">\n` + itemHtml + `</div>`;
 
         updateOutput(style, css, html);
-    }, [updateOutput, float, size, hSpace, vSpace]);
+    }, [updateOutput, float, size, hSpace, vSpace, preview]);
 
     // Elements
-    const floatElements = floatArray.map(_float => (
+    const floatElements = floatArray.map(_float => 
         <option key={_float} value={_float}>{_float.charAt(0).toUpperCase() + _float.slice(1)}</option>
-    ));
+    );
 
-    const sizeElements = sizeArray.map(({key, title, value}) => 
+    const sizeElements = layoutItemSizeArray.map(({key, title, value}) => 
 		<option key={key} value={value}>{title}</option>
+    );
+
+    const previewElements = layoutPreviewArray.map(_content => 
+        <option key={_content} value={_content}>{_content.charAt(0).toUpperCase() + _content.slice(1).replace('-', ' ')}</option>
     );
 
     return (
         <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
             <div className="inputs">
+                <h5 className="title is-5">Layout</h5>
                 <label className="label">Float side</label>
                 <div className="field">
                     <div className="select is-fullwidth">
@@ -130,6 +141,17 @@ function LayoutFloat(props) {
                             <div className="item has-text-grey">0</div>
                             <div className="item has-text-grey">40</div>
                         </div>
+                    </div>
+                </div>
+                <h5 className="title is-5 has-margin-top">Preview</h5>
+                <label className="label">Content mode (not change output HTML)</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={preview} 
+                            onChange={e => setPreview(e.target.value)} >
+                            {previewElements}
+                        </select>
                     </div>
                 </div>
             </div>

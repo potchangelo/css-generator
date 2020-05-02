@@ -52,4 +52,21 @@ const menuGroupArray = [
     }
 ];
 
-export { menuGroupArray };
+const layoutItemSizeArray = [
+    {
+         key: 'one-second', title: '1/2 (50%)', 
+         value: 50, nthClear: '2n + 1' 
+    },
+    {
+         key: 'one-third', title: '1/3 (33.33%)', 
+         value: 33.33, nthClear: '3n + 1' 
+    },
+    {
+         key: 'one-fourth', title: '1/4 (25%)', 
+         value: 25, nthClear: '4n + 1' 
+    },
+];
+
+const layoutPreviewArray = ['equal-height', 'unequal-height'];
+
+export { menuGroupArray, layoutItemSizeArray, layoutPreviewArray };

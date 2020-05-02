@@ -2,6 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { MainSection } from '../Layout';
 
+const Content = ({ char }) => <p>{`${char}`.repeat(5)}</p>;
+const contentCountArray = [2, 1, 1, 2];
+
 function Preview(props) {
     // Props
     const { location, outputStyle } = props;
@@ -9,23 +12,38 @@ function Preview(props) {
     // Elements
     let element, subTitle;
     const path = location.pathname;
+    
     if (path.startsWith('/filter')) {
         element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" alt="Preview" style={outputStyle} />;
         subTitle = 'Image filter mode';
     }
     else if(path.startsWith('/layout')) {
-        const { layoutType, containerStyle, itemStyle } = outputStyle;
-        let containerClass = `preview__layout-container ${layoutType}`;
-        const itemElements = [...Array(4).keys()].map(key => (
-            <div 
-                key={`item-${key}`} 
-                className="preview__layout-item"
-                style={itemStyle}>
-                <div className="item__content">{`${key + 1}`.repeat(5)}</div>
-            </div>
-        ));
+        const { 
+            layoutType, containerStyle, itemStyle, preview 
+        } = outputStyle;
+
+        const itemElements = contentCountArray.map((_, index) => {
+            const char = `${index + 1}`;
+            let previewElements = <Content key={`key-${char}`} char={char} />
+            if (preview === 'unequal-height') {
+                previewElements = [...Array(contentCountArray[index]).keys()].map(_index => 
+                    <Content key={`key-${char}-${_index + 1}`} char={char} />
+                );
+            }
+            return (
+                <div 
+                    key={`item-${index}`} 
+                    className="preview__layout-item"
+                    style={itemStyle}>
+                    <div className="item__content">
+                        {previewElements}
+                    </div>
+                </div>
+            );
+        });
+
         element = (
-            <div className={containerClass} style={containerStyle}>
+            <div className="preview__layout-container" data-type={layoutType} style={containerStyle}>
                 {itemElements}
             </div>
         );

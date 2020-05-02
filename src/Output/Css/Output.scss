@@ -11,11 +11,23 @@
 }
 
 .preview__layout-container {
-    &.float {
+    &[data-type^='float'] {
         display: block;
     }
 
-    &.float::after {
+    &[data-type='float-one-second'] .preview__layout-item:nth-child(2n + 1) {
+        clear: both;
+    }
+
+    &[data-type='float-one-third'] .preview__layout-item:nth-child(3n + 1) {
+        clear: both;
+    }
+
+    &[data-type='float-one-fourth'] .preview__layout-item:nth-child(4n + 1) {
+        clear: both;
+    }
+
+    &[data-type^='float']::after {
         content: '';
         display: block;
         clear: both;
