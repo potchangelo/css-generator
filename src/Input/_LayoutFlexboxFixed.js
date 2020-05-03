@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
-import { layoutItemSizeArray, layoutPreviewArray } from '../Helper';
+import { layoutPreviewArray } from '../Helper';
 
-const floatArray = ['left', 'right'];
+const directionArray = ['row', 'row-reverse'];
+const wrapArray = ['wrap', 'wrap-reverse', 'nowrap'];
+const justifyContentArray = [
+    'flex-start', 'flex-end', 'center', 
+    'space-between', 'space-around', 'space-evenly'
+];
+const alignItemsArray = ['stretch', 'flex-start', 'flex-end', 'center'];
 
-function LayoutFloat(props) {
+function LayoutFlexboxFixed(props) {
     // Props ,States
     const { updateOutput } = props;
-    const [float, setFloat] = useState('left');
-    const [width, setWidth] = useState(50);
+    const [direction, setDirection] = useState('row');
+    const [wrap, setWrap] = useState('wrap');
+    const [justifyContent, setJustifyContent] = useState('flex-start');
+    const [alignItems, setAlignItems] = useState('stretch');
+    const [width, setWidth] = useState(200);
     const [hSpace, setHSpace] = useState(20);
     const [vSpace, setVSpace] = useState(20);
     const [preview, setPreview] = useState('equal-height');
 
     // Effects
     useEffect(() => {
-        const sizeObj = layoutItemSizeArray.find(_size => _size.value == width)
-
         const style = {
-            layoutType: `float-${sizeObj.key}`,
+            layoutType: `flexbox`,
             containerStyle: {
+                flexDirection: direction,
+                flexWrap: wrap,
+                justifyContent, 
+                alignItems,
                 margin: `0px ${hSpace/2 * -1}px`,
             },
             itemStyle: {
-                float,
-                width: `${width}%`,
+                width: `${width}px`,
                 marginBottom: `${vSpace}px`,
                 padding: `0px ${hSpace/2}px`,
             },
@@ -33,25 +43,20 @@ function LayoutFloat(props) {
 
         const css = '' + 
             `.container {\n` + 
-            `    box-sizing: border-box;\n` + 
-            `    display: block;\n` + 
+            `    display: flex;\n` + 
+            `    flex-direction: ${direction};\n` + 
+            `    flex-wrap: ${wrap};\n` + 
+            `    justify-content: ${justifyContent};\n` + 
+            `    align-items: ${alignItems};\n` + 
             `    margin: 0px ${hSpace/2 * -1}px;\n` + 
-            `}\n\n` + 
-            `.container::after {\n` + 
-            `    content: '';\n` + 
-            `    display: block;\n` + 
-            `    clear: both;\n` + 
+            `    box-sizing: border-box;\n` + 
             `}\n\n` + 
             `.item {\n` + 
-            `    box-sizing: border-box;\n` + 
             `    display: block;\n` + 
-            `    float: ${float};\n` + 
-            `    width: ${width}%;\n` + 
+            `    width: ${width}px;\n` + 
             `    margin-bottom: ${vSpace}px;\n` + 
             `    padding: 0px ${hSpace/2}px;\n` + 
-            `}\n\n` + 
-            `.item:nth-child(${sizeObj.nthClear}) {\n` + 
-            `    clear: both;\n` + 
+            `    box-sizing: border-box;\n` + 
             `}\n\n` + 
             `.content {\n` + 
             `    color: #242424;\n` + 
@@ -73,15 +78,26 @@ function LayoutFloat(props) {
         const html = `<div class="container">\n` + itemHtml + `</div>`;
 
         updateOutput(style, css, html);
-    }, [updateOutput, float, width, hSpace, vSpace, preview]);
+    }, [
+        updateOutput, direction, wrap, justifyContent, alignItems,
+        width, hSpace, vSpace, preview
+    ]);
 
     // Elements
-    const floatElements = floatArray.map(_float => 
-        <option key={_float} value={_float}>{_float.charAt(0).toUpperCase() + _float.slice(1)}</option>
+    const directionElements = directionArray.map(_dir => 
+        <option key={_dir} value={_dir}>{_dir.charAt(0).toUpperCase() + _dir.slice(1)}</option>
     );
 
-    const widthElements = layoutItemSizeArray.map(({key, title, value}) => 
-		<option key={key} value={value}>{title}</option>
+    const wrapElements = wrapArray.map(_wrap => 
+        <option key={_wrap} value={_wrap}>{_wrap.charAt(0).toUpperCase() + _wrap.slice(1)}</option>
+    );
+
+    const justifyContentElements = justifyContentArray.map(_justify => 
+        <option key={_justify} value={_justify}>{_justify.charAt(0).toUpperCase() + _justify.slice(1)}</option>
+    );
+
+    const alignItemsElements = alignItemsArray.map(_align => 
+        <option key={_align} value={_align}>{_align.charAt(0).toUpperCase() + _align.slice(1)}</option>
     );
 
     const previewElements = layoutPreviewArray.map(_content => 
@@ -91,25 +107,61 @@ function LayoutFloat(props) {
     return (
         <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
             <div className="inputs">
-                <h5 className="title is-5">Item</h5>
-                <label className="label">Float</label>
+                <h5 className="title is-5">Container</h5>
+                <label className="label">Direction</label>
                 <div className="field">
                     <div className="select is-fullwidth">
                         <select
-                            value={float} 
-                            onChange={e => setFloat(e.target.value)} >
-                            {floatElements}
+                            value={direction} 
+                            onChange={e => setDirection(e.target.value)} >
+                            {directionElements}
                         </select>
                     </div>
                 </div>
-                <label className="label">Width</label>
+                <label className="label">Wrap (Multilines)</label>
                 <div className="field">
                     <div className="select is-fullwidth">
                         <select
-                            value={width} 
-                            onChange={e => setWidth(e.target.value)} >
-                            {widthElements}
+                            value={wrap} 
+                            onChange={e => setWrap(e.target.value)} >
+                            {wrapElements}
                         </select>
+                    </div>
+                </div>
+                <label className="label">Justify content (Main direction)</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={justifyContent} 
+                            onChange={e => setJustifyContent(e.target.value)} >
+                            {justifyContentElements}
+                        </select>
+                    </div>
+                </div>
+                <label className="label">Align items (Cross direction)</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={alignItems} 
+                            onChange={e => setAlignItems(e.target.value)} >
+                            {alignItemsElements}
+                        </select>
+                    </div>
+                </div>
+                <h5 className="title is-5 has-margin-top">Item</h5>
+                <label className="label">Width (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input 
+                            type="range"
+                            min="120"
+                            max="260"
+                            value={width}
+                            onChange={(e) => setWidth(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">120</div>
+                            <div className="item has-text-grey">260</div>
+                        </div>
                     </div>
                 </div>
                 <label className="label">Horizontal space (pixels)</label>
@@ -158,4 +210,4 @@ function LayoutFloat(props) {
     );
 }
 
-export default LayoutFloat;
+export default LayoutFlexboxFixed;

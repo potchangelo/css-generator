@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { MainSection } from '../Layout';
 
 const Content = ({ char }) => <p>{`${char}`.repeat(5)}</p>;
-const contentCountArray = [2, 1, 1, 2];
+const contentCountArray = [3, 2, 1, 2];
 
 function Preview(props) {
     // Props

@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
 import { layoutItemSizeArray, layoutPreviewArray } from '../Helper';
 
-const floatArray = ['left', 'right'];
+const directionArray = ['row', 'row-reverse'];
+const wrapArray = ['wrap', 'wrap-reverse', 'nowrap'];
+const alignItemsArray = ['stretch', 'flex-start', 'flex-end', 'center'];
 
-function LayoutFloat(props) {
+function LayoutFlexboxFluid(props) {
     // Props ,States
     const { updateOutput } = props;
-    const [float, setFloat] = useState('left');
+    const [direction, setDirection] = useState('row');
+    const [wrap, setWrap] = useState('wrap');
+    const [alignItems, setAlignItems] = useState('stretch')
     const [width, setWidth] = useState(50);
     const [hSpace, setHSpace] = useState(20);
     const [vSpace, setVSpace] = useState(20);
@@ -15,15 +19,15 @@ function LayoutFloat(props) {
 
     // Effects
     useEffect(() => {
-        const sizeObj = layoutItemSizeArray.find(_size => _size.value == width)
-
         const style = {
-            layoutType: `float-${sizeObj.key}`,
+            layoutType: `flexbox`,
             containerStyle: {
+                flexDirection: direction,
+                flexWrap: wrap,
+                alignItems,
                 margin: `0px ${hSpace/2 * -1}px`,
             },
             itemStyle: {
-                float,
                 width: `${width}%`,
                 marginBottom: `${vSpace}px`,
                 padding: `0px ${hSpace/2}px`,
@@ -34,24 +38,18 @@ function LayoutFloat(props) {
         const css = '' + 
             `.container {\n` + 
             `    box-sizing: border-box;\n` + 
-            `    display: block;\n` + 
+            `    display: flex;\n` + 
+            `    flex-direction: ${direction};\n` + 
+            `    flex-wrap: ${wrap};\n` + 
+            `    align-items: ${alignItems};\n` + 
             `    margin: 0px ${hSpace/2 * -1}px;\n` + 
-            `}\n\n` + 
-            `.container::after {\n` + 
-            `    content: '';\n` + 
-            `    display: block;\n` + 
-            `    clear: both;\n` + 
             `}\n\n` + 
             `.item {\n` + 
             `    box-sizing: border-box;\n` + 
             `    display: block;\n` + 
-            `    float: ${float};\n` + 
             `    width: ${width}%;\n` + 
             `    margin-bottom: ${vSpace}px;\n` + 
             `    padding: 0px ${hSpace/2}px;\n` + 
-            `}\n\n` + 
-            `.item:nth-child(${sizeObj.nthClear}) {\n` + 
-            `    clear: both;\n` + 
             `}\n\n` + 
             `.content {\n` + 
             `    color: #242424;\n` + 
@@ -73,11 +71,22 @@ function LayoutFloat(props) {
         const html = `<div class="container">\n` + itemHtml + `</div>`;
 
         updateOutput(style, css, html);
-    }, [updateOutput, float, width, hSpace, vSpace, preview]);
+    }, [
+        updateOutput, direction, wrap, alignItems,
+        width, hSpace, vSpace, preview
+    ]);
 
     // Elements
-    const floatElements = floatArray.map(_float => 
-        <option key={_float} value={_float}>{_float.charAt(0).toUpperCase() + _float.slice(1)}</option>
+    const directionElements = directionArray.map(_dir => 
+        <option key={_dir} value={_dir}>{_dir.charAt(0).toUpperCase() + _dir.slice(1)}</option>
+    );
+
+    const wrapElements = wrapArray.map(_wrap => 
+        <option key={_wrap} value={_wrap}>{_wrap.charAt(0).toUpperCase() + _wrap.slice(1)}</option>
+    );
+
+    const alignItemsElements = alignItemsArray.map(_align => 
+        <option key={_align} value={_align}>{_align.charAt(0).toUpperCase() + _align.slice(1)}</option>
     );
 
     const widthElements = layoutItemSizeArray.map(({key, title, value}) => 
@@ -91,18 +100,39 @@ function LayoutFloat(props) {
     return (
         <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
             <div className="inputs">
-                <h5 className="title is-5">Item</h5>
-                <label className="label">Float</label>
+                <h5 className="title is-5">Container</h5>
+                <label className="label">Direction</label>
                 <div className="field">
                     <div className="select is-fullwidth">
                         <select
-                            value={float} 
-                            onChange={e => setFloat(e.target.value)} >
-                            {floatElements}
+                            value={direction} 
+                            onChange={e => setDirection(e.target.value)} >
+                            {directionElements}
                         </select>
                     </div>
                 </div>
-                <label className="label">Width</label>
+                <label className="label">Wrap (Multilines)</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={wrap} 
+                            onChange={e => setWrap(e.target.value)} >
+                            {wrapElements}
+                        </select>
+                    </div>
+                </div>
+                <label className="label">Align items (Cross direction)</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={alignItems} 
+                            onChange={e => setAlignItems(e.target.value)} >
+                            {alignItemsElements}
+                        </select>
+                    </div>
+                </div>
+                <h5 className="title is-5 has-margin-top">Item</h5>
+                <label className="label">Width (percent)</label>
                 <div className="field">
                     <div className="select is-fullwidth">
                         <select
@@ -158,4 +188,4 @@ function LayoutFloat(props) {
     );
 }
 
-export default LayoutFloat;
+export default LayoutFlexboxFluid;

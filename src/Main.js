@@ -20,6 +20,8 @@ const routeArray = [
     { url: 'filter-saturate', Component: I.FilterSaturate },
     { url: 'filter-sepia', Component: I.FilterSepia },
     { url: 'layout-float', Component: I.LayoutFloat },
+    { url: 'layout-flexbox-fluid', Component: I.LayoutFlexboxFluid },
+    { url: 'layout-flexbox-fixed', Component: I.LayoutFlexboxFixed },
     { url: 'text', Component: I.Text },
     { url: 'text-shadow', Component: I.TextShadow },
     { url: 'transform-translate', Component: I.TransformTranslate },

@@ -32,6 +32,10 @@
         display: block;
         clear: both;
     }
+
+    &[data-type='flexbox'] {
+        display: flex;
+    }
 }
 
 .preview__layout-item .item__content {

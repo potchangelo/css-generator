@@ -1,5 +1,13 @@
 const menuGroupArray = [
     {
+        name: 'Layout',
+        linkArray: [
+            { url: 'layout-flexbox-fluid', title: 'Flexbox Fluid' },
+            { url: 'layout-flexbox-fixed', title: 'Flexbox Fixed' },
+            { url: 'layout-float', title: 'Float' }
+        ]
+    },
+    {
         name: 'Background',
         linkArray: [
             { url: 'background-color', title: 'Background Color' }, 
@@ -16,6 +24,15 @@ const menuGroupArray = [
         ]
     },
     {
+        name: 'Transform',
+        linkArray: [
+            { url: 'transform-translate', title: 'Translate' }, 
+            { url: 'transform-rotate', title: 'Rotate' },
+            { url: 'transform-scale', title: 'Scale' }, 
+            { url: 'transform-skew', title: 'Skew' }
+        ]
+    },
+    {
         name: 'Filter',
         linkArray: [
             { url: 'filter-blur', title: 'Blur' }, 
@@ -29,25 +46,10 @@ const menuGroupArray = [
         ]
     },
     {
-        name: 'Layout',
-        linkArray: [
-            { url: 'layout-float', title: 'Float' }, 
-        ]
-    },
-    {
         name: 'Text',
         linkArray: [
             { url: 'text', title: 'Text' }, 
             { url: 'text-shadow', title: 'Text Shadow' }
-        ]
-    },
-    {
-        name: 'Transform',
-        linkArray: [
-            { url: 'transform-translate', title: 'Translate' }, 
-            { url: 'transform-rotate', title: 'Rotate' },
-            { url: 'transform-scale', title: 'Scale' }, 
-            { url: 'transform-skew', title: 'Skew' }
         ]
     }
 ];
