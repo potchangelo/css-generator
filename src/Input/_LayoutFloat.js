@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
-import { layoutItemSizeArray, layoutPreviewArray } from '../Helper';
+import { layoutItemSizeArray, layoutPreviewArray, layoutHtml } from '../Helper';
 
 const floatArray = ['left', 'right'];
 
@@ -32,20 +32,20 @@ function LayoutFloat(props) {
         }
 
         const css = '' + 
-            `.container {\n` + 
-            `    box-sizing: border-box;\n` + 
+            `.floatbox {\n` + 
             `    display: block;\n` + 
+            `    box-sizing: border-box;\n` + 
             `    margin: 0px ${hSpace/2 * -1}px;\n` + 
             `}\n\n` + 
-            `.container::after {\n` + 
+            `.floatbox::after {\n` + 
+            `    clear: both;\n` + 
             `    content: '';\n` + 
             `    display: block;\n` + 
-            `    clear: both;\n` + 
             `}\n\n` + 
             `.item {\n` + 
-            `    box-sizing: border-box;\n` + 
-            `    display: block;\n` + 
             `    float: ${float};\n` + 
+            `    display: block;\n` + 
+            `    box-sizing: border-box;\n` + 
             `    width: ${width}%;\n` + 
             `    margin-bottom: ${vSpace}px;\n` + 
             `    padding: 0px ${hSpace/2}px;\n` + 
@@ -61,18 +61,7 @@ function LayoutFloat(props) {
             `    padding: 10px;\n` + 
             `}`;
 
-        let itemHtml = '';
-        for (let i = 1; i <= 4; i++) {
-            itemHtml += '' + 
-                `    <div class="item">\n` + 
-                `        <div class="content">\n` + 
-                `            <p>${String(i).repeat(5)}</p>\n` + 
-                `        </div>\n` + 
-                `    </div>\n`;
-        }
-        const html = `<div class="container">\n` + itemHtml + `</div>`;
-
-        updateOutput(style, css, html);
+        updateOutput(style, css, layoutHtml('floatbox'));
     }, [updateOutput, float, width, hSpace, vSpace, preview]);
 
     // Elements

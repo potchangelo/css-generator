@@ -2,8 +2,7 @@ const menuGroupArray = [
     {
         name: 'Layout',
         linkArray: [
-            { url: 'layout-flexbox-fluid', title: 'Flexbox Fluid' },
-            { url: 'layout-flexbox-fixed', title: 'Flexbox Fixed' },
+            { url: 'layout-flexbox-simple', title: 'Flexbox Simple' },
             { url: 'layout-float', title: 'Float' }
         ]
     },
@@ -56,19 +55,32 @@ const menuGroupArray = [
 
 const layoutItemSizeArray = [
     {
-         key: 'one-second', title: '1/2 (50%)', 
+         key: 'one-second', title: '50% (1/2)', 
          value: 50, nthClear: '2n + 1' 
     },
     {
-         key: 'one-third', title: '1/3 (33.33%)', 
+         key: 'one-third', title: '33.33% (1/3)', 
          value: 33.33, nthClear: '3n + 1' 
     },
     {
-         key: 'one-fourth', title: '1/4 (25%)', 
+         key: 'one-fourth', title: '25% (1/4)', 
          value: 25, nthClear: '4n + 1' 
-    },
+    }
 ];
 
 const layoutPreviewArray = ['equal-height', 'unequal-height'];
 
-export { menuGroupArray, layoutItemSizeArray, layoutPreviewArray };
+function layoutHtml(ctnClass) {
+    let layoutItemHtml = '';
+    for (let i = 1; i <= 4; i++) {
+        layoutItemHtml += '' + 
+            `    <div class="item">\n` + 
+            `        <div class="content">\n` + 
+            `            <p>${String(i).repeat(5)}</p>\n` + 
+            `        </div>\n` + 
+            `    </div>\n`;
+    }
+    return `<div class="${ctnClass}">\n` + layoutItemHtml + `</div>`;
+}
+
+export { menuGroupArray, layoutItemSizeArray, layoutPreviewArray, layoutHtml };

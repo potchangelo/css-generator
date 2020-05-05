@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
-import { layoutPreviewArray } from '../Helper';
+import { layoutItemSizeArray, layoutPreviewArray, layoutHtml } from '../Helper';
 
 const directionArray = ['row', 'row-reverse'];
 const wrapArray = ['wrap', 'wrap-reverse', 'nowrap'];
@@ -9,21 +9,27 @@ const justifyContentArray = [
     'space-between', 'space-around', 'space-evenly'
 ];
 const alignItemsArray = ['stretch', 'flex-start', 'flex-end', 'center'];
+const widthUnitArray = ['percent', 'pixels'];
 
-function LayoutFlexboxFixed(props) {
+function LayoutFlexboxSimple(props) {
     // Props ,States
     const { updateOutput } = props;
     const [direction, setDirection] = useState('row');
     const [wrap, setWrap] = useState('wrap');
     const [justifyContent, setJustifyContent] = useState('flex-start');
     const [alignItems, setAlignItems] = useState('stretch');
-    const [width, setWidth] = useState(200);
+    const [widthUnit, setWidthUnit] = useState('percent');
+    const [widthPercent, setWidthPercent] = useState(50);
+    const [widthPixels, setWidthPixels] = useState(200);
     const [hSpace, setHSpace] = useState(20);
     const [vSpace, setVSpace] = useState(20);
     const [preview, setPreview] = useState('equal-height');
 
     // Effects
     useEffect(() => {
+        let widthStr = `${widthPercent}%`;
+        if (widthUnit === 'pixels') widthStr = `${widthPixels}px`;
+
         const style = {
             layoutType: `flexbox`,
             containerStyle: {
@@ -34,7 +40,7 @@ function LayoutFlexboxFixed(props) {
                 margin: `0px ${hSpace/2 * -1}px`,
             },
             itemStyle: {
-                width: `${width}px`,
+                width: widthStr,
                 marginBottom: `${vSpace}px`,
                 padding: `0px ${hSpace/2}px`,
             },
@@ -42,21 +48,21 @@ function LayoutFlexboxFixed(props) {
         }
 
         const css = '' + 
-            `.container {\n` + 
+            `.flexbox {\n` + 
             `    display: flex;\n` + 
+            `    box-sizing: border-box;\n` + 
             `    flex-direction: ${direction};\n` + 
             `    flex-wrap: ${wrap};\n` + 
             `    justify-content: ${justifyContent};\n` + 
             `    align-items: ${alignItems};\n` + 
             `    margin: 0px ${hSpace/2 * -1}px;\n` + 
-            `    box-sizing: border-box;\n` + 
             `}\n\n` + 
             `.item {\n` + 
             `    display: block;\n` + 
-            `    width: ${width}px;\n` + 
+            `    box-sizing: border-box;\n` + 
+            `    width: ${widthStr};\n` + 
             `    margin-bottom: ${vSpace}px;\n` + 
             `    padding: 0px ${hSpace/2}px;\n` + 
-            `    box-sizing: border-box;\n` + 
             `}\n\n` + 
             `.content {\n` + 
             `    color: #242424;\n` + 
@@ -66,21 +72,10 @@ function LayoutFlexboxFixed(props) {
             `    padding: 10px;\n` + 
             `}`;
 
-        let itemHtml = '';
-        for (let i = 1; i <= 4; i++) {
-            itemHtml += '' + 
-                `    <div class="item">\n` + 
-                `        <div class="content">\n` + 
-                `            <p>${String(i).repeat(5)}</p>\n` + 
-                `        </div>\n` + 
-                `    </div>\n`;
-        }
-        const html = `<div class="container">\n` + itemHtml + `</div>`;
-
-        updateOutput(style, css, html);
+        updateOutput(style, css, layoutHtml('flexbox'));
     }, [
         updateOutput, direction, wrap, justifyContent, alignItems,
-        width, hSpace, vSpace, preview
+        widthUnit, widthPercent, widthPixels, hSpace, vSpace, preview
     ]);
 
     // Elements
@@ -99,6 +94,61 @@ function LayoutFlexboxFixed(props) {
     const alignItemsElements = alignItemsArray.map(_align => 
         <option key={_align} value={_align}>{_align.charAt(0).toUpperCase() + _align.slice(1)}</option>
     );
+
+    const widthUnitElements = widthUnitArray.map(_unit => {
+        let classes = 'button';
+        if (_unit === widthUnit) classes += ' is-dark is-selected'
+        return (
+            <button
+                key={_unit}
+                className={classes}
+                onClick={_ => setWidthUnit(_unit)}>
+                {_unit.charAt(0).toUpperCase() + _unit.slice(1)}
+            </button>
+        );
+    });
+
+    let widthElement;
+    if (widthUnit === 'pixels') {
+        widthElement = (
+            <>
+                <label className="label">Width (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input 
+                            type="range"
+                            min="120"
+                            max="260"
+                            value={widthPixels}
+                            onChange={(e) => setWidthPixels(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">120</div>
+                            <div className="item has-text-grey">260</div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+    else {
+        const widthPercentElements = layoutItemSizeArray.map(({key, title, value}) => 
+            <option key={key} value={value}>{title}</option>
+        );
+        widthElement = (
+            <>
+                <label className="label">Width (percent)</label>
+                <div className="field">
+                    <div className="select is-fullwidth">
+                        <select
+                            value={widthPercent} 
+                            onChange={e => setWidthPercent(e.target.value)} >
+                            {widthPercentElements}
+                        </select>
+                    </div>
+                </div>
+            </>
+        );
+    }
 
     const previewElements = layoutPreviewArray.map(_content => 
         <option key={_content} value={_content}>{_content.charAt(0).toUpperCase() + _content.slice(1).replace('-', ' ')}</option>
@@ -149,21 +199,11 @@ function LayoutFlexboxFixed(props) {
                     </div>
                 </div>
                 <h5 className="title is-5 has-margin-top">Item</h5>
-                <label className="label">Width (pixels)</label>
-                <div className="field">
-                    <div className="control__range control">
-                        <input 
-                            type="range"
-                            min="120"
-                            max="260"
-                            value={width}
-                            onChange={(e) => setWidth(e.target.value)} />
-                        <div className="control__range--text">
-                            <div className="item has-text-grey">120</div>
-                            <div className="item has-text-grey">260</div>
-                        </div>
-                    </div>
+                <label className="label">Width unit</label>
+                <div className="buttons has-addons">
+                    {widthUnitElements}
                 </div>
+                {widthElement}
                 <label className="label">Horizontal space (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
@@ -210,4 +250,4 @@ function LayoutFlexboxFixed(props) {
     );
 }
 
-export default LayoutFlexboxFixed;
+export default LayoutFlexboxSimple;
