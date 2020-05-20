@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
-import { layoutItemSizeArray, layoutPreviewArray, layoutHtml } from '../Helper';
+import { layoutItemSizeArray, layoutPreviewArray, layoutItemsHtml } from '../Helper';
 
 const floatArray = ['left', 'right'];
 
@@ -55,13 +55,13 @@ function LayoutFloat(props) {
             `}\n\n` + 
             `.content {\n` + 
             `    color: #242424;\n` + 
-            `    background-color: #689fff;\n` + 
+            `    background-color: #4ea2f5;\n` + 
             `    font-weight: 600;\n` + 
             `    text-align: center;\n` + 
             `    padding: 10px;\n` + 
             `}`;
 
-        updateOutput(style, css, layoutHtml('floatbox'));
+        updateOutput(style, css, layoutItemsHtml('floatbox'));
     }, [updateOutput, float, width, hSpace, vSpace, preview]);
 
     // Elements
@@ -78,7 +78,7 @@ function LayoutFloat(props) {
     );
 
     return (
-        <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Float Layout (don't use)" subTitle="Customizing">
             <div className="inputs">
                 <h5 className="title is-5">Item</h5>
                 <label className="label">Float</label>

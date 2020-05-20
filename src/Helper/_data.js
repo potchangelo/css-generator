@@ -2,7 +2,8 @@ const menuGroupArray = [
     {
         name: 'Layout',
         linkArray: [
-            { url: 'layout-flexbox-simple', title: 'Flexbox Simple' },
+            { url: 'layout-flexbox-items', title: 'Flexbox Items' },
+            { url: 'layout-flexbox-menu-bar', title: 'Flexbox Menu Bar' },
             { url: 'layout-float', title: 'Float' }
         ]
     },
@@ -70,7 +71,7 @@ const layoutItemSizeArray = [
 
 const layoutPreviewArray = ['equal-height', 'unequal-height'];
 
-function layoutHtml(ctnClass) {
+function layoutItemsHtml(ctnClass) {
     let layoutItemHtml = '';
     for (let i = 1; i <= 4; i++) {
         layoutItemHtml += '' + 
@@ -83,4 +84,18 @@ function layoutHtml(ctnClass) {
     return `<div class="${ctnClass}">\n` + layoutItemHtml + `</div>`;
 }
 
-export { menuGroupArray, layoutItemSizeArray, layoutPreviewArray, layoutHtml };
+const layoutMenuHtml = '' + 
+    `<nav class="menu-bar">\n` + 
+    `    <div class="group">\n` + 
+    `        <a class="item title">Site Title</a>\n` + 
+    `    </div>\n` + 
+    `    <div class="group">\n` + 
+    `        <a class="item">Link 1</a>\n` + 
+    `        <a class="item">Link 2</a>\n` + 
+    `    </div>\n` + 
+    `</nav>`;
+
+export {
+     menuGroupArray, layoutItemSizeArray, layoutPreviewArray, 
+     layoutItemsHtml, layoutMenuHtml
+};

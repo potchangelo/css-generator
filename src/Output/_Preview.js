@@ -2,8 +2,20 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { MainSection } from '../Layout';
 
-const Content = ({ char }) => <p>{`${char}`.repeat(5)}</p>;
-const contentCountArray = [3, 2, 1, 2];
+const LayoutContent = ({ char }) => <p>{`${char}`.repeat(5)}</p>;
+const layoutContentCountArray = [3, 2, 1, 2];
+
+const LayoutMenuBar = (
+    <>
+        <div className="preview__layout-item">
+            <a className="preview__menu-title">Site Title</a>
+        </div>
+        <div className="preview__layout-item">
+            <a>Link 1</a>
+            <a>Link 2</a>
+        </div>
+    </>
+);
 
 function Preview(props) {
     // Props
@@ -17,17 +29,29 @@ function Preview(props) {
         element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" alt="Preview" style={outputStyle} />;
         subTitle = 'Image filter mode';
     }
-    else if(path.startsWith('/layout')) {
+    else if (path === '/layout-flexbox-menu-bar') {
+        const { 
+            layoutType, containerStyle
+        } = outputStyle;
+
+        element = (
+            <div className="preview__layout-container" data-type={layoutType} style={containerStyle}>
+                {LayoutMenuBar}
+            </div>
+        );
+        subTitle = 'Layout mode';
+    }
+    else if (path.startsWith('/layout')) {
         const { 
             layoutType, containerStyle, itemStyle, preview 
         } = outputStyle;
 
-        const itemElements = contentCountArray.map((_, index) => {
+        const itemElements = layoutContentCountArray.map((_, index) => {
             const char = `${index + 1}`;
-            let previewElements = <Content key={`key-${char}`} char={char} />
+            let previewElements = <LayoutContent key={`key-${char}`} char={char} />
             if (preview === 'unequal-height') {
-                previewElements = [...Array(contentCountArray[index]).keys()].map(_index => 
-                    <Content key={`key-${char}-${_index + 1}`} char={char} />
+                previewElements = [...Array(layoutContentCountArray[index]).keys()].map(_index => 
+                    <LayoutContent key={`key-${char}-${_index + 1}`} char={char} />
                 );
             }
             return (

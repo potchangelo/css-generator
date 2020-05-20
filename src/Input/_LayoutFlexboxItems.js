@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
-import { layoutItemSizeArray, layoutPreviewArray, layoutHtml } from '../Helper';
+import { layoutItemSizeArray, layoutPreviewArray, layoutItemsHtml } from '../Helper';
 
 const directionArray = ['row', 'row-reverse'];
 const wrapArray = ['wrap', 'wrap-reverse', 'nowrap'];
@@ -11,7 +11,7 @@ const justifyContentArray = [
 const alignItemsArray = ['stretch', 'flex-start', 'flex-end', 'center'];
 const widthUnitArray = ['percent', 'pixels'];
 
-function LayoutFlexboxSimple(props) {
+function LayoutFlexboxItems(props) {
     // Props ,States
     const { updateOutput } = props;
     const [direction, setDirection] = useState('row');
@@ -66,13 +66,14 @@ function LayoutFlexboxSimple(props) {
             `}\n\n` + 
             `.content {\n` + 
             `    color: #242424;\n` + 
-            `    background-color: #689fff;\n` + 
+            `    background-color: #4ea2f5;\n` + 
             `    font-weight: 600;\n` + 
             `    text-align: center;\n` + 
+            `    height: 100%;\n` + 
             `    padding: 10px;\n` + 
             `}`;
 
-        updateOutput(style, css, layoutHtml('flexbox'));
+        updateOutput(style, css, layoutItemsHtml('flexbox'));
     }, [
         updateOutput, direction, wrap, justifyContent, alignItems,
         widthUnit, widthPercent, widthPixels, hSpace, vSpace, preview
@@ -155,7 +156,7 @@ function LayoutFlexboxSimple(props) {
     );
 
     return (
-        <MainSection extraClass="main__section-inputs" title="Background Color" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Flexbox Items Layout" subTitle="Customizing">
             <div className="inputs">
                 <h5 className="title is-5">Container</h5>
                 <label className="label">Direction</label>
@@ -250,4 +251,4 @@ function LayoutFlexboxSimple(props) {
     );
 }
 
-export default LayoutFlexboxSimple;
+export default LayoutFlexboxItems;

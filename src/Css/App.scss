@@ -158,3 +158,8 @@ input[type=range] {
         overflow-x: hidden;
     }
 }
+
+.button.is-image {
+    height: max-content;
+    padding: 20px;
+}
