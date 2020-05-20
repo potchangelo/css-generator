@@ -3,8 +3,8 @@ import { MainSection } from '../Layout';
 import { layoutMenuHtml } from '../Helper';
 
 const layoutArray = [
-    { key: 'left', imageUrl: '/images/menu-bar-01.png', selectedImageUrl: '/images/menu-bar-01.png' },
-    { key: 'right', imageUrl: '/images/menu-bar-02.png', selectedImageUrl: '/images/menu-bar-02.png' }
+    { key: 'left', imageUrl: '/image/menu-bar-01.png', selectedImageUrl: '/image/menu-bar-01.png' },
+    { key: 'right', imageUrl: '/image/menu-bar-02.png', selectedImageUrl: '/image/menu-bar-02.png' }
 ];
 
 function LayoutFlexboxMenu(props) {
