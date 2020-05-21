@@ -56,6 +56,17 @@
     &[data-type='flexbox-menu'] .preview__layout-item .preview__menu-title {
         font-weight: 600;
     }
+
+    &[data-type='flexbox-gallery'] {
+        background-color: $grey-lighter;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    &[data-type='flexbox-gallery'] .item,
+    &[data-type='flexbox-gallery'] .item img {
+        height: 100%;
+    }
 }
 
 .preview__layout-item .item__content {

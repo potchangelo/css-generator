@@ -33,32 +33,32 @@ function LayoutFloat(props) {
 
         const css = '' + 
             `.floatbox {\n` + 
-            `    display: block;\n` + 
-            `    box-sizing: border-box;\n` + 
-            `    margin: 0px ${hSpace/2 * -1}px;\n` + 
+            `  display: block;\n` + 
+            `  box-sizing: border-box;\n` + 
+            `  margin: 0px ${hSpace/2 * -1}px;\n` + 
             `}\n\n` + 
             `.floatbox::after {\n` + 
-            `    clear: both;\n` + 
-            `    content: '';\n` + 
-            `    display: block;\n` + 
+            `  clear: both;\n` + 
+            `  content: '';\n` + 
+            `  display: block;\n` + 
             `}\n\n` + 
             `.item {\n` + 
-            `    float: ${float};\n` + 
-            `    display: block;\n` + 
-            `    box-sizing: border-box;\n` + 
-            `    width: ${width}%;\n` + 
-            `    margin-bottom: ${vSpace}px;\n` + 
-            `    padding: 0px ${hSpace/2}px;\n` + 
+            `  float: ${float};\n` + 
+            `  display: block;\n` + 
+            `  box-sizing: border-box;\n` + 
+            `  width: ${width}%;\n` + 
+            `  margin-bottom: ${vSpace}px;\n` + 
+            `  padding: 0px ${hSpace/2}px;\n` + 
             `}\n\n` + 
             `.item:nth-child(${sizeObj.nthClear}) {\n` + 
-            `    clear: both;\n` + 
+            `  clear: both;\n` + 
             `}\n\n` + 
             `.content {\n` + 
-            `    color: #242424;\n` + 
-            `    background-color: #4ea2f5;\n` + 
-            `    font-weight: 600;\n` + 
-            `    text-align: center;\n` + 
-            `    padding: 10px;\n` + 
+            `  color: #242424;\n` + 
+            `  background-color: #4ea2f5;\n` + 
+            `  font-weight: 600;\n` + 
+            `  text-align: center;\n` + 
+            `  padding: 10px;\n` + 
             `}`;
 
         updateOutput(style, css, layoutItemsHtml('floatbox'));

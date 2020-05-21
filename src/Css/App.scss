@@ -124,6 +124,41 @@ input[type=range] {
     }
 }
 
+.checkbox__custom {
+    > * {
+        vertical-align: middle;
+    }
+
+    input {
+        display: none;
+    }
+
+    .checkbox__icon {
+        color: $white;
+        background-color: $white;
+        border: 2px solid $grey;
+        border-radius: 4px;
+    }
+
+    .checkbox__icon svg {
+        opacity: 0;
+    }
+
+    .checkbox__text {
+        font-weight: $weight-bold;
+        margin-left: 8px;
+    }
+
+    input:checked + .checkbox__icon {
+        background-color: $cyan;
+        border-color: transparent;
+    }
+
+    input:checked + .checkbox__icon svg {
+        opacity: 1;
+    }
+}
+
 .main {
     @include tablet {
         margin-left: 228px;

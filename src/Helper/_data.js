@@ -4,6 +4,7 @@ const menuGroupArray = [
         linkArray: [
             { url: 'layout-flexbox-items', title: 'Flexbox Items' },
             { url: 'layout-flexbox-menu-bar', title: 'Flexbox Menu Bar' },
+            { url: 'layout-flexbox-gallery', title: 'Flexbox Gallery' },
             { url: 'layout-float', title: 'Float' }
         ]
     },
@@ -69,33 +70,70 @@ const layoutItemSizeArray = [
     }
 ];
 
-const layoutPreviewArray = ['equal-height', 'unequal-height'];
+const layoutPreviewArray = [
+    'equal-height', 'unequal-height'
+];
+
+const layoutItemsContent = [
+    '11111', '22222', '33333', '44444'
+];
 
 function layoutItemsHtml(ctnClass) {
     let layoutItemHtml = '';
-    for (let i = 1; i <= 4; i++) {
+    layoutItemsContent.forEach(content => {
         layoutItemHtml += '' + 
-            `    <div class="item">\n` + 
-            `        <div class="content">\n` + 
-            `            <p>${String(i).repeat(5)}</p>\n` + 
-            `        </div>\n` + 
-            `    </div>\n`;
-    }
+            `  <div class="item">\n` + 
+            `    <div class="content">\n` + 
+            `      <p>${content}</p>\n` + 
+            `    </div>\n` + 
+            `  </div>\n`;
+    });
     return `<div class="${ctnClass}">\n` + layoutItemHtml + `</div>`;
 }
 
-const layoutMenuHtml = '' + 
-    `<nav class="menu-bar">\n` + 
-    `    <div class="group">\n` + 
-    `        <a class="item title">Site Title</a>\n` + 
-    `    </div>\n` + 
-    `    <div class="group">\n` + 
-    `        <a class="item">Link 1</a>\n` + 
-    `        <a class="item">Link 2</a>\n` + 
-    `    </div>\n` + 
-    `</nav>`;
+function layoutMenuHtml() {
+    return '' + 
+        `<nav class="menu-bar">\n` + 
+        `  <div class="group">\n` + 
+        `    <a class="item title">Site Title</a>\n` + 
+        `  </div>\n` + 
+        `  <div class="group">\n` + 
+        `    <a class="item">Link 1</a>\n` + 
+        `    <a class="item">Link 2</a>\n` + 
+        `  </div>\n` + 
+        `</nav>`;
+}
+
+const layoutGalleryImageUrl = [
+    'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
+    'https://images.unsplash.com/photo-1497290756760-23ac55edf36f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
+    'https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
+];
+
+
+function layoutGalleryHtml() {
+    let layoutItemHtml = '';
+    layoutGalleryImageUrl.forEach(imageUrl => {
+        layoutItemHtml += '' + 
+        `      <div class="item">\n` + 
+        `        <div class="content">\n` + 
+        `          <img src="${imageUrl}" alt="Image" />\n` + 
+        `        </div>\n` +
+        `      </div>\n`;
+    });
+    return '' + 
+        `<div class="gallery-wrapper">\n` + 
+        `  <div class="gallery-scroll">\n` + 
+        `    <div class="gallery-flexbox">\n` + 
+        layoutItemHtml + 
+        `    </div>\n` + 
+        `  </div>\n` + 
+        `</div>`;
+}
 
 export {
      menuGroupArray, layoutItemSizeArray, layoutPreviewArray, 
-     layoutItemsHtml, layoutMenuHtml
+     layoutItemsContent, layoutGalleryImageUrl, 
+     layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml
 };

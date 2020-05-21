@@ -22,6 +22,7 @@ const routeArray = [
     { url: 'layout-float', Component: I.LayoutFloat },
     { url: 'layout-flexbox-items', Component: I.LayoutFlexboxItems },
     { url: 'layout-flexbox-menu-bar', Component: I.LayoutFlexboxMenu },
+    { url: 'layout-flexbox-gallery', Component: I.LayoutFlexboxGallery },
     { url: 'text', Component: I.Text },
     { url: 'text-shadow', Component: I.TextShadow },
     { url: 'transform-translate', Component: I.TransformTranslate },

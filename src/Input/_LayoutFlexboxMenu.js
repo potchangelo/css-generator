@@ -22,25 +22,25 @@ function LayoutFlexboxMenu(props) {
 
         const css = '' +
             `.menu-bar {\n` +
-            `    display: flex;\n` +
-            `    justify-content: ${justifyContent};\n` +
-            `    background-color: #1988f7;\n` +
+            `  display: flex;\n` +
+            `  justify-content: ${justifyContent};\n` +
+            `  background-color: #1988f7;\n` +
             `}\n\n` +
             `.item {\n` +
-            `    color: white;\n` +
-            `    background-color: transparent;\n` +
-            `    font-size: 18px;\n` +
-            `    display: inline-block;\n` +
-            `    padding: 14px 20px;\n` +
+            `  color: white;\n` +
+            `  background-color: transparent;\n` +
+            `  font-size: 18px;\n` +
+            `  display: inline-block;\n` +
+            `  padding: 14px 20px;\n` +
             `}\n\n` +
             `.item.title {\n` +
-            `    font-weight: 600;\n` +
+            `  font-weight: 600;\n` +
             `}\n\n` +
             `.item:hover {\n` +
-            `    background-color: rgba(0, 0, 0, 0.1);\n` +
+            `  background-color: rgba(0, 0, 0, 0.1);\n` +
             `}`;
 
-        updateOutput(style, css, layoutMenuHtml);
+        updateOutput(style, css, layoutMenuHtml());
     }, [updateOutput, layout]);
 
     // Elements

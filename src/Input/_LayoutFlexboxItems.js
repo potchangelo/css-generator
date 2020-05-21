@@ -2,14 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { MainSection } from '../Layout';
 import { layoutItemSizeArray, layoutPreviewArray, layoutItemsHtml } from '../Helper';
 
-const directionArray = ['row', 'row-reverse'];
-const wrapArray = ['wrap', 'wrap-reverse', 'nowrap'];
+const directionArray = [
+    'row', 'row-reverse'
+];
+const wrapArray = [
+    'wrap', 'wrap-reverse', 'nowrap'
+];
 const justifyContentArray = [
     'flex-start', 'flex-end', 'center', 
     'space-between', 'space-around', 'space-evenly'
 ];
-const alignItemsArray = ['stretch', 'flex-start', 'flex-end', 'center'];
-const widthUnitArray = ['percent', 'pixels'];
+const alignItemsArray = [
+    'stretch', 'flex-start', 'flex-end', 'center'
+];
+const widthUnitArray = [
+    'percent', 'pixels'
+];
 
 function LayoutFlexboxItems(props) {
     // Props ,States
@@ -49,28 +57,28 @@ function LayoutFlexboxItems(props) {
 
         const css = '' + 
             `.flexbox {\n` + 
-            `    display: flex;\n` + 
-            `    box-sizing: border-box;\n` + 
-            `    flex-direction: ${direction};\n` + 
-            `    flex-wrap: ${wrap};\n` + 
-            `    justify-content: ${justifyContent};\n` + 
-            `    align-items: ${alignItems};\n` + 
-            `    margin: 0px ${hSpace/2 * -1}px;\n` + 
+            `  display: flex;\n` + 
+            `  box-sizing: border-box;\n` + 
+            `  flex-direction: ${direction};\n` + 
+            `  flex-wrap: ${wrap};\n` + 
+            `  justify-content: ${justifyContent};\n` + 
+            `  align-items: ${alignItems};\n` + 
+            `  margin: 0px ${hSpace/2 * -1}px;\n` + 
             `}\n\n` + 
             `.item {\n` + 
-            `    display: block;\n` + 
-            `    box-sizing: border-box;\n` + 
-            `    width: ${widthStr};\n` + 
-            `    margin-bottom: ${vSpace}px;\n` + 
-            `    padding: 0px ${hSpace/2}px;\n` + 
+            `  display: block;\n` + 
+            `  box-sizing: border-box;\n` + 
+            `  width: ${widthStr};\n` + 
+            `  margin-bottom: ${vSpace}px;\n` + 
+            `  padding: 0px ${hSpace/2}px;\n` + 
             `}\n\n` + 
             `.content {\n` + 
-            `    color: #242424;\n` + 
-            `    background-color: #4ea2f5;\n` + 
-            `    font-weight: 600;\n` + 
-            `    text-align: center;\n` + 
-            `    height: 100%;\n` + 
-            `    padding: 10px;\n` + 
+            `  color: #242424;\n` + 
+            `  background-color: #4ea2f5;\n` + 
+            `  font-weight: 600;\n` + 
+            `  text-align: center;\n` + 
+            `  height: 100%;\n` + 
+            `  padding: 10px;\n` + 
             `}`;
 
         updateOutput(style, css, layoutItemsHtml('flexbox'));

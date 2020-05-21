@@ -1,9 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { MainSection } from '../Layout';
-
-const LayoutContent = ({ char }) => <p>{`${char}`.repeat(5)}</p>;
-const layoutContentCountArray = [3, 2, 1, 2];
+import PreviewLayoutItems from './_PreviewLayoutItems';
 
 const LayoutMenuBar = (
     <>
@@ -15,6 +13,12 @@ const LayoutMenuBar = (
             <a>Link 2</a>
         </div>
     </>
+);
+
+const LayoutGallery = (props) => (
+    <div className="item">
+        <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" alt="a" />
+    </div>
 );
 
 function Preview(props) {
@@ -41,36 +45,34 @@ function Preview(props) {
         );
         subTitle = 'Layout mode';
     }
-    else if (path.startsWith('/layout')) {
+    else if (path === '/layout-flexbox-gallery') {
         const { 
-            layoutType, containerStyle, itemStyle, preview 
+            layoutType, containerStyle, itemStyle
         } = outputStyle;
 
-        const itemElements = layoutContentCountArray.map((_, index) => {
-            const char = `${index + 1}`;
-            let previewElements = <LayoutContent key={`key-${char}`} char={char} />
-            if (preview === 'unequal-height') {
-                previewElements = [...Array(layoutContentCountArray[index]).keys()].map(_index => 
-                    <LayoutContent key={`key-${char}-${_index + 1}`} char={char} />
-                );
-            }
+        console.log(itemStyle)
+
+        const itemElements = [0, 0, 0, 0].map((_, index) => {
             return (
-                <div 
-                    key={`item-${index}`} 
-                    className="preview__layout-item"
-                    style={itemStyle}>
-                    <div className="item__content">
-                        {previewElements}
-                    </div>
+                <div className="item" style={itemStyle}>
+                    <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" alt="a" />
                 </div>
             );
         });
 
         element = (
-            <div className="preview__layout-container" data-type={layoutType} style={containerStyle}>
-                {itemElements}
+            <div className="l1">
+                <div className="l2">
+                    <div className="preview__layout-container" data-type={layoutType} style={containerStyle}>
+                        {itemElements}
+                    </div>
+                </div>
             </div>
         );
+        subTitle = 'Layout mode';
+    }
+    else if (path.startsWith('/layout')) {
+        element = <PreviewLayoutItems {...outputStyle} />;
         subTitle = 'Layout mode';
     }
     else if (path.startsWith('/text')) {
