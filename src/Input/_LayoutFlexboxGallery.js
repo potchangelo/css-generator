@@ -54,6 +54,7 @@ function LayoutFlexboxGallery(props) {
             `  box-sizing: border-box;\n` + 
             `}\n\n` + 
             `.item img {\n` +
+            `  display: block;\n` + 
             `  height: 100%;\n` + 
             `}`;
 

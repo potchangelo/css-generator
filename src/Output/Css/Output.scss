@@ -71,8 +71,12 @@
         width: max-content;
     }
 
-    &[data-type='flexbox-gallery'] .preview__layout-item,
+    &[data-type='flexbox-gallery'] .preview__layout-item {
+        height: 100%;
+    }
+
     &[data-type='flexbox-gallery'] .preview__layout-item img {
+        display: block;
         height: 100%;
     }
 }
