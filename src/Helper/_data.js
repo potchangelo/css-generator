@@ -106,7 +106,7 @@ function layoutMenuHtml() {
 
 const layoutGalleryImageUrl = [
     'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
-    'https://images.unsplash.com/photo-1497290756760-23ac55edf36f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
+    'https://images.unsplash.com/photo-1471922694854-ff1b63b20054?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
     'https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
 ];
@@ -117,15 +117,13 @@ function layoutGalleryHtml() {
     layoutGalleryImageUrl.forEach(imageUrl => {
         layoutItemHtml += '' + 
         `      <div class="item">\n` + 
-        `        <div class="content">\n` + 
-        `          <img src="${imageUrl}" alt="Image" />\n` + 
-        `        </div>\n` +
+        `        <img src="${imageUrl}" alt="Image" />\n` + 
         `      </div>\n`;
     });
     return '' + 
         `<div class="gallery-wrapper">\n` + 
         `  <div class="gallery-scroll">\n` + 
-        `    <div class="gallery-flexbox">\n` + 
+        `    <div class="gallery">\n` + 
         layoutItemHtml + 
         `    </div>\n` + 
         `  </div>\n` + 

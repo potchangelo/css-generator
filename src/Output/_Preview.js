@@ -2,24 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { MainSection } from '../Layout';
 import PreviewLayoutItems from './_PreviewLayoutItems';
-
-const LayoutMenuBar = (
-    <>
-        <div className="preview__layout-item">
-            <a className="preview__menu-title">Site Title</a>
-        </div>
-        <div className="preview__layout-item">
-            <a>Link 1</a>
-            <a>Link 2</a>
-        </div>
-    </>
-);
-
-const LayoutGallery = (props) => (
-    <div className="item">
-        <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" alt="a" />
-    </div>
-);
+import PreviewLayoutMenu from './_PreviewLayoutMenu';
+import PreviewLayoutGallery from './_PreviewLayoutGallery';
 
 function Preview(props) {
     // Props
@@ -33,46 +17,16 @@ function Preview(props) {
         element = <img className="preview__image" src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80" alt="Preview" style={outputStyle} />;
         subTitle = 'Image filter mode';
     }
-    else if (path === '/layout-flexbox-menu-bar') {
-        const { 
-            layoutType, containerStyle
-        } = outputStyle;
-
-        element = (
-            <div className="preview__layout-container" data-type={layoutType} style={containerStyle}>
-                {LayoutMenuBar}
-            </div>
-        );
-        subTitle = 'Layout mode';
-    }
-    else if (path === '/layout-flexbox-gallery') {
-        const { 
-            layoutType, containerStyle, itemStyle
-        } = outputStyle;
-
-        console.log(itemStyle)
-
-        const itemElements = [0, 0, 0, 0].map((_, index) => {
-            return (
-                <div className="item" style={itemStyle}>
-                    <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" alt="a" />
-                </div>
-            );
-        });
-
-        element = (
-            <div className="l1">
-                <div className="l2">
-                    <div className="preview__layout-container" data-type={layoutType} style={containerStyle}>
-                        {itemElements}
-                    </div>
-                </div>
-            </div>
-        );
-        subTitle = 'Layout mode';
-    }
     else if (path.startsWith('/layout')) {
-        element = <PreviewLayoutItems {...outputStyle} />;
+        if (path === '/layout-flexbox-menu-bar') {
+            element = <PreviewLayoutMenu {...outputStyle} />;
+        }
+        else if (path === '/layout-flexbox-gallery') {
+            element = <PreviewLayoutGallery {...outputStyle} />;
+        }
+        else {
+            element = <PreviewLayoutItems {...outputStyle} />;
+        }
         subTitle = 'Layout mode';
     }
     else if (path.startsWith('/text')) {

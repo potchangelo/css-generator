@@ -5,42 +5,60 @@ import { layoutGalleryHtml } from '../Helper';
 function LayoutFlexboxGallery(props) {
     // Props ,States
     const { updateOutput } = props;
-    const [height, setHeight] = useState(150);
-    const [isScrollHidden, setIsScrollHidden] = useState(false);
-    const [hSpace, setHSpace] = useState(20);
-    const [vSpace, setVSpace] = useState(20);
+    const [height, setHeight] = useState(180);
+    const [hSpace, setHSpace] = useState(16);
+    const [vSpace, setVSpace] = useState(16);
 
     // Effects
     useEffect(() => {
-        const overflowX = !!isScrollHidden ? 'hidden' : 'auto';
+        const scrollHeight = Number(height) + 15;
 
         const style = {
             layoutType: `flexbox-gallery`,
+            wrapperStyle: {
+                height: `${height}px`
+            },
+            scrollStyle: {
+                height: `${scrollHeight}px`
+            },
             containerStyle: {
-                height: `${Number(height) + 15}px`,
-                padding: `0px ${hSpace/2}px`,
-                overflowX,
+                height: `${height}px`,
+                padding: `0px ${hSpace/2}px`
             },
             itemStyle: {
-                height: `${height}px`,
                 padding: `${vSpace}px ${hSpace/2}px`,
             }
         }
 
         const css = '' +
+            `.gallery-wrapper {\n` +
+            `  height: ${height}px;\n` +
+            `  background-color: #dbdbdb;\n` +
+            `  overflow: hidden;\n` +
+            `}\n\n` + 
+            `.gallery-scroll {\n` +
+            `  height: ${scrollHeight}px;\n` +
+            `  overflow-x: auto;\n` +
+            `  overflow-y: hidden;\n` +
+            `}\n\n` + 
             `.gallery {\n` +
             `  display: flex;\n` +
-            `  flex-direction: column;\n` +
-            `  height: ${height};\n` +
-            `  overflow-x: ${isScrollHidden};\n` +
+            `  width: max-content;\n` +
+            `  height: ${height}px;\n` +
+            `  padding: 0px ${hSpace/2}px;\n` +
             `  background-color: #dbdbdb;\n` +
             `}\n\n` + 
             `.item {\n` +
+            `  height: 100%;\n` +
             `  padding: ${vSpace}px ${hSpace/2}px;\n` +
+            `  box-sizing: border-box;\n` + 
+            `}\n\n` + 
+            `.item img {\n` +
+            `  height: 100%;\n` + 
             `}`;
 
         updateOutput(style, css, layoutGalleryHtml);
-    }, [updateOutput, height, isScrollHidden, hSpace, vSpace]);
+    }, [updateOutput, height, hSpace, vSpace]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Flexbox Gallery Layout" subTitle="Customizing">
@@ -51,26 +69,16 @@ function LayoutFlexboxGallery(props) {
                     <div className="control__range control">
                         <input 
                             type="range"
-                            min="80"
+                            min="100"
                             max="240"
                             value={height}
                             onChange={e => setHeight(e.target.value)} />
                         <div className="control__range--text">
-                            <div className="item has-text-grey">80</div>
+                            <div className="item has-text-grey">100</div>
                             <div className="item has-text-grey">240</div>
                         </div>
                     </div>
                 </div>
-                <label className="checkbox checkbox__custom">
-                    <input 
-                        type="checkbox" 
-                        checked={isScrollHidden}
-                        onChange={e => setIsScrollHidden(e.target.checked)} />
-                    <span className="icon checkbox__icon">
-                        <i className="fas fa-check" />
-                    </span>
-                    <span className="checkbox__text">Hide scrollbar</span>
-                </label>
                 <h5 className="title is-5 has-margin-top">Item</h5>
                 <label className="label">Horizontal space (pixels)</label>
                 <div className="field">
