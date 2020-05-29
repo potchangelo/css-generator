@@ -5,7 +5,7 @@ const unequalLineArray = [3, 2, 1, 2]
 
 function PreviewLayoutItems(props) {
     const { 
-        layoutType, containerStyle, itemStyle, preview 
+        layoutType, containerStyle, itemStyle = {}, preview 
     } = props;
 
     const itemElements = layoutItemsContent.map((content, itemIndex) => {

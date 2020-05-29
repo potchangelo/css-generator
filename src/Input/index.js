@@ -17,6 +17,7 @@ export { default as LayoutFloat } from './_LayoutFloat';
 export { default as LayoutFlexboxItems } from './_LayoutFlexboxItems';
 export { default as LayoutFlexboxMenu } from './_LayoutFlexboxMenu';
 export { default as LayoutFlexboxGallery } from './_LayoutFlexboxGallery';
+export { default as LayoutGridItems } from './_LayoutGridItems';
 export { default as Text } from './_Text';
 export { default as TextShadow } from './_TextShadow';
 export { default as TransformTranslate } from './_TransformTranslate';

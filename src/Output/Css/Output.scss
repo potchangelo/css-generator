@@ -79,6 +79,10 @@
         display: block;
         height: 100%;
     }
+
+    &[data-type='grid'] {
+        display: grid;
+    }
 }
 
 .preview__layout-item .item__content {

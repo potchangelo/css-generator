@@ -5,6 +5,7 @@ const menuGroupArray = [
             { url: 'layout-flexbox-items', title: 'Flexbox Items' },
             { url: 'layout-flexbox-menu-bar', title: 'Flexbox Menu Bar' },
             { url: 'layout-flexbox-gallery', title: 'Flexbox Gallery' },
+            { url: 'layout-grid-items', title: 'Grid Items' },
             { url: 'layout-float', title: 'Float' }
         ]
     },
@@ -78,7 +79,7 @@ const layoutItemsContent = [
     '11111', '22222', '33333', '44444'
 ];
 
-function layoutItemsHtml(ctnClass) {
+function layoutItemsHtml(layoutType) {
     let layoutItemHtml = '';
     layoutItemsContent.forEach(content => {
         layoutItemHtml += '' + 
@@ -88,7 +89,7 @@ function layoutItemsHtml(ctnClass) {
             `    </div>\n` + 
             `  </div>\n`;
     });
-    return `<div class="${ctnClass}">\n` + layoutItemHtml + `</div>`;
+    return `<div class="${layoutType}">\n` + layoutItemHtml + `</div>`;
 }
 
 function layoutMenuHtml() {
