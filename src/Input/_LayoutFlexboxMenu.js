@@ -3,8 +3,8 @@ import { MainSection } from '../Layout';
 import { layoutMenuHtml } from '../Helper';
 
 const layoutArray = [
-    { key: 'left', imageUrl: '/image/menu-bar-01.png', selectedImageUrl: '/image/menu-bar-01.png' },
-    { key: 'right', imageUrl: '/image/menu-bar-02.png', selectedImageUrl: '/image/menu-bar-02.png' }
+    { key: 'left', imageUrl: '/image/menu-bar-01.png' },
+    { key: 'right', imageUrl: '/image/menu-bar-02.png' }
 ];
 
 function LayoutFlexboxMenu(props) {
@@ -49,7 +49,6 @@ function LayoutFlexboxMenu(props) {
         let imageUrl = _layout.imageUrl;
         if (_layout.key === layout) {
             classes += ' is-dark is-selected';
-            imageUrl = _layout.selectedImageUrl;
         }
         return (
             <React.Fragment key={_layout.key}>

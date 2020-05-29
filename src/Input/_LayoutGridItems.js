@@ -22,7 +22,7 @@ function LayoutGridItems(props) {
     // Effects
     useEffect(() => {
         const style = {
-            layoutType: `grid`,
+            layoutType: `grid-items`,
             containerStyle: {
                 gridTemplateColumns: templateColumns,
                 justifyItems,
@@ -79,7 +79,7 @@ function LayoutGridItems(props) {
     );
 
     return (
-        <MainSection extraClass="main__section-inputs" title="Flexbox Items Layout" subTitle="Customizing">
+        <MainSection extraClass="main__section-inputs" title="Grid Items Layout" subTitle="Customizing">
             <div className="inputs">
                 <h5 className="title is-5">Container</h5>
                 <label className="label">Grid column width</label>

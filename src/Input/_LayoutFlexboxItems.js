@@ -39,7 +39,7 @@ function LayoutFlexboxItems(props) {
         if (widthUnit === 'pixels') widthStr = `${widthPixels}px`;
 
         const style = {
-            layoutType: `flexbox`,
+            layoutType: `flexbox-items`,
             containerStyle: {
                 flexDirection: direction,
                 flexWrap: wrap,

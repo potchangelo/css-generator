@@ -24,6 +24,7 @@ const routeArray = [
     { url: 'layout-flexbox-menu-bar', Component: I.LayoutFlexboxMenu },
     { url: 'layout-flexbox-gallery', Component: I.LayoutFlexboxGallery },
     { url: 'layout-grid-items', Component: I.LayoutGridItems },
+    { url: 'layout-grid-page', Component: I.LayoutGridPage },
     { url: 'text', Component: I.Text },
     { url: 'text-shadow', Component: I.TextShadow },
     { url: 'transform-translate', Component: I.TransformTranslate },

@@ -4,6 +4,7 @@ import { MainSection } from '../Layout';
 import PreviewLayoutItems from './_PreviewLayoutItems';
 import PreviewLayoutMenu from './_PreviewLayoutMenu';
 import PreviewLayoutGallery from './_PreviewLayoutGallery';
+import PreviewLayoutPage from './_PreviewLayoutPage';
 
 function Preview(props) {
     // Props
@@ -18,7 +19,10 @@ function Preview(props) {
         subTitle = 'Image filter mode';
     }
     else if (path.startsWith('/layout')) {
-        if (path === '/layout-flexbox-menu-bar') {
+        if (path === '/layout-grid-page') {
+            element = <PreviewLayoutPage {...outputStyle} />;
+        }
+        else if (path === '/layout-flexbox-menu-bar') {
             element = <PreviewLayoutMenu {...outputStyle} />;
         }
         else if (path === '/layout-flexbox-gallery') {

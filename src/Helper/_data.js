@@ -6,6 +6,7 @@ const menuGroupArray = [
             { url: 'layout-flexbox-menu-bar', title: 'Flexbox Menu Bar' },
             { url: 'layout-flexbox-gallery', title: 'Flexbox Gallery' },
             { url: 'layout-grid-items', title: 'Grid Items' },
+            { url: 'layout-grid-page', title: 'Grid Page' },
             { url: 'layout-float', title: 'Float' }
         ]
     },
@@ -131,8 +132,13 @@ function layoutGalleryHtml() {
         `</div>`;
 }
 
+function layoutPageHtml(layout) {
+    return '<div class="grid"></div>';
+}
+
 export {
      menuGroupArray, layoutItemSizeArray, layoutPreviewArray, 
      layoutItemsContent, layoutGalleryImageUrl, 
-     layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml
+     layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml,
+     layoutPageHtml
 };
