@@ -67,7 +67,7 @@ function LayoutFlexboxMenu(props) {
     return (
         <MainSection extraClass="main__section-inputs" title="Flexbox Menu Bar Layout" subTitle="Customizing">
             <div className="inputs">
-                <h5 className="title is-5">Select style</h5>
+                <h5 className="title is-5">Select layout</h5>
                 <div className="content">
                     {layoutElements}
                 </div>

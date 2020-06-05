@@ -81,7 +81,7 @@ function LayoutGridItems(props) {
     return (
         <MainSection extraClass="main__section-inputs" title="Grid Items Layout" subTitle="Customizing">
             <div className="inputs">
-                <h5 className="title is-5">Container</h5>
+                <h5 className="title is-5">Layout</h5>
                 <label className="label">Grid column width</label>
                 <div className="field">
                     <div className="select is-fullwidth">
@@ -112,7 +112,6 @@ function LayoutGridItems(props) {
                         </select>
                     </div>
                 </div>
-                <h5 className="title is-5 has-margin-top">Item</h5>
                 <label className="label">Column gap (pixels)</label>
                 <div className="field">
                     <div className="control__range control">

@@ -174,11 +174,11 @@ function LayoutGridPage(props) {
     return (
         <MainSection extraClass="main__section-inputs" title="Grid Page Layout" subTitle="Customizing">
             <div className="inputs">
-                <h5 className="title is-5">Select style</h5>
+                <h5 className="title is-5">Select layout</h5>
                 <div className="content">
                     {layoutElements}
                 </div>
-                <h5 className="title is-5 has-margin-top">Grid</h5>
+                <h5 className="title is-5 has-margin-top">Layout sizing</h5>
                 <label className="label">Header height (pixels)</label>
                 <div className="field">
                     <div className="control__range control">
