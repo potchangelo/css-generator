@@ -113,7 +113,6 @@ const layoutGalleryImageUrl = [
     'https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
 ];
 
-
 function layoutGalleryHtml() {
     let layoutItemHtml = '';
     layoutGalleryImageUrl.forEach(imageUrl => {
@@ -133,7 +132,43 @@ function layoutGalleryHtml() {
 }
 
 function layoutPageHtml(layout) {
-    return '<div class="grid"></div>';
+    let leftbarHtml = '', rightbarHtml = '';
+    if (layout.key.includes('l')) {
+        leftbarHtml = '' + 
+            `  <aside class="page-leftbar">\n` + 
+            `    <div class="content">\n` + 
+            `      <p>Leftbar</p>\n` + 
+            `    </div>\n` + 
+            `  </aside>\n`;
+    }
+    if (layout.key.includes('r')) {
+        rightbarHtml = '' + 
+            `  <aside class="page-rightbar">\n` + 
+            `    <div class="content">\n` + 
+            `      <p>Rightbar</p>\n` + 
+            `    </div>\n` + 
+            `  </aside>\n`;
+    }
+    return '' + 
+        `<div class="grid">\n` + 
+        `  <header class="page-header">\n` + 
+        `    <div class="content">\n` + 
+        `      <p>Header</p>\n` + 
+        `    </div>\n` + 
+        `  </header>\n` + 
+        leftbarHtml + 
+        rightbarHtml + 
+        `  <main class="page-main">\n` + 
+        `    <div class="content">\n` + 
+        `      <p>Main</p>\n` + 
+        `    </div>\n` + 
+        `  </main>\n` + 
+        `  <footer class="page-footer">\n` + 
+        `    <div class="content">\n` + 
+        `      <p>Footer</p>\n` + 
+        `    </div>\n` + 
+        `  </footer>\n` + 
+        `</div>`;
 }
 
 export {

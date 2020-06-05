@@ -5,13 +5,17 @@ import { layoutPageHtml } from '../Helper';
 const layoutArray = [
     { 
         key: 'h-l-m-f', imageUrl: '/image/menu-bar-01.png',
-        templateColumns: 'lw auto', templateRows: 'hh auto',
-        templateAreas: `'header header' 'leftbar main' 'footer footer'`
+        templateColumns: 'lw auto', templateRows: 'hh minmax(160px, auto) auto',
+        templateAreasArray: [
+            `'header header'`, `'leftbar main'` ,`'footer footer'`
+        ]
     },
     {
         key: 'h-m-r-f', imageUrl: '/image/menu-bar-02.png',
-        templateColumns: 'auto rw', templateRows: 'hh auto',
-        templateAreas: `'header header' 'main rightbar' 'footer footer'` 
+        templateColumns: 'auto rw', templateRows: 'hh minmax(160px, auto) auto',
+        templateAreasArray: [
+            `'header header'`, `'main rightbar'` ,`'footer footer'`
+        ]
     },
 ];
 
@@ -28,12 +32,28 @@ function LayoutGridPage(props) {
     // Effects
     useEffect(() => {
         const { 
-            key, templateColumns, templateRows, templateAreas
+            key, templateColumns, templateRows, templateAreasArray
         } = layout;
 
         const calcTemplateColumns = templateColumns.replace('lw', `${leftbarWidth}px`).replace('rw', `${rightbarWidth}px`);
-
         const calcTemplateRows = templateRows.replace('hh', `${headerHeight}px`);
+
+        const styleTemplateAreas = templateAreasArray.join(' ');
+        const cssTemplateAreas = templateAreasArray.map(area => `    ${area}`).join('\n');
+
+        let cssLeftbar = '', cssRightbar = '';
+        if (layout.key.includes('l')) {
+            cssLeftbar = '' + 
+                `.page-leftbar {\n` +
+                `  grid-area: leftbar;\n` + 
+                `}\n\n`;
+        }
+        if (layout.key.includes('r')) {
+            cssRightbar = '' + 
+                `.page-rightbar {\n` +
+                `  grid-area: rightbar;\n` + 
+                `}\n\n`;
+        }
 
         const style = {
             layoutType: `grid-page`,
@@ -41,7 +61,7 @@ function LayoutGridPage(props) {
                 display: 'grid',
                 gridTemplateColumns: calcTemplateColumns,
                 gridTemplateRows: calcTemplateRows,
-                gridTemplateAreas: templateAreas,
+                gridTemplateAreas: styleTemplateAreas,
                 columnGap: `${columnGap}px`,
                 rowGap: `${rowGap}px`
             },
@@ -51,11 +71,40 @@ function LayoutGridPage(props) {
         const css = '' +
             `.grid {\n` +
             `  display: grid;\n` +
-            `  background-color: #1988f7;\n` +
-            `}\n\n`;
+            `  grid-template-columns: ${calcTemplateColumns};\n` +
+            `  grid-template-rows: ${calcTemplateRows};\n` +
+            `  grid-template-areas: \n${cssTemplateAreas};\n` +
+            `  column-gap: ${columnGap}px;\n` +
+            `  row-gap: ${rowGap}px;\n` +
+            `}\n\n` + 
+            `.page-header {\n` +
+            `  grid-area: header;\n` + 
+            `}\n\n` + 
+            cssLeftbar + 
+            cssRightbar + 
+            `.page-main {\n` +
+            `  grid-area: main;\n` + 
+            `}\n\n` + 
+            `.page-footer {\n` +
+            `  grid-area: footer;\n` + 
+            `}\n\n` + 
+            `.content {\n` +
+            `  color: #242424;\n` + 
+            `  background-color: #f25fff;\n` + 
+            `  font-weight: 600;\n` + 
+            `  text-align: center;\n` + 
+            `  box-sizing: border-box;\n` + 
+            `  height: 100%;\n` + 
+            `  padding: 10px;\n` + 
+            `}`;
 
-        updateOutput(style, css, layoutPageHtml());
-    }, [updateOutput, layout, headerHeight]);
+        updateOutput(style, css, layoutPageHtml(layout));
+    }, [
+        updateOutput, 
+        layout, headerHeight, 
+        leftbarWidth, rightbarWidth, 
+        columnGap, rowGap
+    ]);
 
     // Elements
     const layoutElements = layoutArray.map((_layout, index) => {
@@ -78,12 +127,104 @@ function LayoutGridPage(props) {
         );
     });
 
+    let leftbarElement = null, rightbarElement = null;
+    if (layout.key.includes('l')) {
+        leftbarElement = (
+            <>
+                <label className="label">Leftbar width (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input
+                            type="range"
+                            min="200"
+                            max="300"
+                            value={leftbarWidth}
+                            onChange={e => setLeftbarWidth(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">200</div>
+                            <div className="item has-text-grey">300</div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
+    }
+    if (layout.key.includes('r')) {
+        rightbarElement = (
+            <>
+                <label className="label">Rightbar width (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input
+                            type="range"
+                            min="200"
+                            max="300"
+                            value={rightbarWidth}
+                            onChange={e => setRightbarWidth(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">200</div>
+                            <div className="item has-text-grey">300</div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
     return (
         <MainSection extraClass="main__section-inputs" title="Grid Page Layout" subTitle="Customizing">
             <div className="inputs">
                 <h5 className="title is-5">Select style</h5>
                 <div className="content">
                     {layoutElements}
+                </div>
+                <h5 className="title is-5 has-margin-top">Grid</h5>
+                <label className="label">Header height (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input
+                            type="range"
+                            min="50"
+                            max="100"
+                            value={headerHeight}
+                            onChange={e => setHeaderHeight(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">50</div>
+                            <div className="item has-text-grey">100</div>
+                        </div>
+                    </div>
+                </div>
+                {leftbarElement}
+                {rightbarElement}
+                <label className="label">Column gap (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input
+                            type="range"
+                            min="0"
+                            max="40"
+                            value={columnGap}
+                            onChange={(e) => setColumnGap(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">0</div>
+                            <div className="item has-text-grey">40</div>
+                        </div>
+                    </div>
+                </div>
+                <label className="label">Row gap (pixels)</label>
+                <div className="field">
+                    <div className="control__range control">
+                        <input
+                            type="range"
+                            min="0"
+                            max="40"
+                            value={rowGap}
+                            onChange={(e) => setRowGap(e.target.value)} />
+                        <div className="control__range--text">
+                            <div className="item has-text-grey">0</div>
+                            <div className="item has-text-grey">40</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </MainSection>

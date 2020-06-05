@@ -109,10 +109,6 @@
         padding: 10px;
     }
 
-    &[data-type='grid-page'] .item__content {
-        padding: 20px;
-    }
-
     &[data-type='grid-page'] .preview__layout-header {
         grid-area: header;
     }
@@ -131,17 +127,6 @@
 
     &[data-type='grid-page'] .preview__layout-footer {
         grid-area: footer;
-    }
-
-    &[data-type='grid-page'] .preview__layout-leftbar .item__content,
-    &[data-type='grid-page'] .preview__layout-rightbar .item__content {
-        background-color: #a0a0a0;
-        padding: 40px 20px;
-    }
-
-    &[data-type='grid-page'] .preview__layout-main .item__content {
-        background-color: #c9c9c9;
-        padding: 40px 20px;
     }
 }
 
