@@ -4,14 +4,14 @@ import { layoutPageHtml } from '../Helper';
 
 const layoutArray = [
     { 
-        key: 'h-l-m-f', imageUrl: '/image/menu-bar-01.png',
+        key: 'h-l-m-f', imageUrl: '/image/grid-page-01.png',
         templateColumns: 'lw auto', templateRows: 'hh minmax(160px, auto) auto',
         templateAreasArray: [
             `'header header'`, `'leftbar main'` ,`'footer footer'`
         ]
     },
     {
-        key: 'h-m-r-f', imageUrl: '/image/menu-bar-02.png',
+        key: 'h-m-r-f', imageUrl: '/image/grid-page-02.png',
         templateColumns: 'auto rw', templateRows: 'hh minmax(160px, auto) auto',
         templateAreasArray: [
             `'header header'`, `'main rightbar'` ,`'footer footer'`
@@ -114,7 +114,7 @@ function LayoutGridPage(props) {
             classes += ' is-dark is-selected';
         }
         return (
-            <React.Fragment key={_layout.key}>
+            <div key={_layout.key} className="column is-6">
                 <label className="label">Style {index + 1}</label>
                 <p>
                     <button
@@ -123,7 +123,7 @@ function LayoutGridPage(props) {
                         <img src={imageUrl} />
                     </button>
                 </p>
-            </React.Fragment>
+            </div>
         );
     });
 
@@ -175,7 +175,7 @@ function LayoutGridPage(props) {
         <MainSection extraClass="main__section-inputs" title="Grid Page Layout" subTitle="Customizing">
             <div className="inputs">
                 <h5 className="title is-5">Select layout</h5>
-                <div className="content">
+                <div className="columns is-mobile is-multiline content">
                     {layoutElements}
                 </div>
                 <h5 className="title is-5 has-margin-top">Layout sizing</h5>
