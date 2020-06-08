@@ -7,9 +7,9 @@
     "react",
     "bulma"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Potchara Puttawanchai",
-  "homepage": "https://css-generator.netlify.com/",
+  "homepage": "https://css-generator.netlify.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/potchangelo/css-generator.git"
