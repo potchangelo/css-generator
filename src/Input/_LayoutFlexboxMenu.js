@@ -22,15 +22,17 @@ function LayoutFlexboxMenu(props) {
 
         const css = '' +
             `.menu-bar {\n` +
+            `  background-color: #1988f7;\n` +
             `  display: flex;\n` +
             `  justify-content: ${justifyContent};\n` +
-            `  background-color: #1988f7;\n` +
+            `  box-sizing: border-box;\n` + 
             `}\n\n` +
             `.item {\n` +
             `  color: white;\n` +
             `  background-color: transparent;\n` +
             `  font-size: 18px;\n` +
             `  display: inline-block;\n` +
+            `  box-sizing: border-box;\n` + 
             `  padding: 14px 20px;\n` +
             `}\n\n` +
             `.item.title {\n` +

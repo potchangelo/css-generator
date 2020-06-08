@@ -58,6 +58,7 @@ function LayoutFloat(props) {
             `  background-color: #4ea2f5;\n` + 
             `  font-weight: 600;\n` + 
             `  text-align: center;\n` + 
+            `  box-sizing: border-box;\n` + 
             `  padding: 10px;\n` + 
             `}`;
 

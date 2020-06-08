@@ -58,11 +58,11 @@ function LayoutFlexboxItems(props) {
         const css = '' + 
             `.flexbox {\n` + 
             `  display: flex;\n` + 
-            `  box-sizing: border-box;\n` + 
             `  flex-direction: ${direction};\n` + 
             `  flex-wrap: ${wrap};\n` + 
             `  justify-content: ${justifyContent};\n` + 
             `  align-items: ${alignItems};\n` + 
+            `  box-sizing: border-box;\n` + 
             `  margin: 0px ${hSpace/2 * -1}px;\n` + 
             `}\n\n` + 
             `.item {\n` + 
@@ -77,6 +77,7 @@ function LayoutFlexboxItems(props) {
             `  background-color: #4ea2f5;\n` + 
             `  font-weight: 600;\n` + 
             `  text-align: center;\n` + 
+            `  box-sizing: border-box;\n` + 
             `  height: 100%;\n` + 
             `  padding: 10px;\n` + 
             `}`;

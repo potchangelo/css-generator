@@ -33,26 +33,29 @@ function LayoutFlexboxGallery(props) {
 
         const css = '' +
             `.gallery-wrapper {\n` +
-            `  height: ${isScrollHidden ? height : scrollHeight}px;\n` +
             `  background-color: #dbdbdb;\n` +
+            `  box-sizing: border-box;\n` + 
+            `  height: ${isScrollHidden ? height : scrollHeight}px;\n` +
             `  overflow: hidden;\n` +
             `}\n\n` + 
             `.gallery-scroll {\n` +
+            `  box-sizing: border-box;\n` + 
             `  height: ${scrollHeight}px;\n` +
             `  overflow-x: auto;\n` +
             `  overflow-y: hidden;\n` +
             `}\n\n` + 
             `.gallery {\n` +
+            `  background-color: #dbdbdb;\n` +
             `  display: flex;\n` +
+            `  box-sizing: border-box;\n` + 
             `  width: max-content;\n` +
             `  height: ${height}px;\n` +
             `  padding: 0px ${hSpace/2}px;\n` +
-            `  background-color: #dbdbdb;\n` +
             `}\n\n` + 
             `.item {\n` +
+            `  box-sizing: border-box;\n` + 
             `  height: 100%;\n` +
             `  padding: ${vSpace}px ${hSpace/2}px;\n` +
-            `  box-sizing: border-box;\n` + 
             `}\n\n` + 
             `.item img {\n` +
             `  display: block;\n` + 
