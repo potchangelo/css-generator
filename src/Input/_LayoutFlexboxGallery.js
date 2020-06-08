@@ -6,6 +6,7 @@ function LayoutFlexboxGallery(props) {
     // Props ,States
     const { updateOutput } = props;
     const [height, setHeight] = useState(180);
+    const [isScrollHidden, setIsScrollHidden] = useState(false);
     const [hSpace, setHSpace] = useState(16);
     const [vSpace, setVSpace] = useState(16);
 
@@ -16,7 +17,7 @@ function LayoutFlexboxGallery(props) {
         const style = {
             layoutType: `flexbox-gallery`,
             wrapperStyle: {
-                height: `${height}px`
+                height: `${isScrollHidden ? height : scrollHeight}px`
             },
             scrollStyle: {
                 height: `${scrollHeight}px`
@@ -32,7 +33,7 @@ function LayoutFlexboxGallery(props) {
 
         const css = '' +
             `.gallery-wrapper {\n` +
-            `  height: ${height}px;\n` +
+            `  height: ${isScrollHidden ? height : scrollHeight}px;\n` +
             `  background-color: #dbdbdb;\n` +
             `  overflow: hidden;\n` +
             `}\n\n` + 
@@ -59,7 +60,7 @@ function LayoutFlexboxGallery(props) {
             `}`;
 
         updateOutput(style, css, layoutGalleryHtml);
-    }, [updateOutput, height, hSpace, vSpace]);
+    }, [updateOutput, height, isScrollHidden, hSpace, vSpace]);
 
     return (
         <MainSection extraClass="main__section-inputs" title="Flexbox Gallery Layout" subTitle="Customizing">
@@ -80,6 +81,16 @@ function LayoutFlexboxGallery(props) {
                         </div>
                     </div>
                 </div>
+                <label className="checkbox checkbox__custom">
+                    <input 
+                        type="checkbox" 
+                        checked={isScrollHidden}
+                        onChange={e => setIsScrollHidden(e.target.checked)} />
+                    <span className="icon checkbox__icon">
+                        <i className="fas fa-check" />
+                    </span>
+                    <span className="checkbox__text">Hide scrollbar</span>
+                </label>
                 <h5 className="title is-5 has-margin-top">Item</h5>
                 <label className="label">Horizontal space (pixels)</label>
                 <div className="field">
