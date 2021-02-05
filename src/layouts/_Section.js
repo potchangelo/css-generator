@@ -1,13 +1,10 @@
 import React from 'react';
-import styles from './css/block.module.scss';
+import styles from './css/section.module.scss';
 
-function Block(props) {
+function Section(props) {
     const { extraClass, title, subTitle, children } = props;
-
-    let sectionClass = extraClass ?? '';
-
     return (
-        <section className={sectionClass}>
+        <section className={extraClass ?? ''}>
             <div className={styles.title}>
                 <h5 className="title is-5">{title}</h5>
                 <h6 className="subtitle is-7">{subTitle}</h6>
@@ -19,4 +16,4 @@ function Block(props) {
     );
 }
 
-export default Block;
+export default Section;
