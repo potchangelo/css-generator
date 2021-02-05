@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import stylesSection from './css/section.module.scss';
 import styles from './css/dashboard.module.scss';
-import { App, Block } from '../layouts';
+import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';
 
-function IndexPage() {
+export default () => {
     const groupElements = menuGroupArray.map(group => {
         const linkElements = group.linkArray.map(link => (
             <div key={link.url} className="column is-6-mobile is-6-tablet is-4-desktop">
@@ -27,11 +28,13 @@ function IndexPage() {
 
     return (
         <App>
-            <Block extraClass={styles.main} title="Dashboard" subTitle="Choose menu">
+            <Section 
+                extraClass={stylesSection.dashboard} 
+                title="Dashboard" 
+                subTitle="Choose menu"
+            >
                 {groupElements}
-            </Block>
+            </Section>
         </App>
     );
-}
-
-export default IndexPage;
+};
