@@ -1,11 +1,14 @@
 import React from 'react';
+import styles from './css/app.module.scss';
 import { AppNav } from '../components'
 
 function App(props) {
     return (
         <>
             <AppNav />
-            {props.children}
+            <main className={styles.main}>
+                {props.children}
+            </main>
         </>
     );
 }

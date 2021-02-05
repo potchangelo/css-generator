@@ -1,0 +1,7 @@
+@import '../../css/vars';
+
+.main {
+    @include tablet {
+        margin-left: 228px;
+    }
+}
