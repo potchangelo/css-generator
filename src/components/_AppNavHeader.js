@@ -6,9 +6,14 @@ import { NavContext } from './_AppNav';
 
 function AppNavHeader() {
     const navContext = useContext(NavContext);
-	return (
+    return (
         <header className={`${styles.header} is-hidden-tablet`}>
-            <div className={styles.headerMenu} onClick={_ => navContext.dispatch({type: 'toggleNav'})}>
+            <div
+                className={styles.headerMenu}
+                role="button"
+                tabIndex="0"
+                onClick={_ => navContext.dispatch({ type: 'toggleNav' })}
+            >
                 <span className="icon">
                     <Menu strokeWidth={2.5} />
                 </span>
@@ -19,7 +24,7 @@ function AppNavHeader() {
                 </Link>
             </div>
         </header>
-	);
+    );
 }
 
 export default AppNavHeader;
