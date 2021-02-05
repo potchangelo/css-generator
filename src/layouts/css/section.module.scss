@@ -9,3 +9,15 @@
 .content {
     padding: 40px 32px;
 }
+
+.titleDark {
+    border-color: $grey;
+
+    [class*='title'] {
+        color: $white-bis;
+    }
+
+    [class*='subtitle'] {
+        color: $grey-lighter;
+    }
+}
