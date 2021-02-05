@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { Link } from 'gatsby';
+import { Menu } from 'react-feather';
 import styles from './css/appNav.module.scss';
 import { NavContext } from './_AppNav';
 
@@ -8,13 +10,13 @@ function AppNavHeader() {
         <header className={`${styles.header} is-hidden-tablet`}>
             <div className={styles.headerMenu} onClick={_ => navContext.dispatch({type: 'toggleNav'})}>
                 <span className="icon">
-                    <i className="fas fa-bars fa-lg" />
+                    <Menu strokeWidth={2.5} />
                 </span>
             </div>
             <div className={styles.headerBrand}>
-                <a>
+                <Link to="/">
                     <h1 className="title is-5">CSS Generator</h1>
-                </a>
+                </Link>
             </div>
         </header>
 	);

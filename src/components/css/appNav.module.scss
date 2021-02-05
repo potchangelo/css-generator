@@ -1,4 +1,4 @@
-@import '../../../css/vars';
+@import '../../css/vars';
 
 // - Left bar
 .leftbar {
@@ -37,7 +37,7 @@
         margin-top: 40px;
     }
 
-    .title {
+    [class*='title'] {
         margin-left: 16px;
         margin-right: 16px;
         margin-bottom: 10px !important;
