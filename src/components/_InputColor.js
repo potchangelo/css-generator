@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 import styles from './css/input.module.scss';
 
 function InputColor(props) {
     const { title, value, onValueChange } = props;
     return (
-        <div className="inputs">
+        <>
             <label className="label">{title}</label>
             <div className="field has-addons">
                 <div className={`control ${styles.color}`}>
@@ -26,8 +27,14 @@ function InputColor(props) {
                     />
                 </div>
             </div>
-        </div>
+        </>
     );
 }
+
+InputColor.propTypes = {
+    title: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onValueChange: PropTypes.func.isRequired
+};
 
 export default InputColor;

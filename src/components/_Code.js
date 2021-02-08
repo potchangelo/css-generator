@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 import styles from './css/code.module.scss';
 
 function Code(props) {
@@ -12,8 +13,6 @@ function Code(props) {
         document.execCommand('copy');
         document.body.removeChild(el);
     }
-
-    if (!output) return null;
 
     return (
         <div className={styles.container}>
@@ -30,5 +29,10 @@ function Code(props) {
         </div>
     );
 }
+
+Code.propTypes = {
+    lang: PropTypes.string.isRequired,
+    output: PropTypes.string.isRequired,
+};
 
 export default Code;

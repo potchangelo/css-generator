@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 import styles from './css/section.module.scss';
 
 function Section(props) {
@@ -21,5 +22,12 @@ function Section(props) {
         </section>
     );
 }
+
+Section.propTypes = {
+    extraClass: PropTypes.string,
+    titleTheme: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
+};
 
 export default Section;
