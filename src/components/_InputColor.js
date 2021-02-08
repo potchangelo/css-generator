@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import styles from './css/input.module.scss';
 
 function InputColor(props) {
@@ -13,7 +13,7 @@ function InputColor(props) {
                         className="input"
                         type="color"
                         value={value}
-                        onChange={event => onValueChange(event.target.value)} 
+                        onChange={event => onValueChange(event.target.value)}
                     />
                 </div>
                 <div className="control is-expanded">

@@ -28,7 +28,7 @@ export default () => {
                     </Section>
                 </GridItem>
                 <GridItem>
-                    <Section 
+                    <Section
                         extraClass={styles.preview}
                         title="Preview"
                         subTitle="Box mode"

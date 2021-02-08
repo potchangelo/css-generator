@@ -42,10 +42,10 @@ export default () => {
         backgroundRepeat: `${repeat}`,
     };
     const outputCode = (
-        `background-color: ${color};\n` + 
+        `background-color: ${color};\n` +
         `background-image: url('${image}');\n` +
         `background-position: ${position};\n` +
-        `background-size: ${size};\n` + 
+        `background-size: ${size};\n` +
         `background-repeat: ${repeat};`
     );
 
@@ -90,7 +90,7 @@ export default () => {
                     </Section>
                 </GridItem>
                 <GridItem>
-                    <Section 
+                    <Section
                         extraClass={styles.preview}
                         title="Preview"
                         subTitle="Box mode"

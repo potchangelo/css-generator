@@ -28,9 +28,9 @@ export default () => {
 
     return (
         <App>
-            <Section 
-                extraClass={stylesSection.dashboard} 
-                title="Dashboard" 
+            <Section
+                extraClass={stylesSection.dashboard}
+                title="Dashboard"
                 subTitle="Choose menu"
             >
                 {groupElements}

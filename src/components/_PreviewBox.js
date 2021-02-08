@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import styles from './css/preview.module.scss';
 
 function PreviewBox(props) {
