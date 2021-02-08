@@ -16,7 +16,7 @@ function AppNavLeftbar() {
     // - Elements
     const groupElements = menuGroupArray.map(group => {
         const linkElements = group.linkArray.map(link => (
-            <Link key={link.url} to={link.url}>{link.title}</Link>
+            <Link key={link.url} to={`/${link.url}`}>{link.title}</Link>
         ));
         return (
             <div key={group.name} className={styles.leftbarGroup}>
