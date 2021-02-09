@@ -6,6 +6,14 @@ const menuGroupArray = [
             { url: 'background-gradient', title: 'Background Gradient' },
             { url: 'background-image', title: 'Background Image' }
         ]
+    },
+    {
+        name: 'Border',
+        linkArray: [
+            { url: 'border', title: 'Border' }, 
+            { url: 'border-radius', title: 'Border Radius' }, 
+            { url: 'box-shadow', title: 'Box Shadow' }
+        ]
     }
 ];
 
