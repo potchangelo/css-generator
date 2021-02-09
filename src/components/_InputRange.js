@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './css/input.module.scss';
 
 function InputRange(props) {
-    const { title, min, max, value, onValueChange } = props;
+    const { title, min, max, step, value, onValueChange } = props;
     return (
         <>
             <label className="label">{title}</label>
@@ -14,8 +14,9 @@ function InputRange(props) {
                         type="range"
                         min={min}
                         max={max}
+                        step={step}
                         value={value}
-                        onChange={event => onValueChange(event.target.value)} 
+                        onChange={event => onValueChange(Number(event.target.value))} 
                     />
                     <div className={styles.rangeText}>
                         <div className={styles.rangeTextItem}>{min}</div>
@@ -31,11 +32,13 @@ InputRange.propTypes = {
     title: PropTypes.string.isRequired,
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
+    step: PropTypes.number,
+    value: PropTypes.number.isRequired,
     onValueChange: PropTypes.func.isRequired
+};
+
+InputRange.defaultProps = {
+    step: 1
 };
 
 export default InputRange;
