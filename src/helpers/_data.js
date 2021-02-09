@@ -14,6 +14,19 @@ const menuGroupArray = [
             { url: 'border-radius', title: 'Border Radius' }, 
             { url: 'box-shadow', title: 'Box Shadow' }
         ]
+    },
+    {
+        name: 'Filter',
+        linkArray: [
+            { url: 'filter-blur', title: 'Blur' }, 
+            { url: 'filter-brightness', title: 'Brightness' },
+            { url: 'filter-contrast', title: 'Contrast' }, 
+            { url: 'filter-grayscale', title: 'Grayscale' },
+            { url: 'filter-hue-rotate', title: 'Hue-Rotate' }, 
+            { url: 'filter-invert', title: 'Invert' },
+            { url: 'filter-saturate', title: 'Saturate' }, 
+            { url: 'filter-sepia', title: 'Sepia' }
+        ]
     }
 ];
 
