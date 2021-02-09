@@ -14,7 +14,7 @@ const positionOptionArray = positionValueArray.map(value => {
 });
 
 const sizeValueArray = ['auto', 'cover', 'contain'];
-const sizeValueOptionArray = sizeValueArray.map(value => {
+const sizeOptionArray = sizeValueArray.map(value => {
     const label = value.charAt(0).toUpperCase() + value.slice(1);
     return { key: `${value}`, value, label }
 });
@@ -55,7 +55,7 @@ export default () => {
                 <GridItem>
                     <Section
                         extraClass={styles.inputs}
-                        title="Background Color"
+                        title="Background Image"
                         subTitle="Customizing"
                     >
                         <InputText
@@ -72,7 +72,7 @@ export default () => {
                         />
                         <InputSelect
                             title="Size"
-                            optionArray={sizeValueOptionArray}
+                            optionArray={sizeOptionArray}
                             value={size}
                             onValueChange={setSize}
                         />
