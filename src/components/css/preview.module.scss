@@ -4,3 +4,19 @@
     background-color: $white;
     padding-bottom: 56.25%;
 }
+
+.transform {
+    background-color: #e62c51;
+    width: 30%;
+    margin: 88px auto;
+    padding-bottom: 30%;
+    position: relative;
+
+    [class*='title'] {
+        font-size: 64px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
