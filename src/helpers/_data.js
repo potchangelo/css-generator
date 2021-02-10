@@ -27,6 +27,13 @@ const menuGroupArray = [
             { url: 'filter-saturate', title: 'Saturate' }, 
             { url: 'filter-sepia', title: 'Sepia' }
         ]
+    },
+    {
+        name: 'Text',
+        linkArray: [
+            { url: 'text', title: 'Text' }, 
+            { url: 'text-shadow', title: 'Text Shadow' }
+        ]
     }
 ];
 
