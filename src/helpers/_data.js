@@ -29,6 +29,15 @@ const menuGroupArray = [
         ]
     },
     {
+        name: 'Transform',
+        linkArray: [
+            { url: 'transform-translate', title: 'Translate' }, 
+            { url: 'transform-rotate', title: 'Rotate' },
+            { url: 'transform-scale', title: 'Scale' }, 
+            { url: 'transform-skew', title: 'Skew' }
+        ]
+    },
+    {
         name: 'Text',
         linkArray: [
             { url: 'text', title: 'Text' }, 
