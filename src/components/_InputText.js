@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './css/input.module.scss';
 
 function InputText(props) {
     const { title, placeholder, value, onValueChange } = props;
     return (
         <>
             <label className="label">{title}</label>
-            <div className="field">
+            <div className={`field ${styles.field}`}>
                 <div className="control">
                     <input
                         className="input"

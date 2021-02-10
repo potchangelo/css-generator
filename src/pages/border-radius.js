@@ -4,8 +4,8 @@ import { Code, InputButtonGroup, InputRange, PreviewBox } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 const modeOptionArray = [
-    { key: 'all', label: 'One Value' },
-    { key: 'each', label: 'Individual' }
+    { key: 'all', title: 'One Value' },
+    { key: 'each', title: 'Individual' }
 ];
 const sideArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
@@ -98,7 +98,7 @@ export default () => {
                     </Section>
                     <Section
                         extraClass={styles.code}
-                        titleTheme="dark"
+                        headerTheme="dark"
                         title="Code"
                         subTitle="Paste to your file(s)"
                     >

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './css/input.module.scss';
 
 function InputSelect(props) {
     const { title, optionArray, value, onValueChange } = props;
@@ -13,7 +14,7 @@ function InputSelect(props) {
     return (
         <>
             {labelElement}
-            <div className="field">
+            <div className={`field ${styles.field}`}>
                 <div className="select is-fullwidth">
                     <select
                         value={value}

@@ -1,5 +1,10 @@
 @import '../../css/vars';
 
+// - Field
+.field:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
 // - Color
 .color {
     width: 44px;

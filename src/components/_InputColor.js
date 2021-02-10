@@ -7,7 +7,7 @@ function InputColor(props) {
     return (
         <>
             <label className="label">{title}</label>
-            <div className="field has-addons">
+            <div className={`field has-addons ${styles.field}`}>
                 <div className={`control ${styles.color}`}>
                     <input
                         className="input"

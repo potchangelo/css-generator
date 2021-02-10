@@ -39,7 +39,7 @@ export default () => {
                     </Section>
                     <Section
                         extraClass={styles.code}
-                        titleTheme="dark"
+                        headerTheme="dark"
                         title="Code"
                         subTitle="Paste to your file(s)"
                     >

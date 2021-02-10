@@ -34,7 +34,7 @@ export default () => {
                         subTitle="Customizing"
                     >
                         <label className="label">Translate X</label>
-                        <div className="columns is-gapless">
+                        <div className="columns is-mobile is-gapless">
                             <div className="column">
                                 <InputRange
                                     min={-200}
@@ -53,7 +53,7 @@ export default () => {
                             </div>
                         </div>
                         <label className="label">Translate Y</label>
-                        <div className="columns is-gapless">
+                        <div className="columns is-mobile is-gapless">
                             <div className="column">
                                 <InputRange
                                     min={-200}
@@ -83,7 +83,7 @@ export default () => {
                     </Section>
                     <Section
                         extraClass={styles.code}
-                        titleTheme="dark"
+                        headerTheme="dark"
                         title="Code"
                         subTitle="Paste to your file(s)"
                     >

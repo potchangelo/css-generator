@@ -17,7 +17,7 @@ function InputRange(props) {
     return (
         <>
             {labelElement}
-            <div className="field">
+            <div className={`field ${styles.field}`}>
                 <div className={controlClass}>
                     <input
                         className={styles.range}

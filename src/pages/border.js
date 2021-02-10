@@ -5,8 +5,8 @@ import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';
 
 const modeOptionArray = [
-    { key: 'all', label: 'One Value' },
-    { key: 'each', label: 'Individual' }
+    { key: 'all', title: 'One Value' },
+    { key: 'each', title: 'Individual' }
 ];
 const styleOptionArray = optionArrayUpper([
     'solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset'
@@ -84,7 +84,7 @@ export default () => {
             }
             return (
                 <React.Fragment key={side}>
-                    <h4 className="title has-margin-top is-5">Border {side}</h4>
+                    <h4 className="title is-5 mt-6">Border {side}</h4>
                     <InputColor
                         title="Color"
                         value={_color}
@@ -160,7 +160,7 @@ export default () => {
                     </Section>
                     <Section
                         extraClass={styles.code}
-                        titleTheme="dark"
+                        headerTheme="dark"
                         title="Code"
                         subTitle="Paste to your file(s)"
                     >

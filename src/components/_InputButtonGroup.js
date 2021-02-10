@@ -5,7 +5,7 @@ function InputButtonGroup(props) {
     const { title, optionArray, activeKey, onButtonClick } = props;
 
     const buttonElements = optionArray.map(option => {
-        const { key, label } = option;
+        const { key, title } = option;
         let classes = 'button';
         if (key === activeKey) classes += ' is-dark is-selected';
         return (
@@ -14,7 +14,7 @@ function InputButtonGroup(props) {
                 className={classes}
                 onClick={() => onButtonClick(key)}
             >
-                {label}
+                {title}
             </button>
         )
     });
@@ -33,7 +33,7 @@ InputButtonGroup.propTypes = {
     title: PropTypes.string.isRequired,
     optionArray: PropTypes.arrayOf(PropTypes.shape({
         key: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired
     })).isRequired,
     activeKey: PropTypes.string.isRequired,
     onButtonClick: PropTypes.func.isRequired
