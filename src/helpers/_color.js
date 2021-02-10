@@ -1,3 +1,9 @@
+/**
+ * Get color in RGBA, converted from HEX
+ * @param {string} hex Color HEX string
+ * @param {number} a Color alpha 0-1
+ * @returns {string} Color in RGBA
+ */
 function colorHexToRgba(hex, a = 1) {
     const { r, g, b } = colorHexToRgbNumbers(hex);
     let calcA = Number(a.toFixed(2));
@@ -6,6 +12,11 @@ function colorHexToRgba(hex, a = 1) {
     return `rgba(${r}, ${g}, ${b}, ${calcA})`;
 }
 
+/**
+ * Get R, G, B color numbers, converted from HEX
+ * @param {string} hex Color HEX string
+ * @returns {{ r: number, g: number, b: number }} Object of R, G, B numbers
+ */
 function colorHexToRgbNumbers(hex) {
     let hR, hG, hB;
     const pureHex = hex.replace('#', '');
@@ -34,6 +45,14 @@ function colorHexToRgbNumbers(hex) {
     return { r, g, b };
 }
 
+/**
+ * Get color in HEX as a middle value in gradient, 
+ * between left and right color in HEX
+ * @param {string} hexL Color HEX string (left)
+ * @param {string} hexR Color HEX string (right)
+ * @param {number} ratio Position ratio 0-1
+ * @returns {string} Color in HEX
+ */
 function gradientMiddleHex(hexL, hexR, ratio) {
     const rgbL = colorHexToRgbNumbers(hexL);
     const rgbR = colorHexToRgbNumbers(hexR);
@@ -55,6 +74,14 @@ function gradientMiddleHex(hexL, hexR, ratio) {
     return `#${hR}${hG}${hB}`;
 }
 
+/**
+ * Get color alpha as a middle value in gradient, 
+ * between left and right alpha
+ * @param {number} aL Alpha (left)
+ * @param {number} aR Alpha (right)
+ * @param {number} ratio Position ratio 0-1
+ * @returns {number} Alpha number
+ */
 function gradientMiddleAlpha(aL, aR, ratio) {
     let calcAL = aL, calcAR = aR, calcRatio = ratio;
     if (aL > aR) {
