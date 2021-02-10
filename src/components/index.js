@@ -6,6 +6,7 @@ export { default as InputSelect } from './_InputSelect';
 export { default as InputText } from './_InputText';
 export { default as PreviewBox } from './_PreviewBox';
 export { default as PreviewFilter } from './_PreviewFilter';
+export { default as PreviewLayoutItems } from './_PreviewLayoutItems';
 export { default as PreviewText } from './_PreviewText';
 export { default as PreviewTransform } from './_PreviewTransform';
 export { default as Code } from './_Code';

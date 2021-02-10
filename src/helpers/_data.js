@@ -1,5 +1,16 @@
 const menuGroupArray = [
     {
+        name: 'Layout',
+        linkArray: [
+            { url: 'layout-flexbox-items', title: 'Flexbox Items' },
+            { url: 'layout-flexbox-menu-bar', title: 'Flexbox Menu Bar' },
+            { url: 'layout-flexbox-gallery', title: 'Flexbox Gallery' },
+            { url: 'layout-grid-items', title: 'Grid Items' },
+            { url: 'layout-grid-page', title: 'Grid Page' },
+            { url: 'layout-float', title: 'Float' }
+        ]
+    },
+    {
         name: 'Background',
         linkArray: [
             { url: 'background-color', title: 'Background Color' }, 
@@ -16,6 +27,15 @@ const menuGroupArray = [
         ]
     },
     {
+        name: 'Transform',
+        linkArray: [
+            { url: 'transform-translate', title: 'Translate' }, 
+            { url: 'transform-rotate', title: 'Rotate' },
+            { url: 'transform-scale', title: 'Scale' }, 
+            { url: 'transform-skew', title: 'Skew' }
+        ]
+    },
+    {
         name: 'Filter',
         linkArray: [
             { url: 'filter-blur', title: 'Blur' }, 
@@ -29,15 +49,6 @@ const menuGroupArray = [
         ]
     },
     {
-        name: 'Transform',
-        linkArray: [
-            { url: 'transform-translate', title: 'Translate' }, 
-            { url: 'transform-rotate', title: 'Rotate' },
-            { url: 'transform-scale', title: 'Scale' }, 
-            { url: 'transform-skew', title: 'Skew' }
-        ]
-    },
-    {
         name: 'Text',
         linkArray: [
             { url: 'text', title: 'Text' }, 
@@ -46,7 +57,7 @@ const menuGroupArray = [
     }
 ];
 
-const layoutItemSizeArray = [
+const layoutItemSizeOptionArray = [
     {
          key: 'one-second', title: '50% (1/2)', 
          value: 50, nthClear: '2n + 1' 
@@ -61,23 +72,34 @@ const layoutItemSizeArray = [
     }
 ];
 
-const layoutPreviewArray = [
-    'equal-height', 'unequal-height'
+const layoutPreviewOptionArray = [
+    {
+        key: 'eqh', title: 'Equal Height', value: 'equal-height'
+    },
+    {
+        key: 'uneqh', title: 'Unequal Height', value: 'unequal-height'
+    }
 ];
 
 const layoutItemsContent = [
     '11111', '22222', '33333', '44444'
 ];
 
+/**
+ * Build layout HTML string
+ * @param {string} layoutType grid, flexbox, or floatbox
+ * @return {string} Layout HTML string
+ */
 function layoutItemsHtml(layoutType) {
     let layoutItemHtml = '';
     layoutItemsContent.forEach(content => {
-        layoutItemHtml += '' + 
+        layoutItemHtml += (
             `  <div class="item">\n` + 
             `    <div class="content">\n` + 
             `      <p>${content}</p>\n` + 
             `    </div>\n` + 
-            `  </div>\n`;
+            `  </div>\n`
+        );
     });
     return `<div class="${layoutType}">\n` + layoutItemHtml + `</div>`;
 }
@@ -161,7 +183,7 @@ function layoutPageHtml(layout) {
 }
 
 export {
-     menuGroupArray, layoutItemSizeArray, layoutPreviewArray, 
+     menuGroupArray, layoutItemSizeOptionArray, layoutPreviewOptionArray, 
      layoutItemsContent, layoutGalleryImageUrl, 
      layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml,
      layoutPageHtml
