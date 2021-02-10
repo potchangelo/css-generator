@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, InputSelect, PreviewTransform } from '../components';
+import { Code, InputRange, InputSelect, PreviewTransform } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
-import { optionArrayUpper } from '../helpers';
 
 const unitOptionArray = [
     { key: 'pixels', value: 'px', title: 'pixels' },
