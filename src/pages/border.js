@@ -2,20 +2,15 @@ import React, { useState } from 'react';
 import styles from './css/section.module.scss';
 import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
+import { optionArrayUpper } from '../helpers';
 
 const modeOptionArray = [
     { key: 'all', label: 'One Value' },
     { key: 'each', label: 'Individual' }
 ];
-
-const styleValueArray = [
+const styleOptionArray = optionArrayUpper([
     'solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset'
-];
-const styleOptionArray = styleValueArray.map(value => {
-    const label = value.charAt(0).toUpperCase() + value.slice(1);
-    return { key: `${value}`, value, label }
-});
-
+]);
 const sideArray = ['top', 'right', 'bottom', 'left'];
 
 export default () => {

@@ -2,28 +2,19 @@ import React, { useState } from 'react';
 import styles from './css/section.module.scss';
 import { Code, InputColor, InputSelect, InputText, PreviewBox } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
+import { optionArrayUpper } from '../helpers';
 
-const positionValueArray = [
+const positionOptionArray = optionArrayUpper([
     'left top', 'left center', 'left bottom',
     'center top', 'center', 'center bottom',
     'right top', 'right center', 'right bottom'
-];
-const positionOptionArray = positionValueArray.map(value => {
-    const label = value.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-    return { key: `${value}`, value, label };
-});
-
-const sizeValueArray = ['auto', 'cover', 'contain'];
-const sizeOptionArray = sizeValueArray.map(value => {
-    const label = value.charAt(0).toUpperCase() + value.slice(1);
-    return { key: `${value}`, value, label }
-});
-
-const repeatValueArray = ['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'];
-const repeatOptionArray = repeatValueArray.map(value => {
-    const label = value.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');;
-    return { key: `${value}`, value, label }
-});
+]);
+const sizeOptionArray = optionArrayUpper([
+    'auto', 'cover', 'contain'
+]);
+const repeatOptionArray = optionArrayUpper([
+    'no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'
+], '-');
 
 export default () => {
     // - States

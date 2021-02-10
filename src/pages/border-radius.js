@@ -7,7 +7,6 @@ const modeOptionArray = [
     { key: 'all', label: 'One Value' },
     { key: 'each', label: 'Individual' }
 ];
-
 const sideArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
 export default () => {
