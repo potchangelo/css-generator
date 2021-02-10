@@ -3,12 +3,22 @@ import PropTypes from 'prop-types';
 import styles from './css/input.module.scss';
 
 function InputRange(props) {
-    const { title, min, max, step, value, onValueChange } = props;
+    // - Props
+    const { title, min, max, step, hasAddons, value, onValueChange } = props;
+
+    // - Attributes
+    let controlClass = 'control';
+    if (hasAddons) controlClass += ` ${styles.controlRangeHasAddons}`;
+
+    // - Elements
+    let labelElement = null;
+    if (!!title) labelElement = <label className="label">{title}</label>;
+
     return (
         <>
-            <label className="label">{title}</label>
+            {labelElement}
             <div className="field">
-                <div className="control">
+                <div className={controlClass}>
                     <input
                         className={styles.range}
                         type="range"
@@ -29,10 +39,11 @@ function InputRange(props) {
 }
 
 InputRange.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
     step: PropTypes.number,
+    hasAddons: PropTypes.bool,
     value: PropTypes.number.isRequired,
     onValueChange: PropTypes.func.isRequired
 };
