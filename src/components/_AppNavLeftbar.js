@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import styles from './css/appNav.module.scss';
 import Logo64 from '../images/logo-64.png';
@@ -6,8 +6,22 @@ import { NavContext } from './_AppNav';
 import { menuGroupArray } from '../helpers';
 
 function AppNavLeftbar() {
-    // - Context
+    // - Ref, Context
+    let navRef = useRef();
     const { isNavOpenMobile } = useContext(NavContext);
+
+    // - Function
+    function onNavScroll(event) {
+        window.appNavLeftbarScrollTop = event.target.scrollTop;
+    }
+
+    // - Effect
+    useEffect(() => {
+        const scrollTop = window.appNavLeftbarScrollTop;
+        if (!!scrollTop) {
+            navRef.current.scrollTop = scrollTop;
+        }
+    }, [navRef.current]);
 
     // - Attributes
     let leftbarClass = styles.leftbar;
@@ -16,7 +30,13 @@ function AppNavLeftbar() {
     // - Elements
     const groupElements = menuGroupArray.map(group => {
         const linkElements = group.linkArray.map(link => (
-            <Link key={link.url} to={`/${link.url}`}>{link.title}</Link>
+            <Link
+                key={link.url}
+                to={`/${link.url}`}
+                activeClassName={styles.leftbarLinkActive}
+            >
+                {link.title}
+            </Link>
         ));
         return (
             <div key={group.name} className={styles.leftbarGroup}>
@@ -27,7 +47,7 @@ function AppNavLeftbar() {
     });
 
     return (
-        <nav className={leftbarClass}>
+        <nav className={leftbarClass} onScroll={onNavScroll} ref={navRef}>
             <Link className={styles.leftbarBrand} to="/">
                 <h1 className="title is-5">CSS Generator</h1>
                 <h3 className="subtitle is-7">by Zinglecode</h3>

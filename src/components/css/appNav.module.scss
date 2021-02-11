@@ -49,10 +49,10 @@
         padding: 6px 16px;
         font-size: 15px;
     }
+}
 
-    a.active {
-        background-color: $grey-lightest;
-    }
+.leftbarLinkActive {
+    background-color: $grey-lightest;
 }
 
 // - Header
