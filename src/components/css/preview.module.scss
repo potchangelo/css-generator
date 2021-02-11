@@ -97,3 +97,36 @@
         height: 100%;
     }
 }
+
+.layoutContainer[data-type^='grid'] {
+    display: grid;
+
+    .itemContent {
+        color: $black-ter;
+        background-color: #f25fff;
+        font-weight: $weight-bold;
+        text-align: center;
+        height: 100%;
+        padding: 10px;
+    }
+
+    &[data-type='grid-page'] .header {
+        grid-area: header;
+    }
+
+    &[data-type='grid-page'] .leftbar {
+        grid-area: leftbar;
+    }
+
+    &[data-type='grid-page'] .main {
+        grid-area: main;
+    }
+
+    &[data-type='grid-page'] .rightbar {
+        grid-area: rightbar;
+    }
+
+    &[data-type='grid-page'] .footer {
+        grid-area: footer;
+    }
+}

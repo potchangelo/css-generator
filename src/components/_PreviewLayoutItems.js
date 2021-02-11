@@ -39,8 +39,12 @@ function PreviewLayoutItems(props) {
 PreviewLayoutItems.propTypes = {
     layoutType: PropTypes.string.isRequired,
     containerStyle: PropTypes.object.isRequired,
-    itemStyle: PropTypes.object.isRequired,
+    itemStyle: PropTypes.object,
     preview: PropTypes.string
+};
+
+PreviewLayoutItems.defaultProps = {
+    itemStyle: {}
 };
 
 export default PreviewLayoutItems;

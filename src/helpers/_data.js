@@ -60,15 +60,15 @@ const menuGroupArray = [
 const layoutItemSizeOptionArray = [
     {
          key: 'one-second', title: '50% (1/2)', 
-         value: 50, nthClear: '2n + 1' 
+         value: 50, nthClear: '2n + 1', templateColumns: '1fr 1fr'
     },
     {
          key: 'one-third', title: '33.33% (1/3)', 
-         value: 33.33, nthClear: '3n + 1' 
+         value: 33.33, nthClear: '3n + 1', templateColumns: '1fr 1fr 1fr'
     },
     {
          key: 'one-fourth', title: '25% (1/4)', 
-         value: 25, nthClear: '4n + 1' 
+         value: 25, nthClear: '4n + 1', templateColumns: '1fr 1fr 1fr 1fr'
     }
 ];
 
