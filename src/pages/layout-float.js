@@ -84,7 +84,7 @@ export default () => {
                             onValueChange={setHSpace}
                         />
                         <InputRange
-                            title="Horizontal space (pixels)"
+                            title="Vertical space (pixels)"
                             min={0}
                             max={40}
                             value={vSpace}
