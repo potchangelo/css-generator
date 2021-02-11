@@ -107,7 +107,7 @@ export default () => {
                 <GridItem>
                     <Section
                         extraClass={styles.inputs}
-                        title="Float Layout (don't use)"
+                        title="Flexbox Items Layout"
                         subTitle="Customizing"
                     >
                         <h5 className="title is-5">Container</h5>
