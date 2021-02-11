@@ -37,7 +37,10 @@ InputSelect.propTypes = {
         ]),
         title: PropTypes.string.isRequired
     })).isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]).isRequired,
     onValueChange: PropTypes.func.isRequired
 };
 
