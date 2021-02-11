@@ -51,3 +51,49 @@
         clear: both;
     }
 }
+
+.layoutContainer[data-type^='flexbox'] {
+    display: flex;
+
+    &[data-type='flexbox-items'] .itemContent {
+        color: $black-ter;
+        background-color: #1bbefe;
+        font-weight: $weight-bold;
+        text-align: center;
+        height: 100%;
+        padding: 10px;
+    }
+
+    &[data-type='flexbox-menu'] {
+        background-color: #1988f7;
+    }
+
+    &[data-type='flexbox-menu'] a {
+        color: white;
+        background-color: transparent;
+        font-size: 18px;
+        display: inline-block;
+        padding: 14px 20px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+ 
+    &[data-type='flexbox-menu'] .menuTitle {
+        font-weight: 600;
+    }
+
+    &[data-type='flexbox-gallery'] {
+        width: max-content;
+    }
+
+    &[data-type='flexbox-gallery'] .item {
+        height: 100%;
+    }
+
+    &[data-type='flexbox-gallery'] img {
+        display: block;
+        height: 100%;
+    }
+}
