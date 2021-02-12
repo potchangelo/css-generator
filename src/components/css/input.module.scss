@@ -133,3 +133,39 @@
     height: max-content;
     padding: 20px;
 }
+
+// - Checkbox
+.checkbox {
+    > * {
+        vertical-align: middle;
+    }
+
+    input {
+        display: none;
+    }
+
+    .checkboxIcon {
+        color: $white;
+        background-color: $white;
+        border: 2px solid $grey;
+        border-radius: 4px;
+    }
+
+    .checkboxIcon svg {
+        opacity: 0;
+    }
+
+    .checkboxText {
+        font-weight: $weight-bold;
+        margin-left: 8px;
+    }
+
+    input:checked + .checkboxIcon {
+        background-color: $cyan;
+        border-color: transparent;
+    }
+
+    input:checked + .checkboxIcon svg {
+        opacity: 1;
+    }
+}
