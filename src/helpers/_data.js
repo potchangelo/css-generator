@@ -88,7 +88,7 @@ const layoutItemsContent = [
 /**
  * Build layout HTML string
  * @param {string} layoutType grid, flexbox, or floatbox
- * @return {string} Layout HTML string
+ * @return {string} HTML string
  */
 function layoutItemsHtml(layoutType) {
     let layoutItemHtml = '';
@@ -104,19 +104,24 @@ function layoutItemsHtml(layoutType) {
     return `<div class="${layoutType}">\n` + layoutItemHtml + `</div>`;
 }
 
-function layoutMenuHtml() {
-    return '' + 
-        `<nav class="menu-bar">\n` + 
-        `  <div class="group">\n` + 
-        `    <a class="item title">Site Title</a>\n` + 
-        `  </div>\n` + 
-        `  <div class="group">\n` + 
-        `    <a class="item">Link 1</a>\n` + 
-        `    <a class="item">Link 2</a>\n` + 
-        `  </div>\n` + 
-        `</nav>`;
-}
+/**
+ * Layout menu HTML string
+ */
+const layoutMenuHtml = (
+    `<nav class="menu-bar">\n` + 
+    `  <div class="group">\n` + 
+    `    <a class="item title">Site Title</a>\n` + 
+    `  </div>\n` + 
+    `  <div class="group">\n` + 
+    `    <a class="item">Link 1</a>\n` + 
+    `    <a class="item">Link 2</a>\n` + 
+    `  </div>\n` + 
+    `</nav>`
+);
 
+/**
+ * Layout gallery url array
+ */
 const layoutGalleryImageUrl = [
     'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
     'https://images.unsplash.com/photo-1471922694854-ff1b63b20054?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -124,6 +129,10 @@ const layoutGalleryImageUrl = [
     'https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60', 
 ];
 
+/**
+ * Build layout gallery HTML string
+ * @returns {string} HTML string
+ */
 function layoutGalleryHtml() {
     let layoutItemHtml = '';
     layoutGalleryImageUrl.forEach(imageUrl => {
