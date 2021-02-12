@@ -21,6 +21,16 @@
     }
 }
 
+.galleryWrapper {
+    background-color: $grey-lighter;
+    overflow: hidden;
+}
+
+.galleryScroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
 .layoutContainer[data-type^='float'] {
     display: block;
 
