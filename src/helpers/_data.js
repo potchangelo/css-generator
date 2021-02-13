@@ -153,7 +153,7 @@ function layoutGalleryHtml() {
 
 function layoutPageHtml(layout) {
     let leftbarHtml = '', rightbarHtml = '';
-    if (layout.key.includes('l')) {
+    if (layout.includes('l')) {
         leftbarHtml = '' + 
             `  <aside class="page-leftbar">\n` + 
             `    <div class="content">\n` + 
@@ -161,7 +161,7 @@ function layoutPageHtml(layout) {
             `    </div>\n` + 
             `  </aside>\n`;
     }
-    if (layout.key.includes('r')) {
+    if (layout.includes('r')) {
         rightbarHtml = '' + 
             `  <aside class="page-rightbar">\n` + 
             `    <div class="content">\n` + 

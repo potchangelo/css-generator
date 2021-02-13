@@ -11,6 +11,7 @@ export { default as PreviewFilter } from './_PreviewFilter';
 export { default as PreviewLayoutGallery } from './_PreviewLayoutGallery';
 export { default as PreviewLayoutItems } from './_PreviewLayoutItems';
 export { default as PreviewLayoutMenu } from './_PreviewLayoutMenu';
+export { default as PreviewLayoutPage } from './_PreviewLayoutPage';
 export { default as PreviewText } from './_PreviewText';
 export { default as PreviewTransform } from './_PreviewTransform';
 export { default as Code } from './_Code';
