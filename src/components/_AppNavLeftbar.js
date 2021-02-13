@@ -18,10 +18,10 @@ function AppNavLeftbar() {
     // - Effect
     useEffect(() => {
         const scrollTop = window.appNavLeftbarScrollTop;
-        if (!!scrollTop) {
+        if (!!scrollTop && !!navRef.current) {
             navRef.current.scrollTop = scrollTop;
         }
-    }, [navRef.current]);
+    }, []);
 
     // - Attributes
     let leftbarClass = styles.leftbar;
@@ -32,7 +32,7 @@ function AppNavLeftbar() {
         const linkElements = group.linkArray.map(link => (
             <Link
                 key={link.url}
-                to={`/${link.url}`}
+                to={`/${link.url}/`}
                 activeClassName={styles.leftbarLinkActive}
             >
                 {link.title}

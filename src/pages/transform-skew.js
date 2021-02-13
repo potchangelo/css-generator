@@ -22,14 +22,14 @@ export default () => {
                         subTitle="Customizing"
                     >
                         <InputRange
-                            title="Skew width (degrees)"
+                            title="Skew X (degrees)"
                             min={-45}
                             max={45}
                             value={skewX}
                             onValueChange={setSkewX}
                         />
                         <InputRange
-                            title="Skew height (degrees)"
+                            title="Skew Y (degrees)"
                             min={-45}
                             max={45}
                             value={skewY}

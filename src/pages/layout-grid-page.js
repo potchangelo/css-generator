@@ -7,18 +7,18 @@ import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutPageHtml } from '../helpers';
 
 const layoutOptionArray = [
-    { 
+    {
         key: 'h-l-m-f', title: 'Style 1', imageSrc: image1,
         templateColumns: 'lw auto', templateRows: 'hh minmax(160px, auto) auto',
         templateAreasArray: [
-            `'header header'`, `'leftbar main'` ,`'footer footer'`
+            `'header header'`, `'leftbar main'`, `'footer footer'`
         ]
     },
     {
         key: 'h-m-r-f', title: 'Style 2', imageSrc: image2,
         templateColumns: 'auto rw', templateRows: 'hh minmax(160px, auto) auto',
         templateAreasArray: [
-            `'header header'`, `'main rightbar'` ,`'footer footer'`
+            `'header header'`, `'main rightbar'`, `'footer footer'`
         ]
     },
 ];
@@ -42,17 +42,17 @@ export default () => {
     const styleTemplateAreas = templateAreasArray.join(' ');
     const cssTemplateAreas = templateAreasArray.map(area => `    ${area}`).join('\n');
 
-    let cssLeftbar = '', cssRightbar = '';
-    if (layout.includes('l')) {
-        cssLeftbar = '' + 
-            `.page-leftbar {\n` +
-            `  grid-area: leftbar;\n` + 
+    let cssSidebar = '';
+    if (layout.includes('r')) {
+        cssSidebar = '' +
+            `.page-rightbar {\n` +
+            `  grid-area: rightbar;\n` +
             `}\n\n`;
     }
-    if (layout.includes('r')) {
-        cssRightbar = '' + 
-            `.page-rightbar {\n` +
-            `  grid-area: rightbar;\n` + 
+    else {
+        cssSidebar = '' +
+            `.page-leftbar {\n` +
+            `  grid-area: leftbar;\n` +
             `}\n\n`;
     }
 
@@ -72,26 +72,25 @@ export default () => {
         `  grid-template-areas: \n${cssTemplateAreas};\n` +
         `  column-gap: ${columnGap}px;\n` +
         `  row-gap: ${rowGap}px;\n` +
-        `}\n\n` + 
+        `}\n\n` +
         `.page-header {\n` +
-        `  grid-area: header;\n` + 
-        `}\n\n` + 
-        cssLeftbar + 
-        cssRightbar + 
+        `  grid-area: header;\n` +
+        `}\n\n` +
+        cssSidebar +
         `.page-main {\n` +
-        `  grid-area: main;\n` + 
-        `}\n\n` + 
+        `  grid-area: main;\n` +
+        `}\n\n` +
         `.page-footer {\n` +
-        `  grid-area: footer;\n` + 
-        `}\n\n` + 
+        `  grid-area: footer;\n` +
+        `}\n\n` +
         `.content {\n` +
-        `  color: #242424;\n` + 
-        `  background-color: #f25fff;\n` + 
-        `  font-weight: 600;\n` + 
-        `  text-align: center;\n` + 
-        `  box-sizing: border-box;\n` + 
-        `  height: 100%;\n` + 
-        `  padding: 10px;\n` + 
+        `  color: #242424;\n` +
+        `  background-color: #f25fff;\n` +
+        `  font-weight: 600;\n` +
+        `  text-align: center;\n` +
+        `  box-sizing: border-box;\n` +
+        `  height: 100%;\n` +
+        `  padding: 10px;\n` +
         `}`
     );
 

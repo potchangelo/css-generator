@@ -4,18 +4,17 @@ import styles from './css/preview.module.scss';
 import { layoutGalleryImageUrl } from '../helpers';
 
 function PreviewLayoutGallery(props) {
-    const { 
-        wrapperStyle, scrollStyle, 
-        containerStyle, itemStyle 
+    const {
+        wrapperStyle, scrollStyle, containerStyle, itemStyle
     } = props;
 
     const itemElements = layoutGalleryImageUrl.map((imageUrl, index) => {
         return (
-            <div 
-                key={`item-${index}`} 
+            <div
+                key={`item-${index}`}
                 className={styles.item}
                 style={itemStyle}>
-                <img src={imageUrl} alt="Image" />
+                <img src={imageUrl} alt="Item" />
             </div>
         );
     });

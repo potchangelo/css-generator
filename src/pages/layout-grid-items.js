@@ -18,7 +18,9 @@ export default () => {
     const [preview, setPreview] = useState('equal-height');
 
     // - Outputs
-    const sizeObj = layoutItemSizeOptionArray.find(_size => _size.value == width);
+    const sizeObj = layoutItemSizeOptionArray.find(_size => (
+        _size.value === Number(width)
+    ));
     const { templateColumns } = sizeObj;
     const outputContainerStyle = {
         gridTemplateColumns: templateColumns,

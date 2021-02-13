@@ -1,3 +1,6 @@
+/**
+ * Site menu data
+ */
 const menuGroupArray = [
     {
         name: 'Layout',
@@ -57,6 +60,9 @@ const menuGroupArray = [
     }
 ];
 
+/**
+ * Layout item options
+ */
 const layoutItemSizeOptionArray = [
     {
          key: 'one-second', title: '50% (1/2)', 
@@ -72,6 +78,9 @@ const layoutItemSizeOptionArray = [
     }
 ];
 
+/**
+ * Layout preview options
+ */
 const layoutPreviewOptionArray = [
     {
         key: 'eqh', title: 'Equal Height', value: 'equal-height'
@@ -81,6 +90,9 @@ const layoutPreviewOptionArray = [
     }
 ];
 
+/**
+ * Layout sample contents
+ */
 const layoutItemsContent = [
     '11111', '22222', '33333', '44444'
 ];
@@ -151,6 +163,11 @@ function layoutGalleryHtml() {
         `</div>`;
 }
 
+/**
+ * Build layout page HTML string
+ * @param {string} layout Layout key
+ * @returns {string} HTML string
+ */
 function layoutPageHtml(layout) {
     let leftbarHtml = '', rightbarHtml = '';
     if (layout.includes('l')) {
@@ -192,8 +209,7 @@ function layoutPageHtml(layout) {
 }
 
 export {
-     menuGroupArray, layoutItemSizeOptionArray, layoutPreviewOptionArray, 
-     layoutItemsContent, layoutGalleryImageUrl, 
-     layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml,
-     layoutPageHtml
+    menuGroupArray, layoutItemSizeOptionArray, layoutPreviewOptionArray, 
+    layoutItemsContent, layoutGalleryImageUrl, 
+    layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml, layoutPageHtml
 };

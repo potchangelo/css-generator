@@ -9,7 +9,7 @@ export default () => {
     const groupElements = menuGroupArray.map(group => {
         const linkElements = group.linkArray.map(link => (
             <div key={link.url} className="column is-6-mobile is-6-tablet is-4-desktop">
-                <Link className={styles.link} to={`/${link.url}`}>
+                <Link className={styles.link} to={`/${link.url}/`}>
                     <h3 className="title is-size-6-mobile is-size-5-tablet has-text-white">
                         {link.title}
                     </h3>

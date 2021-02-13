@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function InputButtonGroup(props) {
+    // - Props
     const { title, optionArray, activeKey, onButtonClick } = props;
 
+    // - Elements
     const buttonElements = optionArray.map(option => {
         const { key, title } = option;
         let classes = 'button';

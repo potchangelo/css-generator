@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function PreviewBox(props) {
+function PreviewFilter(props) {
     const { outputStyle } = props;
     return (
         <img
@@ -12,8 +12,8 @@ function PreviewBox(props) {
     );
 }
 
-PreviewBox.propTypes = {
+PreviewFilter.propTypes = {
     outputStyle: PropTypes.object.isRequired,
 };
 
-export default PreviewBox;
+export default PreviewFilter;

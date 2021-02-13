@@ -22,7 +22,7 @@ export default () => {
     const [position, setPosition] = useState('center');
     const [size, setSize] = useState('cover');
     const [repeat, setRepeat] = useState('no-repeat');
-    const [color, setColor] = useState('#1988f7');
+    const [color, setColor] = useState('#666666');
 
     // - Outputs
     const outputStyle = {

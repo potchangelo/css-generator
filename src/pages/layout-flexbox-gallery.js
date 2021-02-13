@@ -13,39 +13,39 @@ export default () => {
 
     // - Outputs
     const scrollHeight = Number(height) + 15;
-    const wrapperStyle = { height: `${isScrollShow ? scrollHeight: height }px` };
+    const wrapperStyle = { height: `${isScrollShow ? scrollHeight : height}px` };
     const scrollStyle = { height: `${scrollHeight}px` };
-    const containerStyle = { height: `${height}px`, padding: `0px ${hSpace/2}px` };
-    const itemStyle = { padding: `${vSpace}px ${hSpace/2}px` };
+    const containerStyle = { height: `${height}px`, padding: `0px ${hSpace / 2}px` };
+    const itemStyle = { padding: `${vSpace}px ${hSpace / 2}px` };
     const outputCss = (
         `.gallery-wrapper {\n` +
         `  background-color: #dbdbdb;\n` +
-        `  box-sizing: border-box;\n` + 
-        `  height: ${isScrollShow ? scrollHeight: height }px;\n` +
+        `  box-sizing: border-box;\n` +
+        `  height: ${isScrollShow ? scrollHeight : height}px;\n` +
         `  overflow: hidden;\n` +
-        `}\n\n` + 
+        `}\n\n` +
         `.gallery-scroll {\n` +
-        `  box-sizing: border-box;\n` + 
+        `  box-sizing: border-box;\n` +
         `  height: ${scrollHeight}px;\n` +
         `  overflow-x: auto;\n` +
         `  overflow-y: hidden;\n` +
-        `}\n\n` + 
+        `}\n\n` +
         `.gallery {\n` +
         `  background-color: #dbdbdb;\n` +
         `  display: flex;\n` +
-        `  box-sizing: border-box;\n` + 
+        `  box-sizing: border-box;\n` +
         `  width: max-content;\n` +
         `  height: ${height}px;\n` +
-        `  padding: 0px ${hSpace/2}px;\n` +
-        `}\n\n` + 
+        `  padding: 0px ${hSpace / 2}px;\n` +
+        `}\n\n` +
         `.item {\n` +
-        `  box-sizing: border-box;\n` + 
+        `  box-sizing: border-box;\n` +
         `  height: 100%;\n` +
-        `  padding: ${vSpace}px ${hSpace/2}px;\n` +
-        `}\n\n` + 
+        `  padding: ${vSpace}px ${hSpace / 2}px;\n` +
+        `}\n\n` +
         `.item img {\n` +
-        `  display: block;\n` + 
-        `  height: 100%;\n` + 
+        `  display: block;\n` +
+        `  height: 100%;\n` +
         `}`
     );
     return (
@@ -59,7 +59,7 @@ export default () => {
                     >
                         <h5 className="title is-5">Container</h5>
                         <InputRange
-                            title="height (pixels)"
+                            title="Height (pixels)"
                             min={100}
                             max={240}
                             value={height}

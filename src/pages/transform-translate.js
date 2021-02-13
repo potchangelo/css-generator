@@ -32,7 +32,7 @@ export default () => {
                         title="Transform Translate"
                         subTitle="Customizing"
                     >
-                        <label className="label">Translate X</label>
+                        <p className="label">Translate X</p>
                         <div className="columns is-mobile is-gapless">
                             <div className="column">
                                 <InputRange
@@ -51,7 +51,7 @@ export default () => {
                                 />
                             </div>
                         </div>
-                        <label className="label">Translate Y</label>
+                        <p className="label">Translate Y</p>
                         <div className="columns is-mobile is-gapless">
                             <div className="column">
                                 <InputRange

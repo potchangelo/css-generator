@@ -15,7 +15,9 @@ export default () => {
     const [preview, setPreview] = useState('equal-height');
 
     // - Outputs
-    const sizeObj = layoutItemSizeOptionArray.find(_size => _size.value == width);
+    const sizeObj = layoutItemSizeOptionArray.find(_size => (
+        _size.value === Number(width)
+    ));
     const outputContainerStyle = { margin: `0px ${hSpace / 2 * -1}px` };
     const outputItemStyle = {
         float,
@@ -64,6 +66,7 @@ export default () => {
                         title="Float Layout (don't use)"
                         subTitle="Customizing"
                     >
+                        <h5 className="title is-5">Item</h5>
                         <InputSelect
                             title="Float"
                             optionArray={floatOptionArray}
