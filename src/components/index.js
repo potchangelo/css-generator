@@ -4,6 +4,7 @@ export { default as InputButtonImageGroup } from './_InputButtonImageGroup';
 export { default as InputCheckbox } from './_InputCheckbox';
 export { default as InputColor } from './_InputColor';
 export { default as InputRange } from './_InputRange';
+export { default as InputRangeGradient } from './_InputRangeGradient';
 export { default as InputSelect } from './_InputSelect';
 export { default as InputText } from './_InputText';
 export { default as PreviewBox } from './_PreviewBox';
