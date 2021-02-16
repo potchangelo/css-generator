@@ -10,8 +10,6 @@ function AppNavHeader() {
         <header className={`${styles.header} is-hidden-tablet`}>
             <div
                 className={styles.headerMenu}
-                role="button"
-                tabIndex="0"
                 onClick={_ => navContext.dispatch({ type: 'toggleNav' })}
             >
                 <span className="icon">

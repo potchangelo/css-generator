@@ -3,7 +3,7 @@ import { ArrowUp, Trash2 } from 'react-feather';
 import styles from './css/section.module.scss';
 import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
-import { colorHexToRgba, optionArrayUpper } from '../helpers';
+import { colorHexToRgba, gradientPointSortAsc, optionArrayUpper } from '../helpers';
 
 const modeOptionArray = optionArrayUpper(['linear', 'radial']);
 const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
@@ -19,9 +19,6 @@ const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
     return { key, title: key, icon };
 });
 const radialShapeOptionArray = optionArrayUpper(['circle', 'ellipse']);
-
-const positionAsc = (point1, point2) => point1.position - point2.position;
-const positionDesc = (point1, point2) => point2.position - point1.position;
 
 export default () => {
     // - States
@@ -61,7 +58,7 @@ export default () => {
     }
 
     // - Outputs
-    const pointTextArray = [...pointArray].sort(positionAsc).map(point =>
+    const pointTextArray = [...pointArray].sort(gradientPointSortAsc).map(point =>
         `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
     );
 
@@ -104,7 +101,7 @@ export default () => {
                 <GridItem>
                     <Section
                         extraClass={styles.inputs}
-                        title="Background Image"
+                        title="Background Gradient"
                         subTitle="Customizing"
                     >
                         <h5 className="title is-5">Colors</h5>

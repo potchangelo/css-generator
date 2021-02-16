@@ -1,11 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { ChevronDown } from 'react-feather';
 import PropTypes from 'prop-types';
 import styles from './css/input.module.scss';
-import { ChevronDown } from 'react-feather';
-import { gradientMiddleAlpha, gradientMiddleHex } from '../helpers';
-
-const positionAsc = (point1, point2) => point1.position - point2.position;
-const positionDesc = (point1, point2) => point2.position - point1.position;
+import { gradientMiddleAlpha, gradientMiddleHex, gradientPointSortAsc, gradientPointSortDesc } from '../helpers';
 
 function InputRangeGradient(props) {
     // - Props
@@ -39,7 +36,7 @@ function InputRangeGradient(props) {
         onDraggingChange(index);
     }
 
-    function onHandleMove(event) {
+    const onHandleMove = useCallback(event => {
         if (draggingIndex === -1) return;
         event.preventDefault();
         let percentX = getHandlePointPercent(event);
@@ -50,21 +47,21 @@ function InputRangeGradient(props) {
             if (index === draggingIndex) point.position = percentX;
             return point;
         }));
-    }
+    }, [draggingIndex, onColorPointChange]);
 
-    function onHandleUp() {
+    const onHandleUp = useCallback(() => {
         document.body.classList.remove('is-unselectable');
         onDraggingChange(-1);
-    }
+    }, [onDraggingChange]);
 
     function onHandleAreaClick(event) {
         const percentX = getHandlePointPercent(event.nativeEvent);
 
         // Left right points
-        const pointL = [...colorPointArray].sort(positionDesc).find(point => (
+        const pointL = [...colorPointArray].sort(gradientPointSortDesc).find(point => (
             point.position < percentX
         ));
-        const pointR = [...colorPointArray].sort(positionAsc).find(point => (
+        const pointR = [...colorPointArray].sort(gradientPointSortAsc).find(point => (
             point.position > percentX
         ));
 
@@ -96,7 +93,7 @@ function InputRangeGradient(props) {
 
         const point = { color, alpha, position: percentX };
         onColorPointChange(prevArray => [...prevArray, point]);
-        onSelectedChange(colorPointArray.length)
+        onSelectedChange(colorPointArray.length);
     }
 
     // - Effects
@@ -111,7 +108,7 @@ function InputRangeGradient(props) {
             window.removeEventListener('touchend', onHandleUp, { passive: false });
             window.removeEventListener('mouseup', onHandleUp);
         }
-    }, [onDraggingChange, onHandleMove, onHandleUp]);
+    }, [onHandleMove, onHandleUp]);
 
     // - Elements
     const gradientHandleElements = colorPointArray.map((point, index) => {

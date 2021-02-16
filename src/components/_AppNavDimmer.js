@@ -8,9 +8,7 @@ function AppNavDimmer() {
     return (
         <div
             className={`${styles.dimmer} is-hidden-tablet`}
-            role="button"
             aria-label="Close navigation"
-            tabIndex="0"
             onClick={_ => navContext.dispatch({ type: 'closeNav' })}
         />
     );
