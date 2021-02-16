@@ -92,4 +92,23 @@ function gradientMiddleAlpha(aL, aR, ratio) {
     return calcAL + (calcAR - calcAL) * calcRatio;
 }
 
-export { colorHexToRgba, colorHexToRgbNumbers, gradientMiddleHex, gradientMiddleAlpha };
+/**
+ * Sort function for Gradient color, by position ASC
+ * @param {{ color: string, alpha: number, position: number }} point1 Compare item 1
+ * @param {{ color: string, alpha: number, position: number }} point2 Compare item 2
+ * @returns {number} Sort round result
+ */
+const gradientPointSortAsc = (point1, point2) => point1.position - point2.position;
+
+/**
+ * Sort function for Gradient color, by position DESC
+ * @param {{ color: string, alpha: number, position: number }} point1 Compare item 1
+ * @param {{ color: string, alpha: number, position: number }} point2 Compare item 2
+ * @returns {number} Sort round result
+ */
+const gradientPointSortDesc = (point1, point2) => point2.position - point1.position;
+
+export {
+    colorHexToRgba, colorHexToRgbNumbers, gradientMiddleHex, gradientMiddleAlpha,
+    gradientPointSortAsc, gradientPointSortDesc
+};
