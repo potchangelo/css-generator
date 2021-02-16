@@ -6,17 +6,17 @@ import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, o
 
 const directionOptionArray = optionArrayUpper([
     'row', 'row-reverse'
-]);
+], '-');
 const wrapOptionArray = optionArrayUpper([
     'wrap', 'wrap-reverse', 'nowrap'
-]);
+], '-');
 const justifyContentOptionArray = optionArrayUpper([
     'flex-start', 'flex-end', 'center',
     'space-between', 'space-around', 'space-evenly'
-]);
+], '-');
 const alignItemsOptionArray = optionArrayUpper([
     'stretch', 'flex-start', 'flex-end', 'center'
-]);
+], '-');
 const widthUnitOptionArray = [
     { key: 'percent', title: 'Percent' },
     { key: 'pixels', title: 'Pixels' }

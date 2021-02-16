@@ -21,7 +21,7 @@ function InputCheckbox(props) {
 
 InputCheckbox.propTypes = {
     title: PropTypes.string.isRequired,
-    checked: PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
     onCheckedChange: PropTypes.func.isRequired
 };
 
