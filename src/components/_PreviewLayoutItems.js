@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './css/preview.module.scss';
-import { layoutItemsContent } from '../helpers';
+import { layoutItemContentArray } from '../helpers';
 
 const unequalLineArray = [3, 2, 1, 2];
 
 function PreviewLayoutItems(props) {
     const { layoutType, containerStyle, itemStyle, preview } = props;
 
-    const itemElements = layoutItemsContent.map((content, itemIndex) => {
+    const itemElements = layoutItemContentArray.map((content, itemIndex) => {
         let previewElements = <p>{content}</p>;
         if (preview === 'unequal-height') {
             const lineArray = [...Array(unequalLineArray[itemIndex]).keys()];

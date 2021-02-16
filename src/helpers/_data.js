@@ -93,7 +93,7 @@ const layoutPreviewOptionArray = [
 /**
  * Layout sample contents
  */
-const layoutItemsContent = [
+const layoutItemContentArray = [
     '11111', '22222', '33333', '44444'
 ];
 
@@ -104,7 +104,7 @@ const layoutItemsContent = [
  */
 function layoutItemsHtml(layoutType) {
     let layoutItemHtml = '';
-    layoutItemsContent.forEach(content => {
+    layoutItemContentArray.forEach(content => {
         layoutItemHtml += (
             `  <div class="item">\n` + 
             `    <div class="content">\n` + 
@@ -225,7 +225,7 @@ function optionArrayUpper(valueArray, separator=' ') {
 
 export {
     menuGroupArray, layoutItemSizeOptionArray, layoutPreviewOptionArray, 
-    layoutItemsContent, layoutGalleryImageUrl, 
+    layoutItemContentArray, layoutGalleryImageUrl, 
     layoutItemsHtml, layoutMenuHtml, layoutGalleryHtml, layoutPageHtml,
     optionArrayUpper
 };
