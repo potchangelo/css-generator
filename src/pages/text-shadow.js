@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, PreviewText } from '../components';
+import { Code, InputColor, InputRange, PreviewText, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba } from '../helpers';
 
@@ -19,6 +19,7 @@ export default () => {
 
     return (
         <App>
+            <SEO pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
             <Grid>
                 <GridItem>
                     <Section

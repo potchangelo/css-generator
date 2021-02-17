@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputRange, InputSelect, PreviewTransform } from '../components';
+import { Code, InputRange, InputSelect, PreviewTransform, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 const unitOptionArray = [
@@ -25,6 +25,7 @@ export default () => {
 
     return (
         <App>
+            <SEO pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />
             <Grid>
                 <GridItem>
                     <Section

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputRange, PreviewBox } from '../components';
+import { Code, InputButtonGroup, InputRange, PreviewBox, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 const modeOptionArray = [
@@ -72,6 +72,7 @@ export default () => {
 
     return (
         <App>
+            <SEO pageTitle="Border Radius" pageRelativeUrl="/border-radius" />
             <Grid>
                 <GridItem>
                     <Section

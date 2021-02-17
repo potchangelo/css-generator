@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputCheckbox, InputRange, PreviewLayoutGallery } from '../components';
+import { Code, InputCheckbox, InputRange, PreviewLayoutGallery, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutGalleryHtml } from '../helpers';
 
@@ -50,6 +50,7 @@ export default () => {
     );
     return (
         <App>
+            <SEO pageTitle="Flexbox Gallery Layout" pageRelativeUrl="/layout-flexbox-gallery" />
             <Grid>
                 <GridItem>
                     <Section

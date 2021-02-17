@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter } from '../components';
+import { Code, InputRange, PreviewFilter, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 export default () => {
@@ -13,6 +13,7 @@ export default () => {
 
     return (
         <App>
+            <SEO pageTitle="Filter Sepia" pageRelativeUrl="/filter-sepia" />
             <Grid>
                 <GridItem>
                     <Section

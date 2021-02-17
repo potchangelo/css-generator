@@ -4,6 +4,8 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import socialBanner from '../images/social-banner.jpg';
 
+const baseUrl = process.env.GATSBY_PUBLIC_HOST;
+
 function SEO(props) {
     const { pageTitle, pageDescription, pageRelativeUrl } = props;
 
@@ -23,8 +25,8 @@ function SEO(props) {
 
     const headTitle = pageTitle ? `${pageTitle} | ${title}` : title;
     const headDescription = pageDescription ?? description;
-    const headUrl = 'http://localhost:8000' + (pageRelativeUrl ? pageRelativeUrl : '');
-    const headImageUrl = 'http://localhost:8000' + socialBanner;
+    const headUrl = baseUrl + (pageRelativeUrl ? pageRelativeUrl : '');
+    const headImageUrl = baseUrl + socialBanner;
 
     return (
         <Helmet htmlAttributes={{ lang: 'en' }}>
