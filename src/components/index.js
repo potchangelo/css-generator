@@ -16,3 +16,4 @@ export { default as PreviewLayoutPage } from './_PreviewLayoutPage';
 export { default as PreviewText } from './_PreviewText';
 export { default as PreviewTransform } from './_PreviewTransform';
 export { default as Code } from './_Code';
+export { default as SEO } from './_SEO';

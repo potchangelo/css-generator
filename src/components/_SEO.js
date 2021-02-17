@@ -21,7 +21,7 @@ function SEO(props) {
     `);
     const { title, description, author, keywords } = data.site.siteMetadata;
 
-    const headTitle = pageTitle ? `${pageTitle} | Title` : title;
+    const headTitle = pageTitle ? `${pageTitle} | ${title}` : title;
     const headDescription = pageDescription ?? description;
     const headUrl = 'http://localhost:8000' + (pageRelativeUrl ? pageRelativeUrl : '');
     const headImageUrl = 'http://localhost:8000' + socialBanner;

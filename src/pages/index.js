@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import stylesSection from './css/section.module.scss';
 import styles from './css/dashboard.module.scss';
+import { SEO } from '../components';
 import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';
-import SEO from '../components/_SEO';
 
 export default () => {
     const groupElements = menuGroupArray.map(group => {

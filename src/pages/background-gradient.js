@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUp, Trash2 } from 'react-feather';
 import styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox } from '../components';
+import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba, gradientPointSortAsc, optionArrayUpper } from '../helpers';
 
@@ -97,6 +97,7 @@ export default () => {
 
     return (
         <App>
+            <SEO pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />
             <Grid>
                 <GridItem>
                     <Section

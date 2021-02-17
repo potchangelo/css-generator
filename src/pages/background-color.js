@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './css/section.module.scss';
-import { Code, InputColor, PreviewBox } from '../components';
+import { Code, InputColor, PreviewBox, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 export default () => {
@@ -13,6 +13,7 @@ export default () => {
 
     return (
         <App>
+            <SEO pageTitle="Background Color" pageRelativeUrl="/background-color" />
             <Grid>
                 <GridItem>
                     <Section
