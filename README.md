@@ -1,13 +1,13 @@
 # CSS Generator by Zinglecode
 
-https://css-generator.netlify.app/
+https://css-generator.netlify.com/
 
-Generate CSS code by using simple UI, created by React.
+Generate CSS code by using simple UI, created by Gatsby React framework.
 
 ## Features
-- Layout (Grid, Flexbox, Etc.)
 - Background
 - Border
-- Transform
 - Filter
+- Layout
 - Text
+- Transform

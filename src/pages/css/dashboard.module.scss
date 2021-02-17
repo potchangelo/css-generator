@@ -1,0 +1,15 @@
+@import '../../css/vars';
+
+.group {
+    margin-bottom: 32px;
+}
+
+.link {
+    background-color: $link;
+    border-radius: $radius-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}

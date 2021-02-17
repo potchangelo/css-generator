@@ -1,0 +1,33 @@
+@import '../../css/vars';
+
+.container:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.lang {
+    color: $white-bis;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-weight: $weight-bold;
+    display: inline-block;
+    padding: 4px 16px;
+
+    &[class*='css'] {
+        background-color: #2965f1;
+    }
+
+    &[class*='html'] {
+        background-color: #E44D26;
+    }
+}
+
+.output {
+    border-top-right-radius: 4px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.copy {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
