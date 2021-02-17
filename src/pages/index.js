@@ -4,6 +4,7 @@ import stylesSection from './css/section.module.scss';
 import styles from './css/dashboard.module.scss';
 import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';
+import SEO from '../components/_SEO';
 
 export default () => {
     const groupElements = menuGroupArray.map(group => {
@@ -28,6 +29,7 @@ export default () => {
 
     return (
         <App>
+            <SEO />
             <Section
                 extraClass={stylesSection.dashboard}
                 title="Dashboard"
