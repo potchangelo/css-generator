@@ -3,7 +3,8 @@ module.exports = {
     title: "CSS Generator",
     description: "Generate CSS (+ HTML) code with simple UI, created by Gatsby React framework.",
     keywords: "css, css-generator, react, gatsby, bulma",
-    author: "Zinglecode"
+    author: "Zinglecode",
+    siteUrl: "https://css-generator.netlify.app"
   },
   plugins: [
     "gatsby-plugin-sass",
