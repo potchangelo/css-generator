@@ -5,9 +5,9 @@ https://css-generator.netlify.com/
 Generate CSS code by using simple UI, created by Gatsby React framework.
 
 ## Features
+- Layout
 - Background
 - Border
-- Filter
-- Layout
-- Text
 - Transform
+- Filter
+- Text
