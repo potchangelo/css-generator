@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './css/app.module.scss';
+import * as styles from './css/app.module.scss';
 import { AppNav } from '../components'
 
 const App = (props) => (

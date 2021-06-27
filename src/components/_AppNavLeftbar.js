@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import styles from './css/appNav.module.scss';
+import * as styles from './css/appNav.module.scss';
 import Logo64 from '../images/logo-64.png';
 import { NavContext } from './_AppNav';
 import { menuGroupArray } from '../helpers';

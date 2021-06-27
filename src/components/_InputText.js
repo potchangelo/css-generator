@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './css/input.module.scss';
+import * as styles from './css/input.module.scss';
 
 function InputText(props) {
     const { title, placeholder, value, onValueChange } = props;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './css/grid.module.scss';
+import * as styles from './css/grid.module.scss';
 
 const BlockGridItem = (props) => (
     <div className={styles.item}>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './css/section.module.scss';
+import * as styles from './css/section.module.scss';
 import { Code, InputColor, InputRange, InputSelect, PreviewText, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';

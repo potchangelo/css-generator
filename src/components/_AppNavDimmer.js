@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import styles from './css/appNav.module.scss';
+import * as styles from './css/appNav.module.scss';
 import { NavContext } from './_AppNav';
 
 function AppNavDimmer() {

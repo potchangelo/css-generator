@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './css/section.module.scss';
+import * as styles from './css/section.module.scss';
 
 function Section(props) {
     const { extraClass, headerTheme, title, subTitle, children } = props;

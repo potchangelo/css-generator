@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './css/preview.module.scss';
+import * as styles from './css/preview.module.scss';
 import { layoutGalleryImageUrl } from '../helpers';
 
 function PreviewLayoutGallery(props) {

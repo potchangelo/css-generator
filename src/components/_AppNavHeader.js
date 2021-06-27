@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import { Menu } from 'react-feather';
-import styles from './css/appNav.module.scss';
+import * as styles from './css/appNav.module.scss';
 import { NavContext } from './_AppNav';
 
 function AppNavHeader() {

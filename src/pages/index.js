@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import stylesSection from './css/section.module.scss';
-import styles from './css/dashboard.module.scss';
+import * as stylesSection from './css/section.module.scss';
+import * as styles from './css/dashboard.module.scss';
 import { SEO } from '../components';
 import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';

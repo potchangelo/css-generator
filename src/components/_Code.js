@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './css/code.module.scss';
+import * as styles from './css/code.module.scss';
 
 function Code(props) {
     const { lang, output } = props;
