@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './css/grid.module.scss';
+import * as styles from './css/grid.module.scss';
 
 const Grid = (props) => (
     <div className={styles.main}>

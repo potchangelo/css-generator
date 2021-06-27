@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './css/section.module.scss';
+import * as styles from './css/section.module.scss';
 import image1 from '../images/button-grid-page-01.png';
 import image2 from '../images/button-grid-page-02.png';
 import { Code, InputButtonImageGroup, InputRange, PreviewLayoutPage, SEO } from '../components';

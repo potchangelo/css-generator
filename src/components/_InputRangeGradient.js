@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { ChevronDown } from 'react-feather';
 import PropTypes from 'prop-types';
-import styles from './css/input.module.scss';
+import * as styles from './css/input.module.scss';
 import { gradientMiddleAlpha, gradientMiddleHex, gradientPointSortAsc, gradientPointSortDesc } from '../helpers';
 
 function InputRangeGradient(props) {

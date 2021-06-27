@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check } from 'react-feather';
 import PropTypes from 'prop-types';
-import styles from './css/input.module.scss';
+import * as styles from './css/input.module.scss';
 
 function InputCheckbox(props) {
     const { title, checked, onCheckedChange } = props;
