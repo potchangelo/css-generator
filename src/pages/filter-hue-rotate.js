@@ -3,7 +3,7 @@ import * as styles from './css/section.module.scss';
 import { Code, InputRange, PreviewFilter, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function FilterHueRotate() {
     // - States
     const [hueRotate, setHueRotate] = useState(180);
 
@@ -51,3 +51,5 @@ export default () => {
         </App>
     );
 };
+
+export default FilterHueRotate;
