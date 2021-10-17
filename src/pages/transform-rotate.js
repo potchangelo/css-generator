@@ -3,7 +3,7 @@ import * as styles from './css/section.module.scss';
 import { Code, InputRange, PreviewTransform, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function PageTransformRotate() {
     // - States
     const [rotate, setRotate] = useState(0);
 
@@ -51,3 +51,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageTransformRotate;

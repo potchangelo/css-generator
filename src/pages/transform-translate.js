@@ -8,7 +8,7 @@ const unitOptionArray = [
     { key: 'percent', value: '%', title: 'percent' }
 ];
 
-export default () => {
+function PageTransformTranslate() {
     // - States
     const [translateX, setTranslateX] = useState(0);
     const [translateY, setTranslateY] = useState(0);
@@ -94,3 +94,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageTransformTranslate;

@@ -3,7 +3,7 @@ import * as styles from './css/section.module.scss';
 import { Code, InputRange, PreviewTransform, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function PageTransformScale() {
     // - States
     const [scaleX, setScaleX] = useState(1);
     const [scaleY, setScaleY] = useState(1);
@@ -61,3 +61,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageTransformScale;
