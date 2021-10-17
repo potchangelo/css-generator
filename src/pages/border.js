@@ -13,7 +13,7 @@ const styleOptionArray = optionArrayUpper([
 ]);
 const sideArray = ['top', 'right', 'bottom', 'left'];
 
-export default () => {
+function PageBorder() {
     // - States
     const [mode, setMode] = useState('all');
     const [color, setColor] = useState('#000000');
@@ -172,3 +172,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBorder;

@@ -9,7 +9,7 @@ const modeOptionArray = [
 ];
 const sideArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
-export default () => {
+function PageBorderRadius() {
     // - States
     const [mode, setMode] = useState('all');
     const [radius, setRadius] = useState(12);
@@ -110,3 +110,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBorderRadius;

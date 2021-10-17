@@ -4,7 +4,7 @@ import { Code, InputColor, InputRange, PreviewBox, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba } from '../helpers';
 
-export default () => {
+function PageBoxShadow() {
     // - States
     const [x, setX] = useState(2);
     const [y, setY] = useState(2);
@@ -92,3 +92,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBoxShadow;
