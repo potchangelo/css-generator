@@ -4,7 +4,7 @@ import { Code, InputCheckbox, InputRange, PreviewLayoutGallery, SEO } from '../c
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutGalleryHtml } from '../helpers';
 
-export default () => {
+function PageLayoutFlexboxGallery() {
     // - States
     const [height, setHeight] = useState(180);
     const [isScrollShow, setIsScrollShow] = useState(true);
@@ -115,3 +115,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutFlexboxGallery;

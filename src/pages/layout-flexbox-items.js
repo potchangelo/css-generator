@@ -22,7 +22,7 @@ const widthUnitOptionArray = [
     { key: 'pixels', title: 'Pixels' }
 ];
 
-export default () => {
+function PageLayoutFlexboxItems() {
     // - States
     const [direction, setDirection] = useState('row');
     const [wrap, setWrap] = useState('wrap');
@@ -194,3 +194,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutFlexboxItems;

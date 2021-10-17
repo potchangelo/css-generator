@@ -23,7 +23,7 @@ const layoutOptionArray = [
     },
 ];
 
-export default () => {
+function PageLayoutGridPage() {
     // - States
     const [layout, setLayout] = useState('h-l-m-f');
     const [headerHeight, setHeaderHeight] = useState(70);
@@ -186,3 +186,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutGridPage;

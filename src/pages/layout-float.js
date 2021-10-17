@@ -6,7 +6,7 @@ import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, o
 
 const floatOptionArray = optionArrayUpper(['left', 'right']);
 
-export default () => {
+function PageLayoutFloat() {
     // - States
     const [float, setFloat] = useState('left');
     const [width, setWidth] = useState(50);
@@ -130,3 +130,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutFloat;

@@ -8,7 +8,7 @@ const jaItemsOptionArray = optionArrayUpper([
     'stretch', 'start', 'end', 'center'
 ]);
 
-export default () => {
+function PageLayoutGridItems() {
     // - States
     const [width, setWidth] = useState(50);
     const [justifyItems, setJustifyItems] = useState('stretch');
@@ -127,3 +127,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutGridItems;

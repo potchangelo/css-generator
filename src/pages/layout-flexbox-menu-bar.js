@@ -11,7 +11,7 @@ const layoutOptionArray = [
     { key: 'right', title: 'Style 2', imageSrc: image2 }
 ];
 
-export default () => {
+function PageLayoutFlexboxMenuBar() {
     // - States
     const [layout, setLayout] = useState('left');
 
@@ -82,3 +82,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutFlexboxMenuBar;
