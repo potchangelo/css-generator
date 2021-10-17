@@ -16,7 +16,7 @@ const repeatOptionArray = optionArrayUpper([
     'no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'
 ], '-');
 
-export default () => {
+function PageBackgroundImage() {
     // - States
     const [image, setImage] = useState('https://cdn.pixabay.com/photo/2013/03/19/23/07/easter-bunny-95096_960_720.jpg');
     const [position, setPosition] = useState('center');
@@ -102,3 +102,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBackgroundImage;

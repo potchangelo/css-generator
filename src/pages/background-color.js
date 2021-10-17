@@ -3,7 +3,7 @@ import * as styles from './css/section.module.scss';
 import { Code, InputColor, PreviewBox, SEO } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function PageBackgroundColor() {
     // - States
     const [color, setColor] = useState('#1988f7');
 
@@ -49,3 +49,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBackgroundColor;

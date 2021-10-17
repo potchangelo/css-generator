@@ -20,7 +20,7 @@ const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
 });
 const radialShapeOptionArray = optionArrayUpper(['circle', 'ellipse']);
 
-export default () => {
+function PageBackgroundGradient() {
     // - States
     const [pointArray, setPointArray] = useState([
         { color: '#1988f7', alpha: 1, position: 0 },
@@ -167,3 +167,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBackgroundGradient;
