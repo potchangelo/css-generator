@@ -6,7 +6,7 @@ import { SEO } from '../components';
 import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';
 
-export default () => {
+function PageIndex() {
     const groupElements = menuGroupArray.map(group => {
         const linkElements = group.linkArray.map(link => (
             <div key={link.url} className="column is-6-mobile is-6-tablet is-4-desktop">
@@ -40,3 +40,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageIndex;
