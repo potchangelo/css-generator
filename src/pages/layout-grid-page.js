@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
 import image1 from '../images/button-grid-page-01.png';
 import image2 from '../images/button-grid-page-02.png';
-import { Code, InputButtonImageGroup, InputRange, PreviewLayoutPage, SEO } from '../components';
+import { Code, InputButtonImageGroup, InputRange, PreviewLayoutPage, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutPageHtml } from '../helpers';
 
@@ -23,7 +23,7 @@ const layoutOptionArray = [
     },
 ];
 
-export default () => {
+function PageLayoutGridPage() {
     // - States
     const [layout, setLayout] = useState('h-l-m-f');
     const [headerHeight, setHeaderHeight] = useState(70);
@@ -121,7 +121,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Grid Page Layout" pageRelativeUrl="/layout-grid-page" />
+            <Seo pageTitle="Grid Page Layout" pageRelativeUrl="/layout-grid-page" />
             <Grid>
                 <GridItem>
                     <Section
@@ -186,3 +186,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutGridPage;

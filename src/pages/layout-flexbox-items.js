@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, SEO } from '../components';
+import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from '../helpers';
 
@@ -22,7 +22,7 @@ const widthUnitOptionArray = [
     { key: 'pixels', title: 'Pixels' }
 ];
 
-export default () => {
+function PageLayoutFlexboxItems() {
     // - States
     const [direction, setDirection] = useState('row');
     const [wrap, setWrap] = useState('wrap');
@@ -103,7 +103,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
+            <Seo pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
             <Grid>
                 <GridItem>
                     <Section
@@ -194,3 +194,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutFlexboxItems;

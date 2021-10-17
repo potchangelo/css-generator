@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputSelect, InputText, PreviewBox, SEO } from '../components';
+import { Code, InputColor, InputSelect, InputText, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';
 
@@ -16,7 +16,7 @@ const repeatOptionArray = optionArrayUpper([
     'no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'
 ], '-');
 
-export default () => {
+function PageBackgroundImage() {
     // - States
     const [image, setImage] = useState('https://cdn.pixabay.com/photo/2013/03/19/23/07/easter-bunny-95096_960_720.jpg');
     const [position, setPosition] = useState('center');
@@ -42,7 +42,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Background Image" pageRelativeUrl="/background-image" />
+            <Seo pageTitle="Background Image" pageRelativeUrl="/background-image" />
             <Grid>
                 <GridItem>
                     <Section
@@ -102,3 +102,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBackgroundImage;

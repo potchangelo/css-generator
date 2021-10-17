@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, InputSelect, PreviewLayoutItems, SEO } from '../components';
+import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from '../helpers';
 
@@ -8,7 +8,7 @@ const jaItemsOptionArray = optionArrayUpper([
     'stretch', 'start', 'end', 'center'
 ]);
 
-export default () => {
+function PageLayoutGridItems() {
     // - States
     const [width, setWidth] = useState(50);
     const [justifyItems, setJustifyItems] = useState('stretch');
@@ -51,7 +51,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />
+            <Seo pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />
             <Grid>
                 <GridItem>
                     <Section
@@ -127,3 +127,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageLayoutGridItems;

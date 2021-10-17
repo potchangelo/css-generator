@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUp, Trash2 } from 'react-feather';
 import * as styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox, SEO } from '../components';
+import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba, gradientPointSortAsc, optionArrayUpper } from '../helpers';
 
@@ -20,7 +20,7 @@ const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
 });
 const radialShapeOptionArray = optionArrayUpper(['circle', 'ellipse']);
 
-export default () => {
+function PageBackgroundGradient() {
     // - States
     const [pointArray, setPointArray] = useState([
         { color: '#1988f7', alpha: 1, position: 0 },
@@ -97,7 +97,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />
+            <Seo pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />
             <Grid>
                 <GridItem>
                     <Section
@@ -167,3 +167,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBackgroundGradient;

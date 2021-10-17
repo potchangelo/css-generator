@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, SEO } from '../components';
+import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';
 
@@ -13,7 +13,7 @@ const styleOptionArray = optionArrayUpper([
 ]);
 const sideArray = ['top', 'right', 'bottom', 'left'];
 
-export default () => {
+function PageBorder() {
     // - States
     const [mode, setMode] = useState('all');
     const [color, setColor] = useState('#000000');
@@ -134,7 +134,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Border" pageRelativeUrl="/border" />
+            <Seo pageTitle="Border" pageRelativeUrl="/border" />
             <Grid>
                 <GridItem>
                     <Section
@@ -172,3 +172,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBorder;

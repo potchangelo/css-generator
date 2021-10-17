@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, PreviewBox, SEO } from '../components';
+import { Code, InputColor, InputRange, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba } from '../helpers';
 
-export default () => {
+function PageBoxShadow() {
     // - States
     const [x, setX] = useState(2);
     const [y, setY] = useState(2);
@@ -20,7 +20,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Box Shadow" pageRelativeUrl="/box-shadow" />
+            <Seo pageTitle="Box Shadow" pageRelativeUrl="/box-shadow" />
             <Grid>
                 <GridItem>
                     <Section
@@ -92,3 +92,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBoxShadow;

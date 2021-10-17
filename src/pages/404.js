@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-export default () => {
+function Page404() {
     return (
         <section className="section">
             <div className="container is-max-desktop content">
@@ -15,3 +15,5 @@ export default () => {
         </section>
     );
 };
+
+export default Page404;

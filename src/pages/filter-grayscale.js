@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, SEO } from '../components';
+import { Code, InputRange, PreviewFilter, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function FilterGrayscale() {
     // - States
     const [grayscale, setGrayscale] = useState(100);
 
@@ -13,7 +13,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Filter Grayscale" pageRelativeUrl="/filter-grayscale" />
+            <Seo pageTitle="Filter Grayscale" pageRelativeUrl="/filter-grayscale" />
             <Grid>
                 <GridItem>
                     <Section
@@ -51,3 +51,5 @@ export default () => {
         </App>
     );
 };
+
+export default FilterGrayscale;

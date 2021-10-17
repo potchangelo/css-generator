@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, PreviewText, SEO } from '../components';
+import { Code, InputColor, InputRange, PreviewText, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba } from '../helpers';
 
-export default () => {
+function PageTextShadow() {
     // - States
     const [x, setX] = useState(1);
     const [y, setY] = useState(1);
@@ -19,7 +19,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
+            <Seo pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
             <Grid>
                 <GridItem>
                     <Section
@@ -84,3 +84,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageTextShadow;

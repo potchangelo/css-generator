@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, SEO } from '../components';
+import { Code, InputRange, PreviewFilter, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function FilterSepia() {
     // - States
     const [sepia, setSepia] = useState(100);
 
@@ -13,7 +13,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Filter Sepia" pageRelativeUrl="/filter-sepia" />
+            <Seo pageTitle="Filter Sepia" pageRelativeUrl="/filter-sepia" />
             <Grid>
                 <GridItem>
                     <Section
@@ -51,3 +51,5 @@ export default () => {
         </App>
     );
 };
+
+export default FilterSepia;

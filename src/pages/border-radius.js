@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputRange, PreviewBox, SEO } from '../components';
+import { Code, InputButtonGroup, InputRange, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 const modeOptionArray = [
@@ -9,7 +9,7 @@ const modeOptionArray = [
 ];
 const sideArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
-export default () => {
+function PageBorderRadius() {
     // - States
     const [mode, setMode] = useState('all');
     const [radius, setRadius] = useState(12);
@@ -72,7 +72,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Border Radius" pageRelativeUrl="/border-radius" />
+            <Seo pageTitle="Border Radius" pageRelativeUrl="/border-radius" />
             <Grid>
                 <GridItem>
                     <Section
@@ -110,3 +110,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageBorderRadius;

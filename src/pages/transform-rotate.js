@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewTransform, SEO } from '../components';
+import { Code, InputRange, PreviewTransform, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function PageTransformRotate() {
     // - States
     const [rotate, setRotate] = useState(0);
 
@@ -13,7 +13,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Transform Rotate" pageRelativeUrl="/transform-rotate" />
+            <Seo pageTitle="Transform Rotate" pageRelativeUrl="/transform-rotate" />
             <Grid>
                 <GridItem>
                     <Section
@@ -51,3 +51,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageTransformRotate;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, SEO } from '../components';
+import { Code, InputRange, PreviewFilter, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
-export default () => {
+function FilterHueRotate() {
     // - States
     const [hueRotate, setHueRotate] = useState(180);
 
@@ -13,7 +13,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Filter Hue-Rotate" pageRelativeUrl="/filter-hue-rotate" />
+            <Seo pageTitle="Filter Hue-Rotate" pageRelativeUrl="/filter-hue-rotate" />
             <Grid>
                 <GridItem>
                     <Section
@@ -51,3 +51,5 @@ export default () => {
         </App>
     );
 };
+
+export default FilterHueRotate;

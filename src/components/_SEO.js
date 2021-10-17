@@ -6,7 +6,7 @@ import socialBanner from '../images/social-banner.jpg';
 
 const baseUrl = process.env.GATSBY_PUBLIC_HOST;
 
-function SEO(props) {
+function Seo(props) {
     const { pageTitle, pageDescription, pageRelativeUrl } = props;
 
     const data = useStaticQuery(graphql`
@@ -48,10 +48,10 @@ function SEO(props) {
     );
 }
 
-SEO.propTypes = {
+Seo.propTypes = {
     pageTitle: PropTypes.string,
     pageDescription: PropTypes.string,
     pageRelativeUrl: PropTypes.string
 };
 
-export default SEO
+export default Seo

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, InputSelect, PreviewTransform, SEO } from '../components';
+import { Code, InputRange, InputSelect, PreviewTransform, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 const unitOptionArray = [
@@ -8,7 +8,7 @@ const unitOptionArray = [
     { key: 'percent', value: '%', title: 'percent' }
 ];
 
-export default () => {
+function PageTransformTranslate() {
     // - States
     const [translateX, setTranslateX] = useState(0);
     const [translateY, setTranslateY] = useState(0);
@@ -25,7 +25,7 @@ export default () => {
 
     return (
         <App>
-            <SEO pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />
+            <Seo pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />
             <Grid>
                 <GridItem>
                     <Section
@@ -94,3 +94,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageTransformTranslate;
