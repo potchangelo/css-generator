@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, InputSelect, PreviewText, SEO } from '../components';
+import { Code, InputColor, InputRange, InputSelect, PreviewText, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';
 
@@ -46,7 +46,7 @@ function PageText() {
 
     return (
         <App>
-            <SEO pageTitle="Text" pageRelativeUrl="/text" />
+            <Seo pageTitle="Text" pageRelativeUrl="/text" />
             <Grid>
                 <GridItem>
                     <Section

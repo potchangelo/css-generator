@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, SEO } from '../components';
+import { Code, InputRange, PreviewFilter, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 function FilterInvert() {
@@ -13,7 +13,7 @@ function FilterInvert() {
 
     return (
         <App>
-            <SEO pageTitle="Filter Invert" pageRelativeUrl="/filter-invert" />
+            <Seo pageTitle="Filter Invert" pageRelativeUrl="/filter-invert" />
             <Grid>
                 <GridItem>
                     <Section

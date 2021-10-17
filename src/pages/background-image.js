@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputSelect, InputText, PreviewBox, SEO } from '../components';
+import { Code, InputColor, InputSelect, InputText, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';
 
@@ -42,7 +42,7 @@ function PageBackgroundImage() {
 
     return (
         <App>
-            <SEO pageTitle="Background Image" pageRelativeUrl="/background-image" />
+            <Seo pageTitle="Background Image" pageRelativeUrl="/background-image" />
             <Grid>
                 <GridItem>
                     <Section

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, InputSelect, PreviewLayoutItems, SEO } from '../components';
+import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from '../helpers';
 
@@ -51,7 +51,7 @@ function PageLayoutGridItems() {
 
     return (
         <App>
-            <SEO pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />
+            <Seo pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />
             <Grid>
                 <GridItem>
                     <Section

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, InputSelect, PreviewLayoutItems, SEO } from '../components';
+import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from '../helpers';
 
@@ -59,7 +59,7 @@ function PageLayoutFloat() {
 
     return (
         <App>
-            <SEO pageTitle="Float Layout" pageRelativeUrl="/layout-float" />
+            <Seo pageTitle="Float Layout" pageRelativeUrl="/layout-float" />
             <Grid>
                 <GridItem>
                     <Section

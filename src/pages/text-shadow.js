@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, PreviewText, SEO } from '../components';
+import { Code, InputColor, InputRange, PreviewText, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { colorHexToRgba } from '../helpers';
 
@@ -19,7 +19,7 @@ function PageTextShadow() {
 
     return (
         <App>
-            <SEO pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
+            <Seo pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
             <Grid>
                 <GridItem>
                     <Section

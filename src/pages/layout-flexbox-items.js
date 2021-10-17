@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, SEO } from '../components';
+import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from '../helpers';
 
@@ -103,7 +103,7 @@ function PageLayoutFlexboxItems() {
 
     return (
         <App>
-            <SEO pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
+            <Seo pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
             <Grid>
                 <GridItem>
                     <Section

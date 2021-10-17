@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, SEO } from '../components';
+import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { optionArrayUpper } from '../helpers';
 
@@ -134,7 +134,7 @@ function PageBorder() {
 
     return (
         <App>
-            <SEO pageTitle="Border" pageRelativeUrl="/border" />
+            <Seo pageTitle="Border" pageRelativeUrl="/border" />
             <Grid>
                 <GridItem>
                     <Section

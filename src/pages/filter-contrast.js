@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, SEO } from '../components';
+import { Code, InputRange, PreviewFilter, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 function FilterContrast() {
@@ -13,7 +13,7 @@ function FilterContrast() {
 
     return (
         <App>
-            <SEO pageTitle="Filter Contrast" pageRelativeUrl="/filter-contrast" />
+            <Seo pageTitle="Filter Contrast" pageRelativeUrl="/filter-contrast" />
             <Grid>
                 <GridItem>
                     <Section

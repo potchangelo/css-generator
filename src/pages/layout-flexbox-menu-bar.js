@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
 import image1 from '../images/button-menu-bar-01.png';
 import image2 from '../images/button-menu-bar-02.png';
-import { Code, InputButtonImageGroup, PreviewLayoutMenu, SEO } from '../components';
+import { Code, InputButtonImageGroup, PreviewLayoutMenu, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 import { layoutMenuHtml } from '../helpers';
 
@@ -42,7 +42,7 @@ function PageLayoutFlexboxMenuBar() {
     );
     return (
         <App>
-            <SEO pageTitle="Flexbox Menu Bar Layout" pageRelativeUrl="/layout-flexbox-menu-bar" />
+            <Seo pageTitle="Flexbox Menu Bar Layout" pageRelativeUrl="/layout-flexbox-menu-bar" />
             <Grid>
                 <GridItem>
                     <Section

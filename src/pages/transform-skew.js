@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewTransform, SEO } from '../components';
+import { Code, InputRange, PreviewTransform, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 function PageTransformSkew() {
@@ -14,7 +14,7 @@ function PageTransformSkew() {
 
     return (
         <App>
-            <SEO pageTitle="Transform Skew" pageRelativeUrl="/transform-skew" />
+            <Seo pageTitle="Transform Skew" pageRelativeUrl="/transform-skew" />
             <Grid>
                 <GridItem>
                     <Section

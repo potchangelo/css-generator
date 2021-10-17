@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, SEO } from '../components';
+import { Code, InputRange, PreviewFilter, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 function FilterSaturate() {
@@ -13,7 +13,7 @@ function FilterSaturate() {
 
     return (
         <App>
-            <SEO pageTitle="Filter Saturate" pageRelativeUrl="/filter-saturate" />
+            <Seo pageTitle="Filter Saturate" pageRelativeUrl="/filter-saturate" />
             <Grid>
                 <GridItem>
                     <Section

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import * as stylesSection from './css/section.module.scss';
 import * as styles from './css/dashboard.module.scss';
-import { SEO } from '../components';
+import { Seo } from '../components';
 import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';
 
@@ -29,7 +29,7 @@ function PageIndex() {
 
     return (
         <App>
-            <SEO />
+            <Seo />
             <Section
                 extraClass={stylesSection.dashboard}
                 title="Dashboard"

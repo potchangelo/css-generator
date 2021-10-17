@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, PreviewBox, SEO } from '../components';
+import { Code, InputColor, PreviewBox, Seo } from '../components';
 import { App, Grid, GridItem, Section } from '../layouts';
 
 function PageBackgroundColor() {
@@ -13,7 +13,7 @@ function PageBackgroundColor() {
 
     return (
         <App>
-            <SEO pageTitle="Background Color" pageRelativeUrl="/background-color" />
+            <Seo pageTitle="Background Color" pageRelativeUrl="/background-color" />
             <Grid>
                 <GridItem>
                     <Section
