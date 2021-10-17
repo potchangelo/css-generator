@@ -14,7 +14,7 @@ const textTransformOptionArray = optionArrayUpper([
     'none', 'capitalize', 'uppercase', 'lowercase'
 ]);
 
-export default () => {
+function PageText() {
     // - States
     const [color, setColor] = useState('#333333');
     const [lineHeight, setLineHeight] = useState(1.5);
@@ -122,3 +122,5 @@ export default () => {
         </App>
     );
 };
+
+export default PageText;
