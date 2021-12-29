@@ -115,7 +115,7 @@ const layoutItemContentArray = ['11111', '22222', '33333', '44444'];
  */
 function layoutItemsHtml(layoutType) {
   let layoutItemHtml = '';
-  layoutItemContentArray.forEach((content) => {
+  layoutItemContentArray.forEach(content => {
     layoutItemHtml +=
       `  <div class="item">\n` +
       `    <div class="content">\n` +
@@ -156,7 +156,7 @@ const layoutGalleryImageUrl = [
  */
 function layoutGalleryHtml() {
   let layoutItemHtml = '';
-  layoutGalleryImageUrl.forEach((imageUrl) => {
+  layoutGalleryImageUrl.forEach(imageUrl => {
     layoutItemHtml +=
       '' +
       `      <div class="item">\n` +
@@ -232,10 +232,10 @@ function layoutPageHtml(layout) {
  * @returns {{ key: string, value: string, title: string }[]} Option objects
  */
 function optionArrayUpper(valueArray, separator = ' ') {
-  return valueArray.map((value) => {
+  return valueArray.map(value => {
     const title = value
       .split(separator)
-      .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
       .join(' ');
     return { key: `${value}`, value, title };
   });

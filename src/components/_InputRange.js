@@ -26,7 +26,7 @@ function InputRange(props) {
             max={max}
             step={step}
             value={value}
-            onChange={(event) => onValueChange(Number(event.target.value))}
+            onChange={event => onValueChange(Number(event.target.value))}
           />
           <div className={styles.rangeText}>
             <div className={styles.rangeTextItem}>{min}</div>

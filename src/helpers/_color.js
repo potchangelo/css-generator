@@ -57,7 +57,7 @@ function gradientMiddleHex(hexL, hexR, ratio) {
   const rgbL = colorHexToRgbNumbers(hexL);
   const rgbR = colorHexToRgbNumbers(hexR);
   let rgbM = {};
-  ['r', 'g', 'b'].forEach((c) => {
+  ['r', 'g', 'b'].forEach(c => {
     let numL = rgbL[c],
       numR = rgbR[c],
       calcRatio = ratio;

@@ -9,7 +9,7 @@ function InputSelect(props) {
   // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
-  const optionElements = optionArray.map((option) => (
+  const optionElements = optionArray.map(option => (
     <option key={option.key} value={option.value}>
       {option.title}
     </option>
@@ -22,7 +22,7 @@ function InputSelect(props) {
         <div className="select is-fullwidth">
           <select
             value={value}
-            onChange={(event) => onValueChange(event.target.value)}
+            onChange={event => onValueChange(event.target.value)}
           >
             {optionElements}
           </select>

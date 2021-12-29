@@ -45,14 +45,14 @@ function InputRangeGradient(props) {
   }
 
   const onHandleMove = useCallback(
-    (event) => {
+    event => {
       if (draggingIndex === -1) return;
       event.preventDefault();
       let percentX = getHandlePointPercent(event);
       if (percentX < 0) percentX = 0;
       else if (percentX > 100) percentX = 100;
 
-      onColorPointChange((prevArray) =>
+      onColorPointChange(prevArray =>
         prevArray.map((point, index) => {
           if (index === draggingIndex) point.position = percentX;
           return point;
@@ -73,10 +73,10 @@ function InputRangeGradient(props) {
     // Left right points
     const pointL = [...colorPointArray]
       .sort(gradientPointSortDesc)
-      .find((point) => point.position < percentX);
+      .find(point => point.position < percentX);
     const pointR = [...colorPointArray]
       .sort(gradientPointSortAsc)
-      .find((point) => point.position > percentX);
+      .find(point => point.position > percentX);
 
     // Color, alpha
     let color, alpha;
@@ -95,7 +95,7 @@ function InputRangeGradient(props) {
     }
 
     const point = { color, alpha, position: percentX };
-    onColorPointChange((prevArray) => [...prevArray, point]);
+    onColorPointChange(prevArray => [...prevArray, point]);
     onSelectedChange(colorPointArray.length);
   }
 
@@ -131,10 +131,10 @@ function InputRangeGradient(props) {
         style={styleArray}
         role="button"
         tabIndex={0}
-        onTouchStart={(event) => onHandleDown(event, index)}
-        onMouseDown={(event) => onHandleDown(event, index)}
-        onClick={(event) => event.stopPropagation()}
-        onKeyPress={(_) => {}}
+        onTouchStart={event => onHandleDown(event, index)}
+        onMouseDown={event => onHandleDown(event, index)}
+        onClick={event => event.stopPropagation()}
+        onKeyPress={_ => {}}
       >
         <span className={`icon ${styles.rangeGradientIcon}`}>
           <ChevronDown width={20} height={20} strokeWidth={3.5} />
@@ -152,7 +152,7 @@ function InputRangeGradient(props) {
           role="button"
           tabIndex={0}
           onClick={onHandleAreaClick}
-          onKeyPress={(_) => {}}
+          onKeyPress={_ => {}}
           ref={handleAreaRef}
         >
           {gradientHandleElements}

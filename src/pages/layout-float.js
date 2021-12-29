@@ -27,7 +27,7 @@ function PageLayoutFloat() {
 
   // - Outputs
   const sizeObj = layoutItemSizeOptionArray.find(
-    (_size) => _size.value === Number(width)
+    _size => _size.value === Number(width)
   );
   const outputContainerStyle = { margin: `0px ${(hSpace / 2) * -1}px` };
   const outputItemStyle = {

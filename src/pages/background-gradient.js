@@ -18,7 +18,7 @@ import {
 } from '../helpers';
 
 const modeOptionArray = optionArrayUpper(['linear', 'radial']);
-const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map((deg) => {
+const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
   const key = `${deg}`;
   const icon = (
     <ArrowUp
@@ -46,7 +46,7 @@ function PageBackgroundGradient() {
 
   // - Functions
   function setPointColor(color) {
-    setPointArray((prevArray) =>
+    setPointArray(prevArray =>
       prevArray.map((point, index) => {
         if (index === selectedIndex) point.color = color;
         return point;
@@ -55,7 +55,7 @@ function PageBackgroundGradient() {
   }
 
   function setPointAlpha(alpha) {
-    setPointArray((prevArray) =>
+    setPointArray(prevArray =>
       prevArray.map((point, index) => {
         if (index === selectedIndex) point.alpha = alpha;
         return point;
@@ -81,8 +81,7 @@ function PageBackgroundGradient() {
   const pointTextArray = [...pointArray]
     .sort(gradientPointSortAsc)
     .map(
-      (point) =>
-        `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
+      point => `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
     );
 
   let colorText = '';

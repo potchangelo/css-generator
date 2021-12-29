@@ -10,7 +10,7 @@ function InputCheckbox(props) {
       <input
         type="checkbox"
         checked={checked}
-        onChange={(e) => onCheckedChange(e.target.checked)}
+        onChange={e => onCheckedChange(e.target.checked)}
       />
       <span className={`icon ${styles.checkboxIcon}`}>
         <Check width={18} height={18} strokeWidth={4} />

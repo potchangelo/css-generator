@@ -79,7 +79,7 @@ function PageBorder() {
   // - Elements
   let borderElements;
   if (mode === 'each') {
-    borderElements = sideArray.map((side) => {
+    borderElements = sideArray.map(side => {
       let _color, _style, _width, _setColor, _setStyle, _setWidth;
       if (side === 'top') {
         [_color, _style, _width] = [colorT, styleT, widthT];

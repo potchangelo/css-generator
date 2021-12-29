@@ -7,8 +7,8 @@ import { App, Section } from '../layouts';
 import { menuGroupArray } from '../helpers';
 
 function PageIndex() {
-  const groupElements = menuGroupArray.map((group) => {
-    const linkElements = group.linkArray.map((link) => (
+  const groupElements = menuGroupArray.map(group => {
+    const linkElements = group.linkArray.map(link => (
       <div
         key={link.url}
         className="column is-6-mobile is-6-tablet is-4-desktop"

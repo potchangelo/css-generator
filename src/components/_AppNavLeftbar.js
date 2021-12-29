@@ -14,8 +14,8 @@ function AppNavLeftbar() {
   if (!isNavOpenMobile) leftbarClass += ' is-hidden-mobile';
 
   // - Elements
-  const groupElements = menuGroupArray.map((group) => {
-    const linkElements = group.linkArray.map((link) => (
+  const groupElements = menuGroupArray.map(group => {
+    const linkElements = group.linkArray.map(link => (
       <Link
         key={link.url}
         to={`/${link.url}/`}

@@ -40,7 +40,7 @@ function PageBorderRadius() {
   // - Elements
   let borderElements;
   if (mode === 'each') {
-    borderElements = sideArray.map((side) => {
+    borderElements = sideArray.map(side => {
       let _radius, _setRadius;
       if (side === 'top-left') {
         [_radius, _setRadius] = [radiusTl, setRadiusTl];

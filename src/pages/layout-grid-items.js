@@ -33,7 +33,7 @@ function PageLayoutGridItems() {
 
   // - Outputs
   const sizeObj = layoutItemSizeOptionArray.find(
-    (_size) => _size.value === Number(width)
+    _size => _size.value === Number(width)
   );
   const { templateColumns } = sizeObj;
   const outputContainerStyle = {

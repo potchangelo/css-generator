@@ -50,7 +50,7 @@ function PageLayoutGridPage() {
 
   // - Outputs
   const layoutObject = layoutOptionArray.find(
-    (_layout) => _layout.key === layout
+    _layout => _layout.key === layout
   );
   const { templateColumns, templateRows, templateAreasArray } = layoutObject;
 
@@ -61,7 +61,7 @@ function PageLayoutGridPage() {
 
   const styleTemplateAreas = templateAreasArray.join(' ');
   const cssTemplateAreas = templateAreasArray
-    .map((area) => `    ${area}`)
+    .map(area => `    ${area}`)
     .join('\n');
 
   let cssSidebar = '';

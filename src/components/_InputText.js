@@ -14,7 +14,7 @@ function InputText(props) {
             type="text"
             placeholder={placeholder}
             value={value}
-            onChange={(event) => onValueChange(event.target.value)}
+            onChange={event => onValueChange(event.target.value)}
           />
         </div>
       </div>

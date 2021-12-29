@@ -9,7 +9,7 @@ function InputButtonGroup(props) {
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
 
-  const buttonElements = optionArray.map((option) => {
+  const buttonElements = optionArray.map(option => {
     const { key, title: _title, icon } = option;
 
     let classes = 'button';

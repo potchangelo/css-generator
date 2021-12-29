@@ -12,7 +12,7 @@ function InputButtonImageGroup(props) {
   else columnClass += ' is-12';
 
   // - Elements
-  const buttonElements = optionArray.map((option) => {
+  const buttonElements = optionArray.map(option => {
     const { key, title, imageSrc } = option;
     let buttonClass = `button ${styles.buttonImage}`;
     if (key === activeKey) buttonClass += ' is-dark is-selected';
