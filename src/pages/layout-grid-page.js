@@ -66,10 +66,9 @@ function PageLayoutGridPage() {
 
   let cssSidebar = '';
   if (layout.includes('r')) {
-    cssSidebar =
-      '' + `.page-rightbar {\n` + `  grid-area: rightbar;\n` + `}\n\n`;
+    cssSidebar = `.page-rightbar {\n  grid-area: rightbar;\n}\n\n`;
   } else {
-    cssSidebar = '' + `.page-leftbar {\n` + `  grid-area: leftbar;\n` + `}\n\n`;
+    cssSidebar = `.page-leftbar {\n  grid-area: leftbar;\n}\n\n`;
   }
 
   const containerStyle = {
