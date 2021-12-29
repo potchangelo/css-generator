@@ -1,40 +1,40 @@
 @import '../../css/vars';
 
 .dashboard {
-    background-color: $white-ter;
-    min-height: 100vh;
+  background-color: $white-ter;
+  min-height: 100vh;
 }
 
 .inputs {
-    background-color: $white-ter;
-    border-right: 1px solid $grey-lighter;
-    flex-grow: 1;
-    position: relative;
-    z-index: 10;
+  background-color: $white-ter;
+  border-right: 1px solid $grey-lighter;
+  flex-grow: 1;
+  position: relative;
+  z-index: 10;
 
-    > [class*='header'] {
-        background-color: $white-ter;
-    }
+  > [class*='header'] {
+    background-color: $white-ter;
+  }
 }
 
 .preview {
-    background-color: $grey-lightest;
-    border-bottom: 1px solid $grey-lighter;
-    position: relative;
-    z-index: 10;
+  background-color: $grey-lightest;
+  border-bottom: 1px solid $grey-lighter;
+  position: relative;
+  z-index: 10;
 
-    > [class*='header'] {
-        background-color: $grey-lightest;
-    }
+  > [class*='header'] {
+    background-color: $grey-lightest;
+  }
 }
 
 .code {
-    background-color: $grey-dark;
-    flex-grow: 1;
-    position: relative;
-    z-index: 10;
+  background-color: $grey-dark;
+  flex-grow: 1;
+  position: relative;
+  z-index: 10;
 
-    > [class*='header'] {
-        background-color: $grey-dark;
-    }
+  > [class*='header'] {
+    background-color: $grey-dark;
+  }
 }

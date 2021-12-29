@@ -5,27 +5,27 @@ import * as styles from './css/appNav.module.scss';
 import { NavContext } from './_AppNav';
 
 function AppNavHeader() {
-    const navContext = useContext(NavContext);
-    return (
-        <header className={`${styles.header} is-hidden-tablet`}>
-            <div
-                className={styles.headerMenu}
-                role="button"
-                tabIndex={0}
-                onClick={_ => navContext.dispatch({ type: 'toggleNav' })}
-                onKeyPress={_ => {}}
-            >
-                <span className="icon">
-                    <Menu strokeWidth={2.5} />
-                </span>
-            </div>
-            <div className={styles.headerBrand}>
-                <Link to="/">
-                    <h1 className="title is-5">CSS Generator</h1>
-                </Link>
-            </div>
-        </header>
-    );
+  const navContext = useContext(NavContext);
+  return (
+    <header className={`${styles.header} is-hidden-tablet`}>
+      <div
+        className={styles.headerMenu}
+        role="button"
+        tabIndex={0}
+        onClick={(_) => navContext.dispatch({ type: 'toggleNav' })}
+        onKeyPress={(_) => {}}
+      >
+        <span className="icon">
+          <Menu strokeWidth={2.5} />
+        </span>
+      </div>
+      <div className={styles.headerBrand}>
+        <Link to="/">
+          <h1 className="title is-5">CSS Generator</h1>
+        </Link>
+      </div>
+    </header>
+  );
 }
 
 export default AppNavHeader;

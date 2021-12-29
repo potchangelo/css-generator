@@ -2,92 +2,92 @@
 
 // - Left bar
 .leftbar {
-    background-color: $white;
-    border-right: 1px solid $grey-lighter;
-    width: 228px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 42;
-    overflow-y: auto;
+  background-color: $white;
+  border-right: 1px solid $grey-lighter;
+  width: 228px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 42;
+  overflow-y: auto;
 }
 
 .leftbarBrand {
-    border-bottom: 1px solid $grey-lighter;
-    display: block;
-    height: 68px;
-    padding: 12px 16px;
-    padding-left: 60px;
-    position: relative;
+  border-bottom: 1px solid $grey-lighter;
+  display: block;
+  height: 68px;
+  padding: 12px 16px;
+  padding-left: 60px;
+  position: relative;
 }
 
 .leftbarLogo {
-    position: absolute;
-    left: 14px;
-    top: 16px;
-    width: 32px;
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  width: 32px;
 }
 
 .leftbarGroup {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
-    &:first-child {
-        margin-top: 40px;
-    }
+  &:first-child {
+    margin-top: 40px;
+  }
 
-    [class*='title'] {
-        margin-left: 16px;
-        margin-right: 16px;
-        margin-bottom: 10px !important;
-    }
+  [class*='title'] {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 10px !important;
+  }
 
-    a {
-        color: $grey-dark;
-        display: block;
-        padding: 6px 16px;
-        font-size: 15px;
-    }
+  a {
+    color: $grey-dark;
+    display: block;
+    padding: 6px 16px;
+    font-size: 15px;
+  }
 }
 
 .leftbarLinkActive {
-    background-color: $grey-lightest;
+  background-color: $grey-lightest;
 }
 
 // - Header
 .header {
-    border-bottom: 1px solid $grey-lighter;
-    display: flex;
-    height: 52px;
+  border-bottom: 1px solid $grey-lighter;
+  display: flex;
+  height: 52px;
 }
 
 .headerMenu {
-    border-right: 1px solid $grey-lighter;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    cursor: pointer;
+  border-right: 1px solid $grey-lighter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  cursor: pointer;
 }
 
 .headerBrand {
-    flex-grow: 1;
+  flex-grow: 1;
 
-    a {
-        display: inline-block;
-        height: 100%;
-        padding: 14px 16px;
-    }
+  a {
+    display: inline-block;
+    height: 100%;
+    padding: 14px 16px;
+  }
 }
 
 // - Dimmer
 .dimmer {
-    background-color: rgba(0, 0, 0, 0.75);
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 41;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 41;
 }
