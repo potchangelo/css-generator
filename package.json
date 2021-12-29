@@ -8,7 +8,7 @@
     "gatsby",
     "bulma"
   ],
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Potchara Puttawanchai",
   "homepage": "https://css-generator.netlify.app/",
   "repository": {
@@ -21,15 +21,15 @@
   "license": "MIT",
   "dependencies": {
     "bulma": "^0.9.3",
-    "gatsby": "^3.14.0",
-    "gatsby-plugin-manifest": "^3.14.0",
-    "gatsby-plugin-offline": "^4.14.0",
-    "gatsby-plugin-react-helmet": "^4.14.0",
-    "gatsby-plugin-sass": "^4.14.0",
-    "gatsby-plugin-sitemap": "^4.10.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "gatsby": "^4.4.0",
+    "gatsby-plugin-manifest": "^4.4.0",
+    "gatsby-plugin-offline": "^5.4.0",
+    "gatsby-plugin-react-helmet": "^5.4.0",
+    "gatsby-plugin-sass": "^5.4.0",
+    "gatsby-plugin-sitemap": "^5.4.0",
+    "prop-types": "^15.8.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",
     "sass": "^1.43.2"

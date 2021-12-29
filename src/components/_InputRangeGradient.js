@@ -122,12 +122,17 @@ function InputRangeGradient(props) {
             left: `${position}%`
         };
         return (
-            <div key={`${index}`}
+            <div 
+                key={`${index}`}
                 className={handleClass}
                 style={styleArray}
+                role="button"
+                tabIndex={0}
                 onTouchStart={event => onHandleDown(event, index)}
                 onMouseDown={event => onHandleDown(event, index)}
-                onClick={event => event.stopPropagation()}>
+                onClick={event => event.stopPropagation()}
+                onKeyPress={_ => {}}
+            >
                 <span className={`icon ${styles.rangeGradientIcon}`}>
                     <ChevronDown width={20} height={20} strokeWidth={3.5} />
                 </span>
@@ -141,7 +146,10 @@ function InputRangeGradient(props) {
                 <div className={styles.rangeGradientBg}></div>
                 <div
                     className={styles.rangeGradientHandleArea}
+                    role="button"
+                    tabIndex={0}
                     onClick={onHandleAreaClick}
+                    onKeyPress={_ => {}}
                     ref={handleAreaRef}
                 >
                     {gradientHandleElements}
