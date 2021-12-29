@@ -34,6 +34,9 @@
     "react-helmet": "^6.1.0",
     "sass": "^1.43.2"
   },
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  },
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
