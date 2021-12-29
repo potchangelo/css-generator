@@ -11,7 +11,9 @@ function AppNavDimmer() {
       role="button"
       tabIndex={0}
       aria-label="Close navigation"
-      onClick={_ => { navContext.dispatch({ type: 'closeNav' }) }}
+      onClick={_ => {
+        navContext.dispatch({ type: 'closeNav' });
+      }}
       onKeyPress={_ => {}}
     />
   );
