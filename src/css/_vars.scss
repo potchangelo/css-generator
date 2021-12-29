@@ -28,7 +28,7 @@ $body-overflow-y: auto;
 
 // Mixin
 @mixin within($min, $max) {
-    @media screen and (min-width: $min) and (max-width: $max) {
-        @content
-    }
+  @media screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
 }

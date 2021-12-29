@@ -2,223 +2,223 @@
 
 // - Field
 .field:not(:last-child) {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 // - Color
 .color {
-    width: 44px;
+  width: 44px;
 }
 
 // - Range
 .range {
-    background-color: transparent;
+  background-color: transparent;
+  width: 100%;
+  margin: 8px 0px;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-runnable-track {
+    background-color: $grey-lighter;
+    border-radius: 6px;
     width: 100%;
-    margin: 8px 0px;
+    height: 8px;
+    cursor: pointer;
+  }
+
+  &::-webkit-slider-thumb {
+    background-color: $grey-dark;
+    border: none;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    margin-top: -8px;
+    cursor: pointer;
     -webkit-appearance: none;
+  }
 
-    &::-webkit-slider-runnable-track {
-        background-color: $grey-lighter;
-        border-radius: 6px;
-        width: 100%;
-        height: 8px;
-        cursor: pointer;
-    }
+  &:focus {
+    outline: none;
+  }
 
-    &::-webkit-slider-thumb {
-        background-color: $grey-dark;
-        border: none;
-        border-radius: 50%;
-        height: 24px;
-        width: 24px;
-        margin-top: -8px;
-        cursor: pointer;
-        -webkit-appearance: none;
-    }
+  &::-moz-range-track {
+    background-color: $grey-lighter;
+    border-radius: 6px;
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+  }
 
-    &:focus {
-        outline: none;
-    }
+  &::-moz-range-thumb {
+    background-color: $grey-dark;
+    border: none;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    margin-top: -8px;
+    cursor: pointer;
+    appearance: none;
+  }
 
-    &::-moz-range-track {
-        background-color: $grey-lighter;
-        border-radius: 6px;
-        width: 100%;
-        height: 12px;
-        cursor: pointer;
-    }
+  &:focus {
+    outline: none;
+  }
 
-    &::-moz-range-thumb {
-        background-color: $grey-dark;
-        border: none;
-        border-radius: 50%;
-        height: 28px;
-        width: 28px;
-        margin-top: -8px;
-        cursor: pointer;
-        appearance: none;
-    }
+  &::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
 
-    &:focus {
-        outline: none;
-    }
+  &::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
 
-    &::-ms-track {
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-        background: transparent;
-        border-color: transparent;
-        border-width: 16px 0;
-        color: transparent;
-    }
+  &::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
 
-    &::-ms-fill-lower {
-        background: #2a6495;
-        border: 0.2px solid #010101;
-        border-radius: 2.6px;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
+  &::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
 
-    &::-ms-fill-upper {
-        background: #3071a9;
-        border: 0.2px solid #010101;
-        border-radius: 2.6px;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
+  &:focus::-ms-fill-lower {
+    background: #3071a9;
+  }
 
-    &::-ms-thumb {
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        border: 1px solid #000000;
-        height: 36px;
-        width: 16px;
-        border-radius: 3px;
-        background: #ffffff;
-        cursor: pointer;
-    }
-
-    &:focus::-ms-fill-lower {
-        background: #3071a9;
-    }
-
-    &:focus::-ms-fill-upper {
-        background: #367ebd;
-    }
+  &:focus::-ms-fill-upper {
+    background: #367ebd;
+  }
 }
 
 .controlRangeHasAddons {
-    padding-top: 6px;
-    padding-right: 16px;
+  padding-top: 6px;
+  padding-right: 16px;
 }
 
 .rangeText {
-    display: flex;
+  display: flex;
 }
 
 .rangeTextItem {
-    color: $grey;
-    flex: auto;
-    padding-left: 6px;
-    padding-right: 6px;
+  color: $grey;
+  flex: auto;
+  padding-left: 6px;
+  padding-right: 6px;
 
-    &:last-child {
-        text-align: right;
-    }
+  &:last-child {
+    text-align: right;
+  }
 }
 
 // - Button
 .buttonImage {
-    display: flex;
-    width: 100%;
-    height: max-content;
-    padding: 20px;
+  display: flex;
+  width: 100%;
+  height: max-content;
+  padding: 20px;
 }
 
 // - Checkbox
 .checkbox {
-    > * {
-        vertical-align: middle;
-    }
+  > * {
+    vertical-align: middle;
+  }
 
-    input {
-        display: none;
-    }
+  input {
+    display: none;
+  }
 
-    .checkboxIcon {
-        color: $white;
-        background-color: $white;
-        border: 2px solid $grey;
-        border-radius: 4px;
-    }
+  .checkboxIcon {
+    color: $white;
+    background-color: $white;
+    border: 2px solid $grey;
+    border-radius: 4px;
+  }
 
-    .checkboxIcon svg {
-        opacity: 0;
-    }
+  .checkboxIcon svg {
+    opacity: 0;
+  }
 
-    .checkboxText {
-        font-weight: $weight-bold;
-        margin-left: 8px;
-    }
+  .checkboxText {
+    font-weight: $weight-bold;
+    margin-left: 8px;
+  }
 
-    input:checked + .checkboxIcon {
-        background-color: $cyan;
-        border-color: transparent;
-    }
+  input:checked + .checkboxIcon {
+    background-color: $cyan;
+    border-color: transparent;
+  }
 
-    input:checked + .checkboxIcon svg {
-        opacity: 1;
-    }
+  input:checked + .checkboxIcon svg {
+    opacity: 1;
+  }
 }
 
 // - Range gradient
 .rangeGradient {
-    position: relative;
-    margin-top: 44px;
-    margin-bottom: 4px;
-    padding: 12px 0px;
+  position: relative;
+  margin-top: 44px;
+  margin-bottom: 4px;
+  padding: 12px 0px;
 }
 
 .rangeGradientBg {
-    background-color: $grey-lighter;
-    height: 12px;
-    border-radius: 6px;
+  background-color: $grey-lighter;
+  height: 12px;
+  border-radius: 6px;
 }
 
 .rangeGradientHandleArea {
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    top: 12px;
-    bottom: 12px;
-    cursor: pointer;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  bottom: 12px;
+  cursor: pointer;
 }
 
 .rangeGradientHandle {
-    border: 4px solid $grey-darker;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
+  border: 4px solid $grey-darker;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  cursor: move;
+
+  .rangeGradientIcon {
+    color: $white;
+    background-color: $black-bis;
+    border-radius: 4px;
     position: absolute;
-    top: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    cursor: move;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, -30px);
+  }
 
-    .rangeGradientIcon {
-        color: $white;
-        background-color: $black-bis;
-        border-radius: 4px;
-        position: absolute;
-        top: 0px;
-        left: 50%;
-        transform: translate(-50%, -30px);
-    }
+  &:not(.rangeGradientHandleSelected) .rangeGradientIcon {
+    display: none;
+  }
 
-    &:not(.rangeGradientHandleSelected) .rangeGradientIcon {
-        display: none;
-    }
-
-    &.rangeGradientHandleSelected {
-        z-index: 2;
-    }
+  &.rangeGradientHandleSelected {
+    z-index: 2;
+  }
 }

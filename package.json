@@ -8,7 +8,7 @@
     "gatsby",
     "bulma"
   ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Potchara Puttawanchai",
   "homepage": "https://css-generator.netlify.app/",
   "repository": {
@@ -33,6 +33,9 @@
     "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",
     "sass": "^1.43.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
   },
   "scripts": {
     "develop": "gatsby develop",
