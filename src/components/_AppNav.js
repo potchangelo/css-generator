@@ -19,7 +19,7 @@ function reducer(state, action) {
 // - Context
 const NavContext = React.createContext({});
 
-function AppNav() {
+function _AppNav() {
   const [state, dispatch] = useReducer(reducer, initState);
   const { isNavOpenMobile } = state;
 
@@ -32,5 +32,5 @@ function AppNav() {
   );
 }
 
-export default AppNav;
+export default _AppNav;
 export { NavContext };

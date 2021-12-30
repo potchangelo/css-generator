@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'CSS Generator',
@@ -24,5 +26,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-alias-imports',
+      options: {
+        alias: {
+          'z': path.resolve(__dirname, 'src')
+        },
+        extensions: []
+      }
+    }
   ],
 };
