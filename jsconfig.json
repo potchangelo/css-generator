@@ -2,7 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "z/components": ["src/components"]
+      "z/components": ["src/components"],
+      "z/css": ["src/css"],
+      "z/helpers": ["src/helpers"],
+      "z/images": ["src/images"],
+      "z/layouts": ["src/layouts"]
     }
   }
 }
