@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import {
   Code,
   InputButtonGroup,
@@ -7,14 +6,15 @@ import {
   InputSelect,
   PreviewLayoutItems,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import {
   layoutItemsHtml,
   layoutItemSizeOptionArray,
   layoutPreviewOptionArray,
   optionArrayUpper,
 } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const directionOptionArray = optionArrayUpper(['row', 'row-reverse'], '-');
 const wrapOptionArray = optionArrayUpper(

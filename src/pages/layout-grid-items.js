@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import {
   Code,
   InputRange,
   InputSelect,
   PreviewLayoutItems,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import {
   layoutItemsHtml,
   layoutItemSizeOptionArray,
   layoutPreviewOptionArray,
   optionArrayUpper,
 } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const jaItemsOptionArray = optionArrayUpper([
   'stretch',

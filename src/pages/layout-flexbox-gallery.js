@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import {
   Code,
   InputCheckbox,
   InputRange,
   PreviewLayoutGallery,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutGalleryHtml } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 function PageLayoutFlexboxGallery() {
   // - States

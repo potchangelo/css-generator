@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import image1 from '../images/button-grid-page-01.png';
 import image2 from '../images/button-grid-page-02.png';
 import {
@@ -8,9 +7,10 @@ import {
   InputRange,
   PreviewLayoutPage,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutPageHtml } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const layoutOptionArray = [
   {

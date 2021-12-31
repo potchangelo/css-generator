@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Code, InputColor, PreviewBox, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputColor, PreviewBox, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
 function PageBackgroundColor() {
   // - States

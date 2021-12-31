@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import image1 from '../images/button-menu-bar-01.png';
 import image2 from '../images/button-menu-bar-02.png';
 import {
@@ -7,9 +6,10 @@ import {
   InputButtonImageGroup,
   PreviewLayoutMenu,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutMenuHtml } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const layoutOptionArray = [
   { key: 'left', title: 'Style 1', imageSrc: image1 },

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
-import { Code, InputColor, InputRange, PreviewBox, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+import { Code, InputColor, InputRange, PreviewBox, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import { colorHexToRgba } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 function PageBoxShadow() {
   // - States

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import {
   Code,
   InputColor,
@@ -7,9 +6,10 @@ import {
   InputText,
   PreviewBox,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import { optionArrayUpper } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const positionOptionArray = optionArrayUpper([
   'left top',

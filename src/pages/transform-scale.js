@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Code, InputRange, PreviewTransform, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewTransform, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
 function PageTransformScale() {
   // - States

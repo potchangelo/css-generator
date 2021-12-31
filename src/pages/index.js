@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import * as stylesSection from './css/section.module.scss';
+import { Seo } from 'z/components';
+import { App, Section } from 'z/layouts';
+import { menuGroupArray } from 'z/helpers';
 import * as styles from './css/dashboard.module.scss';
-import { Seo } from '../components';
-import { App, Section } from '../layouts';
-import { menuGroupArray } from '../helpers';
+import * as stylesSection from './css/section.module.scss';
 
 function PageIndex() {
   const groupElements = menuGroupArray.map(group => {

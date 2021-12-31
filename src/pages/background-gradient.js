@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowUp, Trash2 } from 'react-feather';
-import * as styles from './css/section.module.scss';
 import {
   Code,
   InputButtonGroup,
@@ -9,13 +8,14 @@ import {
   InputRangeGradient,
   PreviewBox,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import {
   colorHexToRgba,
   gradientPointSortAsc,
   optionArrayUpper,
 } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const modeOptionArray = optionArrayUpper(['linear', 'radial']);
 const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {

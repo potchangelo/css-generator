@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as styles from './css/section.module.scss';
 import {
   Code,
   InputButtonGroup,
@@ -8,9 +7,10 @@ import {
   InputSelect,
   PreviewBox,
   Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
+} from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import { optionArrayUpper } from '../helpers';
+import * as styles from './css/section.module.scss';
 
 const modeOptionArray = [
   { key: 'all', title: 'One Value' },
