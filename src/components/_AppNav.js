@@ -6,7 +6,7 @@ import AppNavDimmer from './_AppNavDimmer';
 // - Reducer
 const initState = { isNavOpenMobile: false };
 function reducer(state, action) {
-  let newState = {};
+  let newState = initState;
   if (action.type === 'toggleNav') {
     newState = { isNavOpenMobile: !state.isNavOpenMobile };
   }
@@ -33,4 +33,4 @@ function _AppNav() {
 }
 
 export default _AppNav;
-export { NavContext };
+export { NavContext as _NavContext };

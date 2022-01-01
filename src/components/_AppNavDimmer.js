@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { _NavContext as NavContext } from './_AppNav';
 import * as styles from './css/appNav.module.scss';
-import { NavContext } from './_AppNav';
 
-function AppNavDimmer() {
+function _AppNavDimmer() {
   const navContext = useContext(NavContext);
   if (!navContext.isNavOpenMobile) return null;
   return (
@@ -19,4 +19,4 @@ function AppNavDimmer() {
   );
 }
 
-export default AppNavDimmer;
+export default _AppNavDimmer;

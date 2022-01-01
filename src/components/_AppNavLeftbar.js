@@ -1,19 +1,16 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import Logo64 from 'z/images/logo-64.png';
-import { NavContext } from './_AppNav';
+import { _NavContext as NavContext } from './_AppNav';
 import { menuGroupArray } from '../helpers';
 import * as styles from './css/appNav.module.scss';
 
-function AppNavLeftbar() {
-  // - Ref, Context
+function _AppNavLeftbar() {
   const { isNavOpenMobile } = useContext(NavContext);
 
-  // - Attributes
   let leftbarClass = styles.leftbar;
   if (!isNavOpenMobile) leftbarClass += ' is-hidden-mobile';
 
-  // - Elements
   const groupElements = menuGroupArray.map(group => {
     const linkElements = group.linkArray.map(link => (
       <Link
@@ -44,4 +41,4 @@ function AppNavLeftbar() {
   );
 }
 
-export default AppNavLeftbar;
+export default _AppNavLeftbar;
