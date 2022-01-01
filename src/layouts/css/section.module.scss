@@ -21,5 +21,11 @@
 }
 
 .content {
-  padding: 40px 32px;
+  padding: 20px 16px;
+}
+
+@include tablet {
+  .content {
+    padding: 40px 32px;
+  }
 }

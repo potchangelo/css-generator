@@ -1,25 +1,31 @@
 @import 'z/css/vars';
 
-.main {
-  @include tablet {
+.title {
+  border-bottom: 1px solid $grey-lighter;
+  height: 68px;
+  padding: 12px 16px;
+}
+
+.content {
+  padding: 40px 32px;
+}
+
+@include tablet {
+  .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
   }
-}
 
-.item {
-  @include tablet {
+  .item {
     display: flex;
     flex-direction: column;
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
   }
-}
 
-.itemContent {
-  @include tablet {
+  .itemContent {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -29,14 +35,4 @@
     right: 0;
     overflow-x: hidden;
   }
-}
-
-.title {
-  border-bottom: 1px solid $grey-lighter;
-  height: 68px;
-  padding: 12px 16px;
-}
-
-.content {
-  padding: 40px 32px;
 }
