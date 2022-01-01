@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import image1 from '../images/button-grid-page-01.png';
-import image2 from '../images/button-grid-page-02.png';
 import {
   Code,
   InputButtonImageGroup,
@@ -8,6 +6,8 @@ import {
   PreviewLayoutPage,
   Seo,
 } from 'z/components';
+import image1 from 'z/images/button-grid-page-01.png';
+import image2 from 'z/images/button-grid-page-02.png';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutPageHtml } from '../helpers';
 import * as styles from './css/section.module.scss';

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import image1 from '../images/button-menu-bar-01.png';
-import image2 from '../images/button-menu-bar-02.png';
 import {
   Code,
   InputButtonImageGroup,
   PreviewLayoutMenu,
   Seo,
 } from 'z/components';
+import image1 from 'z/images/button-menu-bar-01.png';
+import image2 from 'z/images/button-menu-bar-02.png';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutMenuHtml } from '../helpers';
 import * as styles from './css/section.module.scss';
