@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/code.module.scss';
 
-function Code(props) {
+function _Code(props) {
   const { lang, output } = props;
 
   function copyCode() {
@@ -33,9 +33,9 @@ function Code(props) {
   );
 }
 
-Code.propTypes = {
+_Code.propTypes = {
   lang: PropTypes.string.isRequired,
   output: PropTypes.string.isRequired,
 };
 
-export default Code;
+export default _Code;
