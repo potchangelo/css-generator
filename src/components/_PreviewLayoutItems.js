@@ -12,6 +12,7 @@ function _PreviewLayoutItems(props) {
     let previewElements = <p>{content}</p>;
     if (preview === 'unequal-height') {
       const lineArray = [...Array(unequalLineArray[itemIndex]).keys()];
+      // prettier-ignore
       previewElements = lineArray.map(lineIndex => (
         <p key={`p-${itemIndex}-${lineIndex}`}>{content}</p>
       ));

@@ -6,6 +6,7 @@ import * as styles from './css/input.module.scss';
 
 function _InputRangeGradient(props) {
   // - Data
+  // prettier-ignore
   const {
     colorPointArray, selectedIndex, draggingIndex,
     onColorPointChange, onSelectedChange, onDraggingChange
