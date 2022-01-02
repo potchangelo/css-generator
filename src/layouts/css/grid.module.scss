@@ -1,15 +1,5 @@
 @import 'z/css/vars';
 
-.title {
-  border-bottom: 1px solid $grey-lighter;
-  height: 68px;
-  padding: 12px 16px;
-}
-
-.content {
-  padding: 40px 32px;
-}
-
 @include tablet {
   .main {
     display: grid;
