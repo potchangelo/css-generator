@@ -9,7 +9,7 @@ import {
   gradientPointSortDesc,
 } from '../helpers';
 
-function InputRangeGradient(props) {
+function _InputRangeGradient(props) {
   // - Props
   const {
     colorPointArray,
@@ -166,7 +166,7 @@ function InputRangeGradient(props) {
   );
 }
 
-InputRangeGradient.propTypes = {
+_InputRangeGradient.propTypes = {
   colorPointArray: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string.isRequired,
@@ -181,4 +181,4 @@ InputRangeGradient.propTypes = {
   onDraggingChange: PropTypes.func.isRequired,
 };
 
-export default InputRangeGradient;
+export default _InputRangeGradient;

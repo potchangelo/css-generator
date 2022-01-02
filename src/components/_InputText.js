@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputText(props) {
+function _InputText(props) {
   const { title, placeholder, value, onValueChange } = props;
   return (
     <>
@@ -22,11 +22,11 @@ function InputText(props) {
   );
 }
 
-InputText.propTypes = {
+_InputText.propTypes = {
   title: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
 };
 
-export default InputText;
+export default _InputText;

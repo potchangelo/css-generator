@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputColor(props) {
+function _InputColor(props) {
   const { title, value, onValueChange } = props;
   return (
     <>
@@ -31,10 +31,10 @@ function InputColor(props) {
   );
 }
 
-InputColor.propTypes = {
+_InputColor.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
 };
 
-export default InputColor;
+export default _InputColor;

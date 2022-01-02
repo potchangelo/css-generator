@@ -3,7 +3,7 @@ import { Check } from 'react-feather';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputCheckbox(props) {
+function _InputCheckbox(props) {
   const { title, checked, onCheckedChange } = props;
   return (
     <label className={`checkbox ${styles.checkbox}`}>
@@ -20,10 +20,10 @@ function InputCheckbox(props) {
   );
 }
 
-InputCheckbox.propTypes = {
+_InputCheckbox.propTypes = {
   title: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
   onCheckedChange: PropTypes.func.isRequired,
 };
 
-export default InputCheckbox;
+export default _InputCheckbox;

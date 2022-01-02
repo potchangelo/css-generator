@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputButtonImageGroup(props) {
+function _InputButtonImageGroup(props) {
   // - Props
   const { itemsPerRow, optionArray, activeKey, onButtonClick } = props;
 
@@ -35,7 +35,7 @@ function InputButtonImageGroup(props) {
   );
 }
 
-InputButtonImageGroup.propTypes = {
+_InputButtonImageGroup.propTypes = {
   itemsPerRow: PropTypes.number,
   optionArray: PropTypes.arrayOf(
     PropTypes.shape({
@@ -48,8 +48,8 @@ InputButtonImageGroup.propTypes = {
   onButtonClick: PropTypes.func.isRequired,
 };
 
-InputButtonImageGroup.defaultProps = {
+_InputButtonImageGroup.defaultProps = {
   itemsPerRow: 1,
 };
 
-export default InputButtonImageGroup;
+export default _InputButtonImageGroup;

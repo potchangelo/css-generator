@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function InputButtonGroup(props) {
+function _InputButtonGroup(props) {
   // - Props
   const { title, optionArray, activeKey, onButtonClick } = props;
 
@@ -37,7 +37,7 @@ function InputButtonGroup(props) {
   );
 }
 
-InputButtonGroup.propTypes = {
+_InputButtonGroup.propTypes = {
   title: PropTypes.string,
   optionArray: PropTypes.arrayOf(
     PropTypes.shape({
@@ -50,4 +50,4 @@ InputButtonGroup.propTypes = {
   onButtonClick: PropTypes.func.isRequired,
 };
 
-export default InputButtonGroup;
+export default _InputButtonGroup;

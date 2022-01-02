@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputSelect(props) {
+function _InputSelect(props) {
   // - Props
   const { title, optionArray, value, onValueChange } = props;
 
@@ -32,7 +32,7 @@ function InputSelect(props) {
   );
 }
 
-InputSelect.propTypes = {
+_InputSelect.propTypes = {
   title: PropTypes.string,
   optionArray: PropTypes.arrayOf(
     PropTypes.shape({
@@ -45,4 +45,4 @@ InputSelect.propTypes = {
   onValueChange: PropTypes.func.isRequired,
 };
 
-export default InputSelect;
+export default _InputSelect;
