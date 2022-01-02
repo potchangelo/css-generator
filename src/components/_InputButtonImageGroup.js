@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
 function _InputButtonImageGroup(props) {
-  // - Props
   const { itemsPerRow, optionArray, activeKey, onButtonClick } = props;
 
-  // - Attributes
   let columnClass = 'column';
   if (itemsPerRow === 2) columnClass += ' is-6';
   else columnClass += ' is-12';
 
-  // - Elements
   const buttonElements = optionArray.map(option => {
     const { key, title, imageSrc } = option;
     let buttonClass = `button ${styles.buttonImage}`;

@@ -1,5 +1,5 @@
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import socialBanner from 'z/images/social-banner.jpg';

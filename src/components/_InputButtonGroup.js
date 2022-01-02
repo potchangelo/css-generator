@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function _InputButtonGroup(props) {
-  // - Props
   const { title, optionArray, activeKey, onButtonClick } = props;
 
-  // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
 

@@ -5,9 +5,11 @@ import { gradientMiddleAlpha, gradientMiddleHex, gradientPointSortAsc, gradientP
 import * as styles from './css/input.module.scss';
 
 function _InputRangeGradient(props) {
-  // - Props
-  const { colorPointArray, selectedIndex, draggingIndex, onColorPointChange, onSelectedChange, onDraggingChange } =
-    props;
+  // - Data
+  const {
+    colorPointArray, selectedIndex, draggingIndex,
+    onColorPointChange, onSelectedChange, onDraggingChange
+  } = props;
   const handleAreaRef = useRef();
 
   // - Function

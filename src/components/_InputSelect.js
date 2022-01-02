@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
 function _InputSelect(props) {
-  // - Props
   const { title, optionArray, value, onValueChange } = props;
 
-  // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
   const optionElements = optionArray.map(option => (

@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
 function _InputRange(props) {
-  // - Props
   const { title, min, max, step, hasAddons, value, onValueChange } = props;
 
-  // - Attributes
   let controlClass = 'control';
   if (hasAddons) controlClass += ` ${styles.controlRangeHasAddons}`;
 
-  // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
 
