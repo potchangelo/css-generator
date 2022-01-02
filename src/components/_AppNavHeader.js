@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
 import { Link } from 'gatsby';
+import React, { useContext } from 'react';
 import { Menu } from 'react-feather';
 import { _NavContext as NavContext } from './_AppNav';
 import * as styles from './css/appNav.module.scss';

@@ -9,7 +9,7 @@ import {
 import image1 from 'z/images/button-grid-page-01.png';
 import image2 from 'z/images/button-grid-page-02.png';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { layoutPageHtml } from '../helpers';
+import { layoutPageHtml } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
 const layoutOptionArray = [

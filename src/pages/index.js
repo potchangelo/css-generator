@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import React from 'react';
 import { Seo } from 'z/components';
 import { App, Section } from 'z/layouts';
-import { menuGroupArray } from 'z/helpers';
+import { menuGroupArray } from 'z/utils/data';
 import * as styles from './css/dashboard.module.scss';
 import * as stylesSection from './css/section.module.scss';
 

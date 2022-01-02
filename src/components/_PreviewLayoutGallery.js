@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { layoutGalleryImageUrl } from 'z/utils/data';
 import * as styles from './css/preview.module.scss';
-import { layoutGalleryImageUrl } from '../helpers';
 
 function _PreviewLayoutGallery(props) {
   const { wrapperStyle, scrollStyle, containerStyle, itemStyle } = props;

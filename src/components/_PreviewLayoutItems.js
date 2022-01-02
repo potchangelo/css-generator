@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { layoutItemContentArray } from 'z/utils/data';
 import * as styles from './css/preview.module.scss';
-import { layoutItemContentArray } from '../helpers';
 
 const unequalLineArray = [3, 2, 1, 2];
 

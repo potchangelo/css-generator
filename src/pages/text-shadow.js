@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Code, InputColor, InputRange, PreviewText, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { colorHexToRgba } from '../helpers';
+import { colorHexToRgba } from 'z/utils/colors';
 import * as styles from './css/section.module.scss';
 
 function PageTextShadow() {

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
 import { Link } from 'gatsby';
+import React, { useContext } from 'react';
 import Logo64 from 'z/images/logo-64.png';
+import { menuGroupArray } from 'z/utils/data';
 import { _NavContext as NavContext } from './_AppNav';
-import { menuGroupArray } from '../helpers';
 import * as styles from './css/appNav.module.scss';
 
 function _AppNavLeftbar() {

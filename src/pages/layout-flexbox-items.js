@@ -13,7 +13,7 @@ import {
   layoutItemSizeOptionArray,
   layoutPreviewOptionArray,
   optionArrayUpper,
-} from '../helpers';
+} from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
 const directionOptionArray = optionArrayUpper(['row', 'row-reverse'], '-');

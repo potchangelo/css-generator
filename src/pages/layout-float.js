@@ -12,7 +12,7 @@ import {
   layoutItemSizeOptionArray,
   layoutPreviewOptionArray,
   optionArrayUpper,
-} from '../helpers';
+} from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
 const floatOptionArray = optionArrayUpper(['left', 'right']);

@@ -8,7 +8,7 @@ import {
   Seo,
 } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from '../helpers';
+import { optionArrayUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
 const textAlignOptionArray = optionArrayUpper([
