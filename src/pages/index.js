@@ -4,15 +4,11 @@ import { Seo } from 'z/components';
 import { App, Section } from 'z/layouts';
 import { menuGroupArray } from 'z/utils/data';
 import * as styles from './css/dashboard.module.scss';
-import * as stylesSection from './css/section.module.scss';
 
 function PageIndex() {
   const groupElements = menuGroupArray.map(group => {
     const linkElements = group.linkArray.map(link => (
-      <div
-        key={link.url}
-        className="column is-6-mobile is-6-tablet is-4-desktop"
-      >
+      <div key={link.url} className="column is-6-mobile is-6-tablet is-4-desktop">
         <Link className={styles.link} to={`/${link.url}/`}>
           <h3 className="title is-size-6-mobile is-size-5-tablet has-text-white">
             {link.title}
@@ -33,11 +29,7 @@ function PageIndex() {
   return (
     <App>
       <Seo />
-      <Section
-        extraClass={stylesSection.dashboard}
-        title="Dashboard"
-        subTitle="Choose menu"
-      >
+      <Section extraClass={styles.section} title="Dashboard" subTitle="Choose menu">
         {groupElements}
       </Section>
     </App>

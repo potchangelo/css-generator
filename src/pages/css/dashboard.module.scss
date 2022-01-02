@@ -1,5 +1,10 @@
 @import 'z/css/vars';
 
+.section {
+  background-color: $white-ter;
+  min-height: 100vh;
+}
+
 .group {
   margin-bottom: 32px;
 }
