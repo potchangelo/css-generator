@@ -5,7 +5,7 @@ import { layoutItemContentArray } from '../helpers';
 
 const unequalLineArray = [3, 2, 1, 2];
 
-function PreviewLayoutItems(props) {
+function _PreviewLayoutItems(props) {
   const { layoutType, containerStyle, itemStyle, preview } = props;
 
   const itemElements = layoutItemContentArray.map((content, itemIndex) => {
@@ -35,15 +35,15 @@ function PreviewLayoutItems(props) {
   );
 }
 
-PreviewLayoutItems.propTypes = {
+_PreviewLayoutItems.propTypes = {
   layoutType: PropTypes.string.isRequired,
   containerStyle: PropTypes.object.isRequired,
   itemStyle: PropTypes.object,
   preview: PropTypes.string,
 };
 
-PreviewLayoutItems.defaultProps = {
+_PreviewLayoutItems.defaultProps = {
   itemStyle: {},
 };
 
-export default PreviewLayoutItems;
+export default _PreviewLayoutItems;

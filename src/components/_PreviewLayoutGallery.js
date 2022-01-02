@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as styles from './css/preview.module.scss';
 import { layoutGalleryImageUrl } from '../helpers';
 
-function PreviewLayoutGallery(props) {
+function _PreviewLayoutGallery(props) {
   const { wrapperStyle, scrollStyle, containerStyle, itemStyle } = props;
 
   const itemElements = layoutGalleryImageUrl.map((imageUrl, index) => {
@@ -29,11 +29,11 @@ function PreviewLayoutGallery(props) {
   );
 }
 
-PreviewLayoutGallery.propTypes = {
+_PreviewLayoutGallery.propTypes = {
   wrapperStyle: PropTypes.object.isRequired,
   scrollStyle: PropTypes.object.isRequired,
   containerStyle: PropTypes.object.isRequired,
   itemStyle: PropTypes.object.isRequired,
 };
 
-export default PreviewLayoutGallery;
+export default _PreviewLayoutGallery;

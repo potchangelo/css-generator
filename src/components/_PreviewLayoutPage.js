@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/preview.module.scss';
 
-function PreviewLayoutPage(props) {
+function _PreviewLayoutPage(props) {
   const { containerStyle, preview } = props;
   return (
     <div
@@ -36,9 +36,9 @@ function PreviewLayoutPage(props) {
   );
 }
 
-PreviewLayoutPage.propTypes = {
+_PreviewLayoutPage.propTypes = {
   containerStyle: PropTypes.object.isRequired,
   preview: PropTypes.string.isRequired,
 };
 
-export default PreviewLayoutPage;
+export default _PreviewLayoutPage;
