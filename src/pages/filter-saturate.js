@@ -16,34 +16,15 @@ function FilterSaturate() {
       <Seo pageTitle="Filter Saturate" pageRelativeUrl="/filter-saturate" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Filter Saturate"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="Saturate (percent)"
-              min={0}
-              max={300}
-              value={saturate}
-              onValueChange={setSaturate}
-            />
+          <Section extraClass={styles.inputs} title="Filter Saturate" subTitle="Customizing">
+            <InputRange title="Saturate (percent)" min={0} max={300} value={saturate} onValueChange={setSaturate} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Filter mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
             <PreviewFilter outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

@@ -17,11 +17,7 @@ function _PreviewLayoutGallery(props) {
   return (
     <div className={styles.galleryWrapper} style={wrapperStyle}>
       <div className={styles.galleryScroll} style={scrollStyle}>
-        <div
-          className={styles.layoutContainer}
-          data-type="flexbox-gallery"
-          style={containerStyle}
-        >
+        <div className={styles.layoutContainer} data-type="flexbox-gallery" style={containerStyle}>
           {itemElements}
         </div>
       </div>

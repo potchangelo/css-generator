@@ -158,10 +158,7 @@ function layoutGalleryHtml() {
   let layoutItemHtml = '';
   layoutGalleryImageUrl.forEach(imageUrl => {
     layoutItemHtml +=
-      '' +
-      `      <div class="item">\n` +
-      `        <img src="${imageUrl}" alt="Image" />\n` +
-      `      </div>\n`;
+      '' + `      <div class="item">\n` + `        <img src="${imageUrl}" alt="Image" />\n` + `      </div>\n`;
   });
   return (
     '' +

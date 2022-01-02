@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Code,
-  InputButtonImageGroup,
-  InputRange,
-  PreviewLayoutPage,
-  Seo,
-} from 'z/components';
+import { Code, InputButtonImageGroup, InputRange, PreviewLayoutPage, Seo } from 'z/components';
 import image1 from 'z/images/button-grid-page-01.png';
 import image2 from 'z/images/button-grid-page-02.png';
 import { App, Grid, GridItem, Section } from 'z/layouts';
@@ -19,11 +13,7 @@ const layoutOptionArray = [
     imageSrc: image1,
     templateColumns: 'lw auto',
     templateRows: 'hh minmax(160px, auto) auto',
-    templateAreasArray: [
-      `'header header'`,
-      `'leftbar main'`,
-      `'footer footer'`,
-    ],
+    templateAreasArray: [`'header header'`, `'leftbar main'`, `'footer footer'`],
   },
   {
     key: 'h-m-r-f',
@@ -31,11 +21,7 @@ const layoutOptionArray = [
     imageSrc: image2,
     templateColumns: 'auto rw',
     templateRows: 'hh minmax(160px, auto) auto',
-    templateAreasArray: [
-      `'header header'`,
-      `'main rightbar'`,
-      `'footer footer'`,
-    ],
+    templateAreasArray: [`'header header'`, `'main rightbar'`, `'footer footer'`],
   },
 ];
 
@@ -49,20 +35,14 @@ function PageLayoutGridPage() {
   const [rowGap, setRowGap] = useState(20);
 
   // - Outputs
-  const layoutObject = layoutOptionArray.find(
-    _layout => _layout.key === layout
-  );
+  const layoutObject = layoutOptionArray.find(_layout => _layout.key === layout);
   const { templateColumns, templateRows, templateAreasArray } = layoutObject;
 
-  const calcTemplateColumns = templateColumns
-    .replace('lw', `${leftbarWidth}px`)
-    .replace('rw', `${rightbarWidth}px`);
+  const calcTemplateColumns = templateColumns.replace('lw', `${leftbarWidth}px`).replace('rw', `${rightbarWidth}px`);
   const calcTemplateRows = templateRows.replace('hh', `${headerHeight}px`);
 
   const styleTemplateAreas = templateAreasArray.join(' ');
-  const cssTemplateAreas = templateAreasArray
-    .map(area => `    ${area}`)
-    .join('\n');
+  const cssTemplateAreas = templateAreasArray.map(area => `    ${area}`).join('\n');
 
   let cssSidebar = '';
   if (layout.includes('r')) {
@@ -137,11 +117,7 @@ function PageLayoutGridPage() {
       <Seo pageTitle="Grid Page Layout" pageRelativeUrl="/layout-grid-page" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Grid Page Layout"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Grid Page Layout" subTitle="Customizing">
             <h5 className="title is-5">Select layout</h5>
             <InputButtonImageGroup
               itemsPerRow={2}
@@ -158,39 +134,15 @@ function PageLayoutGridPage() {
               onValueChange={setHeaderHeight}
             />
             {sidebarElement}
-            <InputRange
-              title="Column gap (pixels)"
-              min={0}
-              max={40}
-              value={columnGap}
-              onValueChange={setColumnGap}
-            />
-            <InputRange
-              title="Row gap (pixels)"
-              min={0}
-              max={40}
-              value={rowGap}
-              onValueChange={setRowGap}
-            />
+            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onValueChange={setColumnGap} />
+            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onValueChange={setRowGap} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Layout mode"
-          >
-            <PreviewLayoutPage
-              containerStyle={containerStyle}
-              preview={layout}
-            />
+          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
+            <PreviewLayoutPage containerStyle={containerStyle} preview={layout} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
             <Code lang="HTML" output={layoutPageHtml(layout)} />
           </Section>

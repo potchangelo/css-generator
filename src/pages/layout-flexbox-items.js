@@ -1,41 +1,16 @@
 import React, { useState } from 'react';
-import {
-  Code,
-  InputButtonGroup,
-  InputRange,
-  InputSelect,
-  PreviewLayoutItems,
-  Seo,
-} from 'z/components';
+import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import {
-  layoutItemsHtml,
-  layoutItemSizeOptionArray,
-  layoutPreviewOptionArray,
-  optionArrayUpper,
-} from 'z/utils/data';
+import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
 const directionOptionArray = optionArrayUpper(['row', 'row-reverse'], '-');
-const wrapOptionArray = optionArrayUpper(
-  ['wrap', 'wrap-reverse', 'nowrap'],
-  '-'
-);
+const wrapOptionArray = optionArrayUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
 const justifyContentOptionArray = optionArrayUpper(
-  [
-    'flex-start',
-    'flex-end',
-    'center',
-    'space-between',
-    'space-around',
-    'space-evenly',
-  ],
+  ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
   '-'
 );
-const alignItemsOptionArray = optionArrayUpper(
-  ['stretch', 'flex-start', 'flex-end', 'center'],
-  '-'
-);
+const alignItemsOptionArray = optionArrayUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
 const widthUnitOptionArray = [
   { key: 'percent', title: 'Percent' },
   { key: 'pixels', title: 'Pixels' },
@@ -99,13 +74,7 @@ function PageLayoutFlexboxItems() {
   let widthElement;
   if (widthUnit === 'pixels') {
     widthElement = (
-      <InputRange
-        title="Width (pixels)"
-        min={120}
-        max={260}
-        value={widthPixels}
-        onValueChange={setWidthPixels}
-      />
+      <InputRange title="Width (pixels)" min={120} max={260} value={widthPixels} onValueChange={setWidthPixels} />
     );
   } else {
     widthElement = (
@@ -120,17 +89,10 @@ function PageLayoutFlexboxItems() {
 
   return (
     <App>
-      <Seo
-        pageTitle="Flexbox Items Layout"
-        pageRelativeUrl="/layout-flexbox-items"
-      />
+      <Seo pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Flexbox Items Layout"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Flexbox Items Layout" subTitle="Customizing">
             <h5 className="title is-5">Container</h5>
             <InputSelect
               title="Direction"
@@ -138,12 +100,7 @@ function PageLayoutFlexboxItems() {
               value={direction}
               onValueChange={setDirection}
             />
-            <InputSelect
-              title="Wrap (Multilines)"
-              optionArray={wrapOptionArray}
-              value={wrap}
-              onValueChange={setWrap}
-            />
+            <InputSelect title="Wrap (Multilines)" optionArray={wrapOptionArray} value={wrap} onValueChange={setWrap} />
             <InputSelect
               title="Justify content (Main direction)"
               optionArray={justifyContentOptionArray}
@@ -164,20 +121,8 @@ function PageLayoutFlexboxItems() {
               onButtonClick={setWidthUnit}
             />
             {widthElement}
-            <InputRange
-              title="Horizontal space (pixels)"
-              min={0}
-              max={40}
-              value={hSpace}
-              onValueChange={setHSpace}
-            />
-            <InputRange
-              title="Vertical space (pixels)"
-              min={0}
-              max={40}
-              value={vSpace}
-              onValueChange={setVSpace}
-            />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
@@ -188,11 +133,7 @@ function PageLayoutFlexboxItems() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Layout mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
             <PreviewLayoutItems
               layoutType="flexbox-items"
               containerStyle={outputContainerStyle}
@@ -200,12 +141,7 @@ function PageLayoutFlexboxItems() {
               preview={preview}
             />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
             <Code lang="HTML" output={layoutItemsHtml('flexbox')} />
           </Section>

@@ -13,11 +13,7 @@ function _AppNavLeftbar() {
 
   const groupElements = menuGroupArray.map(group => {
     const linkElements = group.linkArray.map(link => (
-      <Link
-        key={link.url}
-        to={`/${link.url}/`}
-        activeClassName={styles.leftbarLinkActive}
-      >
+      <Link key={link.url} to={`/${link.url}/`} activeClassName={styles.leftbarLinkActive}>
         {link.title}
       </Link>
     ));

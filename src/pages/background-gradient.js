@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUp, Trash2 } from 'react-feather';
-import {
-  Code,
-  InputButtonGroup,
-  InputColor,
-  InputRange,
-  InputRangeGradient,
-  PreviewBox,
-  Seo,
-} from 'z/components';
+import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import { colorHexToRgba, gradientPointSortAsc } from 'z/utils/colors';
 import { optionArrayUpper } from 'z/utils/data';
@@ -17,14 +9,7 @@ import * as styles from './css/section.module.scss';
 const modeOptionArray = optionArrayUpper(['linear', 'radial']);
 const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
   const key = `${deg}`;
-  const icon = (
-    <ArrowUp
-      width={20}
-      height={20}
-      strokeWidth={3}
-      transform={`rotate(${deg})`}
-    />
-  );
+  const icon = <ArrowUp width={20} height={20} strokeWidth={3} transform={`rotate(${deg})`} />;
   return { key, title: key, icon };
 });
 const radialShapeOptionArray = optionArrayUpper(['circle', 'ellipse']);
@@ -62,12 +47,9 @@ function PageBackgroundGradient() {
 
   function deletePoint() {
     if (pointArray.length <= 2) return;
-    const newPointArray = pointArray.filter(
-      (_, index) => index !== selectedIndex
-    );
+    const newPointArray = pointArray.filter((_, index) => index !== selectedIndex);
     const minIndex = newPointArray.reduce(
-      (indexMin, point, index) =>
-        point.position < newPointArray[indexMin].position ? index : indexMin,
+      (indexMin, point, index) => (point.position < newPointArray[indexMin].position ? index : indexMin),
       0
     );
     setPointArray(newPointArray);
@@ -77,17 +59,13 @@ function PageBackgroundGradient() {
   // - Outputs
   const pointTextArray = [...pointArray]
     .sort(gradientPointSortAsc)
-    .map(
-      point => `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`
-    );
+    .map(point => `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`);
 
   let colorText = '';
   if (mode === 'radial') {
     colorText = `radial-gradient(${radialShape}, ${pointTextArray.join(', ')})`;
   } else {
-    colorText = `linear-gradient(${linearDeg}deg, ${pointTextArray.join(
-      ', '
-    )})`;
+    colorText = `linear-gradient(${linearDeg}deg, ${pointTextArray.join(', ')})`;
   }
 
   const outputStyle = { backgroundImage: colorText };
@@ -98,35 +76,20 @@ function PageBackgroundGradient() {
   let directionElement = null;
   if (mode === 'radial') {
     directionElement = (
-      <InputButtonGroup
-        optionArray={radialShapeOptionArray}
-        activeKey={radialShape}
-        onButtonClick={setRadialShape}
-      />
+      <InputButtonGroup optionArray={radialShapeOptionArray} activeKey={radialShape} onButtonClick={setRadialShape} />
     );
   } else {
     directionElement = (
-      <InputButtonGroup
-        optionArray={linearDegOptionArray}
-        activeKey={linearDeg}
-        onButtonClick={setLinearDeg}
-      />
+      <InputButtonGroup optionArray={linearDegOptionArray} activeKey={linearDeg} onButtonClick={setLinearDeg} />
     );
   }
 
   return (
     <App>
-      <Seo
-        pageTitle="Background Gradient"
-        pageRelativeUrl="/background-gradient"
-      />
+      <Seo pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Background Gradient"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Background Gradient" subTitle="Customizing">
             <h5 className="title is-5">Colors</h5>
             <InputRangeGradient
               colorPointArray={pointArray}
@@ -136,11 +99,7 @@ function PageBackgroundGradient() {
               onSelectedChange={setSelectedIndex}
               onDraggingChange={setDraggingIndex}
             />
-            <InputColor
-              title="Color"
-              value={selectedPoint.color}
-              onValueChange={setPointColor}
-            />
+            <InputColor title="Color" value={selectedPoint.color} onValueChange={setPointColor} />
             <InputRange
               title="Color opacity"
               min={0}
@@ -160,28 +119,15 @@ function PageBackgroundGradient() {
               <span>Delete color</span>
             </button>
             <h5 className="title is-5 mt-6">Style</h5>
-            <InputButtonGroup
-              optionArray={modeOptionArray}
-              activeKey={mode}
-              onButtonClick={setMode}
-            />
+            <InputButtonGroup optionArray={modeOptionArray} activeKey={mode} onButtonClick={setMode} />
             {directionElement}
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Box mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
             <PreviewBox outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCode} />
           </Section>
         </GridItem>

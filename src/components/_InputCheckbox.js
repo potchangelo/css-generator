@@ -7,11 +7,7 @@ function _InputCheckbox(props) {
   const { title, checked, onCheckedChange } = props;
   return (
     <label className={`checkbox ${styles.checkbox}`}>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={e => onCheckedChange(e.target.checked)}
-      />
+      <input type="checkbox" checked={checked} onChange={e => onCheckedChange(e.target.checked)} />
       <span className={`icon ${styles.checkboxIcon}`}>
         <Check width={18} height={18} strokeWidth={4} />
       </span>

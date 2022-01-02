@@ -16,34 +16,15 @@ function PageTransformRotate() {
       <Seo pageTitle="Transform Rotate" pageRelativeUrl="/transform-rotate" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Transform Rotate"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="Rotate (degrees)"
-              min={0}
-              max={360}
-              value={rotate}
-              onValueChange={setRotate}
-            />
+          <Section extraClass={styles.inputs} title="Transform Rotate" subTitle="Customizing">
+            <InputRange title="Rotate (degrees)" min={0} max={360} value={rotate} onValueChange={setRotate} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Transform mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
             <PreviewTransform outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

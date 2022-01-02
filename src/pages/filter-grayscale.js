@@ -16,34 +16,15 @@ function FilterGrayscale() {
       <Seo pageTitle="Filter Grayscale" pageRelativeUrl="/filter-grayscale" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Filter Grayscale"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="Grayscale (percent)"
-              min={0}
-              max={100}
-              value={grayscale}
-              onValueChange={setGrayscale}
-            />
+          <Section extraClass={styles.inputs} title="Filter Grayscale" subTitle="Customizing">
+            <InputRange title="Grayscale (percent)" min={0} max={100} value={grayscale} onValueChange={setGrayscale} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Filter mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
             <PreviewFilter outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

@@ -25,39 +25,11 @@ function PageBoxShadow() {
       <Seo pageTitle="Box Shadow" pageRelativeUrl="/box-shadow" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Box Shadow"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="X (pixels)"
-              min={-10}
-              max={10}
-              value={x}
-              onValueChange={setX}
-            />
-            <InputRange
-              title="Y (pixels)"
-              min={-10}
-              max={10}
-              value={y}
-              onValueChange={setY}
-            />
-            <InputRange
-              title="Blur (pixels)"
-              min={0}
-              max={20}
-              value={blur}
-              onValueChange={setBlur}
-            />
-            <InputRange
-              title="Spread (pixels)"
-              min={0}
-              max={20}
-              value={spread}
-              onValueChange={setSpread}
-            />
+          <Section extraClass={styles.inputs} title="Box Shadow" subTitle="Customizing">
+            <InputRange title="X (pixels)" min={-10} max={10} value={x} onValueChange={setX} />
+            <InputRange title="Y (pixels)" min={-10} max={10} value={y} onValueChange={setY} />
+            <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onValueChange={setBlur} />
+            <InputRange title="Spread (pixels)" min={0} max={20} value={spread} onValueChange={setSpread} />
             <InputColor title="Color" value={color} onValueChange={setColor} />
             <InputRange
               title="Color opacity"
@@ -70,19 +42,10 @@ function PageBoxShadow() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Box mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
             <PreviewBox outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Code,
-  InputRange,
-  InputSelect,
-  PreviewTransform,
-  Seo,
-} from 'z/components';
+import { Code, InputRange, InputSelect, PreviewTransform, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
@@ -29,71 +23,35 @@ function PageTransformTranslate() {
 
   return (
     <App>
-      <Seo
-        pageTitle="Transform Translate"
-        pageRelativeUrl="/transform-translate"
-      />
+      <Seo pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Transform Translate"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Transform Translate" subTitle="Customizing">
             <p className="label">Translate X</p>
             <div className="columns is-mobile is-gapless">
               <div className="column">
-                <InputRange
-                  min={-200}
-                  max={200}
-                  hasAddons={true}
-                  value={translateX}
-                  onValueChange={setTranslateX}
-                />
+                <InputRange min={-200} max={200} hasAddons={true} value={translateX} onValueChange={setTranslateX} />
               </div>
               <div className="column is-narrow">
-                <InputSelect
-                  optionArray={unitOptionArray}
-                  value={unitX}
-                  onValueChange={setUnitX}
-                />
+                <InputSelect optionArray={unitOptionArray} value={unitX} onValueChange={setUnitX} />
               </div>
             </div>
             <p className="label">Translate Y</p>
             <div className="columns is-mobile is-gapless">
               <div className="column">
-                <InputRange
-                  min={-200}
-                  max={200}
-                  hasAddons={true}
-                  value={translateY}
-                  onValueChange={setTranslateY}
-                />
+                <InputRange min={-200} max={200} hasAddons={true} value={translateY} onValueChange={setTranslateY} />
               </div>
               <div className="column is-narrow">
-                <InputSelect
-                  optionArray={unitOptionArray}
-                  value={unitY}
-                  onValueChange={setUnitY}
-                />
+                <InputSelect optionArray={unitOptionArray} value={unitY} onValueChange={setUnitY} />
               </div>
             </div>
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Transform mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
             <PreviewTransform outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

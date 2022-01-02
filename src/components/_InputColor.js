@@ -9,12 +9,7 @@ function _InputColor(props) {
       <label className="label">{title}</label>
       <div className={`field has-addons ${styles.field}`}>
         <div className={`control ${styles.color}`}>
-          <input
-            className="input"
-            type="color"
-            value={value}
-            onChange={event => onValueChange(event.target.value)}
-          />
+          <input className="input" type="color" value={value} onChange={event => onValueChange(event.target.value)} />
         </div>
         <div className="control is-expanded">
           <input

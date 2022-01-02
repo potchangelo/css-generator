@@ -1,24 +1,13 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { ChevronDown } from 'react-feather';
 import PropTypes from 'prop-types';
-import {
-  gradientMiddleAlpha,
-  gradientMiddleHex,
-  gradientPointSortAsc,
-  gradientPointSortDesc,
-} from 'z/utils/colors';
+import { gradientMiddleAlpha, gradientMiddleHex, gradientPointSortAsc, gradientPointSortDesc } from 'z/utils/colors';
 import * as styles from './css/input.module.scss';
 
 function _InputRangeGradient(props) {
   // - Props
-  const {
-    colorPointArray,
-    selectedIndex,
-    draggingIndex,
-    onColorPointChange,
-    onSelectedChange,
-    onDraggingChange,
-  } = props;
+  const { colorPointArray, selectedIndex, draggingIndex, onColorPointChange, onSelectedChange, onDraggingChange } =
+    props;
   const handleAreaRef = useRef();
 
   // - Function
@@ -71,12 +60,8 @@ function _InputRangeGradient(props) {
     const percentX = getHandlePointPercent(event.nativeEvent);
 
     // Left right points
-    const pointL = [...colorPointArray]
-      .sort(gradientPointSortDesc)
-      .find(point => point.position < percentX);
-    const pointR = [...colorPointArray]
-      .sort(gradientPointSortAsc)
-      .find(point => point.position > percentX);
+    const pointL = [...colorPointArray].sort(gradientPointSortDesc).find(point => point.position < percentX);
+    const pointR = [...colorPointArray].sort(gradientPointSortAsc).find(point => point.position > percentX);
 
     // Color, alpha
     let color, alpha;

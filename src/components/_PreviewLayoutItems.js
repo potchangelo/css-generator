@@ -12,9 +12,7 @@ function _PreviewLayoutItems(props) {
     let previewElements = <p>{content}</p>;
     if (preview === 'unequal-height') {
       const lineArray = [...Array(unequalLineArray[itemIndex]).keys()];
-      previewElements = lineArray.map(lineIndex => (
-        <p key={`p-${itemIndex}-${lineIndex}`}>{content}</p>
-      ));
+      previewElements = lineArray.map(lineIndex => <p key={`p-${itemIndex}-${lineIndex}`}>{content}</p>);
     }
 
     return (
@@ -25,11 +23,7 @@ function _PreviewLayoutItems(props) {
   });
 
   return (
-    <div
-      className={styles.layoutContainer}
-      data-type={layoutType}
-      style={containerStyle}
-    >
+    <div className={styles.layoutContainer} data-type={layoutType} style={containerStyle}>
       {itemElements}
     </div>
   );

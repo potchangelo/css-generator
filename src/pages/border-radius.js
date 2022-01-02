@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Code,
-  InputButtonGroup,
-  InputRange,
-  PreviewBox,
-  Seo,
-} from 'z/components';
+import { Code, InputButtonGroup, InputRange, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
@@ -63,15 +57,7 @@ function PageBorderRadius() {
       );
     });
   } else {
-    borderElements = (
-      <InputRange
-        title="Radius  (pixels)"
-        min={0}
-        max={40}
-        value={radius}
-        onValueChange={setRadius}
-      />
-    );
+    borderElements = <InputRange title="Radius  (pixels)" min={0} max={40} value={radius} onValueChange={setRadius} />;
   }
 
   return (
@@ -79,34 +65,16 @@ function PageBorderRadius() {
       <Seo pageTitle="Border Radius" pageRelativeUrl="/border-radius" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Border Radius"
-            subTitle="Customizing"
-          >
-            <InputButtonGroup
-              title="Mode"
-              optionArray={modeOptionArray}
-              activeKey={mode}
-              onButtonClick={setMode}
-            />
+          <Section extraClass={styles.inputs} title="Border Radius" subTitle="Customizing">
+            <InputButtonGroup title="Mode" optionArray={modeOptionArray} activeKey={mode} onButtonClick={setMode} />
             {borderElements}
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Box mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
             <PreviewBox outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

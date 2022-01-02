@@ -22,32 +22,10 @@ function PageTextShadow() {
       <Seo pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Text Shadow"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="X (pixels)"
-              min={-10}
-              max={10}
-              value={x}
-              onValueChange={setX}
-            />
-            <InputRange
-              title="Y (pixels)"
-              min={-10}
-              max={10}
-              value={y}
-              onValueChange={setY}
-            />
-            <InputRange
-              title="Blur (pixels)"
-              min={0}
-              max={20}
-              value={blur}
-              onValueChange={setBlur}
-            />
+          <Section extraClass={styles.inputs} title="Text Shadow" subTitle="Customizing">
+            <InputRange title="X (pixels)" min={-10} max={10} value={x} onValueChange={setX} />
+            <InputRange title="Y (pixels)" min={-10} max={10} value={y} onValueChange={setY} />
+            <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onValueChange={setBlur} />
             <InputColor title="Color" value={color} onValueChange={setColor} />
             <InputRange
               title="Color opacity"
@@ -60,19 +38,10 @@ function PageTextShadow() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Text mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Text mode">
             <PreviewText outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

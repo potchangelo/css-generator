@@ -5,19 +5,13 @@ import * as styles from './css/preview.module.scss';
 function _PreviewLayoutPage(props) {
   const { containerStyle, preview } = props;
   return (
-    <div
-      className={styles.layoutContainer}
-      data-type="grid-page"
-      style={containerStyle}
-    >
+    <div className={styles.layoutContainer} data-type="grid-page" style={containerStyle}>
       <header className={styles.header}>
         <div className={styles.itemContent}>
           <p>Header</p>
         </div>
       </header>
-      <aside
-        className={preview.includes('r') ? styles.rightbar : styles.leftbar}
-      >
+      <aside className={preview.includes('r') ? styles.rightbar : styles.leftbar}>
         <div className={styles.itemContent}>
           <p>{preview.includes('r') ? 'Rightbar' : 'Leftbar'}</p>
         </div>

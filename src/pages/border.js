@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Code,
-  InputButtonGroup,
-  InputColor,
-  InputRange,
-  InputSelect,
-  PreviewBox,
-  Seo,
-} from 'z/components';
+import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import { optionArrayUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
@@ -98,19 +90,8 @@ function PageBorder() {
         <React.Fragment key={side}>
           <h4 className="title is-5 mt-6">Border {side}</h4>
           <InputColor title="Color" value={_color} onValueChange={_setColor} />
-          <InputSelect
-            title="Style"
-            optionArray={styleOptionArray}
-            value={_style}
-            onValueChange={_setStyle}
-          />
-          <InputRange
-            title="Width (pixels)"
-            min={0}
-            max={20}
-            value={_width}
-            onValueChange={_setWidth}
-          />
+          <InputSelect title="Style" optionArray={styleOptionArray} value={_style} onValueChange={_setStyle} />
+          <InputRange title="Width (pixels)" min={0} max={20} value={_width} onValueChange={_setWidth} />
         </React.Fragment>
       );
     });
@@ -118,19 +99,8 @@ function PageBorder() {
     borderElements = (
       <>
         <InputColor title="Color" value={color} onValueChange={setColor} />
-        <InputSelect
-          title="Style"
-          optionArray={styleOptionArray}
-          value={styleAll}
-          onValueChange={setStyleAll}
-        />
-        <InputRange
-          title="Width (pixels)"
-          min={0}
-          max={20}
-          value={width}
-          onValueChange={setWidth}
-        />
+        <InputSelect title="Style" optionArray={styleOptionArray} value={styleAll} onValueChange={setStyleAll} />
+        <InputRange title="Width (pixels)" min={0} max={20} value={width} onValueChange={setWidth} />
       </>
     );
   }
@@ -140,34 +110,16 @@ function PageBorder() {
       <Seo pageTitle="Border" pageRelativeUrl="/border" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Border"
-            subTitle="Customizing"
-          >
-            <InputButtonGroup
-              title="Mode"
-              optionArray={modeOptionArray}
-              activeKey={mode}
-              onButtonClick={setMode}
-            />
+          <Section extraClass={styles.inputs} title="Border" subTitle="Customizing">
+            <InputButtonGroup title="Mode" optionArray={modeOptionArray} activeKey={mode} onButtonClick={setMode} />
             {borderElements}
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Box mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
             <PreviewBox outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

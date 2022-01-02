@@ -5,11 +5,7 @@ import * as styles from './css/preview.module.scss';
 function _PreviewLayoutMenu(props) {
   const { containerStyle } = props;
   return (
-    <div
-      className={styles.layoutContainer}
-      data-type="flexbox-menu"
-      style={containerStyle}
-    >
+    <div className={styles.layoutContainer} data-type="flexbox-menu" style={containerStyle}>
       <div>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a className={styles.menuTitle}>Site Title</a>

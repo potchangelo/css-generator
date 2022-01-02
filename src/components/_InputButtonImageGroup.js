@@ -28,11 +28,7 @@ function _InputButtonImageGroup(props) {
     );
   });
 
-  return (
-    <div className="columns is-mobile is-multiline content">
-      {buttonElements}
-    </div>
-  );
+  return <div className="columns is-mobile is-multiline content">{buttonElements}</div>;
 }
 
 _InputButtonImageGroup.propTypes = {
