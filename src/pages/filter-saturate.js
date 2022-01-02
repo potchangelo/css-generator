@@ -3,7 +3,7 @@ import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-function FilterSaturate() {
+function PageFilterSaturate() {
   // - States
   const [saturate, setSaturate] = useState(150);
 
@@ -33,4 +33,4 @@ function FilterSaturate() {
   );
 }
 
-export default FilterSaturate;
+export default PageFilterSaturate;

@@ -3,7 +3,7 @@ import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-function FilterHueRotate() {
+function PageFilterHueRotate() {
   // - States
   const [hueRotate, setHueRotate] = useState(180);
 
@@ -33,4 +33,4 @@ function FilterHueRotate() {
   );
 }
 
-export default FilterHueRotate;
+export default PageFilterHueRotate;

@@ -3,7 +3,7 @@ import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-function FilterGrayscale() {
+function PageFilterGrayscale() {
   // - States
   const [grayscale, setGrayscale] = useState(100);
 
@@ -33,4 +33,4 @@ function FilterGrayscale() {
   );
 }
 
-export default FilterGrayscale;
+export default PageFilterGrayscale;

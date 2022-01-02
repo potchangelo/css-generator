@@ -3,7 +3,7 @@ import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-function FilterContrast() {
+function PageFilterContrast() {
   // - States
   const [contrast, setContrast] = useState(150);
 
@@ -33,4 +33,4 @@ function FilterContrast() {
   );
 }
 
-export default FilterContrast;
+export default PageFilterContrast;

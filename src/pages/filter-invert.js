@@ -3,7 +3,7 @@ import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-function FilterInvert() {
+function PageFilterInvert() {
   // - States
   const [invert, setInvert] = useState(100);
 
@@ -33,4 +33,4 @@ function FilterInvert() {
   );
 }
 
-export default FilterInvert;
+export default PageFilterInvert;
