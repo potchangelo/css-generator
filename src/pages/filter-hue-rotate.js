@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
-function FilterHueRotate() {
+function PageFilterHueRotate() {
   // - States
   const [hueRotate, setHueRotate] = useState(180);
 
@@ -16,34 +16,15 @@ function FilterHueRotate() {
       <Seo pageTitle="Filter Hue-Rotate" pageRelativeUrl="/filter-hue-rotate" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Filter Hue-Rotate"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="Hue-Rotate (degrees)"
-              min={0}
-              max={360}
-              value={hueRotate}
-              onValueChange={setHueRotate}
-            />
+          <Section extraClass={styles.inputs} title="Filter Hue-Rotate" subTitle="Customizing">
+            <InputRange title="Hue-Rotate (degrees)" min={0} max={360} value={hueRotate} onValueChange={setHueRotate} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Filter mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
             <PreviewFilter outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>
@@ -52,4 +33,4 @@ function FilterHueRotate() {
   );
 }
 
-export default FilterHueRotate;
+export default PageFilterHueRotate;

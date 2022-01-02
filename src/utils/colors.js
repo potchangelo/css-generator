@@ -102,8 +102,7 @@ function gradientMiddleAlpha(aL, aR, ratio) {
  * @param {{ color: string, alpha: number, position: number }} point2 Compare item 2
  * @returns {number} Sort round result
  */
-const gradientPointSortAsc = (point1, point2) =>
-  point1.position - point2.position;
+const gradientPointSortAsc = (point1, point2) => point1.position - point2.position;
 
 /**
  * Sort function for Gradient color, by position DESC
@@ -111,8 +110,7 @@ const gradientPointSortAsc = (point1, point2) =>
  * @param {{ color: string, alpha: number, position: number }} point2 Compare item 2
  * @returns {number} Sort round result
  */
-const gradientPointSortDesc = (point1, point2) =>
-  point2.position - point1.position;
+const gradientPointSortDesc = (point1, point2) => point2.position - point1.position;
 
 export {
   colorHexToRgba,

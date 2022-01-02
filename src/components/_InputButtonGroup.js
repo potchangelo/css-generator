@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function InputButtonGroup(props) {
-  // - Props
+function _InputButtonGroup(props) {
   const { title, optionArray, activeKey, onButtonClick } = props;
 
-  // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
 
@@ -37,7 +35,7 @@ function InputButtonGroup(props) {
   );
 }
 
-InputButtonGroup.propTypes = {
+_InputButtonGroup.propTypes = {
   title: PropTypes.string,
   optionArray: PropTypes.arrayOf(
     PropTypes.shape({
@@ -50,4 +48,4 @@ InputButtonGroup.propTypes = {
   onButtonClick: PropTypes.func.isRequired,
 };
 
-export default InputButtonGroup;
+export default _InputButtonGroup;

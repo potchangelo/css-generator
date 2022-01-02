@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "z/components": ["src/components"],
+      "z/css": ["src/css"],
+      "z/images": ["src/images"],
+      "z/layouts": ["src/layouts"],
+      "z/utils/colors": ["src/utils/colors"],
+      "z/utils/data": ["src/utils/data"]
+    }
+  }
+}

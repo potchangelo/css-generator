@@ -157,14 +157,13 @@ const layoutGalleryImageUrl = [
 function layoutGalleryHtml() {
   let layoutItemHtml = '';
   layoutGalleryImageUrl.forEach(imageUrl => {
+    // prettier-ignore
     layoutItemHtml +=
-      '' +
       `      <div class="item">\n` +
       `        <img src="${imageUrl}" alt="Image" />\n` +
       `      </div>\n`;
   });
   return (
-    '' +
     `<div class="gallery-wrapper">\n` +
     `  <div class="gallery-scroll">\n` +
     `    <div class="gallery">\n` +
@@ -185,7 +184,6 @@ function layoutPageHtml(layout) {
     rightbarHtml = '';
   if (layout.includes('l')) {
     leftbarHtml =
-      '' +
       `  <aside class="page-leftbar">\n` +
       `    <div class="content">\n` +
       `      <p>Leftbar</p>\n` +
@@ -194,7 +192,6 @@ function layoutPageHtml(layout) {
   }
   if (layout.includes('r')) {
     rightbarHtml =
-      '' +
       `  <aside class="page-rightbar">\n` +
       `    <div class="content">\n` +
       `      <p>Rightbar</p>\n` +
@@ -202,7 +199,6 @@ function layoutPageHtml(layout) {
       `  </aside>\n`;
   }
   return (
-    '' +
     `<div class="grid">\n` +
     `  <header class="page-header">\n` +
     `    <div class="content">\n` +

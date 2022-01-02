@@ -1,8 +1,9 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'CSS Generator',
-    description:
-      'Generate CSS (+ HTML) code with simple UI, created by Gatsby React framework.',
+    description: 'Generate CSS (+ HTML) code with simple UI, created by Gatsby React framework.',
     keywords: 'css, css-generator, react, gatsby, bulma',
     author: 'Zinglecode',
     siteUrl: 'https://css-generator.netlify.app',
@@ -24,5 +25,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-alias-imports',
+      options: {
+        alias: {
+          z: path.resolve(__dirname, 'src'),
+        },
+        extensions: [],
+      },
+    },
   ],
 };

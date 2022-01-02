@@ -2,16 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputButtonImageGroup(props) {
-  // - Props
+function _InputButtonImageGroup(props) {
   const { itemsPerRow, optionArray, activeKey, onButtonClick } = props;
 
-  // - Attributes
   let columnClass = 'column';
   if (itemsPerRow === 2) columnClass += ' is-6';
   else columnClass += ' is-12';
 
-  // - Elements
   const buttonElements = optionArray.map(option => {
     const { key, title, imageSrc } = option;
     let buttonClass = `button ${styles.buttonImage}`;
@@ -28,14 +25,10 @@ function InputButtonImageGroup(props) {
     );
   });
 
-  return (
-    <div className="columns is-mobile is-multiline content">
-      {buttonElements}
-    </div>
-  );
+  return <div className="columns is-mobile is-multiline content">{buttonElements}</div>;
 }
 
-InputButtonImageGroup.propTypes = {
+_InputButtonImageGroup.propTypes = {
   itemsPerRow: PropTypes.number,
   optionArray: PropTypes.arrayOf(
     PropTypes.shape({
@@ -48,8 +41,8 @@ InputButtonImageGroup.propTypes = {
   onButtonClick: PropTypes.func.isRequired,
 };
 
-InputButtonImageGroup.defaultProps = {
+_InputButtonImageGroup.defaultProps = {
   itemsPerRow: 1,
 };
 
-export default InputButtonImageGroup;
+export default _InputButtonImageGroup;

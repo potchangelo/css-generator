@@ -2,15 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputRange(props) {
-  // - Props
+function _InputRange(props) {
   const { title, min, max, step, hasAddons, value, onValueChange } = props;
 
-  // - Attributes
   let controlClass = 'control';
   if (hasAddons) controlClass += ` ${styles.controlRangeHasAddons}`;
 
-  // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
 
@@ -38,7 +35,7 @@ function InputRange(props) {
   );
 }
 
-InputRange.propTypes = {
+_InputRange.propTypes = {
   title: PropTypes.string,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
@@ -48,9 +45,9 @@ InputRange.propTypes = {
   onValueChange: PropTypes.func.isRequired,
 };
 
-InputRange.defaultProps = {
+_InputRange.defaultProps = {
   step: 1,
   hasAddons: false,
 };
 
-export default InputRange;
+export default _InputRange;

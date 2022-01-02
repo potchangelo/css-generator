@@ -1,7 +1,7 @@
-@import '../../css/vars';
+@import 'z/css/vars';
 
-.main {
-  @include tablet {
+@include tablet {
+  .main {
     margin-left: 228px;
   }
 }

@@ -2,22 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/preview.module.scss';
 
-function PreviewLayoutPage(props) {
+function _PreviewLayoutPage(props) {
   const { containerStyle, preview } = props;
   return (
-    <div
-      className={styles.layoutContainer}
-      data-type="grid-page"
-      style={containerStyle}
-    >
+    <div className={styles.layoutContainer} data-type="grid-page" style={containerStyle}>
       <header className={styles.header}>
         <div className={styles.itemContent}>
           <p>Header</p>
         </div>
       </header>
-      <aside
-        className={preview.includes('r') ? styles.rightbar : styles.leftbar}
-      >
+      <aside className={preview.includes('r') ? styles.rightbar : styles.leftbar}>
         <div className={styles.itemContent}>
           <p>{preview.includes('r') ? 'Rightbar' : 'Leftbar'}</p>
         </div>
@@ -36,9 +30,9 @@ function PreviewLayoutPage(props) {
   );
 }
 
-PreviewLayoutPage.propTypes = {
+_PreviewLayoutPage.propTypes = {
   containerStyle: PropTypes.object.isRequired,
   preview: PropTypes.string.isRequired,
 };
 
-export default PreviewLayoutPage;
+export default _PreviewLayoutPage;

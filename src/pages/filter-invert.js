@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
-function FilterInvert() {
+function PageFilterInvert() {
   // - States
   const [invert, setInvert] = useState(100);
 
@@ -16,34 +16,15 @@ function FilterInvert() {
       <Seo pageTitle="Filter Invert" pageRelativeUrl="/filter-invert" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Filter Invert"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="Invert (percent)"
-              min={0}
-              max={100}
-              value={invert}
-              onValueChange={setInvert}
-            />
+          <Section extraClass={styles.inputs} title="Filter Invert" subTitle="Customizing">
+            <InputRange title="Invert (percent)" min={0} max={100} value={invert} onValueChange={setInvert} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Filter mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
             <PreviewFilter outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>
@@ -52,4 +33,4 @@ function FilterInvert() {
   );
 }
 
-export default FilterInvert;
+export default PageFilterInvert;

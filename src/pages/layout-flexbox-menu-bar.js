@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
+import { Code, InputButtonImageGroup, PreviewLayoutMenu, Seo } from 'z/components';
+import image1 from 'z/images/button-menu-bar-01.png';
+import image2 from 'z/images/button-menu-bar-02.png';
+import { App, Grid, GridItem, Section } from 'z/layouts';
+import { layoutMenuHtml } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
-import image1 from '../images/button-menu-bar-01.png';
-import image2 from '../images/button-menu-bar-02.png';
-import {
-  Code,
-  InputButtonImageGroup,
-  PreviewLayoutMenu,
-  Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
-import { layoutMenuHtml } from '../helpers';
 
 const layoutOptionArray = [
   { key: 'left', title: 'Style 1', imageSrc: image1 },
@@ -46,39 +41,19 @@ function PageLayoutFlexboxMenuBar() {
     `}`;
   return (
     <App>
-      <Seo
-        pageTitle="Flexbox Menu Bar Layout"
-        pageRelativeUrl="/layout-flexbox-menu-bar"
-      />
+      <Seo pageTitle="Flexbox Menu Bar Layout" pageRelativeUrl="/layout-flexbox-menu-bar" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Flexbox Menu Bar Layout"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Flexbox Menu Bar Layout" subTitle="Customizing">
             <h5 className="title is-5">Select layout</h5>
-            <InputButtonImageGroup
-              optionArray={layoutOptionArray}
-              activeKey={layout}
-              onButtonClick={setLayout}
-            />
+            <InputButtonImageGroup optionArray={layoutOptionArray} activeKey={layout} onButtonClick={setLayout} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Layout mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
             <PreviewLayoutMenu containerStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
             <Code lang="HTML" output={layoutMenuHtml} />
           </Section>

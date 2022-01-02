@@ -1,23 +1,15 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { ChevronDown } from 'react-feather';
 import PropTypes from 'prop-types';
+import { gradientMiddleAlpha, gradientMiddleHex, gradientPointSortAsc, gradientPointSortDesc } from 'z/utils/colors';
 import * as styles from './css/input.module.scss';
-import {
-  gradientMiddleAlpha,
-  gradientMiddleHex,
-  gradientPointSortAsc,
-  gradientPointSortDesc,
-} from '../helpers';
 
-function InputRangeGradient(props) {
-  // - Props
+function _InputRangeGradient(props) {
+  // - Data
+  // prettier-ignore
   const {
-    colorPointArray,
-    selectedIndex,
-    draggingIndex,
-    onColorPointChange,
-    onSelectedChange,
-    onDraggingChange,
+    colorPointArray, selectedIndex, draggingIndex,
+    onColorPointChange, onSelectedChange, onDraggingChange
   } = props;
   const handleAreaRef = useRef();
 
@@ -71,12 +63,8 @@ function InputRangeGradient(props) {
     const percentX = getHandlePointPercent(event.nativeEvent);
 
     // Left right points
-    const pointL = [...colorPointArray]
-      .sort(gradientPointSortDesc)
-      .find(point => point.position < percentX);
-    const pointR = [...colorPointArray]
-      .sort(gradientPointSortAsc)
-      .find(point => point.position > percentX);
+    const pointL = [...colorPointArray].sort(gradientPointSortDesc).find(point => point.position < percentX);
+    const pointR = [...colorPointArray].sort(gradientPointSortAsc).find(point => point.position > percentX);
 
     // Color, alpha
     let color, alpha;
@@ -166,7 +154,7 @@ function InputRangeGradient(props) {
   );
 }
 
-InputRangeGradient.propTypes = {
+_InputRangeGradient.propTypes = {
   colorPointArray: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string.isRequired,
@@ -181,4 +169,4 @@ InputRangeGradient.propTypes = {
   onDraggingChange: PropTypes.func.isRequired,
 };
 
-export default InputRangeGradient;
+export default _InputRangeGradient;

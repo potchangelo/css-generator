@@ -1,7 +1,8 @@
-@import '../../css/vars';
+@import 'z/css/vars';
 
-.group {
-  margin-bottom: 32px;
+.section {
+  background-color: $white-ter;
+  min-height: 100vh;
 }
 
 .link {

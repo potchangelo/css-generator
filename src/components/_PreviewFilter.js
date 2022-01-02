@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function PreviewFilter(props) {
+function _PreviewFilter(props) {
   const { outputStyle } = props;
   return (
     <img
@@ -12,8 +12,8 @@ function PreviewFilter(props) {
   );
 }
 
-PreviewFilter.propTypes = {
+_PreviewFilter.propTypes = {
   outputStyle: PropTypes.object.isRequired,
 };
 
-export default PreviewFilter;
+export default _PreviewFilter;

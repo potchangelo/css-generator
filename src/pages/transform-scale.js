@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Code, InputRange, PreviewTransform, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewTransform, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
 function PageTransformScale() {
   // - States
@@ -17,11 +17,7 @@ function PageTransformScale() {
       <Seo pageTitle="Transform Scale" pageRelativeUrl="/transform-scale" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Transform Scale"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Transform Scale" subTitle="Customizing">
             <InputRange
               title="Scale width (factor)"
               min={0}
@@ -41,19 +37,10 @@ function PageTransformScale() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Transform mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
             <PreviewTransform outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

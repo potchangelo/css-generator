@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
-function InputSelect(props) {
-  // - Props
+function _InputSelect(props) {
   const { title, optionArray, value, onValueChange } = props;
 
-  // - Elements
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
   const optionElements = optionArray.map(option => (
@@ -20,10 +18,7 @@ function InputSelect(props) {
       {labelElement}
       <div className={`field ${styles.field}`}>
         <div className="select is-fullwidth">
-          <select
-            value={value}
-            onChange={event => onValueChange(event.target.value)}
-          >
+          <select value={value} onChange={event => onValueChange(event.target.value)}>
             {optionElements}
           </select>
         </div>
@@ -32,7 +27,7 @@ function InputSelect(props) {
   );
 }
 
-InputSelect.propTypes = {
+_InputSelect.propTypes = {
   title: PropTypes.string,
   optionArray: PropTypes.arrayOf(
     PropTypes.shape({
@@ -45,4 +40,4 @@ InputSelect.propTypes = {
   onValueChange: PropTypes.func.isRequired,
 };
 
-export default InputSelect;
+export default _InputSelect;

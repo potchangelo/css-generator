@@ -1,19 +1,8 @@
 import React, { useState } from 'react';
+import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
+import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
-import {
-  Code,
-  InputRange,
-  InputSelect,
-  PreviewLayoutItems,
-  Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
-import {
-  layoutItemsHtml,
-  layoutItemSizeOptionArray,
-  layoutPreviewOptionArray,
-  optionArrayUpper,
-} from '../helpers';
 
 const floatOptionArray = optionArrayUpper(['left', 'right']);
 
@@ -26,9 +15,7 @@ function PageLayoutFloat() {
   const [preview, setPreview] = useState('equal-height');
 
   // - Outputs
-  const sizeObj = layoutItemSizeOptionArray.find(
-    _size => _size.value === Number(width)
-  );
+  const sizeObj = layoutItemSizeOptionArray.find(_size => _size.value === Number(width));
   const outputContainerStyle = { margin: `0px ${(hSpace / 2) * -1}px` };
   const outputItemStyle = {
     float,
@@ -72,38 +59,12 @@ function PageLayoutFloat() {
       <Seo pageTitle="Float Layout" pageRelativeUrl="/layout-float" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Float Layout (don't use)"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Float Layout (don't use)" subTitle="Customizing">
             <h5 className="title is-5">Item</h5>
-            <InputSelect
-              title="Float"
-              optionArray={floatOptionArray}
-              value={float}
-              onValueChange={setFloat}
-            />
-            <InputSelect
-              title="Width"
-              optionArray={layoutItemSizeOptionArray}
-              value={width}
-              onValueChange={setWidth}
-            />
-            <InputRange
-              title="Horizontal space (pixels)"
-              min={0}
-              max={40}
-              value={hSpace}
-              onValueChange={setHSpace}
-            />
-            <InputRange
-              title="Vertical space (pixels)"
-              min={0}
-              max={40}
-              value={vSpace}
-              onValueChange={setVSpace}
-            />
+            <InputSelect title="Float" optionArray={floatOptionArray} value={float} onValueChange={setFloat} />
+            <InputSelect title="Width" optionArray={layoutItemSizeOptionArray} value={width} onValueChange={setWidth} />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
@@ -114,11 +75,7 @@ function PageLayoutFloat() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Layout mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
             <PreviewLayoutItems
               layoutType={`float-${sizeObj.key}`}
               containerStyle={outputContainerStyle}
@@ -126,12 +83,7 @@ function PageLayoutFloat() {
               preview={preview}
             />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
             <Code lang="HTML" output={layoutItemsHtml('floatbox')} />
           </Section>

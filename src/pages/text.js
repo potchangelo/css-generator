@@ -1,32 +1,12 @@
 import React, { useState } from 'react';
+import { Code, InputColor, InputRange, InputSelect, PreviewText, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
+import { optionArrayUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
-import {
-  Code,
-  InputColor,
-  InputRange,
-  InputSelect,
-  PreviewText,
-  Seo,
-} from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
-import { optionArrayUpper } from '../helpers';
 
-const textAlignOptionArray = optionArrayUpper([
-  'left',
-  'center',
-  'right',
-  'justify',
-]);
-const textDecorationOptionArray = optionArrayUpper(
-  ['none', 'underline', 'overline', 'line-through'],
-  '-'
-);
-const textTransformOptionArray = optionArrayUpper([
-  'none',
-  'capitalize',
-  'uppercase',
-  'lowercase',
-]);
+const textAlignOptionArray = optionArrayUpper(['left', 'center', 'right', 'justify']);
+const textDecorationOptionArray = optionArrayUpper(['none', 'underline', 'overline', 'line-through'], '-');
+const textTransformOptionArray = optionArrayUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
 
 function PageText() {
   // - States
@@ -62,11 +42,7 @@ function PageText() {
       <Seo pageTitle="Text" pageRelativeUrl="/text" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Text"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Text" subTitle="Customizing">
             <InputColor title="Color" value={color} onValueChange={setColor} />
             <InputRange
               title="Line height"
@@ -111,19 +87,10 @@ function PageText() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Text mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Text mode">
             <PreviewText outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>

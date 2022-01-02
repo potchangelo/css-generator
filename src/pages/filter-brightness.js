@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
-function FilterBrightness() {
+function PageFilterBrightness() {
   // - States
   const [brightness, setBrightness] = useState(135);
 
@@ -16,11 +16,7 @@ function FilterBrightness() {
       <Seo pageTitle="Filter Brightness" pageRelativeUrl="/filter-brightness" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Filter Brightness"
-            subTitle="Customizing"
-          >
+          <Section extraClass={styles.inputs} title="Filter Brightness" subTitle="Customizing">
             <InputRange
               title="Brightness (percent)"
               min={0}
@@ -31,19 +27,10 @@ function FilterBrightness() {
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Filter mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
             <PreviewFilter outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>
@@ -52,4 +39,4 @@ function FilterBrightness() {
   );
 }
 
-export default FilterBrightness;
+export default PageFilterBrightness;

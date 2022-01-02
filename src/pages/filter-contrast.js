@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Code, InputRange, PreviewFilter, Seo } from 'z/components';
+import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
-import { Code, InputRange, PreviewFilter, Seo } from '../components';
-import { App, Grid, GridItem, Section } from '../layouts';
 
-function FilterContrast() {
+function PageFilterContrast() {
   // - States
   const [contrast, setContrast] = useState(150);
 
@@ -16,34 +16,15 @@ function FilterContrast() {
       <Seo pageTitle="Filter Contrast" pageRelativeUrl="/filter-contrast" />
       <Grid>
         <GridItem>
-          <Section
-            extraClass={styles.inputs}
-            title="Filter Contrast"
-            subTitle="Customizing"
-          >
-            <InputRange
-              title="Contrast (percent)"
-              min={0}
-              max={300}
-              value={contrast}
-              onValueChange={setContrast}
-            />
+          <Section extraClass={styles.inputs} title="Filter Contrast" subTitle="Customizing">
+            <InputRange title="Contrast (percent)" min={0} max={300} value={contrast} onValueChange={setContrast} />
           </Section>
         </GridItem>
         <GridItem>
-          <Section
-            extraClass={styles.preview}
-            title="Preview"
-            subTitle="Filter mode"
-          >
+          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
             <PreviewFilter outputStyle={outputStyle} />
           </Section>
-          <Section
-            extraClass={styles.code}
-            headerTheme="dark"
-            title="Code"
-            subTitle="Paste to your file(s)"
-          >
+          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
             <Code lang="CSS" output={outputCss} />
           </Section>
         </GridItem>
@@ -52,4 +33,4 @@ function FilterContrast() {
   );
 }
 
-export default FilterContrast;
+export default PageFilterContrast;

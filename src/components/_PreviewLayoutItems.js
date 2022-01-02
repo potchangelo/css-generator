@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { layoutItemContentArray } from 'z/utils/data';
 import * as styles from './css/preview.module.scss';
-import { layoutItemContentArray } from '../helpers';
 
 const unequalLineArray = [3, 2, 1, 2];
 
-function PreviewLayoutItems(props) {
+function _PreviewLayoutItems(props) {
   const { layoutType, containerStyle, itemStyle, preview } = props;
 
   const itemElements = layoutItemContentArray.map((content, itemIndex) => {
     let previewElements = <p>{content}</p>;
     if (preview === 'unequal-height') {
       const lineArray = [...Array(unequalLineArray[itemIndex]).keys()];
+      // prettier-ignore
       previewElements = lineArray.map(lineIndex => (
         <p key={`p-${itemIndex}-${lineIndex}`}>{content}</p>
       ));
@@ -25,25 +26,21 @@ function PreviewLayoutItems(props) {
   });
 
   return (
-    <div
-      className={styles.layoutContainer}
-      data-type={layoutType}
-      style={containerStyle}
-    >
+    <div className={styles.layoutContainer} data-type={layoutType} style={containerStyle}>
       {itemElements}
     </div>
   );
 }
 
-PreviewLayoutItems.propTypes = {
+_PreviewLayoutItems.propTypes = {
   layoutType: PropTypes.string.isRequired,
   containerStyle: PropTypes.object.isRequired,
   itemStyle: PropTypes.object,
   preview: PropTypes.string,
 };
 
-PreviewLayoutItems.defaultProps = {
+_PreviewLayoutItems.defaultProps = {
   itemStyle: {},
 };
 
-export default PreviewLayoutItems;
+export default _PreviewLayoutItems;

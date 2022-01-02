@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './css/section.module.scss';
 
-function Section(props) {
+function _Section(props) {
   const { extraClass, headerTheme, title, subTitle, children } = props;
 
   let headerClass = styles.header;
@@ -21,11 +21,11 @@ function Section(props) {
   );
 }
 
-Section.propTypes = {
+_Section.propTypes = {
   extraClass: PropTypes.string,
   headerTheme: PropTypes.string,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
 };
 
-export default Section;
+export default _Section;

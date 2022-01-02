@@ -1,12 +1,12 @@
-import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import socialBanner from '../images/social-banner.jpg';
+import socialBanner from 'z/images/social-banner.jpg';
 
 const baseUrl = process.env.GATSBY_PUBLIC_HOST;
 
-function Seo(props) {
+function _Seo(props) {
   const { pageTitle, pageDescription, pageRelativeUrl } = props;
 
   const data = useStaticQuery(graphql`
@@ -48,10 +48,10 @@ function Seo(props) {
   );
 }
 
-Seo.propTypes = {
+_Seo.propTypes = {
   pageTitle: PropTypes.string,
   pageDescription: PropTypes.string,
   pageRelativeUrl: PropTypes.string,
 };
 
-export default Seo;
+export default _Seo;

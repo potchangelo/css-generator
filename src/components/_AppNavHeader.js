@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
 import { Link } from 'gatsby';
+import React, { useContext } from 'react';
 import { Menu } from 'react-feather';
+import { _NavContext as NavContext } from './_AppNav';
 import * as styles from './css/appNav.module.scss';
-import { NavContext } from './_AppNav';
 
-function AppNavHeader() {
+function _AppNavHeader() {
   const navContext = useContext(NavContext);
   return (
     <header className={`${styles.header} is-hidden-tablet`}>
@@ -28,4 +28,4 @@ function AppNavHeader() {
   );
 }
 
-export default AppNavHeader;
+export default _AppNavHeader;

@@ -1,4 +1,5 @@
 export { default as AppNav } from './_AppNav';
+export { default as Code } from './_Code';
 export { default as InputButtonGroup } from './_InputButtonGroup';
 export { default as InputButtonImageGroup } from './_InputButtonImageGroup';
 export { default as InputCheckbox } from './_InputCheckbox';
@@ -15,5 +16,4 @@ export { default as PreviewLayoutMenu } from './_PreviewLayoutMenu';
 export { default as PreviewLayoutPage } from './_PreviewLayoutPage';
 export { default as PreviewText } from './_PreviewText';
 export { default as PreviewTransform } from './_PreviewTransform';
-export { default as Code } from './_Code';
 export { default as Seo } from './_Seo';
