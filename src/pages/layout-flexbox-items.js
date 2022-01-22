@@ -4,14 +4,14 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const directionOptionArray = optionsUpper(['row', 'row-reverse'], '-');
-const wrapOptionArray = optionsUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
-const justifyContentOptionArray = optionsUpper(
+const directionOptions = optionsUpper(['row', 'row-reverse'], '-');
+const wrapOptions = optionsUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
+const justifyContentOptions = optionsUpper(
   ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
   '-'
 );
-const alignItemsOptionArray = optionsUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
-const widthUnitOptionArray = [
+const alignItemOptions = optionsUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
+const widthUnitOptions = [
   { key: 'percent', title: 'Percent' },
   { key: 'pixels', title: 'Pixels' },
 ];
@@ -96,27 +96,27 @@ function PageLayoutFlexboxItems() {
             <h5 className="title is-5">Container</h5>
             <InputSelect
               title="Direction"
-              optionArray={directionOptionArray}
+              optionArray={directionOptions}
               value={direction}
               onValueChange={setDirection}
             />
-            <InputSelect title="Wrap (Multilines)" optionArray={wrapOptionArray} value={wrap} onValueChange={setWrap} />
+            <InputSelect title="Wrap (Multilines)" optionArray={wrapOptions} value={wrap} onValueChange={setWrap} />
             <InputSelect
               title="Justify content (Main direction)"
-              optionArray={justifyContentOptionArray}
+              optionArray={justifyContentOptions}
               value={justifyContent}
               onValueChange={setJustifyContent}
             />
             <InputSelect
               title="Align items (Cross direction)"
-              optionArray={alignItemsOptionArray}
+              optionArray={alignItemOptions}
               value={alignItems}
               onValueChange={setAlignItems}
             />
             <h5 className="title is-5 mt-6">Item</h5>
             <InputButtonGroup
               title="Width unit"
-              optionArray={widthUnitOptionArray}
+              options={widthUnitOptions}
               activeKey={widthUnit}
               onButtonClick={setWidthUnit}
             />
