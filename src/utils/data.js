@@ -1,10 +1,7 @@
-/**
- * Site menu data
- */
-const menuGroupArray = [
+const menuGroups = [
   {
     name: 'Layout',
-    linkArray: [
+    links: [
       { url: 'layout-flexbox-items', title: 'Flexbox Items' },
       { url: 'layout-flexbox-menu-bar', title: 'Flexbox Menu Bar' },
       { url: 'layout-flexbox-gallery', title: 'Flexbox Gallery' },
@@ -15,7 +12,7 @@ const menuGroupArray = [
   },
   {
     name: 'Background',
-    linkArray: [
+    links: [
       { url: 'background-color', title: 'Background Color' },
       { url: 'background-gradient', title: 'Background Gradient' },
       { url: 'background-image', title: 'Background Image' },
@@ -23,7 +20,7 @@ const menuGroupArray = [
   },
   {
     name: 'Border',
-    linkArray: [
+    links: [
       { url: 'border', title: 'Border' },
       { url: 'border-radius', title: 'Border Radius' },
       { url: 'box-shadow', title: 'Box Shadow' },
@@ -31,7 +28,7 @@ const menuGroupArray = [
   },
   {
     name: 'Transform',
-    linkArray: [
+    links: [
       { url: 'transform-translate', title: 'Translate' },
       { url: 'transform-rotate', title: 'Rotate' },
       { url: 'transform-scale', title: 'Scale' },
@@ -40,7 +37,7 @@ const menuGroupArray = [
   },
   {
     name: 'Filter',
-    linkArray: [
+    links: [
       { url: 'filter-blur', title: 'Blur' },
       { url: 'filter-brightness', title: 'Brightness' },
       { url: 'filter-contrast', title: 'Contrast' },
@@ -53,17 +50,14 @@ const menuGroupArray = [
   },
   {
     name: 'Text',
-    linkArray: [
+    links: [
       { url: 'text', title: 'Text' },
       { url: 'text-shadow', title: 'Text Shadow' },
     ],
   },
 ];
 
-/**
- * Layout item options
- */
-const layoutItemSizeOptionArray = [
+const layoutItemSizeOptions = [
   {
     key: 'one-second',
     title: '50% (1/2)',
@@ -87,10 +81,7 @@ const layoutItemSizeOptionArray = [
   },
 ];
 
-/**
- * Layout preview options
- */
-const layoutPreviewOptionArray = [
+const layoutPreviewOptions = [
   {
     key: 'eqh',
     title: 'Equal Height',
@@ -103,19 +94,14 @@ const layoutPreviewOptionArray = [
   },
 ];
 
-/**
- * Layout sample contents
- */
-const layoutItemContentArray = ['11111', '22222', '33333', '44444'];
+const layoutItemContents = ['11111', '22222', '33333', '44444'];
 
 /**
- * Build layout HTML string
  * @param {string} layoutType grid, flexbox, or floatbox
- * @return {string} HTML string
  */
 function layoutItemsHtml(layoutType) {
   let layoutItemHtml = '';
-  layoutItemContentArray.forEach(content => {
+  layoutItemContents.forEach(content => {
     layoutItemHtml +=
       `  <div class="item">\n` +
       `    <div class="content">\n` +
@@ -126,9 +112,6 @@ function layoutItemsHtml(layoutType) {
   return `<div class="${layoutType}">\n` + layoutItemHtml + `</div>`;
 }
 
-/**
- * Layout menu HTML string
- */
 const layoutMenuHtml =
   `<nav class="menu-bar">\n` +
   `  <div class="group">\n` +
@@ -140,23 +123,16 @@ const layoutMenuHtml =
   `  </div>\n` +
   `</nav>`;
 
-/**
- * Layout gallery url array
- */
-const layoutGalleryImageUrl = [
+const layoutGalleryImageUrls = [
   'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
   'https://images.unsplash.com/photo-1471922694854-ff1b63b20054?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
   'https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
 ];
 
-/**
- * Build layout gallery HTML string
- * @returns {string} HTML string
- */
 function layoutGalleryHtml() {
   let layoutItemHtml = '';
-  layoutGalleryImageUrl.forEach(imageUrl => {
+  layoutGalleryImageUrls.forEach(imageUrl => {
     // prettier-ignore
     layoutItemHtml +=
       `      <div class="item">\n` +
@@ -175,9 +151,7 @@ function layoutGalleryHtml() {
 }
 
 /**
- * Build layout page HTML string
  * @param {string} layout Layout key
- * @returns {string} HTML string
  */
 function layoutPageHtml(layout) {
   let leftbarHtml = '',
@@ -222,13 +196,11 @@ function layoutPageHtml(layout) {
 }
 
 /**
- * Create select option objects, by split and uppercase
- * @param {string[]} valueArray List of value strings
+ * @param {string[]} values List of value strings
  * @param {string} separator Separator string
- * @returns {{ key: string, value: string, title: string }[]} Option objects
  */
-function optionArrayUpper(valueArray, separator = ' ') {
-  return valueArray.map(value => {
+function optionsUpper(values, separator = ' ') {
+  return values.map(value => {
     const title = value
       .split(separator)
       .map(s => s.charAt(0).toUpperCase() + s.slice(1))
@@ -238,14 +210,14 @@ function optionArrayUpper(valueArray, separator = ' ') {
 }
 
 export {
-  menuGroupArray,
-  layoutItemSizeOptionArray,
-  layoutPreviewOptionArray,
-  layoutItemContentArray,
-  layoutGalleryImageUrl,
+  menuGroups,
+  layoutItemSizeOptions,
+  layoutPreviewOptions,
+  layoutItemContents,
+  layoutGalleryImageUrls,
   layoutItemsHtml,
   layoutMenuHtml,
   layoutGalleryHtml,
   layoutPageHtml,
-  optionArrayUpper,
+  optionsUpper,
 };

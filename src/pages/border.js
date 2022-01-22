@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
 const modeOptionArray = [
   { key: 'all', title: 'One Value' },
   { key: 'each', title: 'Individual' },
 ];
-const styleOptionArray = optionArrayUpper([
+const styleOptionArray = optionsUpper([
   'solid',
   'dotted',
   'dashed',

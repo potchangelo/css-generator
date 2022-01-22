@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Code, InputColor, InputSelect, InputText, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const positionOptionArray = optionArrayUpper([
+const positionOptionArray = optionsUpper([
   'left top',
   'left center',
   'left bottom',
@@ -15,8 +15,8 @@ const positionOptionArray = optionArrayUpper([
   'right center',
   'right bottom',
 ]);
-const sizeOptionArray = optionArrayUpper(['auto', 'cover', 'contain']);
-const repeatOptionArray = optionArrayUpper(['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'], '-');
+const sizeOptionArray = optionsUpper(['auto', 'cover', 'contain']);
+const repeatOptionArray = optionsUpper(['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'], '-');
 
 function PageBackgroundImage() {
   // - States

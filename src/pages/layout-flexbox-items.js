@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
+import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const directionOptionArray = optionArrayUpper(['row', 'row-reverse'], '-');
-const wrapOptionArray = optionArrayUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
-const justifyContentOptionArray = optionArrayUpper(
+const directionOptionArray = optionsUpper(['row', 'row-reverse'], '-');
+const wrapOptionArray = optionsUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
+const justifyContentOptionArray = optionsUpper(
   ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
   '-'
 );
-const alignItemsOptionArray = optionArrayUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
+const alignItemsOptionArray = optionsUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
 const widthUnitOptionArray = [
   { key: 'percent', title: 'Percent' },
   { key: 'pixels', title: 'Pixels' },
@@ -80,7 +80,7 @@ function PageLayoutFlexboxItems() {
     widthElement = (
       <InputSelect
         title="Width (percent)"
-        optionArray={layoutItemSizeOptionArray}
+        optionArray={layoutItemSizeOptions}
         value={widthPercent}
         onValueChange={setWidthPercent}
       />
@@ -126,7 +126,7 @@ function PageLayoutFlexboxItems() {
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptionArray}
+              optionArray={layoutPreviewOptions}
               value={preview}
               onValueChange={setPreview}
             />

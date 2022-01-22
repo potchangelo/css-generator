@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
+import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const jaItemsOptionArray = optionArrayUpper(['stretch', 'start', 'end', 'center']);
+const jaItemsOptionArray = optionsUpper(['stretch', 'start', 'end', 'center']);
 
 function PageLayoutGridItems() {
   // - States
@@ -16,7 +16,7 @@ function PageLayoutGridItems() {
   const [preview, setPreview] = useState('equal-height');
 
   // - Outputs
-  const sizeObj = layoutItemSizeOptionArray.find(_size => _size.value === Number(width));
+  const sizeObj = layoutItemSizeOptions.find(_size => _size.value === Number(width));
   const { templateColumns } = sizeObj;
   const outputContainerStyle = {
     gridTemplateColumns: templateColumns,
@@ -53,7 +53,7 @@ function PageLayoutGridItems() {
             <h5 className="title is-5">Layout</h5>
             <InputSelect
               title="Grid column width"
-              optionArray={layoutItemSizeOptionArray}
+              optionArray={layoutItemSizeOptions}
               value={width}
               onValueChange={setWidth}
             />
@@ -74,7 +74,7 @@ function PageLayoutGridItems() {
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptionArray}
+              optionArray={layoutPreviewOptions}
               value={preview}
               onValueChange={setPreview}
             />

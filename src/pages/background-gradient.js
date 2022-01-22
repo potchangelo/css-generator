@@ -3,16 +3,16 @@ import { ArrowUp, Trash2 } from 'react-feather';
 import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import { colorHexToRgba, gradientPointSortAsc } from 'z/utils/colors';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const modeOptionArray = optionArrayUpper(['linear', 'radial']);
+const modeOptionArray = optionsUpper(['linear', 'radial']);
 const linearDegOptionArray = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
   const key = `${deg}`;
   const icon = <ArrowUp width={20} height={20} strokeWidth={3} transform={`rotate(${deg})`} />;
   return { key, title: key, icon };
 });
-const radialShapeOptionArray = optionArrayUpper(['circle', 'ellipse']);
+const radialShapeOptionArray = optionsUpper(['circle', 'ellipse']);
 
 function PageBackgroundGradient() {
   // - States

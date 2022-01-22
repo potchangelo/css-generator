@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Code, InputColor, InputRange, InputSelect, PreviewText, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const textAlignOptionArray = optionArrayUpper(['left', 'center', 'right', 'justify']);
-const textDecorationOptionArray = optionArrayUpper(['none', 'underline', 'overline', 'line-through'], '-');
-const textTransformOptionArray = optionArrayUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
+const textAlignOptionArray = optionsUpper(['left', 'center', 'right', 'justify']);
+const textDecorationOptionArray = optionsUpper(['none', 'underline', 'overline', 'line-through'], '-');
+const textTransformOptionArray = optionsUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
 
 function PageText() {
   // - States
