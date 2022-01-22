@@ -8,16 +8,7 @@ const modeOptionArray = [
   { key: 'all', title: 'One Value' },
   { key: 'each', title: 'Individual' },
 ];
-const styleOptionArray = optionsUpper([
-  'solid',
-  'dotted',
-  'dashed',
-  'double',
-  'groove',
-  'ridge',
-  'inset',
-  'outset',
-]);
+const styleOptionArray = optionsUpper(['solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset']);
 const sideArray = ['top', 'right', 'bottom', 'left'];
 
 function PageBorder() {
