@@ -26,7 +26,7 @@ function PageTextShadow() {
             <InputRange title="X (pixels)" min={-10} max={10} value={x} onValueChange={setX} />
             <InputRange title="Y (pixels)" min={-10} max={10} value={y} onValueChange={setY} />
             <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onValueChange={setBlur} />
-            <InputColor title="Color" value={color} onValueChange={setColor} />
+            <InputColor title="Color" value={color} onChange={setColor} />
             <InputRange
               title="Color opacity"
               min={0}

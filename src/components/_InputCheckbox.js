@@ -5,7 +5,7 @@ import * as styles from './css/input.module.scss';
 /**
  * @param {object} props
  * @param {string} props.title
- * @param {boolean} props.chceked
+ * @param {boolean} props.checked
  * @param {*} props.onChange
  */
 function _InputCheckbox(props) {

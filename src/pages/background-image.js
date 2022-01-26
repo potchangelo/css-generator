@@ -56,7 +56,7 @@ function PageBackgroundImage() {
             />
             <InputSelect title="Size" optionArray={sizeOptionArray} value={size} onValueChange={setSize} />
             <InputSelect title="Repeat" optionArray={repeatOptionArray} value={repeat} onValueChange={setRepeat} />
-            <InputColor title="Background color (support while loading image)" value={color} onValueChange={setColor} />
+            <InputColor title="Background color (support while loading image)" value={color} onChange={setColor} />
           </Section>
         </GridItem>
         <GridItem>

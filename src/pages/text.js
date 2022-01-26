@@ -43,7 +43,7 @@ function PageText() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Text" subTitle="Customizing">
-            <InputColor title="Color" value={color} onValueChange={setColor} />
+            <InputColor title="Color" value={color} onChange={setColor} />
             <InputRange
               title="Line height"
               min={1}

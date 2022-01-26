@@ -98,7 +98,7 @@ function PageBackgroundGradient() {
               onSelectedChange={setSelectedIndex}
               onDraggingChange={setDraggingIndex}
             />
-            <InputColor title="Color" value={selectedPoint.color} onValueChange={setPointColor} />
+            <InputColor title="Color" value={selectedPoint.color} onChange={setPointColor} />
             <InputRange
               title="Color opacity"
               min={0}
