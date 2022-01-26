@@ -30,7 +30,13 @@ function PageTransformTranslate() {
             <p className="label">Translate X</p>
             <div className="columns is-mobile is-gapless">
               <div className="column">
-                <InputRange min={-200} max={200} hasAddons={true} value={translateX} onValueChange={setTranslateX} />
+                <InputRange
+                  min={-200}
+                  max={200}
+                  hasAddons={true}
+                  value={translateX}
+                  onChange={setTranslateX}
+                />
               </div>
               <div className="column is-narrow">
                 <InputSelect optionArray={unitOptionArray} value={unitX} onValueChange={setUnitX} />
@@ -39,7 +45,13 @@ function PageTransformTranslate() {
             <p className="label">Translate Y</p>
             <div className="columns is-mobile is-gapless">
               <div className="column">
-                <InputRange min={-200} max={200} hasAddons={true} value={translateY} onValueChange={setTranslateY} />
+                <InputRange
+                  min={-200}
+                  max={200}
+                  hasAddons={true}
+                  value={translateY}
+                  onChange={setTranslateY}
+                />
               </div>
               <div className="column is-narrow">
                 <InputSelect optionArray={unitOptionArray} value={unitY} onValueChange={setUnitY} />

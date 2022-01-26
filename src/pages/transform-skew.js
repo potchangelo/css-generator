@@ -18,8 +18,8 @@ function PageTransformSkew() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Transform Skew" subTitle="Customizing">
-            <InputRange title="Skew X (degrees)" min={-45} max={45} value={skewX} onValueChange={setSkewX} />
-            <InputRange title="Skew Y (degrees)" min={-45} max={45} value={skewY} onValueChange={setSkewY} />
+            <InputRange title="Skew X (degrees)" min={-45} max={45} value={skewX} onChange={setSkewX} />
+            <InputRange title="Skew Y (degrees)" min={-45} max={45} value={skewY} onChange={setSkewY} />
           </Section>
         </GridItem>
         <GridItem>

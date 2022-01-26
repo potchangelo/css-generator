@@ -24,7 +24,7 @@ function PageTransformScale() {
               max={2.5}
               step={0.1}
               value={scaleX}
-              onValueChange={setScaleX}
+              onChange={setScaleX}
             />
             <InputRange
               title="Scale height (factor)"
@@ -32,7 +32,7 @@ function PageTransformScale() {
               max={2.5}
               step={0.1}
               value={scaleY}
-              onValueChange={setScaleY}
+              onChange={setScaleY}
             />
           </Section>
         </GridItem>

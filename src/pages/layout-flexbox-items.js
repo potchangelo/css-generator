@@ -74,7 +74,13 @@ function PageLayoutFlexboxItems() {
   let widthElement;
   if (widthUnit === 'pixels') {
     widthElement = (
-      <InputRange title="Width (pixels)" min={120} max={260} value={widthPixels} onValueChange={setWidthPixels} />
+      <InputRange
+        title="Width (pixels)"
+        min={120}
+        max={260}
+        value={widthPixels}
+        onChange={setWidthPixels}
+      />
     );
   } else {
     widthElement = (
@@ -121,8 +127,20 @@ function PageLayoutFlexboxItems() {
               onButtonClick={setWidthUnit}
             />
             {widthElement}
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
+            <InputRange
+              title="Horizontal space (pixels)"
+              min={0}
+              max={40}
+              value={hSpace}
+              onChange={setHSpace}
+            />
+            <InputRange
+              title="Vertical space (pixels)"
+              min={0}
+              max={40}
+              value={vSpace}
+              onChange={setVSpace}
+            />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"

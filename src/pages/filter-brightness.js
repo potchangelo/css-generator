@@ -22,7 +22,7 @@ function PageFilterBrightness() {
               min={0}
               max={300}
               value={brightness}
-              onValueChange={setBrightness}
+              onChange={setBrightness}
             />
           </Section>
         </GridItem>

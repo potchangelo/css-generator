@@ -50,21 +50,21 @@ function PageText() {
               max={2}
               step={0.05}
               value={lineHeight}
-              onValueChange={setLineHeight}
+              onChange={setLineHeight}
             />
             <InputRange
               title="Letter spacing (pixels)"
               min={0}
               max={10}
               value={letterSpacing}
-              onValueChange={setLetterSpacing}
+              onChange={setLetterSpacing}
             />
             <InputRange
               title="Word spacing (pixels)"
               min={0}
               max={10}
               value={wordSpacing}
-              onValueChange={setWordSpacing}
+              onChange={setWordSpacing}
             />
             <InputSelect
               title="Text align"

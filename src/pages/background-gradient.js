@@ -105,7 +105,7 @@ function PageBackgroundGradient() {
               max={1}
               step={0.01}
               value={selectedPoint.alpha}
-              onValueChange={setPointAlpha}
+              onChange={setPointAlpha}
             />
             <button
               className="button is-danger is-outlined is-small"

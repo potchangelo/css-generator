@@ -63,8 +63,20 @@ function PageLayoutFloat() {
             <h5 className="title is-5">Item</h5>
             <InputSelect title="Float" optionArray={floatOptionArray} value={float} onValueChange={setFloat} />
             <InputSelect title="Width" optionArray={layoutItemSizeOptions} value={width} onValueChange={setWidth} />
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
+            <InputRange
+              title="Horizontal space (pixels)"
+              min={0}
+              max={40}
+              value={hSpace}
+              onChange={setHSpace}
+            />
+            <InputRange
+              title="Vertical space (pixels)"
+              min={0}
+              max={40}
+              value={vSpace}
+              onChange={setVSpace}
+            />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"

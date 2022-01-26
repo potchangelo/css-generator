@@ -69,8 +69,20 @@ function PageLayoutGridItems() {
               value={alignItems}
               onValueChange={setAlignItems}
             />
-            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onValueChange={setColumnGap} />
-            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onValueChange={setRowGap} />
+            <InputRange
+              title="Column gap (pixels)"
+              min={0}
+              max={40}
+              value={columnGap}
+              onChange={setColumnGap}
+            />
+            <InputRange
+              title="Row gap (pixels)"
+              min={0}
+              max={40}
+              value={rowGap}
+              onChange={setRowGap}
+            />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"

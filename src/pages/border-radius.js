@@ -52,13 +52,13 @@ function PageBorderRadius() {
           min={0}
           max={40}
           value={_radius}
-          onValueChange={_setRadius}
+          onChange={_setRadius}
         />
       );
     });
   } else {
     borderElements = (
-      <InputRange title="Radius  (pixels)" min={0} max={40} value={radius} onValueChange={setRadius} />
+      <InputRange title="Radius (pixels)" min={0} max={40} value={radius} onChange={setRadius} />
     );
   }
 

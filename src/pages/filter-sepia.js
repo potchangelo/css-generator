@@ -17,7 +17,13 @@ function PageFilterSepia() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Sepia" subTitle="Customizing">
-            <InputRange title="Sepia (percent)" min={0} max={100} value={sepia} onValueChange={setSepia} />
+            <InputRange
+              title="Sepia (percent)"
+              min={0}
+              max={100}
+              value={sepia}
+              onChange={setSepia}
+            />
           </Section>
         </GridItem>
         <GridItem>

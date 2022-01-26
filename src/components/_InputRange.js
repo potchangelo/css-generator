@@ -1,9 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
+/**
+ * @param {object} props
+ * @param {string} [props.title]
+ * @param {number} props.min
+ * @param {number} props.max
+ * @param {number} [props.step=1]
+ * @param {number} props.value
+ * @param {boolean} [props.hasAddons=false]
+ * @param {*} props.onChange
+ */
 function _InputRange(props) {
-  const { title, min, max, step, hasAddons, value, onValueChange } = props;
+  const {
+    title, min, max, step = 1, value, hasAddons = false, onChange
+  } = props;
 
   let controlClass = 'control';
   if (hasAddons) controlClass += ` ${styles.controlRangeHasAddons}`;
@@ -23,7 +34,7 @@ function _InputRange(props) {
             max={max}
             step={step}
             value={value}
-            onChange={event => onValueChange(Number(event.target.value))}
+            onChange={event => { onChange(+event.target.value) }}
           />
           <div className={styles.rangeText}>
             <div className={styles.rangeTextItem}>{min}</div>
@@ -34,20 +45,5 @@ function _InputRange(props) {
     </>
   );
 }
-
-_InputRange.propTypes = {
-  title: PropTypes.string,
-  min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
-  step: PropTypes.number,
-  hasAddons: PropTypes.bool,
-  value: PropTypes.number.isRequired,
-  onValueChange: PropTypes.func.isRequired,
-};
-
-_InputRange.defaultProps = {
-  step: 1,
-  hasAddons: false,
-};
 
 export default _InputRange;

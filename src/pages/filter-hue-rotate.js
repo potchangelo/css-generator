@@ -17,7 +17,13 @@ function PageFilterHueRotate() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Hue-Rotate" subTitle="Customizing">
-            <InputRange title="Hue-Rotate (degrees)" min={0} max={360} value={hueRotate} onValueChange={setHueRotate} />
+            <InputRange
+              title="Hue-Rotate (degrees)"
+              min={0}
+              max={360}
+              value={hueRotate}
+              onChange={setHueRotate}
+            />
           </Section>
         </GridItem>
         <GridItem>
