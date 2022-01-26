@@ -91,10 +91,10 @@ function PageBackgroundGradient() {
           <Section extraClass={styles.inputs} title="Background Gradient" subTitle="Customizing">
             <h5 className="title is-5">Colors</h5>
             <InputRangeGradient
-              colorPointArray={points}
+              colorPoints={points}
               selectedIndex={selectedIndex}
               draggingIndex={draggingIndex}
-              onColorPointChange={setPoints}
+              onChange={setPoints}
               onSelectedChange={setSelectedIndex}
               onDraggingChange={setDraggingIndex}
             />
