@@ -12,7 +12,9 @@ function _AppNavHeader() {
         className={styles.headerMenu}
         role="button"
         tabIndex={0}
-        onClick={_ => navContext.dispatch({ type: 'toggleNav' })}
+        onClick={_ => {
+          navContext.dispatch({ type: 'toggleNav' });
+        }}
         onKeyPress={_ => {}}
       >
         <span className="icon">

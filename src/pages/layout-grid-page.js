@@ -6,14 +6,14 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutPageHtml } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const layoutOptionArray = [
+const layoutOptions = [
   {
     key: 'h-l-m-f',
     title: 'Style 1',
     imageSrc: image1,
     templateColumns: 'lw auto',
     templateRows: 'hh minmax(160px, auto) auto',
-    templateAreasArray: [`'header header'`, `'leftbar main'`, `'footer footer'`],
+    templateAreas: [`'header header'`, `'leftbar main'`, `'footer footer'`],
   },
   {
     key: 'h-m-r-f',
@@ -21,7 +21,7 @@ const layoutOptionArray = [
     imageSrc: image2,
     templateColumns: 'auto rw',
     templateRows: 'hh minmax(160px, auto) auto',
-    templateAreasArray: [`'header header'`, `'main rightbar'`, `'footer footer'`],
+    templateAreas: [`'header header'`, `'main rightbar'`, `'footer footer'`],
   },
 ];
 
@@ -35,14 +35,14 @@ function PageLayoutGridPage() {
   const [rowGap, setRowGap] = useState(20);
 
   // - Outputs
-  const layoutObject = layoutOptionArray.find(_layout => _layout.key === layout);
-  const { templateColumns, templateRows, templateAreasArray } = layoutObject;
+  const layoutObject = layoutOptions.find(_layout => _layout.key === layout);
+  const { templateColumns, templateRows, templateAreas } = layoutObject;
 
   const calcTemplateColumns = templateColumns.replace('lw', `${leftbarWidth}px`).replace('rw', `${rightbarWidth}px`);
   const calcTemplateRows = templateRows.replace('hh', `${headerHeight}px`);
 
-  const styleTemplateAreas = templateAreasArray.join(' ');
-  const cssTemplateAreas = templateAreasArray.map(area => `    ${area}`).join('\n');
+  const styleTemplateAreas = templateAreas.join(' ');
+  const cssTemplateAreas = templateAreas.map(area => `    ${area}`).join('\n');
 
   let cssSidebar = '';
   if (layout.includes('r')) {
@@ -97,18 +97,12 @@ function PageLayoutGridPage() {
         min={200}
         max={300}
         value={rightbarWidth}
-        onValueChange={setRightbarWidth}
+        onChange={setRightbarWidth}
       />
     );
   } else {
     sidebarElement = (
-      <InputRange
-        title="Leftbar width (pixels)"
-        min={200}
-        max={300}
-        value={leftbarWidth}
-        onValueChange={setLeftbarWidth}
-      />
+      <InputRange title="Leftbar width (pixels)" min={200} max={300} value={leftbarWidth} onChange={setLeftbarWidth} />
     );
   }
 
@@ -121,7 +115,7 @@ function PageLayoutGridPage() {
             <h5 className="title is-5">Select layout</h5>
             <InputButtonImageGroup
               itemsPerRow={2}
-              optionArray={layoutOptionArray}
+              options={layoutOptions}
               activeKey={layout}
               onButtonClick={setLayout}
             />
@@ -131,11 +125,11 @@ function PageLayoutGridPage() {
               min={50}
               max={100}
               value={headerHeight}
-              onValueChange={setHeaderHeight}
+              onChange={setHeaderHeight}
             />
             {sidebarElement}
-            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onValueChange={setColumnGap} />
-            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onValueChange={setRowGap} />
+            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
+            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
           </Section>
         </GridItem>
         <GridItem>

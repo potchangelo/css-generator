@@ -17,7 +17,7 @@ function PageFilterGrayscale() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Grayscale" subTitle="Customizing">
-            <InputRange title="Grayscale (percent)" min={0} max={100} value={grayscale} onValueChange={setGrayscale} />
+            <InputRange title="Grayscale (percent)" min={0} max={100} value={grayscale} onChange={setGrayscale} />
           </Section>
         </GridItem>
         <GridItem>

@@ -1,7 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as styles from './css/section.module.scss';
 
+/**
+ * @param {object} props
+ * @param {string} [props.extraClass]
+ * @param {string} [props.headerTheme]
+ * @param {string} props.title
+ * @param {string} props.subTitle
+ */
 function _Section(props) {
   const { extraClass, headerTheme, title, subTitle, children } = props;
 
@@ -20,12 +26,5 @@ function _Section(props) {
     </section>
   );
 }
-
-_Section.propTypes = {
-  extraClass: PropTypes.string,
-  headerTheme: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-};
 
 export default _Section;

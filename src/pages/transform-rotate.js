@@ -17,7 +17,7 @@ function PageTransformRotate() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Transform Rotate" subTitle="Customizing">
-            <InputRange title="Rotate (degrees)" min={0} max={360} value={rotate} onValueChange={setRotate} />
+            <InputRange title="Rotate (degrees)" min={0} max={360} value={rotate} onChange={setRotate} />
           </Section>
         </GridItem>
         <GridItem>

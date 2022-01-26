@@ -1,8 +1,6 @@
 /**
- * Get color in RGBA, converted from HEX
  * @param {string} hex Color HEX string
  * @param {number} a Color alpha 0-1
- * @returns {string} Color in RGBA
  */
 function colorHexToRgba(hex, a = 1) {
   const { r, g, b } = colorHexToRgbNumbers(hex);
@@ -13,9 +11,7 @@ function colorHexToRgba(hex, a = 1) {
 }
 
 /**
- * Get R, G, B color numbers, converted from HEX
  * @param {string} hex Color HEX string
- * @returns {{ r: number, g: number, b: number }} Object of R, G, B numbers
  */
 function colorHexToRgbNumbers(hex) {
   let hR, hG, hB;
@@ -39,9 +35,9 @@ function colorHexToRgbNumbers(hex) {
   if (hG.length === 1) hG += hG;
   if (hB.length === 1) hB += hB;
 
-  const r = parseInt(hR, 16),
-    g = parseInt(hG, 16),
-    b = parseInt(hB, 16);
+  const r = parseInt(hR, 16);
+  const g = parseInt(hG, 16);
+  const b = parseInt(hB, 16);
   return { r, g, b };
 }
 
@@ -51,7 +47,6 @@ function colorHexToRgbNumbers(hex) {
  * @param {string} hexL Color HEX string (left)
  * @param {string} hexR Color HEX string (right)
  * @param {number} ratio Position ratio 0-1
- * @returns {string} Color in HEX
  */
 function gradientMiddleHex(hexL, hexR, ratio) {
   const rgbL = colorHexToRgbNumbers(hexL);
@@ -82,7 +77,6 @@ function gradientMiddleHex(hexL, hexR, ratio) {
  * @param {number} aL Alpha (left)
  * @param {number} aR Alpha (right)
  * @param {number} ratio Position ratio 0-1
- * @returns {number} Alpha number
  */
 function gradientMiddleAlpha(aL, aR, ratio) {
   let calcAL = aL,
@@ -100,7 +94,6 @@ function gradientMiddleAlpha(aL, aR, ratio) {
  * Sort function for Gradient color, by position ASC
  * @param {{ color: string, alpha: number, position: number }} point1 Compare item 1
  * @param {{ color: string, alpha: number, position: number }} point2 Compare item 2
- * @returns {number} Sort round result
  */
 const gradientPointSortAsc = (point1, point2) => point1.position - point2.position;
 
@@ -108,7 +101,6 @@ const gradientPointSortAsc = (point1, point2) => point1.position - point2.positi
  * Sort function for Gradient color, by position DESC
  * @param {{ color: string, alpha: number, position: number }} point1 Compare item 1
  * @param {{ color: string, alpha: number, position: number }} point2 Compare item 2
- * @returns {number} Sort round result
  */
 const gradientPointSortDesc = (point1, point2) => point2.position - point1.position;
 

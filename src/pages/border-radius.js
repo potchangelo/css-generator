@@ -3,11 +3,11 @@ import { Code, InputButtonGroup, InputRange, PreviewBox, Seo } from 'z/component
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-const modeOptionArray = [
+const modeOptions = [
   { key: 'all', title: 'One Value' },
   { key: 'each', title: 'Individual' },
 ];
-const sideArray = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+const sides = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
 
 function PageBorderRadius() {
   // - States
@@ -34,7 +34,7 @@ function PageBorderRadius() {
   // - Elements
   let borderElements;
   if (mode === 'each') {
-    borderElements = sideArray.map(side => {
+    borderElements = sides.map(side => {
       let _radius, _setRadius;
       if (side === 'top-left') {
         [_radius, _setRadius] = [radiusTl, setRadiusTl];
@@ -52,12 +52,12 @@ function PageBorderRadius() {
           min={0}
           max={40}
           value={_radius}
-          onValueChange={_setRadius}
+          onChange={_setRadius}
         />
       );
     });
   } else {
-    borderElements = <InputRange title="Radius  (pixels)" min={0} max={40} value={radius} onValueChange={setRadius} />;
+    borderElements = <InputRange title="Radius (pixels)" min={0} max={40} value={radius} onChange={setRadius} />;
   }
 
   return (
@@ -66,7 +66,7 @@ function PageBorderRadius() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Border Radius" subTitle="Customizing">
-            <InputButtonGroup title="Mode" optionArray={modeOptionArray} activeKey={mode} onButtonClick={setMode} />
+            <InputButtonGroup title="Mode" options={modeOptions} activeKey={mode} onButtonClick={setMode} />
             {borderElements}
           </Section>
         </GridItem>

@@ -1,14 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+/**
+ * @param {object} props
+ * @param {string} [props.title]
+ * @param {object[]} props.options
+ * @param {string} props.options[].key
+ * @param {string} [props.options[].title]
+ * @param {import('react-feather').Icon} [props.options[].icon]
+ * @param {string} props.activeKey
+ * @param {import('react').SetStateAction} props.onButtonClick
+ */
 function _InputButtonGroup(props) {
-  const { title, optionArray, activeKey, onButtonClick } = props;
+  const { title, options, activeKey, onButtonClick } = props;
 
   let labelElement = null;
   if (!!title) labelElement = <label className="label">{title}</label>;
 
-  const buttonElements = optionArray.map(option => {
-    const { key, title: _title, icon } = option;
+  const buttonElements = options.map(option => {
+    const { key, title: buttonTitle, icon } = option;
 
     let classes = 'button';
     if (key === activeKey) classes += ' is-dark is-selected';
@@ -17,11 +26,17 @@ function _InputButtonGroup(props) {
     if (!!icon) {
       contentElement = <span className="icon">{icon}</span>;
     } else {
-      contentElement = <span>{_title}</span>;
+      contentElement = <span>{buttonTitle}</span>;
     }
 
     return (
-      <button key={key} className={classes} onClick={() => onButtonClick(key)}>
+      <button
+        key={key}
+        className={classes}
+        onClick={_ => {
+          onButtonClick(key);
+        }}
+      >
         {contentElement}
       </button>
     );
@@ -34,18 +49,5 @@ function _InputButtonGroup(props) {
     </>
   );
 }
-
-_InputButtonGroup.propTypes = {
-  title: PropTypes.string,
-  optionArray: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      title: PropTypes.string,
-      icon: PropTypes.element,
-    })
-  ).isRequired,
-  activeKey: PropTypes.string.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
-};
 
 export default _InputButtonGroup;

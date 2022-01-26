@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Code, InputColor, InputSelect, InputText, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const positionOptionArray = optionArrayUpper([
+const positionOptions = optionsUpper([
   'left top',
   'left center',
   'left bottom',
@@ -15,8 +15,8 @@ const positionOptionArray = optionArrayUpper([
   'right center',
   'right bottom',
 ]);
-const sizeOptionArray = optionArrayUpper(['auto', 'cover', 'contain']);
-const repeatOptionArray = optionArrayUpper(['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'], '-');
+const sizeOptions = optionsUpper(['auto', 'cover', 'contain']);
+const repeatOptions = optionsUpper(['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'], '-');
 
 function PageBackgroundImage() {
   // - States
@@ -47,16 +47,11 @@ function PageBackgroundImage() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Background Image" subTitle="Customizing">
-            <InputText title="Image URL" placeholder="URL" value={image} onValueChange={setImage} />
-            <InputSelect
-              title="Position"
-              optionArray={positionOptionArray}
-              value={position}
-              onValueChange={setPosition}
-            />
-            <InputSelect title="Size" optionArray={sizeOptionArray} value={size} onValueChange={setSize} />
-            <InputSelect title="Repeat" optionArray={repeatOptionArray} value={repeat} onValueChange={setRepeat} />
-            <InputColor title="Background color (support while loading image)" value={color} onValueChange={setColor} />
+            <InputText title="Image URL" placeholder="URL" value={image} onChange={setImage} />
+            <InputSelect title="Position" options={positionOptions} value={position} onChange={setPosition} />
+            <InputSelect title="Size" options={sizeOptions} value={size} onChange={setSize} />
+            <InputSelect title="Repeat" options={repeatOptions} value={repeat} onChange={setRepeat} />
+            <InputColor title="Background color (support while loading image)" value={color} onChange={setColor} />
           </Section>
         </GridItem>
         <GridItem>

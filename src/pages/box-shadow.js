@@ -26,19 +26,12 @@ function PageBoxShadow() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Box Shadow" subTitle="Customizing">
-            <InputRange title="X (pixels)" min={-10} max={10} value={x} onValueChange={setX} />
-            <InputRange title="Y (pixels)" min={-10} max={10} value={y} onValueChange={setY} />
-            <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onValueChange={setBlur} />
-            <InputRange title="Spread (pixels)" min={0} max={20} value={spread} onValueChange={setSpread} />
-            <InputColor title="Color" value={color} onValueChange={setColor} />
-            <InputRange
-              title="Color opacity"
-              min={0}
-              max={1}
-              step={0.01}
-              value={colorAlpha}
-              onValueChange={setColorAlpha}
-            />
+            <InputRange title="X (pixels)" min={-10} max={10} value={x} onChange={setX} />
+            <InputRange title="Y (pixels)" min={-10} max={10} value={y} onChange={setY} />
+            <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
+            <InputRange title="Spread (pixels)" min={0} max={20} value={spread} onChange={setSpread} />
+            <InputColor title="Color" value={color} onChange={setColor} />
+            <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
           </Section>
         </GridItem>
         <GridItem>

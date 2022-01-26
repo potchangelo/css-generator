@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { layoutGalleryImageUrl } from 'z/utils/data';
+import { layoutGalleryImageUrls } from 'z/utils/data';
 import * as styles from './css/preview.module.scss';
 
 function _PreviewLayoutGallery(props) {
   const { wrapperStyle, scrollStyle, containerStyle, itemStyle } = props;
 
-  const itemElements = layoutGalleryImageUrl.map((imageUrl, index) => (
+  const itemElements = layoutGalleryImageUrls.map((imageUrl, index) => (
     <div key={`item-${index}`} className={styles.item} style={itemStyle}>
       <img src={imageUrl} alt="Item" />
     </div>

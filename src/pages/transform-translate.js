@@ -3,7 +3,7 @@ import { Code, InputRange, InputSelect, PreviewTransform, Seo } from 'z/componen
 import { App, Grid, GridItem, Section } from 'z/layouts';
 import * as styles from './css/section.module.scss';
 
-const unitOptionArray = [
+const unitOptions = [
   { key: 'pixels', value: 'px', title: 'pixels' },
   { key: 'percent', value: '%', title: 'percent' },
 ];
@@ -30,19 +30,19 @@ function PageTransformTranslate() {
             <p className="label">Translate X</p>
             <div className="columns is-mobile is-gapless">
               <div className="column">
-                <InputRange min={-200} max={200} hasAddons={true} value={translateX} onValueChange={setTranslateX} />
+                <InputRange min={-200} max={200} hasAddons={true} value={translateX} onChange={setTranslateX} />
               </div>
               <div className="column is-narrow">
-                <InputSelect optionArray={unitOptionArray} value={unitX} onValueChange={setUnitX} />
+                <InputSelect options={unitOptions} value={unitX} onChange={setUnitX} />
               </div>
             </div>
             <p className="label">Translate Y</p>
             <div className="columns is-mobile is-gapless">
               <div className="column">
-                <InputRange min={-200} max={200} hasAddons={true} value={translateY} onValueChange={setTranslateY} />
+                <InputRange min={-200} max={200} hasAddons={true} value={translateY} onChange={setTranslateY} />
               </div>
               <div className="column is-narrow">
-                <InputSelect optionArray={unitOptionArray} value={unitY} onValueChange={setUnitY} />
+                <InputSelect options={unitOptions} value={unitY} onChange={setUnitY} />
               </div>
             </div>
           </Section>

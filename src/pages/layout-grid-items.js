@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
+import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const jaItemsOptionArray = optionArrayUpper(['stretch', 'start', 'end', 'center']);
+const alignOptions = optionsUpper(['stretch', 'start', 'end', 'center']);
 
 function PageLayoutGridItems() {
   // - States
@@ -16,7 +16,7 @@ function PageLayoutGridItems() {
   const [preview, setPreview] = useState('equal-height');
 
   // - Outputs
-  const sizeObj = layoutItemSizeOptionArray.find(_size => _size.value === Number(width));
+  const sizeObj = layoutItemSizeOptions.find(_size => _size.value === Number(width));
   const { templateColumns } = sizeObj;
   const outputContainerStyle = {
     gridTemplateColumns: templateColumns,
@@ -51,32 +51,27 @@ function PageLayoutGridItems() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Grid Items Layout" subTitle="Customizing">
             <h5 className="title is-5">Layout</h5>
-            <InputSelect
-              title="Grid column width"
-              optionArray={layoutItemSizeOptionArray}
-              value={width}
-              onValueChange={setWidth}
-            />
+            <InputSelect title="Grid column width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
             <InputSelect
               title="Justify items (row axis)"
-              optionArray={jaItemsOptionArray}
+              options={alignOptions}
               value={justifyItems}
-              onValueChange={setJustifyItems}
+              onChange={setJustifyItems}
             />
             <InputSelect
               title="Align items (column axis)"
-              optionArray={jaItemsOptionArray}
+              options={alignOptions}
               value={alignItems}
-              onValueChange={setAlignItems}
+              onChange={setAlignItems}
             />
-            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onValueChange={setColumnGap} />
-            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onValueChange={setRowGap} />
+            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
+            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptionArray}
+              options={layoutPreviewOptions}
               value={preview}
-              onValueChange={setPreview}
+              onChange={setPreview}
             />
           </Section>
         </GridItem>

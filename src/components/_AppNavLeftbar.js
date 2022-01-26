@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React, { useContext } from 'react';
 import Logo64 from 'z/images/logo-64.png';
-import { menuGroupArray } from 'z/utils/data';
+import { menuGroups } from 'z/utils/data';
 import { _NavContext as NavContext } from './_AppNav';
 import * as styles from './css/appNav.module.scss';
 
@@ -11,8 +11,8 @@ function _AppNavLeftbar() {
   let leftbarClass = styles.leftbar;
   if (!isNavOpenMobile) leftbarClass += ' is-hidden-mobile';
 
-  const groupElements = menuGroupArray.map(group => {
-    const linkElements = group.linkArray.map(link => (
+  const groupElements = menuGroups.map(group => {
+    const linkElements = group.links.map(link => (
       <Link key={link.url} to={`/${link.url}/`} activeClassName={styles.leftbarLinkActive}>
         {link.title}
       </Link>

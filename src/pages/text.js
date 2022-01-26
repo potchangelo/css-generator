@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Code, InputColor, InputRange, InputSelect, PreviewText, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const textAlignOptionArray = optionArrayUpper(['left', 'center', 'right', 'justify']);
-const textDecorationOptionArray = optionArrayUpper(['none', 'underline', 'overline', 'line-through'], '-');
-const textTransformOptionArray = optionArrayUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
+const textAlignOptions = optionsUpper(['left', 'center', 'right', 'justify']);
+const textDecorationOptions = optionsUpper(['none', 'underline', 'overline', 'line-through'], '-');
+const textTransformOptions = optionsUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
 
 function PageText() {
   // - States
@@ -43,46 +43,28 @@ function PageText() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Text" subTitle="Customizing">
-            <InputColor title="Color" value={color} onValueChange={setColor} />
-            <InputRange
-              title="Line height"
-              min={1}
-              max={2}
-              step={0.05}
-              value={lineHeight}
-              onValueChange={setLineHeight}
-            />
+            <InputColor title="Color" value={color} onChange={setColor} />
+            <InputRange title="Line height" min={1} max={2} step={0.05} value={lineHeight} onChange={setLineHeight} />
             <InputRange
               title="Letter spacing (pixels)"
               min={0}
               max={10}
               value={letterSpacing}
-              onValueChange={setLetterSpacing}
+              onChange={setLetterSpacing}
             />
-            <InputRange
-              title="Word spacing (pixels)"
-              min={0}
-              max={10}
-              value={wordSpacing}
-              onValueChange={setWordSpacing}
-            />
-            <InputSelect
-              title="Text align"
-              optionArray={textAlignOptionArray}
-              value={textAlign}
-              onValueChange={setTextAlign}
-            />
+            <InputRange title="Word spacing (pixels)" min={0} max={10} value={wordSpacing} onChange={setWordSpacing} />
+            <InputSelect title="Text align" options={textAlignOptions} value={textAlign} onChange={setTextAlign} />
             <InputSelect
               title="Text decoration"
-              optionArray={textDecorationOptionArray}
+              options={textDecorationOptions}
               value={textDecoration}
-              onValueChange={setTextDecoration}
+              onChange={setTextDecoration}
             />
             <InputSelect
               title="Text transform"
-              optionArray={textTransformOptionArray}
+              options={textTransformOptions}
               value={textTransform}
-              onValueChange={setTextTransform}
+              onChange={setTextTransform}
             />
           </Section>
         </GridItem>

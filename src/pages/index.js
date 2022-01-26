@@ -2,12 +2,12 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { Seo } from 'z/components';
 import { App, Section } from 'z/layouts';
-import { menuGroupArray } from 'z/utils/data';
+import { menuGroups } from 'z/utils/data';
 import * as styles from './css/dashboard.module.scss';
 
 function PageIndex() {
-  const groupElements = menuGroupArray.map(group => {
-    const linkElements = group.linkArray.map(link => (
+  const groupElements = menuGroups.map(group => {
+    const linkElements = group.links.map(link => (
       <div key={link.url} className="column is-6-mobile is-6-tablet is-4-desktop">
         <Link className={styles.link} to={`/${link.url}/`}>
           <h3 className="title is-size-6-mobile is-size-5-tablet has-text-white">{link.title}</h3>

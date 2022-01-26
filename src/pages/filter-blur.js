@@ -17,7 +17,7 @@ function PageFilterBlur() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Blur" subTitle="Customizing">
-            <InputRange title="Blur (pixels)" min={0} max={50} value={blur} onValueChange={setBlur} />
+            <InputRange title="Blur (pixels)" min={0} max={50} value={blur} onChange={setBlur} />
           </Section>
         </GridItem>
         <GridItem>

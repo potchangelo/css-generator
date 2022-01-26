@@ -17,7 +17,7 @@ function PageFilterSaturate() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Saturate" subTitle="Customizing">
-            <InputRange title="Saturate (percent)" min={0} max={300} value={saturate} onValueChange={setSaturate} />
+            <InputRange title="Saturate (percent)" min={0} max={300} value={saturate} onChange={setSaturate} />
           </Section>
         </GridItem>
         <GridItem>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Code, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
+import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const floatOptionArray = optionArrayUpper(['left', 'right']);
+const floatOptions = optionsUpper(['left', 'right']);
 
 function PageLayoutFloat() {
   // - States
@@ -15,7 +15,7 @@ function PageLayoutFloat() {
   const [preview, setPreview] = useState('equal-height');
 
   // - Outputs
-  const sizeObj = layoutItemSizeOptionArray.find(_size => _size.value === Number(width));
+  const sizeObj = layoutItemSizeOptions.find(_size => _size.value === Number(width));
   const outputContainerStyle = { margin: `0px ${(hSpace / 2) * -1}px` };
   const outputItemStyle = {
     float,
@@ -61,16 +61,16 @@ function PageLayoutFloat() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Float Layout (don't use)" subTitle="Customizing">
             <h5 className="title is-5">Item</h5>
-            <InputSelect title="Float" optionArray={floatOptionArray} value={float} onValueChange={setFloat} />
-            <InputSelect title="Width" optionArray={layoutItemSizeOptionArray} value={width} onValueChange={setWidth} />
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
+            <InputSelect title="Float" options={floatOptions} value={float} onChange={setFloat} />
+            <InputSelect title="Width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptionArray}
+              options={layoutPreviewOptions}
               value={preview}
-              onValueChange={setPreview}
+              onChange={setPreview}
             />
           </Section>
         </GridItem>

@@ -17,7 +17,7 @@ function PageFilterContrast() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Contrast" subTitle="Customizing">
-            <InputRange title="Contrast (percent)" min={0} max={300} value={contrast} onValueChange={setContrast} />
+            <InputRange title="Contrast (percent)" min={0} max={300} value={contrast} onChange={setContrast} />
           </Section>
         </GridItem>
         <GridItem>

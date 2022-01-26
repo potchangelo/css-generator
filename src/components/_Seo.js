@@ -1,11 +1,16 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
 import socialBanner from 'z/images/social-banner.jpg';
 
 const baseUrl = process.env.GATSBY_PUBLIC_HOST;
 
+/**
+ * @param {object} props
+ * @param {string} [props.pageTitle]
+ * @param {string} [props.pageDescription]
+ * @param {string} [props.pageRelativeUrl]
+ */
 function _Seo(props) {
   const { pageTitle, pageDescription, pageRelativeUrl } = props;
 
@@ -47,11 +52,5 @@ function _Seo(props) {
     </Helmet>
   );
 }
-
-_Seo.propTypes = {
-  pageTitle: PropTypes.string,
-  pageDescription: PropTypes.string,
-  pageRelativeUrl: PropTypes.string,
-};
 
 export default _Seo;

@@ -57,11 +57,11 @@ function PageLayoutFlexboxGallery() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Flexbox Gallery Layout" subTitle="Customizing">
             <h5 className="title is-5">Container</h5>
-            <InputRange title="Height (pixels)" min={100} max={240} value={height} onValueChange={setHeight} />
-            <InputCheckbox title="Show scrollbar" checked={isScrollShow} onCheckedChange={setIsScrollShow} />
+            <InputRange title="Height (pixels)" min={100} max={240} value={height} onChange={setHeight} />
+            <InputCheckbox title="Show scrollbar" checked={isScrollShow} onChange={setIsScrollShow} />
             <h5 className="title is-5 mt-6">Item</h5>
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
           </Section>
         </GridItem>
         <GridItem>

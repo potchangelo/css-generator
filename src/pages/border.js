@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import { Code, InputButtonGroup, InputColor, InputRange, InputSelect, PreviewBox, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { optionArrayUpper } from 'z/utils/data';
+import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const modeOptionArray = [
+const modeOptions = [
   { key: 'all', title: 'One Value' },
   { key: 'each', title: 'Individual' },
 ];
-const styleOptionArray = optionArrayUpper([
-  'solid',
-  'dotted',
-  'dashed',
-  'double',
-  'groove',
-  'ridge',
-  'inset',
-  'outset',
-]);
-const sideArray = ['top', 'right', 'bottom', 'left'];
+const styleOptions = optionsUpper(['solid', 'dotted', 'dashed', 'double', 'groove', 'ridge', 'inset', 'outset']);
+const sides = ['top', 'right', 'bottom', 'left'];
 
 function PageBorder() {
   // - States
@@ -71,7 +62,7 @@ function PageBorder() {
   // - Elements
   let borderElements;
   if (mode === 'each') {
-    borderElements = sideArray.map(side => {
+    borderElements = sides.map(side => {
       let _color, _style, _width, _setColor, _setStyle, _setWidth;
       if (side === 'top') {
         [_color, _style, _width] = [colorT, styleT, widthT];
@@ -89,18 +80,18 @@ function PageBorder() {
       return (
         <React.Fragment key={side}>
           <h4 className="title is-5 mt-6">Border {side}</h4>
-          <InputColor title="Color" value={_color} onValueChange={_setColor} />
-          <InputSelect title="Style" optionArray={styleOptionArray} value={_style} onValueChange={_setStyle} />
-          <InputRange title="Width (pixels)" min={0} max={20} value={_width} onValueChange={_setWidth} />
+          <InputColor title="Color" value={_color} onChange={_setColor} />
+          <InputSelect title="Style" options={styleOptions} value={_style} onChange={_setStyle} />
+          <InputRange title="Width (pixels)" min={0} max={20} value={_width} onChange={_setWidth} />
         </React.Fragment>
       );
     });
   } else {
     borderElements = (
       <>
-        <InputColor title="Color" value={color} onValueChange={setColor} />
-        <InputSelect title="Style" optionArray={styleOptionArray} value={styleAll} onValueChange={setStyleAll} />
-        <InputRange title="Width (pixels)" min={0} max={20} value={width} onValueChange={setWidth} />
+        <InputColor title="Color" value={color} onChange={setColor} />
+        <InputSelect title="Style" options={styleOptions} value={styleAll} onChange={setStyleAll} />
+        <InputRange title="Width (pixels)" min={0} max={20} value={width} onChange={setWidth} />
       </>
     );
   }
@@ -111,7 +102,7 @@ function PageBorder() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Border" subTitle="Customizing">
-            <InputButtonGroup title="Mode" optionArray={modeOptionArray} activeKey={mode} onButtonClick={setMode} />
+            <InputButtonGroup title="Mode" options={modeOptions} activeKey={mode} onButtonClick={setMode} />
             {borderElements}
           </Section>
         </GridItem>

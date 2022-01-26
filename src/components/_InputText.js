@@ -1,9 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as styles from './css/input.module.scss';
 
+/**
+ * @param {object} props
+ * @param {string} props.title
+ * @param {string} [props.placeholder]
+ * @param {string} props.value
+ * @param {*} props.onChange
+ */
 function _InputText(props) {
-  const { title, placeholder, value, onValueChange } = props;
+  const { title, placeholder, value, onChange } = props;
   return (
     <>
       <label className="label">{title}</label>
@@ -14,19 +20,14 @@ function _InputText(props) {
             type="text"
             placeholder={placeholder}
             value={value}
-            onChange={event => onValueChange(event.target.value)}
+            onChange={event => {
+              onChange(event.target.value);
+            }}
           />
         </div>
       </div>
     </>
   );
 }
-
-_InputText.propTypes = {
-  title: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  onValueChange: PropTypes.func.isRequired,
-};
 
 export default _InputText;

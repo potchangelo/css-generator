@@ -17,13 +17,7 @@ function PageFilterBrightness() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Brightness" subTitle="Customizing">
-            <InputRange
-              title="Brightness (percent)"
-              min={0}
-              max={300}
-              value={brightness}
-              onValueChange={setBrightness}
-            />
+            <InputRange title="Brightness (percent)" min={0} max={300} value={brightness} onChange={setBrightness} />
           </Section>
         </GridItem>
         <GridItem>

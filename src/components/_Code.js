@@ -1,7 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as styles from './css/code.module.scss';
 
+/**
+ * @param {{ lang: string, output: string }} props
+ */
 function _Code(props) {
   const { lang, output } = props;
 
@@ -32,10 +34,5 @@ function _Code(props) {
     </div>
   );
 }
-
-_Code.propTypes = {
-  lang: PropTypes.string.isRequired,
-  output: PropTypes.string.isRequired,
-};
 
 export default _Code;

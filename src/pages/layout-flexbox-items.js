@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Code, InputButtonGroup, InputRange, InputSelect, PreviewLayoutItems, Seo } from 'z/components';
 import { App, Grid, GridItem, Section } from 'z/layouts';
-import { layoutItemsHtml, layoutItemSizeOptionArray, layoutPreviewOptionArray, optionArrayUpper } from 'z/utils/data';
+import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const directionOptionArray = optionArrayUpper(['row', 'row-reverse'], '-');
-const wrapOptionArray = optionArrayUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
-const justifyContentOptionArray = optionArrayUpper(
+const directionOptions = optionsUpper(['row', 'row-reverse'], '-');
+const wrapOptions = optionsUpper(['wrap', 'wrap-reverse', 'nowrap'], '-');
+const justifyContentOptions = optionsUpper(
   ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'],
   '-'
 );
-const alignItemsOptionArray = optionArrayUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
-const widthUnitOptionArray = [
+const alignItemOptions = optionsUpper(['stretch', 'flex-start', 'flex-end', 'center'], '-');
+const widthUnitOptions = [
   { key: 'percent', title: 'Percent' },
   { key: 'pixels', title: 'Pixels' },
 ];
@@ -74,15 +74,15 @@ function PageLayoutFlexboxItems() {
   let widthElement;
   if (widthUnit === 'pixels') {
     widthElement = (
-      <InputRange title="Width (pixels)" min={120} max={260} value={widthPixels} onValueChange={setWidthPixels} />
+      <InputRange title="Width (pixels)" min={120} max={260} value={widthPixels} onChange={setWidthPixels} />
     );
   } else {
     widthElement = (
       <InputSelect
         title="Width (percent)"
-        optionArray={layoutItemSizeOptionArray}
+        options={layoutItemSizeOptions}
         value={widthPercent}
-        onValueChange={setWidthPercent}
+        onChange={setWidthPercent}
       />
     );
   }
@@ -94,41 +94,36 @@ function PageLayoutFlexboxItems() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Flexbox Items Layout" subTitle="Customizing">
             <h5 className="title is-5">Container</h5>
-            <InputSelect
-              title="Direction"
-              optionArray={directionOptionArray}
-              value={direction}
-              onValueChange={setDirection}
-            />
-            <InputSelect title="Wrap (Multilines)" optionArray={wrapOptionArray} value={wrap} onValueChange={setWrap} />
+            <InputSelect title="Direction" options={directionOptions} value={direction} onChange={setDirection} />
+            <InputSelect title="Wrap (Multilines)" options={wrapOptions} value={wrap} onChange={setWrap} />
             <InputSelect
               title="Justify content (Main direction)"
-              optionArray={justifyContentOptionArray}
+              options={justifyContentOptions}
               value={justifyContent}
-              onValueChange={setJustifyContent}
+              onChange={setJustifyContent}
             />
             <InputSelect
               title="Align items (Cross direction)"
-              optionArray={alignItemsOptionArray}
+              options={alignItemOptions}
               value={alignItems}
-              onValueChange={setAlignItems}
+              onChange={setAlignItems}
             />
             <h5 className="title is-5 mt-6">Item</h5>
             <InputButtonGroup
               title="Width unit"
-              optionArray={widthUnitOptionArray}
+              options={widthUnitOptions}
               activeKey={widthUnit}
               onButtonClick={setWidthUnit}
             />
             {widthElement}
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onValueChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onValueChange={setVSpace} />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptionArray}
+              options={layoutPreviewOptions}
               value={preview}
-              onValueChange={setPreview}
+              onChange={setPreview}
             />
           </Section>
         </GridItem>

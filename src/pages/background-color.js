@@ -17,7 +17,7 @@ function PageBackgroundColor() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Background Color" subTitle="Customizing">
-            <InputColor title="Color" value={color} onValueChange={setColor} />
+            <InputColor title="Color" value={color} onChange={setColor} />
           </Section>
         </GridItem>
         <GridItem>
