@@ -86,9 +86,9 @@ function PageLayoutFlexboxItems() {
     widthElement = (
       <InputSelect
         title="Width (percent)"
-        optionArray={layoutItemSizeOptions}
+        options={layoutItemSizeOptions}
         value={widthPercent}
-        onValueChange={setWidthPercent}
+        onChange={setWidthPercent}
       />
     );
   }
@@ -102,22 +102,27 @@ function PageLayoutFlexboxItems() {
             <h5 className="title is-5">Container</h5>
             <InputSelect
               title="Direction"
-              optionArray={directionOptions}
+              options={directionOptions}
               value={direction}
-              onValueChange={setDirection}
+              onChange={setDirection}
             />
-            <InputSelect title="Wrap (Multilines)" optionArray={wrapOptions} value={wrap} onValueChange={setWrap} />
+            <InputSelect
+              title="Wrap (Multilines)"
+              options={wrapOptions}
+              value={wrap}
+              onChange={setWrap}
+            />
             <InputSelect
               title="Justify content (Main direction)"
-              optionArray={justifyContentOptions}
+              options={justifyContentOptions}
               value={justifyContent}
-              onValueChange={setJustifyContent}
+              onChange={setJustifyContent}
             />
             <InputSelect
               title="Align items (Cross direction)"
-              optionArray={alignItemOptions}
+              options={alignItemOptions}
               value={alignItems}
-              onValueChange={setAlignItems}
+              onChange={setAlignItems}
             />
             <h5 className="title is-5 mt-6">Item</h5>
             <InputButtonGroup
@@ -144,9 +149,9 @@ function PageLayoutFlexboxItems() {
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptions}
+              options={layoutPreviewOptions}
               value={preview}
-              onValueChange={setPreview}
+              onChange={setPreview}
             />
           </Section>
         </GridItem>

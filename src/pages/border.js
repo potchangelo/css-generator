@@ -81,7 +81,7 @@ function PageBorder() {
         <React.Fragment key={side}>
           <h4 className="title is-5 mt-6">Border {side}</h4>
           <InputColor title="Color" value={_color} onChange={_setColor} />
-          <InputSelect title="Style" optionArray={styleOptions} value={_style} onValueChange={_setStyle} />
+          <InputSelect title="Style" options={styleOptions} value={_style} onChange={_setStyle} />
           <InputRange title="Width (pixels)" min={0} max={20} value={_width} onChange={_setWidth} />
         </React.Fragment>
       );
@@ -90,7 +90,7 @@ function PageBorder() {
     borderElements = (
       <>
         <InputColor title="Color" value={color} onChange={setColor} />
-        <InputSelect title="Style" optionArray={styleOptions} value={styleAll} onValueChange={setStyleAll} />
+        <InputSelect title="Style" options={styleOptions} value={styleAll} onChange={setStyleAll} />
         <InputRange title="Width (pixels)" min={0} max={20} value={width} onChange={setWidth} />
       </>
     );

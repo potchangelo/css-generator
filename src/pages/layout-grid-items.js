@@ -4,7 +4,7 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const jaItemsOptionArray = optionsUpper(['stretch', 'start', 'end', 'center']);
+const alignOptions = optionsUpper(['stretch', 'start', 'end', 'center']);
 
 function PageLayoutGridItems() {
   // - States
@@ -53,21 +53,21 @@ function PageLayoutGridItems() {
             <h5 className="title is-5">Layout</h5>
             <InputSelect
               title="Grid column width"
-              optionArray={layoutItemSizeOptions}
+              options={layoutItemSizeOptions}
               value={width}
-              onValueChange={setWidth}
+              onChange={setWidth}
             />
             <InputSelect
               title="Justify items (row axis)"
-              optionArray={jaItemsOptionArray}
+              options={alignOptions}
               value={justifyItems}
-              onValueChange={setJustifyItems}
+              onChange={setJustifyItems}
             />
             <InputSelect
               title="Align items (column axis)"
-              optionArray={jaItemsOptionArray}
+              options={alignOptions}
               value={alignItems}
-              onValueChange={setAlignItems}
+              onChange={setAlignItems}
             />
             <InputRange
               title="Column gap (pixels)"
@@ -86,9 +86,9 @@ function PageLayoutGridItems() {
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptions}
+              options={layoutPreviewOptions}
               value={preview}
-              onValueChange={setPreview}
+              onChange={setPreview}
             />
           </Section>
         </GridItem>

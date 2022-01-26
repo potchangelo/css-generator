@@ -4,7 +4,7 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const positionOptionArray = optionsUpper([
+const positionOptions = optionsUpper([
   'left top',
   'left center',
   'left bottom',
@@ -15,8 +15,8 @@ const positionOptionArray = optionsUpper([
   'right center',
   'right bottom',
 ]);
-const sizeOptionArray = optionsUpper(['auto', 'cover', 'contain']);
-const repeatOptionArray = optionsUpper(['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'], '-');
+const sizeOptions = optionsUpper(['auto', 'cover', 'contain']);
+const repeatOptions = optionsUpper(['no-repeat', 'repeat-x', 'repeat-y', 'repeat', 'space', 'round'], '-');
 
 function PageBackgroundImage() {
   // - States
@@ -50,13 +50,27 @@ function PageBackgroundImage() {
             <InputText title="Image URL" placeholder="URL" value={image} onValueChange={setImage} />
             <InputSelect
               title="Position"
-              optionArray={positionOptionArray}
+              options={positionOptions}
               value={position}
-              onValueChange={setPosition}
+              onChange={setPosition}
             />
-            <InputSelect title="Size" optionArray={sizeOptionArray} value={size} onValueChange={setSize} />
-            <InputSelect title="Repeat" optionArray={repeatOptionArray} value={repeat} onValueChange={setRepeat} />
-            <InputColor title="Background color (support while loading image)" value={color} onChange={setColor} />
+            <InputSelect
+              title="Size"
+              options={sizeOptions}
+              value={size}
+              onChange={setSize}
+            />
+            <InputSelect
+              title="Repeat"
+              options={repeatOptions}
+              value={repeat}
+              onChange={setRepeat}
+            />
+            <InputColor
+              title="Background color (support while loading image)"
+              value={color}
+              onChange={setColor}
+            />
           </Section>
         </GridItem>
         <GridItem>

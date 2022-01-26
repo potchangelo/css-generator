@@ -4,7 +4,7 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutItemsHtml, layoutItemSizeOptions, layoutPreviewOptions, optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const floatOptionArray = optionsUpper(['left', 'right']);
+const floatOptions = optionsUpper(['left', 'right']);
 
 function PageLayoutFloat() {
   // - States
@@ -61,8 +61,18 @@ function PageLayoutFloat() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Float Layout (don't use)" subTitle="Customizing">
             <h5 className="title is-5">Item</h5>
-            <InputSelect title="Float" optionArray={floatOptionArray} value={float} onValueChange={setFloat} />
-            <InputSelect title="Width" optionArray={layoutItemSizeOptions} value={width} onValueChange={setWidth} />
+            <InputSelect
+              title="Float"
+              options={floatOptions}
+              value={float}
+              onChange={setFloat}
+            />
+            <InputSelect
+              title="Width"
+              options={layoutItemSizeOptions}
+              value={width}
+              onChange={setWidth}
+            />
             <InputRange
               title="Horizontal space (pixels)"
               min={0}
@@ -80,9 +90,9 @@ function PageLayoutFloat() {
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"
-              optionArray={layoutPreviewOptions}
+              options={layoutPreviewOptions}
               value={preview}
-              onValueChange={setPreview}
+              onChange={setPreview}
             />
           </Section>
         </GridItem>

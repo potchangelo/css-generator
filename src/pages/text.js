@@ -4,9 +4,9 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const textAlignOptionArray = optionsUpper(['left', 'center', 'right', 'justify']);
-const textDecorationOptionArray = optionsUpper(['none', 'underline', 'overline', 'line-through'], '-');
-const textTransformOptionArray = optionsUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
+const textAlignOptions = optionsUpper(['left', 'center', 'right', 'justify']);
+const textDecorationOptions = optionsUpper(['none', 'underline', 'overline', 'line-through'], '-');
+const textTransformOptions = optionsUpper(['none', 'capitalize', 'uppercase', 'lowercase']);
 
 function PageText() {
   // - States
@@ -68,21 +68,21 @@ function PageText() {
             />
             <InputSelect
               title="Text align"
-              optionArray={textAlignOptionArray}
+              options={textAlignOptions}
               value={textAlign}
-              onValueChange={setTextAlign}
+              onChange={setTextAlign}
             />
             <InputSelect
               title="Text decoration"
-              optionArray={textDecorationOptionArray}
+              options={textDecorationOptions}
               value={textDecoration}
-              onValueChange={setTextDecoration}
+              onChange={setTextDecoration}
             />
             <InputSelect
               title="Text transform"
-              optionArray={textTransformOptionArray}
+              options={textTransformOptions}
               value={textTransform}
-              onValueChange={setTextTransform}
+              onChange={setTextTransform}
             />
           </Section>
         </GridItem>
