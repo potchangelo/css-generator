@@ -6,7 +6,7 @@ import { App, Grid, GridItem, Section } from 'z/layouts';
 import { layoutMenuHtml } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
-const layoutOptionArray = [
+const layoutOptions = [
   { key: 'left', title: 'Style 1', imageSrc: image1 },
   { key: 'right', title: 'Style 2', imageSrc: image2 },
 ];
@@ -46,7 +46,7 @@ function PageLayoutFlexboxMenuBar() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Flexbox Menu Bar Layout" subTitle="Customizing">
             <h5 className="title is-5">Select layout</h5>
-            <InputButtonImageGroup optionArray={layoutOptionArray} activeKey={layout} onButtonClick={setLayout} />
+            <InputButtonImageGroup options={layoutOptions} activeKey={layout} onButtonClick={setLayout} />
           </Section>
         </GridItem>
         <GridItem>
