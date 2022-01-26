@@ -5,7 +5,7 @@ import * as styles from './css/input.module.scss';
 
 /**
  * @param {object} props
- * @param {{ color: string, alpha: number, position: number }} props.colorPoints
+ * @param {{ color: string, alpha: number, position: number }[]} props.colorPoints
  * @param {number} props.selectedIndex
  * @param {number} props.draggingIndex
  * @param {*} props.onChange

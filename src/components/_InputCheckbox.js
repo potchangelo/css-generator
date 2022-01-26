@@ -12,7 +12,7 @@ function _InputCheckbox(props) {
   const { title, checked, onChange } = props;
   return (
     <label className={`checkbox ${styles.checkbox}`}>
-      <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} />
+      <input type="checkbox" checked={checked} onChange={event => {onChange(event.target.checked)}} />
       <span className={`icon ${styles.checkboxIcon}`}>
         <Check width={14} height={14} strokeWidth={4} />
       </span>
