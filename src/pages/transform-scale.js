@@ -18,14 +18,7 @@ function PageTransformScale() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Transform Scale" subTitle="Customizing">
-            <InputRange
-              title="Scale width (factor)"
-              min={0}
-              max={2.5}
-              step={0.1}
-              value={scaleX}
-              onChange={setScaleX}
-            />
+            <InputRange title="Scale width (factor)" min={0} max={2.5} step={0.1} value={scaleX} onChange={setScaleX} />
             <InputRange
               title="Scale height (factor)"
               min={0}

@@ -26,7 +26,12 @@ function _InputButtonImageGroup(props) {
       <div key={key} className={columnClass}>
         <label className="label">{title}</label>
         <p>
-          <button className={buttonClass} onClick={_ => { onButtonClick(key) }}>
+          <button
+            className={buttonClass}
+            onClick={_ => {
+              onButtonClick(key);
+            }}
+          >
             <img src={imageSrc} alt={key} />
           </button>
         </p>

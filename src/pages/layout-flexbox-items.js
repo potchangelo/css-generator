@@ -74,13 +74,7 @@ function PageLayoutFlexboxItems() {
   let widthElement;
   if (widthUnit === 'pixels') {
     widthElement = (
-      <InputRange
-        title="Width (pixels)"
-        min={120}
-        max={260}
-        value={widthPixels}
-        onChange={setWidthPixels}
-      />
+      <InputRange title="Width (pixels)" min={120} max={260} value={widthPixels} onChange={setWidthPixels} />
     );
   } else {
     widthElement = (
@@ -100,18 +94,8 @@ function PageLayoutFlexboxItems() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Flexbox Items Layout" subTitle="Customizing">
             <h5 className="title is-5">Container</h5>
-            <InputSelect
-              title="Direction"
-              options={directionOptions}
-              value={direction}
-              onChange={setDirection}
-            />
-            <InputSelect
-              title="Wrap (Multilines)"
-              options={wrapOptions}
-              value={wrap}
-              onChange={setWrap}
-            />
+            <InputSelect title="Direction" options={directionOptions} value={direction} onChange={setDirection} />
+            <InputSelect title="Wrap (Multilines)" options={wrapOptions} value={wrap} onChange={setWrap} />
             <InputSelect
               title="Justify content (Main direction)"
               options={justifyContentOptions}
@@ -132,20 +116,8 @@ function PageLayoutFlexboxItems() {
               onButtonClick={setWidthUnit}
             />
             {widthElement}
-            <InputRange
-              title="Horizontal space (pixels)"
-              min={0}
-              max={40}
-              value={hSpace}
-              onChange={setHSpace}
-            />
-            <InputRange
-              title="Vertical space (pixels)"
-              min={0}
-              max={40}
-              value={vSpace}
-              onChange={setVSpace}
-            />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"

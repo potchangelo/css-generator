@@ -162,6 +162,4 @@ function _InputRangeGradient(props) {
   );
 }
 
-
-
 export default _InputRangeGradient;

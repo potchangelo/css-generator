@@ -102,13 +102,7 @@ function PageLayoutGridPage() {
     );
   } else {
     sidebarElement = (
-      <InputRange
-        title="Leftbar width (pixels)"
-        min={200}
-        max={300}
-        value={leftbarWidth}
-        onChange={setLeftbarWidth}
-      />
+      <InputRange title="Leftbar width (pixels)" min={200} max={300} value={leftbarWidth} onChange={setLeftbarWidth} />
     );
   }
 
@@ -134,20 +128,8 @@ function PageLayoutGridPage() {
               onChange={setHeaderHeight}
             />
             {sidebarElement}
-            <InputRange
-              title="Column gap (pixels)"
-              min={0}
-              max={40}
-              value={columnGap}
-              onChange={setColumnGap}
-            />
-            <InputRange
-              title="Row gap (pixels)"
-              min={0}
-              max={40}
-              value={rowGap}
-              onChange={setRowGap}
-            />
+            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
+            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
           </Section>
         </GridItem>
         <GridItem>

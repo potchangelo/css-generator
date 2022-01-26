@@ -24,7 +24,12 @@ function _InputSelect(props) {
       {labelElement}
       <div className={`field ${styles.field}`}>
         <div className="select is-fullwidth">
-          <select value={value} onChange={event => {onChange(event.target.value)}}>
+          <select
+            value={value}
+            onChange={event => {
+              onChange(event.target.value);
+            }}
+          >
             {optionElements}
           </select>
         </div>

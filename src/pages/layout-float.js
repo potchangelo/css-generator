@@ -61,32 +61,10 @@ function PageLayoutFloat() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Float Layout (don't use)" subTitle="Customizing">
             <h5 className="title is-5">Item</h5>
-            <InputSelect
-              title="Float"
-              options={floatOptions}
-              value={float}
-              onChange={setFloat}
-            />
-            <InputSelect
-              title="Width"
-              options={layoutItemSizeOptions}
-              value={width}
-              onChange={setWidth}
-            />
-            <InputRange
-              title="Horizontal space (pixels)"
-              min={0}
-              max={40}
-              value={hSpace}
-              onChange={setHSpace}
-            />
-            <InputRange
-              title="Vertical space (pixels)"
-              min={0}
-              max={40}
-              value={vSpace}
-              onChange={setVSpace}
-            />
+            <InputSelect title="Float" options={floatOptions} value={float} onChange={setFloat} />
+            <InputSelect title="Width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
+            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"

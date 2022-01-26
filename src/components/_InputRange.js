@@ -12,9 +12,7 @@ import * as styles from './css/input.module.scss';
  * @param {*} props.onChange
  */
 function _InputRange(props) {
-  const {
-    title, min, max, step = 1, value, hasAddons = false, onChange
-  } = props;
+  const { title, min, max, step = 1, value, hasAddons = false, onChange } = props;
 
   let controlClass = 'control';
   if (hasAddons) controlClass += ` ${styles.controlRangeHasAddons}`;
@@ -34,7 +32,9 @@ function _InputRange(props) {
             max={max}
             step={step}
             value={value}
-            onChange={event => { onChange(+event.target.value) }}
+            onChange={event => {
+              onChange(+event.target.value);
+            }}
           />
           <div className={styles.rangeText}>
             <div className={styles.rangeTextItem}>{min}</div>

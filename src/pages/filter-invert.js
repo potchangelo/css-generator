@@ -17,13 +17,7 @@ function PageFilterInvert() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Filter Invert" subTitle="Customizing">
-            <InputRange
-              title="Invert (percent)"
-              min={0}
-              max={100}
-              value={invert}
-              onChange={setInvert}
-            />
+            <InputRange title="Invert (percent)" min={0} max={100} value={invert} onChange={setInvert} />
           </Section>
         </GridItem>
         <GridItem>

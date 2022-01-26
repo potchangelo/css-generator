@@ -27,14 +27,7 @@ function PageTextShadow() {
             <InputRange title="Y (pixels)" min={-10} max={10} value={y} onChange={setY} />
             <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
             <InputColor title="Color" value={color} onChange={setColor} />
-            <InputRange
-              title="Color opacity"
-              min={0}
-              max={1}
-              step={0.01}
-              value={colorAlpha}
-              onChange={setColorAlpha}
-            />
+            <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
           </Section>
         </GridItem>
         <GridItem>

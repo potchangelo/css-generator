@@ -51,12 +51,7 @@ function PageLayoutGridItems() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Grid Items Layout" subTitle="Customizing">
             <h5 className="title is-5">Layout</h5>
-            <InputSelect
-              title="Grid column width"
-              options={layoutItemSizeOptions}
-              value={width}
-              onChange={setWidth}
-            />
+            <InputSelect title="Grid column width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
             <InputSelect
               title="Justify items (row axis)"
               options={alignOptions}
@@ -69,20 +64,8 @@ function PageLayoutGridItems() {
               value={alignItems}
               onChange={setAlignItems}
             />
-            <InputRange
-              title="Column gap (pixels)"
-              min={0}
-              max={40}
-              value={columnGap}
-              onChange={setColumnGap}
-            />
-            <InputRange
-              title="Row gap (pixels)"
-              min={0}
-              max={40}
-              value={rowGap}
-              onChange={setRowGap}
-            />
+            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
+            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
             <h5 className="title is-5 mt-6">Content</h5>
             <InputSelect
               title="Preview mode (not change output HTML)"

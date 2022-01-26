@@ -48,29 +48,10 @@ function PageBackgroundImage() {
         <GridItem>
           <Section extraClass={styles.inputs} title="Background Image" subTitle="Customizing">
             <InputText title="Image URL" placeholder="URL" value={image} onChange={setImage} />
-            <InputSelect
-              title="Position"
-              options={positionOptions}
-              value={position}
-              onChange={setPosition}
-            />
-            <InputSelect
-              title="Size"
-              options={sizeOptions}
-              value={size}
-              onChange={setSize}
-            />
-            <InputSelect
-              title="Repeat"
-              options={repeatOptions}
-              value={repeat}
-              onChange={setRepeat}
-            />
-            <InputColor
-              title="Background color (support while loading image)"
-              value={color}
-              onChange={setColor}
-            />
+            <InputSelect title="Position" options={positionOptions} value={position} onChange={setPosition} />
+            <InputSelect title="Size" options={sizeOptions} value={size} onChange={setSize} />
+            <InputSelect title="Repeat" options={repeatOptions} value={repeat} onChange={setRepeat} />
+            <InputColor title="Background color (support while loading image)" value={color} onChange={setColor} />
           </Section>
         </GridItem>
         <GridItem>

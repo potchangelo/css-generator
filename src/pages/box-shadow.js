@@ -31,14 +31,7 @@ function PageBoxShadow() {
             <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
             <InputRange title="Spread (pixels)" min={0} max={20} value={spread} onChange={setSpread} />
             <InputColor title="Color" value={color} onChange={setColor} />
-            <InputRange
-              title="Color opacity"
-              min={0}
-              max={1}
-              step={0.01}
-              value={colorAlpha}
-              onChange={setColorAlpha}
-            />
+            <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
           </Section>
         </GridItem>
         <GridItem>

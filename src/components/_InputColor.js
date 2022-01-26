@@ -18,7 +18,9 @@ function _InputColor(props) {
             className="input"
             type="color"
             value={value}
-            onChange={event => { onChange(event.target.value) }}
+            onChange={event => {
+              onChange(event.target.value);
+            }}
           />
         </div>
         <div className="control is-expanded">
@@ -28,7 +30,9 @@ function _InputColor(props) {
             placeholder="HEX Color"
             pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
             value={value}
-            onChange={event => { onChange(event.target.value) }}
+            onChange={event => {
+              onChange(event.target.value);
+            }}
           />
         </div>
       </div>

@@ -49,7 +49,7 @@ function PageBackgroundGradient() {
     if (points.length <= 2) return;
     const newPoints = points.filter((_, index) => index !== selectedIndex);
     const minIndex = newPoints.reduce((indexMin, point, index) => {
-      return point.position < newPoints[indexMin].position ? index : indexMin
+      return point.position < newPoints[indexMin].position ? index : indexMin;
     }, 0);
     setPoints(newPoints);
     setSelectedIndex(minIndex);
