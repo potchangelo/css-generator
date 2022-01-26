@@ -30,7 +30,7 @@ function _InputButtonGroup(props) {
     }
 
     return (
-      <button key={key} className={classes} onClick={() => { onButtonClick(key) }}>
+      <button key={key} className={classes} onClick={_ => { onButtonClick(key) }}>
         {contentElement}
       </button>
     );
