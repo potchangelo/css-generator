@@ -47,7 +47,7 @@ function PageBackgroundImage() {
       <Grid>
         <GridItem>
           <Section extraClass={styles.inputs} title="Background Image" subTitle="Customizing">
-            <InputText title="Image URL" placeholder="URL" value={image} onValueChange={setImage} />
+            <InputText title="Image URL" placeholder="URL" value={image} onChange={setImage} />
             <InputSelect
               title="Position"
               options={positionOptions}
