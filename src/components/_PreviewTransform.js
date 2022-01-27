@@ -1,7 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as styles from './css/preview.module.scss';
 
+/**
+ * @param {object} props
+ * @param {import('react').CSSProperties} props.outputStyle
+ */
 function _PreviewTransform(props) {
   const { outputStyle } = props;
   return (
@@ -10,9 +13,5 @@ function _PreviewTransform(props) {
     </div>
   );
 }
-
-_PreviewTransform.propTypes = {
-  outputStyle: PropTypes.object.isRequired,
-};
 
 export default _PreviewTransform;

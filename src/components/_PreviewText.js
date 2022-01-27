@@ -1,6 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+/**
+ * @param {object} props
+ * @param {import('react').CSSProperties} props.outputStyle
+ */
 function _PreviewText(props) {
   const { outputStyle } = props;
   return (
@@ -12,9 +15,5 @@ function _PreviewText(props) {
     </p>
   );
 }
-
-_PreviewText.propTypes = {
-  outputStyle: PropTypes.object.isRequired,
-};
 
 export default _PreviewText;

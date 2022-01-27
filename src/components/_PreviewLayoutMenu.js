@@ -1,7 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as styles from './css/preview.module.scss';
 
+/**
+ * @param {object} props
+ * @param {import('react').CSSProperties} props.containerStyle
+ */
 function _PreviewLayoutMenu(props) {
   const { containerStyle } = props;
   return (
@@ -19,9 +22,5 @@ function _PreviewLayoutMenu(props) {
     </div>
   );
 }
-
-_PreviewLayoutMenu.propTypes = {
-  containerStyle: PropTypes.object.isRequired,
-};
 
 export default _PreviewLayoutMenu;

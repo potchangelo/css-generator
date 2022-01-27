@@ -1,8 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { layoutGalleryImageUrls } from 'z/utils/data';
 import * as styles from './css/preview.module.scss';
 
+/**
+ * @param {object} props
+ * @param {import('react').CSSProperties} props.wrapperStyle
+ * @param {import('react').CSSProperties} props.scrollStyle
+ * @param {import('react').CSSProperties} props.containerStyle
+ * @param {import('react').CSSProperties} props.itemStyle
+ */
 function _PreviewLayoutGallery(props) {
   const { wrapperStyle, scrollStyle, containerStyle, itemStyle } = props;
 
@@ -22,12 +28,5 @@ function _PreviewLayoutGallery(props) {
     </div>
   );
 }
-
-_PreviewLayoutGallery.propTypes = {
-  wrapperStyle: PropTypes.object.isRequired,
-  scrollStyle: PropTypes.object.isRequired,
-  containerStyle: PropTypes.object.isRequired,
-  itemStyle: PropTypes.object.isRequired,
-};
 
 export default _PreviewLayoutGallery;
