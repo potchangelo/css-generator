@@ -1,4 +1,5 @@
 import React from 'react';
+import previewFilter2 from 'z/images/preview-filter.jpg';
 
 /**
  * @param {object} props
@@ -8,7 +9,7 @@ function _PreviewFilter(props) {
   const { outputStyle } = props;
   return (
     <img
-      src="https://images.unsplash.com/photo-1433888104365-77d8043c9615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80"
+      src={previewFilter2}
       alt="Preview"
       style={outputStyle}
     />
