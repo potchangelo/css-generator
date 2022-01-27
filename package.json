@@ -1,6 +1,6 @@
 {
   "name": "css-generator",
-  "description": "Generate CSS code by using simple UI",
+  "description": "Generate CSS (+ HTML) code with simple UI, by Zinglecode",
   "keywords": [
     "css",
     "css-generator",
@@ -8,7 +8,7 @@
     "gatsby",
     "bulma"
   ],
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Potchara Puttawanchai",
   "homepage": "https://css-generator.netlify.app/",
   "repository": {
@@ -28,7 +28,6 @@
     "gatsby-plugin-react-helmet": "^5.5.0",
     "gatsby-plugin-sass": "^5.5.0",
     "gatsby-plugin-sitemap": "^5.5.0",
-    "prop-types": "^15.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
