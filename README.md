@@ -5,6 +5,7 @@ https://css-generator.netlify.com/
 Generate CSS code by using simple UI, created by Gatsby React framework.
 
 ## Features
+
 - Layout
 - Background
 - Border
@@ -15,4 +16,9 @@ Generate CSS code by using simple UI, created by Gatsby React framework.
 ## Credit
 
 Photos
-https://unsplash.com/photos/pXmbsF70ulM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+https://pixabay.com/photos/easter-bunny-rabbit-figurines-95096/
+https://unsplash.com/photos/pXmbsF70ulM
+https://unsplash.com/photos/I7oLRdM9YIw
+https://unsplash.com/photos/OD9EOzfSOh0
+https://unsplash.com/photos/KMn4VEeEPR8
+https://unsplash.com/photos/eXHeq48Z-Q4
