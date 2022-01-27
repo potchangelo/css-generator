@@ -52,8 +52,8 @@ function _InputRangeGradient(props) {
       if (percentX < 0) percentX = 0;
       else if (percentX > 100) percentX = 100;
 
-      onChange(prevArray =>
-        prevArray.map((point, index) => {
+      onChange(prev =>
+        prev.map((point, index) => {
           if (index === draggingIndex) point.position = percentX;
           return point;
         })
@@ -91,7 +91,7 @@ function _InputRangeGradient(props) {
     }
 
     const point = { color, alpha, position: percentX };
-    onChange(prevArray => [...prevArray, point]);
+    onChange(prev => [...prev, point]);
     onSelectedChange(colorPoints.length);
   }
 
@@ -116,7 +116,7 @@ function _InputRangeGradient(props) {
     if (index === selectedIndex) {
       handleClass += ` ${styles.rangeGradientHandleSelected}`;
     }
-    const styleArray = {
+    const handleStyle = {
       backgroundColor: color,
       left: `${position}%`,
     };
@@ -124,7 +124,7 @@ function _InputRangeGradient(props) {
       <div
         key={`${index}`}
         className={handleClass}
-        style={styleArray}
+        style={handleStyle}
         role="button"
         tabIndex={0}
         onTouchStart={event => onHandleDown(event, index)}
