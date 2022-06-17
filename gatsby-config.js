@@ -26,12 +26,9 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-plugin-alias-imports',
+      resolve: 'gatsby-plugin-root-import',
       options: {
-        alias: {
-          z: path.resolve(__dirname, 'src'),
-        },
-        extensions: [],
+        z: path.join(__dirname, 'src'),
       },
     },
   ],
