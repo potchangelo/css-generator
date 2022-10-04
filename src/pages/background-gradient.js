@@ -84,7 +84,7 @@ function PageBackgroundGradient() {
   }
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />
       <Grid>
         <GridItem>
@@ -131,7 +131,7 @@ function PageBackgroundGradient() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

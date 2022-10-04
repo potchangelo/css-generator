@@ -12,7 +12,7 @@ function PageBackgroundColor() {
   const outputCode = `background-color: ${color};`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Background Color" pageRelativeUrl="/background-color" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageBackgroundColor() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

@@ -23,12 +23,12 @@ function PageIndex() {
   });
 
   return (
-    <App>
+    <>
       <Seo />
       <Section extraClass={styles.section} title="Dashboard" subTitle="Choose menu">
         {groupElements}
       </Section>
-    </App>
+    </>
   );
 }
 
