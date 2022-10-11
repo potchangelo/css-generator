@@ -38,8 +38,9 @@
     "prettier": "^2.7.1"
   },
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop": "gatsby develop --port 8100",
+    "develop-0000": "gatsby develop --host 0.0.0.0 --port 8100",
+    "start": "gatsby develop --port 8100",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
