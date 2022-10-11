@@ -9,7 +9,7 @@ import * as styles from './css/section.module.scss';
 const modeOptions = optionsUpper(['linear', 'radial']);
 const linearDegOptions = [90, 135, 180, 225, 270, 315, 0, 45].map(deg => {
   const key = `${deg}`;
-  const icon = <ArrowUp width={20} height={20} strokeWidth={3} transform={`rotate(${deg})`} />;
+  const icon = <ArrowUp width={20} height={20} strokeWidth={3} style={{ transform: `rotate(${deg}deg)` }} />;
   return { key, title: key, icon };
 });
 const radialShapeOptions = optionsUpper(['circle', 'ellipse']);
