@@ -130,8 +130,8 @@
 .buttonImage {
   display: flex;
   width: 100%;
-  height: max-content;
-  padding: 20px;
+  height: max-content !important;
+  padding: 16px !important;
 }
 
 // - Checkbox
