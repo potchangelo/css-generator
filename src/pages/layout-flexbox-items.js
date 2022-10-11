@@ -88,7 +88,7 @@ function PageLayoutFlexboxItems() {
   }
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
       <Grid>
         <GridItem>
@@ -142,7 +142,7 @@ function PageLayoutFlexboxItems() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

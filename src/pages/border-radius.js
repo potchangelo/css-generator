@@ -61,7 +61,7 @@ function PageBorderRadius() {
   }
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Border Radius" pageRelativeUrl="/border-radius" />
       <Grid>
         <GridItem>
@@ -79,7 +79,7 @@ function PageBorderRadius() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

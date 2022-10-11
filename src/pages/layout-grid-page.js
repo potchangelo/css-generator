@@ -107,7 +107,7 @@ function PageLayoutGridPage() {
   }
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Grid Page Layout" pageRelativeUrl="/layout-grid-page" />
       <Grid>
         <GridItem>
@@ -142,7 +142,7 @@ function PageLayoutGridPage() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

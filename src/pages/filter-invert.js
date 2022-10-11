@@ -12,7 +12,7 @@ function PageFilterInvert() {
   const outputCss = `filter: invert(${invert}%);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Invert" pageRelativeUrl="/filter-invert" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterInvert() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

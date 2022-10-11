@@ -13,7 +13,7 @@ function PageTransformSkew() {
   const outputCss = `transform: skew(${skewX}deg, ${skewY}deg);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Transform Skew" pageRelativeUrl="/transform-skew" />
       <Grid>
         <GridItem>
@@ -31,7 +31,7 @@ function PageTransformSkew() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

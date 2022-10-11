@@ -12,7 +12,7 @@ function PageFilterBrightness() {
   const outputCss = `filter: brightness(${brightness}%);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Brightness" pageRelativeUrl="/filter-brightness" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterBrightness() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

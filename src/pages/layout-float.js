@@ -55,7 +55,7 @@ function PageLayoutFloat() {
     `}`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Float Layout" pageRelativeUrl="/layout-float" />
       <Grid>
         <GridItem>
@@ -89,7 +89,7 @@ function PageLayoutFloat() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

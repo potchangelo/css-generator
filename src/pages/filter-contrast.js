@@ -12,7 +12,7 @@ function PageFilterContrast() {
   const outputCss = `filter: contrast(${contrast}%);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Contrast" pageRelativeUrl="/filter-contrast" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterContrast() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

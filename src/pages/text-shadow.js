@@ -18,7 +18,7 @@ function PageTextShadow() {
   const outputCss = `text-shadow: ${x}px ${y}px ${blur}px ${colorOutput};`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
       <Grid>
         <GridItem>
@@ -39,7 +39,7 @@ function PageTextShadow() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

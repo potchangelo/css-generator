@@ -21,7 +21,7 @@ function PageBoxShadow() {
   const outputCss = `box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${colorOutput};`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Box Shadow" pageRelativeUrl="/box-shadow" />
       <Grid>
         <GridItem>
@@ -43,7 +43,7 @@ function PageBoxShadow() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

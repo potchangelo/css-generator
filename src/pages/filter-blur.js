@@ -12,7 +12,7 @@ function PageFilterBlur() {
   const outputCss = `filter: blur(${blur}px);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Blur" pageRelativeUrl="/filter-blur" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterBlur() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

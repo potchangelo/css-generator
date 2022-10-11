@@ -45,7 +45,7 @@ function PageLayoutGridItems() {
     `}`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />
       <Grid>
         <GridItem>
@@ -85,7 +85,7 @@ function PageLayoutGridItems() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

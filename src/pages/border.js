@@ -97,7 +97,7 @@ function PageBorder() {
   }
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Border" pageRelativeUrl="/border" />
       <Grid>
         <GridItem>
@@ -115,7 +115,7 @@ function PageBorder() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

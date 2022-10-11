@@ -51,7 +51,7 @@ function PageLayoutFlexboxGallery() {
     `  height: 100%;\n` +
     `}`;
   return (
-    <App>
+    <>
       <Seo pageTitle="Flexbox Gallery Layout" pageRelativeUrl="/layout-flexbox-gallery" />
       <Grid>
         <GridItem>
@@ -79,7 +79,7 @@ function PageLayoutFlexboxGallery() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

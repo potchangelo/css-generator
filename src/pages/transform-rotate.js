@@ -12,7 +12,7 @@ function PageTransformRotate() {
   const outputCss = `transform: rotate(${rotate}deg);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Transform Rotate" pageRelativeUrl="/transform-rotate" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageTransformRotate() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

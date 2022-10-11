@@ -12,7 +12,7 @@ function PageFilterHueRotate() {
   const outputCss = `filter: hue-rotate(${hueRotate}deg);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Hue-Rotate" pageRelativeUrl="/filter-hue-rotate" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterHueRotate() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

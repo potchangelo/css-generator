@@ -13,7 +13,7 @@ function PageTransformScale() {
   const outputCss = `transform: scale(${scaleX}, ${scaleY});`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Transform Scale" pageRelativeUrl="/transform-scale" />
       <Grid>
         <GridItem>
@@ -38,7 +38,7 @@ function PageTransformScale() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

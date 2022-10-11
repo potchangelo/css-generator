@@ -12,7 +12,7 @@ function PageFilterGrayscale() {
   const outputCss = `filter: grayscale(${grayscale}%);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Grayscale" pageRelativeUrl="/filter-grayscale" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterGrayscale() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

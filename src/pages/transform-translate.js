@@ -22,7 +22,7 @@ function PageTransformTranslate() {
   const outputCss = `transform: translate(${translateX}${unitX}, ${translateY}${unitY});`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />
       <Grid>
         <GridItem>
@@ -56,7 +56,7 @@ function PageTransformTranslate() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

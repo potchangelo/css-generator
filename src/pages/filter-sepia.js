@@ -12,7 +12,7 @@ function PageFilterSepia() {
   const outputCss = `filter: sepia(${sepia}%);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Sepia" pageRelativeUrl="/filter-sepia" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterSepia() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

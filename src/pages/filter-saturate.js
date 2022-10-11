@@ -12,7 +12,7 @@ function PageFilterSaturate() {
   const outputCss = `filter: saturate(${saturate}%);`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Filter Saturate" pageRelativeUrl="/filter-saturate" />
       <Grid>
         <GridItem>
@@ -29,7 +29,7 @@ function PageFilterSaturate() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

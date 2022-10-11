@@ -40,7 +40,7 @@ function PageLayoutFlexboxMenuBar() {
     `  background-color: rgba(0, 0, 0, 0.1);\n` +
     `}`;
   return (
-    <App>
+    <>
       <Seo pageTitle="Flexbox Menu Bar Layout" pageRelativeUrl="/layout-flexbox-menu-bar" />
       <Grid>
         <GridItem>
@@ -59,7 +59,7 @@ function PageLayoutFlexboxMenuBar() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

@@ -42,7 +42,7 @@ function PageBackgroundImage() {
     `background-repeat: ${repeat};`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Background Image" pageRelativeUrl="/background-image" />
       <Grid>
         <GridItem>
@@ -63,7 +63,7 @@ function PageBackgroundImage() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 

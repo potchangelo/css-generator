@@ -38,7 +38,7 @@ function PageText() {
     `text-transform: ${textTransform}`;
 
   return (
-    <App>
+    <>
       <Seo pageTitle="Text" pageRelativeUrl="/text" />
       <Grid>
         <GridItem>
@@ -77,7 +77,7 @@ function PageText() {
           </Section>
         </GridItem>
       </Grid>
-    </App>
+    </>
   );
 }
 
