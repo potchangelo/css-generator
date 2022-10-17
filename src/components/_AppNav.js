@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import { useLocation } from '@reach/router';
+import React, { useEffect, useReducer } from 'react';
 import AppNavLeftbar from './_AppNavLeftbar';
 import AppNavHeader from './_AppNavHeader';
 import AppNavDimmer from './_AppNavDimmer';
@@ -17,11 +18,19 @@ function reducer(state, action) {
 }
 
 // - Context
+/**
+ * @type {React.Context<{isNavOpenMobile: boolean, dispatch: import('react').DispatchWithoutAction}>}
+ */
 const NavContext = React.createContext({});
 
 function _AppNav() {
   const [state, dispatch] = useReducer(reducer, initState);
   const { isNavOpenMobile } = state;
+  const location = useLocation();
+
+  useEffect(() => {
+    dispatch({ type: 'closeNav' });
+  }, [location.pathname]);
 
   return (
     <NavContext.Provider value={{ isNavOpenMobile, dispatch }}>

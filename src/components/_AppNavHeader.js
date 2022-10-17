@@ -5,16 +5,14 @@ import { _NavContext as NavContext } from './_AppNav';
 import * as styles from './css/appNav.module.scss';
 
 function _AppNavHeader() {
-  const navContext = useContext(NavContext);
+  const { dispatch } = useContext(NavContext);
   return (
     <header className={`${styles.header} is-hidden-tablet`}>
       <div
         className={styles.headerMenu}
         role="button"
         tabIndex={0}
-        onClick={_ => {
-          navContext.dispatch({ type: 'toggleNav' });
-        }}
+        onClick={_ => dispatch({ type: 'toggleNav' })}
         onKeyPress={_ => {}}
       >
         <span className="icon">
