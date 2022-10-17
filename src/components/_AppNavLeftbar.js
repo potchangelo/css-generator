@@ -19,7 +19,7 @@ function _AppNavLeftbar() {
     ));
     return (
       <div key={group.name} className={styles.leftbarGroup}>
-        <h5 className="title is-6">{group.name}</h5>
+        <h6 className="title is-6">{group.name}</h6>
         {linkElements}
       </div>
     );
@@ -28,9 +28,13 @@ function _AppNavLeftbar() {
   return (
     <nav className={leftbarClass}>
       <Link className={styles.leftbarBrand} to="/">
-        <h1 className="title is-5">CSS Generator</h1>
-        <h3 className="subtitle is-7">by Zinglecode</h3>
-        <img className={styles.leftbarLogo} src={Logo64} alt="zinglecode" />
+        <div>
+          <img className={styles.leftbarLogo} src={Logo64} alt="zinglecode" />
+        </div>
+        <div>
+          <h1 className="title is-6">CSS Generator</h1>
+          <h3 className="subtitle is-7">by Zinglecode</h3>
+        </div>
       </Link>
       {groupElements}
     </nav>
