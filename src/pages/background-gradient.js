@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUp, Trash2 } from 'react-feather';
 import { Code, InputButtonGroup, InputColor, InputRange, InputRangeGradient, PreviewBox, Seo } from 'z/components';
-import { App, Grid, GridItem, Section } from 'z/layouts';
+import { Grid, GridItem, Section } from 'z/layouts';
 import { colorHexToRgba, gradientPointSortAsc } from 'z/utils/colors';
 import { optionsUpper } from 'z/utils/data';
 import * as styles from './css/section.module.scss';

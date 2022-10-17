@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Code, InputCheckbox, InputRange, PreviewLayoutGallery, Seo } from 'z/components';
-import { App, Grid, GridItem, Section } from 'z/layouts';
+import { Grid, GridItem, Section } from 'z/layouts';
 import { layoutGalleryHtml } from 'z/utils/data';
 import * as styles from './css/section.module.scss';
 
