@@ -19,7 +19,7 @@ function _Section(props) {
   return (
     <section className={extraClass ?? ''}>
       <div className={headerClass}>
-        <h5 className="title is-5">{title}</h5>
+        <h5 className="title is-6">{title}</h5>
         <h6 className="subtitle is-7">{subTitle}</h6>
       </div>
       <div className={styles.content}>{children}</div>
