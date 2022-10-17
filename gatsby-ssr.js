@@ -8,7 +8,7 @@ function wrapPageElement({ element, props }) {
   if (props.pageResources.page.path.includes(404)) {
     return element;
   }
-  return <App {...props}>{element}</App>
-};
+  return <App {...props}>{element}</App>;
+}
 
 export { wrapPageElement };
