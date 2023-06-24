@@ -46,7 +46,8 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-helmet": "^6.1.0",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "sharp": "^0.32.1"
   },
   "devDependencies": {
     "prettier": "^2.8.8"
