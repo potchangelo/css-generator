@@ -37,6 +37,7 @@ function _AppNavLeftbar() {
         </div>
       </Link>
       {groupElements}
+      <p class="is-size-7 mb-4 mx-4">© Copyright 2023 Zinglecode.</p>
     </nav>
   );
 }
