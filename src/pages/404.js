@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { Seo } from 'z/components';
 
 function Page404() {
   return (
@@ -19,3 +20,5 @@ function Page404() {
 }
 
 export default Page404;
+
+export const Head = () => <Seo pageTitle="Page Not Found" />;
