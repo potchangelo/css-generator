@@ -22,42 +22,41 @@ function PageTransformTranslate() {
   const outputCss = `transform: translate(${translateX}${unitX}, ${translateY}${unitY});`;
 
   return (
-    <>
-      <Seo pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Transform Translate" subTitle="Customizing">
-            <p className="label">Translate X</p>
-            <div className="columns is-mobile is-gapless">
-              <div className="column">
-                <InputRange min={-200} max={200} hasAddons={true} value={translateX} onChange={setTranslateX} />
-              </div>
-              <div className="column is-narrow">
-                <InputSelect options={unitOptions} value={unitX} onChange={setUnitX} />
-              </div>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Transform Translate" subTitle="Customizing">
+          <p className="label">Translate X</p>
+          <div className="columns is-mobile is-gapless">
+            <div className="column">
+              <InputRange min={-200} max={200} hasAddons={true} value={translateX} onChange={setTranslateX} />
             </div>
-            <p className="label">Translate Y</p>
-            <div className="columns is-mobile is-gapless">
-              <div className="column">
-                <InputRange min={-200} max={200} hasAddons={true} value={translateY} onChange={setTranslateY} />
-              </div>
-              <div className="column is-narrow">
-                <InputSelect options={unitOptions} value={unitY} onChange={setUnitY} />
-              </div>
+            <div className="column is-narrow">
+              <InputSelect options={unitOptions} value={unitX} onChange={setUnitX} />
             </div>
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
-            <PreviewTransform outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+          </div>
+          <p className="label">Translate Y</p>
+          <div className="columns is-mobile is-gapless">
+            <div className="column">
+              <InputRange min={-200} max={200} hasAddons={true} value={translateY} onChange={setTranslateY} />
+            </div>
+            <div className="column is-narrow">
+              <InputSelect options={unitOptions} value={unitY} onChange={setUnitY} />
+            </div>
+          </div>
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
+          <PreviewTransform outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageTransformTranslate;
+
+export const Head = () => <Seo pageTitle="Transform Translate" pageRelativeUrl="/transform-translate" />;

@@ -23,13 +23,12 @@ function PageIndex() {
   });
 
   return (
-    <>
-      <Seo />
-      <Section extraClass={styles.section} title="Dashboard" subTitle="Choose menu">
-        {groupElements}
-      </Section>
-    </>
+    <Section extraClass={styles.section} title="Dashboard" subTitle="Choose menu">
+      {groupElements}
+    </Section>
   );
 }
 
 export default PageIndex;
+
+export const Head = () => <Seo />;

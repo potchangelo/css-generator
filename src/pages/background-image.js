@@ -42,29 +42,28 @@ function PageBackgroundImage() {
     `background-repeat: ${repeat};`;
 
   return (
-    <>
-      <Seo pageTitle="Background Image" pageRelativeUrl="/background-image" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Background Image" subTitle="Customizing">
-            <InputText title="Image URL" placeholder="URL" value={image} onChange={setImage} />
-            <InputSelect title="Position" options={positionOptions} value={position} onChange={setPosition} />
-            <InputSelect title="Size" options={sizeOptions} value={size} onChange={setSize} />
-            <InputSelect title="Repeat" options={repeatOptions} value={repeat} onChange={setRepeat} />
-            <InputColor title="Background color (support while loading image)" value={color} onChange={setColor} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
-            <PreviewBox outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCode} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Background Image" subTitle="Customizing">
+          <InputText title="Image URL" placeholder="URL" value={image} onChange={setImage} />
+          <InputSelect title="Position" options={positionOptions} value={position} onChange={setPosition} />
+          <InputSelect title="Size" options={sizeOptions} value={size} onChange={setSize} />
+          <InputSelect title="Repeat" options={repeatOptions} value={repeat} onChange={setRepeat} />
+          <InputColor title="Background color (support while loading image)" value={color} onChange={setColor} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
+          <PreviewBox outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCode} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageBackgroundImage;
+
+export const Head = () => <Seo pageTitle="Background Image" pageRelativeUrl="/background-image" />;

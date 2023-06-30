@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import Helmet from 'react-helmet';
 import socialBanner from 'z/images/social-banner.jpg';
 
 const baseUrl = process.env.GATSBY_PUBLIC_HOST;
@@ -34,7 +33,8 @@ function _Seo(props) {
   const headImageUrl = baseUrl + socialBanner;
 
   return (
-    <Helmet htmlAttributes={{ lang: 'en' }}>
+    <>
+      <html lang='en' />
       <title>{headTitle}</title>
       <meta name="description" content={headDescription} />
       <meta name="keywords" content={keywords} />
@@ -49,7 +49,7 @@ function _Seo(props) {
       <meta name="twitter:url" content={headUrl} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={headImageUrl} />
-    </Helmet>
+    </>
   );
 }
 

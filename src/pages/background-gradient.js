@@ -60,79 +60,72 @@ function PageBackgroundGradient() {
     .sort(gradientPointSortAsc)
     .map(point => `${colorHexToRgba(point.color, point.alpha)} ${point.position}%`);
 
-  let colorText = '';
-  if (mode === 'radial') {
-    colorText = `radial-gradient(${radialShape}, ${pointTexts.join(', ')})`;
-  } else {
-    colorText = `linear-gradient(${linearDeg}deg, ${pointTexts.join(', ')})`;
-  }
+  let colorText = mode === 'radial' ? (
+    `radial-gradient(${radialShape}, ${pointTexts.join(', ')})`
+  ) : (
+    `linear-gradient(${linearDeg}deg, ${pointTexts.join(', ')})`
+  );
 
   const outputStyle = { backgroundImage: colorText };
   const outputCode = `background-image: ${colorText};`;
 
   // - Elements
   const selectedPoint = points.find((_, index) => index === selectedIndex);
-  let directionElement = null;
-  if (mode === 'radial') {
-    directionElement = (
-      <InputButtonGroup options={radialShapeOptions} activeKey={radialShape} onButtonClick={setRadialShape} />
-    );
-  } else {
-    directionElement = (
-      <InputButtonGroup options={linearDegOptions} activeKey={linearDeg} onButtonClick={setLinearDeg} />
-    );
-  }
+  let directionElement = mode === 'radial' ? (
+    <InputButtonGroup options={radialShapeOptions} activeKey={radialShape} onButtonClick={setRadialShape} />
+  ) : (
+    <InputButtonGroup options={linearDegOptions} activeKey={linearDeg} onButtonClick={setLinearDeg} />
+  );
 
   return (
-    <>
-      <Seo pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Background Gradient" subTitle="Customizing">
-            <h5 className="title is-5">Colors</h5>
-            <InputRangeGradient
-              colorPoints={points}
-              selectedIndex={selectedIndex}
-              draggingIndex={draggingIndex}
-              onChange={setPoints}
-              onSelectedChange={setSelectedIndex}
-              onDraggingChange={setDraggingIndex}
-            />
-            <InputColor title="Color" value={selectedPoint.color} onChange={setPointColor} />
-            <InputRange
-              title="Color opacity"
-              min={0}
-              max={1}
-              step={0.01}
-              value={selectedPoint.alpha}
-              onChange={setPointAlpha}
-            />
-            <button
-              className="button is-danger is-outlined is-small"
-              disabled={points.length <= 2}
-              onClick={deletePoint}
-            >
-              <span className="icon">
-                <Trash2 strokeWidth={1.5} />
-              </span>
-              <span>Delete color</span>
-            </button>
-            <h5 className="title is-5 mt-6">Style</h5>
-            <InputButtonGroup options={modeOptions} activeKey={mode} onButtonClick={setMode} />
-            {directionElement}
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
-            <PreviewBox outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCode} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Background Gradient" subTitle="Customizing">
+          <h5 className="title is-5">Colors</h5>
+          <InputRangeGradient
+            colorPoints={points}
+            selectedIndex={selectedIndex}
+            draggingIndex={draggingIndex}
+            onChange={setPoints}
+            onSelectedChange={setSelectedIndex}
+            onDraggingChange={setDraggingIndex}
+          />
+          <InputColor title="Color" value={selectedPoint.color} onChange={setPointColor} />
+          <InputRange
+            title="Color opacity"
+            min={0}
+            max={1}
+            step={0.01}
+            value={selectedPoint.alpha}
+            onChange={setPointAlpha}
+          />
+          <button
+            className="button is-danger is-outlined is-small"
+            disabled={points.length <= 2}
+            onClick={deletePoint}
+          >
+            <span className="icon">
+              <Trash2 strokeWidth={1.5} />
+            </span>
+            <span>Delete color</span>
+          </button>
+          <h5 className="title is-5 mt-6">Style</h5>
+          <InputButtonGroup options={modeOptions} activeKey={mode} onButtonClick={setMode} />
+          {directionElement}
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
+          <PreviewBox outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCode} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageBackgroundGradient;
+
+export const Head = () => <Seo pageTitle="Background Gradient" pageRelativeUrl="/background-gradient" />;

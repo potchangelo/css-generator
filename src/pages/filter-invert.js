@@ -12,25 +12,24 @@ function PageFilterInvert() {
   const outputCss = `filter: invert(${invert}%);`;
 
   return (
-    <>
-      <Seo pageTitle="Filter Invert" pageRelativeUrl="/filter-invert" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Filter Invert" subTitle="Customizing">
-            <InputRange title="Invert (percent)" min={0} max={100} value={invert} onChange={setInvert} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
-            <PreviewFilter outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Filter Invert" subTitle="Customizing">
+          <InputRange title="Invert (percent)" min={0} max={100} value={invert} onChange={setInvert} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Filter mode">
+          <PreviewFilter outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageFilterInvert;
+
+export const Head = () => <Seo pageTitle="Filter Invert" pageRelativeUrl="/filter-invert" />;

@@ -107,43 +107,42 @@ function PageLayoutGridPage() {
   }
 
   return (
-    <>
-      <Seo pageTitle="Grid Page Layout" pageRelativeUrl="/layout-grid-page" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Grid Page Layout" subTitle="Customizing">
-            <h5 className="title is-5">Select layout</h5>
-            <InputButtonImageGroup
-              itemsPerRow={2}
-              options={layoutOptions}
-              activeKey={layout}
-              onButtonClick={setLayout}
-            />
-            <h5 className="title is-5 mt-6">Layout sizing</h5>
-            <InputRange
-              title="Header height (pixels)"
-              min={50}
-              max={100}
-              value={headerHeight}
-              onChange={setHeaderHeight}
-            />
-            {sidebarElement}
-            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
-            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
-            <PreviewLayoutPage containerStyle={containerStyle} preview={layout} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-            <Code lang="HTML" output={layoutPageHtml(layout)} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Grid Page Layout" subTitle="Customizing">
+          <h5 className="title is-5">Select layout</h5>
+          <InputButtonImageGroup
+            itemsPerRow={2}
+            options={layoutOptions}
+            activeKey={layout}
+            onButtonClick={setLayout}
+          />
+          <h5 className="title is-5 mt-6">Layout sizing</h5>
+          <InputRange
+            title="Header height (pixels)"
+            min={50}
+            max={100}
+            value={headerHeight}
+            onChange={setHeaderHeight}
+          />
+          {sidebarElement}
+          <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
+          <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
+          <PreviewLayoutPage containerStyle={containerStyle} preview={layout} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+          <Code lang="HTML" output={layoutPageHtml(layout)} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageLayoutGridPage;
+
+export const Head = () => <Seo pageTitle="Grid Page Layout" pageRelativeUrl="/layout-grid-page" />;

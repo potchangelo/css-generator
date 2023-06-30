@@ -39,28 +39,28 @@ function PageLayoutFlexboxMenuBar() {
     `.item:hover {\n` +
     `  background-color: rgba(0, 0, 0, 0.1);\n` +
     `}`;
+
   return (
-    <>
-      <Seo pageTitle="Flexbox Menu Bar Layout" pageRelativeUrl="/layout-flexbox-menu-bar" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Flexbox Menu Bar Layout" subTitle="Customizing">
-            <h5 className="title is-5">Select layout</h5>
-            <InputButtonImageGroup options={layoutOptions} activeKey={layout} onButtonClick={setLayout} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
-            <PreviewLayoutMenu containerStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-            <Code lang="HTML" output={layoutMenuHtml} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Flexbox Menu Bar Layout" subTitle="Customizing">
+          <h5 className="title is-5">Select layout</h5>
+          <InputButtonImageGroup options={layoutOptions} activeKey={layout} onButtonClick={setLayout} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
+          <PreviewLayoutMenu containerStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+          <Code lang="HTML" output={layoutMenuHtml} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageLayoutFlexboxMenuBar;
+
+export const Head = () => <Seo pageTitle="Flexbox Menu Bar Layout" pageRelativeUrl="/layout-flexbox-menu-bar" />;

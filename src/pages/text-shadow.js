@@ -18,29 +18,28 @@ function PageTextShadow() {
   const outputCss = `text-shadow: ${x}px ${y}px ${blur}px ${colorOutput};`;
 
   return (
-    <>
-      <Seo pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Text Shadow" subTitle="Customizing">
-            <InputRange title="X (pixels)" min={-10} max={10} value={x} onChange={setX} />
-            <InputRange title="Y (pixels)" min={-10} max={10} value={y} onChange={setY} />
-            <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
-            <InputColor title="Color" value={color} onChange={setColor} />
-            <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Text mode">
-            <PreviewText outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Text Shadow" subTitle="Customizing">
+          <InputRange title="X (pixels)" min={-10} max={10} value={x} onChange={setX} />
+          <InputRange title="Y (pixels)" min={-10} max={10} value={y} onChange={setY} />
+          <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
+          <InputColor title="Color" value={color} onChange={setColor} />
+          <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Text mode">
+          <PreviewText outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageTextShadow;
+
+export const Head = () => <Seo pageTitle="Text Shadow" pageRelativeUrl="/text-shadow" />;

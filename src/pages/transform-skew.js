@@ -13,26 +13,25 @@ function PageTransformSkew() {
   const outputCss = `transform: skew(${skewX}deg, ${skewY}deg);`;
 
   return (
-    <>
-      <Seo pageTitle="Transform Skew" pageRelativeUrl="/transform-skew" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Transform Skew" subTitle="Customizing">
-            <InputRange title="Skew X (degrees)" min={-45} max={45} value={skewX} onChange={setSkewX} />
-            <InputRange title="Skew Y (degrees)" min={-45} max={45} value={skewY} onChange={setSkewY} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
-            <PreviewTransform outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Transform Skew" subTitle="Customizing">
+          <InputRange title="Skew X (degrees)" min={-45} max={45} value={skewX} onChange={setSkewX} />
+          <InputRange title="Skew Y (degrees)" min={-45} max={45} value={skewY} onChange={setSkewY} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
+          <PreviewTransform outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageTransformSkew;
+
+export const Head = () => <Seo pageTitle="Transform Skew" pageRelativeUrl="/transform-skew" />;
