@@ -38,47 +38,46 @@ function PageText() {
     `text-transform: ${textTransform}`;
 
   return (
-    <>
-      <Seo pageTitle="Text" pageRelativeUrl="/text" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Text" subTitle="Customizing">
-            <InputColor title="Color" value={color} onChange={setColor} />
-            <InputRange title="Line height" min={1} max={2} step={0.05} value={lineHeight} onChange={setLineHeight} />
-            <InputRange
-              title="Letter spacing (pixels)"
-              min={0}
-              max={10}
-              value={letterSpacing}
-              onChange={setLetterSpacing}
-            />
-            <InputRange title="Word spacing (pixels)" min={0} max={10} value={wordSpacing} onChange={setWordSpacing} />
-            <InputSelect title="Text align" options={textAlignOptions} value={textAlign} onChange={setTextAlign} />
-            <InputSelect
-              title="Text decoration"
-              options={textDecorationOptions}
-              value={textDecoration}
-              onChange={setTextDecoration}
-            />
-            <InputSelect
-              title="Text transform"
-              options={textTransformOptions}
-              value={textTransform}
-              onChange={setTextTransform}
-            />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Text mode">
-            <PreviewText outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Text" subTitle="Customizing">
+          <InputColor title="Color" value={color} onChange={setColor} />
+          <InputRange title="Line height" min={1} max={2} step={0.05} value={lineHeight} onChange={setLineHeight} />
+          <InputRange
+            title="Letter spacing (pixels)"
+            min={0}
+            max={10}
+            value={letterSpacing}
+            onChange={setLetterSpacing}
+          />
+          <InputRange title="Word spacing (pixels)" min={0} max={10} value={wordSpacing} onChange={setWordSpacing} />
+          <InputSelect title="Text align" options={textAlignOptions} value={textAlign} onChange={setTextAlign} />
+          <InputSelect
+            title="Text decoration"
+            options={textDecorationOptions}
+            value={textDecoration}
+            onChange={setTextDecoration}
+          />
+          <InputSelect
+            title="Text transform"
+            options={textTransformOptions}
+            value={textTransform}
+            onChange={setTextTransform}
+          />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Text mode">
+          <PreviewText outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageText;
+
+export const Head = () => <Seo pageTitle="Text" pageRelativeUrl="/text" />;

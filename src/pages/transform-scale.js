@@ -13,33 +13,32 @@ function PageTransformScale() {
   const outputCss = `transform: scale(${scaleX}, ${scaleY});`;
 
   return (
-    <>
-      <Seo pageTitle="Transform Scale" pageRelativeUrl="/transform-scale" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Transform Scale" subTitle="Customizing">
-            <InputRange title="Scale width (factor)" min={0} max={2.5} step={0.1} value={scaleX} onChange={setScaleX} />
-            <InputRange
-              title="Scale height (factor)"
-              min={0}
-              max={2.5}
-              step={0.1}
-              value={scaleY}
-              onChange={setScaleY}
-            />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
-            <PreviewTransform outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Transform Scale" subTitle="Customizing">
+          <InputRange title="Scale width (factor)" min={0} max={2.5} step={0.1} value={scaleX} onChange={setScaleX} />
+          <InputRange
+            title="Scale height (factor)"
+            min={0}
+            max={2.5}
+            step={0.1}
+            value={scaleY}
+            onChange={setScaleY}
+          />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Transform mode">
+          <PreviewTransform outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageTransformScale;
+
+export const Head = () => <Seo pageTitle="Transform Scale" pageRelativeUrl="/transform-scale" />;

@@ -97,26 +97,25 @@ function PageBorder() {
   }
 
   return (
-    <>
-      <Seo pageTitle="Border" pageRelativeUrl="/border" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Border" subTitle="Customizing">
-            <InputButtonGroup title="Mode" options={modeOptions} activeKey={mode} onButtonClick={setMode} />
-            {borderElements}
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
-            <PreviewBox outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Border" subTitle="Customizing">
+          <InputButtonGroup title="Mode" options={modeOptions} activeKey={mode} onButtonClick={setMode} />
+          {borderElements}
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
+          <PreviewBox outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageBorder;
+
+export const Head = () => <Seo pageTitle="Border" pageRelativeUrl="/border" />;

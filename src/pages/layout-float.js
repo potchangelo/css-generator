@@ -55,42 +55,41 @@ function PageLayoutFloat() {
     `}`;
 
   return (
-    <>
-      <Seo pageTitle="Float Layout" pageRelativeUrl="/layout-float" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Float Layout (don't use)" subTitle="Customizing">
-            <h5 className="title is-5">Item</h5>
-            <InputSelect title="Float" options={floatOptions} value={float} onChange={setFloat} />
-            <InputSelect title="Width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
-            <h5 className="title is-5 mt-6">Content</h5>
-            <InputSelect
-              title="Preview mode (not change output HTML)"
-              options={layoutPreviewOptions}
-              value={preview}
-              onChange={setPreview}
-            />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
-            <PreviewLayoutItems
-              layoutType={`float-${sizeObj.key}`}
-              containerStyle={outputContainerStyle}
-              itemStyle={outputItemStyle}
-              preview={preview}
-            />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-            <Code lang="HTML" output={layoutItemsHtml('floatbox')} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Float Layout (don't use)" subTitle="Customizing">
+          <h5 className="title is-5">Item</h5>
+          <InputSelect title="Float" options={floatOptions} value={float} onChange={setFloat} />
+          <InputSelect title="Width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
+          <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+          <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
+          <h5 className="title is-5 mt-6">Content</h5>
+          <InputSelect
+            title="Preview mode (not change output HTML)"
+            options={layoutPreviewOptions}
+            value={preview}
+            onChange={setPreview}
+          />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
+          <PreviewLayoutItems
+            layoutType={`float-${sizeObj.key}`}
+            containerStyle={outputContainerStyle}
+            itemStyle={outputItemStyle}
+            preview={preview}
+          />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+          <Code lang="HTML" output={layoutItemsHtml('floatbox')} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageLayoutFloat;
+
+export const Head = () => <Seo pageTitle="Float Layout" pageRelativeUrl="/layout-float" />;

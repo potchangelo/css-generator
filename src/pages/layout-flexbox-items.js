@@ -88,62 +88,61 @@ function PageLayoutFlexboxItems() {
   }
 
   return (
-    <>
-      <Seo pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Flexbox Items Layout" subTitle="Customizing">
-            <h5 className="title is-5">Container</h5>
-            <InputSelect title="Direction" options={directionOptions} value={direction} onChange={setDirection} />
-            <InputSelect title="Wrap (Multilines)" options={wrapOptions} value={wrap} onChange={setWrap} />
-            <InputSelect
-              title="Justify content (Main direction)"
-              options={justifyContentOptions}
-              value={justifyContent}
-              onChange={setJustifyContent}
-            />
-            <InputSelect
-              title="Align items (Cross direction)"
-              options={alignItemOptions}
-              value={alignItems}
-              onChange={setAlignItems}
-            />
-            <h5 className="title is-5 mt-6">Item</h5>
-            <InputButtonGroup
-              title="Width unit"
-              options={widthUnitOptions}
-              activeKey={widthUnit}
-              onButtonClick={setWidthUnit}
-            />
-            {widthElement}
-            <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
-            <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
-            <h5 className="title is-5 mt-6">Content</h5>
-            <InputSelect
-              title="Preview mode (not change output HTML)"
-              options={layoutPreviewOptions}
-              value={preview}
-              onChange={setPreview}
-            />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
-            <PreviewLayoutItems
-              layoutType="flexbox-items"
-              containerStyle={outputContainerStyle}
-              itemStyle={outputItemStyle}
-              preview={preview}
-            />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-            <Code lang="HTML" output={layoutItemsHtml('flexbox')} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Flexbox Items Layout" subTitle="Customizing">
+          <h5 className="title is-5">Container</h5>
+          <InputSelect title="Direction" options={directionOptions} value={direction} onChange={setDirection} />
+          <InputSelect title="Wrap (Multilines)" options={wrapOptions} value={wrap} onChange={setWrap} />
+          <InputSelect
+            title="Justify content (Main direction)"
+            options={justifyContentOptions}
+            value={justifyContent}
+            onChange={setJustifyContent}
+          />
+          <InputSelect
+            title="Align items (Cross direction)"
+            options={alignItemOptions}
+            value={alignItems}
+            onChange={setAlignItems}
+          />
+          <h5 className="title is-5 mt-6">Item</h5>
+          <InputButtonGroup
+            title="Width unit"
+            options={widthUnitOptions}
+            activeKey={widthUnit}
+            onButtonClick={setWidthUnit}
+          />
+          {widthElement}
+          <InputRange title="Horizontal space (pixels)" min={0} max={40} value={hSpace} onChange={setHSpace} />
+          <InputRange title="Vertical space (pixels)" min={0} max={40} value={vSpace} onChange={setVSpace} />
+          <h5 className="title is-5 mt-6">Content</h5>
+          <InputSelect
+            title="Preview mode (not change output HTML)"
+            options={layoutPreviewOptions}
+            value={preview}
+            onChange={setPreview}
+          />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
+          <PreviewLayoutItems
+            layoutType="flexbox-items"
+            containerStyle={outputContainerStyle}
+            itemStyle={outputItemStyle}
+            preview={preview}
+          />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+          <Code lang="HTML" output={layoutItemsHtml('flexbox')} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageLayoutFlexboxItems;
+
+export const Head = () => <Seo pageTitle="Flexbox Items Layout" pageRelativeUrl="/layout-flexbox-items" />;

@@ -45,48 +45,47 @@ function PageLayoutGridItems() {
     `}`;
 
   return (
-    <>
-      <Seo pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Grid Items Layout" subTitle="Customizing">
-            <h5 className="title is-5">Layout</h5>
-            <InputSelect title="Grid column width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
-            <InputSelect
-              title="Justify items (row axis)"
-              options={alignOptions}
-              value={justifyItems}
-              onChange={setJustifyItems}
-            />
-            <InputSelect
-              title="Align items (column axis)"
-              options={alignOptions}
-              value={alignItems}
-              onChange={setAlignItems}
-            />
-            <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
-            <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
-            <h5 className="title is-5 mt-6">Content</h5>
-            <InputSelect
-              title="Preview mode (not change output HTML)"
-              options={layoutPreviewOptions}
-              value={preview}
-              onChange={setPreview}
-            />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
-            <PreviewLayoutItems layoutType="grid-items" containerStyle={outputContainerStyle} preview={preview} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-            <Code lang="HTML" output={layoutItemsHtml('grid')} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Grid Items Layout" subTitle="Customizing">
+          <h5 className="title is-5">Layout</h5>
+          <InputSelect title="Grid column width" options={layoutItemSizeOptions} value={width} onChange={setWidth} />
+          <InputSelect
+            title="Justify items (row axis)"
+            options={alignOptions}
+            value={justifyItems}
+            onChange={setJustifyItems}
+          />
+          <InputSelect
+            title="Align items (column axis)"
+            options={alignOptions}
+            value={alignItems}
+            onChange={setAlignItems}
+          />
+          <InputRange title="Column gap (pixels)" min={0} max={40} value={columnGap} onChange={setColumnGap} />
+          <InputRange title="Row gap (pixels)" min={0} max={40} value={rowGap} onChange={setRowGap} />
+          <h5 className="title is-5 mt-6">Content</h5>
+          <InputSelect
+            title="Preview mode (not change output HTML)"
+            options={layoutPreviewOptions}
+            value={preview}
+            onChange={setPreview}
+          />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Layout mode">
+          <PreviewLayoutItems layoutType="grid-items" containerStyle={outputContainerStyle} preview={preview} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+          <Code lang="HTML" output={layoutItemsHtml('grid')} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageLayoutGridItems;
+
+export const Head = () => <Seo pageTitle="Grid Items Layout" pageRelativeUrl="/layout-grid-items" />;

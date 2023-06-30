@@ -21,30 +21,29 @@ function PageBoxShadow() {
   const outputCss = `box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${colorOutput};`;
 
   return (
-    <>
-      <Seo pageTitle="Box Shadow" pageRelativeUrl="/box-shadow" />
-      <Grid>
-        <GridItem>
-          <Section extraClass={styles.inputs} title="Box Shadow" subTitle="Customizing">
-            <InputRange title="X (pixels)" min={-10} max={10} value={x} onChange={setX} />
-            <InputRange title="Y (pixels)" min={-10} max={10} value={y} onChange={setY} />
-            <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
-            <InputRange title="Spread (pixels)" min={0} max={20} value={spread} onChange={setSpread} />
-            <InputColor title="Color" value={color} onChange={setColor} />
-            <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
-          </Section>
-        </GridItem>
-        <GridItem>
-          <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
-            <PreviewBox outputStyle={outputStyle} />
-          </Section>
-          <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
-            <Code lang="CSS" output={outputCss} />
-          </Section>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid>
+      <GridItem>
+        <Section extraClass={styles.inputs} title="Box Shadow" subTitle="Customizing">
+          <InputRange title="X (pixels)" min={-10} max={10} value={x} onChange={setX} />
+          <InputRange title="Y (pixels)" min={-10} max={10} value={y} onChange={setY} />
+          <InputRange title="Blur (pixels)" min={0} max={20} value={blur} onChange={setBlur} />
+          <InputRange title="Spread (pixels)" min={0} max={20} value={spread} onChange={setSpread} />
+          <InputColor title="Color" value={color} onChange={setColor} />
+          <InputRange title="Color opacity" min={0} max={1} step={0.01} value={colorAlpha} onChange={setColorAlpha} />
+        </Section>
+      </GridItem>
+      <GridItem>
+        <Section extraClass={styles.preview} title="Preview" subTitle="Box mode">
+          <PreviewBox outputStyle={outputStyle} />
+        </Section>
+        <Section extraClass={styles.code} headerTheme="dark" title="Code" subTitle="Paste to your file(s)">
+          <Code lang="CSS" output={outputCss} />
+        </Section>
+      </GridItem>
+    </Grid>
   );
 }
 
 export default PageBoxShadow;
+
+export const Head = () => <Seo pageTitle="Box Shadow" pageRelativeUrl="/box-shadow" />;
