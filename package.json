@@ -28,7 +28,7 @@
   "scripts": {
     "develop": "gatsby develop --port 8100",
     "develop-0000": "gatsby develop --host 0.0.0.0 --port 8100",
-    "start": "gatsby develop --port 8100",
+    "start": "develogatsby p --port 8100",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"

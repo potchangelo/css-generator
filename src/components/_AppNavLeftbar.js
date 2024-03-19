@@ -33,11 +33,11 @@ function _AppNavLeftbar() {
         </div>
         <div>
           <h1 className="title is-6">CSS Generator</h1>
-          <h3 className="subtitle is-7">by Zinglecode</h3>
+          <h3 className="subtitle is-7">by AlphaCodeHub</h3>
         </div>
       </Link>
       {groupElements}
-      <p class="is-size-7 mb-4 mx-4">© Copyright 2023 Zinglecode.</p>
+      <p class="is-size-7 mb-4 mx-4">© Copyright 2023 AlphaCodeHub.</p>
     </nav>
   );
 }
